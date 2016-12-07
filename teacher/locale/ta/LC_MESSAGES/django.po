@@ -1,0 +1,2546 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-20 10:52+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: templates/teacher/teacher_action/base.html:10
+msgid "Teacher action List "
+msgstr ""
+
+#: templates/teacher/teacher_action/base.html:15
+msgid "Create teacher action detail"
+msgstr ""
+
+#: templates/teacher/teacher_action/base.html:21
+msgid "Teacher action Detail"
+msgstr ""
+
+#: templates/teacher/teacher_action/base.html:26
+msgid "Update teacher action"
+msgstr ""
+
+#: templates/teacher/teacher_action/base.html:31
+#: templates/teacher/teacher_action/teacher_action_confirm_delete.html:20
+#: templates/teacher/teacher_action/teacher_action_detail.html:24
+#: templates/teacher/teacher_education/base.html:31
+#: templates/teacher/teacher_education/teacher_education_confirm_delete.html:23
+#: templates/teacher/teacher_education/teacher_education_detail.html:21
+#: templates/teacher/teacher_family_detail/base.html:31
+#: templates/teacher/teacher_family_detail/teacher_family_detail_confirm_delete.html:22
+#: templates/teacher/teacher_family_detail/teacher_family_detail_detail.html:22
+#: templates/teacher/teacher_immovalble_property/base.html:31
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_confirm_delete.html:23
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_detail.html:23
+#: templates/teacher/teacher_leave/base.html:31
+#: templates/teacher/teacher_leave/teacher_leave_confirm_delete.html:23
+#: templates/teacher/teacher_leave/teacher_leave_detail.html:22
+#: templates/teacher/teacher_leave_credit/base.html:31
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_confirm_delete.html:23
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_detail.html:22
+#: templates/teacher/teacher_leave_surrender/base.html:31
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_confirm_delete.html:23
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_detail.html:22
+#: templates/teacher/teacher_loan/base.html:31
+#: templates/teacher/teacher_loan/teacher_loan_confirm_delete.html:20
+#: templates/teacher/teacher_loan/teacher_loan_detail.html:24
+#: templates/teacher/teacher_ltc/base.html:31
+#: templates/teacher/teacher_ltc/teacher_ltc_confirm_delete.html:22
+#: templates/teacher/teacher_ltc/teacher_ltc_detail.html:22
+#: templates/teacher/teacher_movable_property/base.html:31
+#: templates/teacher/teacher_movable_property/teacher_movable_property_confirm_delete.html:23
+#: templates/teacher/teacher_movable_property/teacher_movable_property_detail.html:23
+#: templates/teacher/teacher_nomini/base.html:31
+#: templates/teacher/teacher_nomini/teacher_nomini_confirm_delete.html:22
+#: templates/teacher/teacher_nomini/teacher_nomini_detail.html:25
+#: templates/teacher/teacher_personal_detail/base.html:31
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_confirm_delete.html:23
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_detail.html:20
+#: templates/teacher/teacher_post/base.html:31
+#: templates/teacher/teacher_post/teacher_post_confirm_delete.html:23
+#: templates/teacher/teacher_post/teacher_post_detail.html:21
+#: templates/teacher/teacher_previous_employment/base.html:31
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_confirm_delete.html:22
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_detail.html:22
+#: templates/teacher/teacher_professional/base.html:31
+#: templates/teacher/teacher_professional/teacher_professional_confirm_delete.html:23
+#: templates/teacher/teacher_professional/teacher_professional_detail.html:22
+#: templates/teacher/teacher_test/base.html:31
+#: templates/teacher/teacher_test/teacher_test_confirm_delete.html:23
+#: templates/teacher/teacher_test/teacher_test_detail.html:23
+#: templates/teacher/teacher_training/base.html:31
+#: templates/teacher/teacher_training/teacher_training_confirm_delete.html:22
+#: templates/teacher/teacher_training/teacher_training_detail.html:22
+msgid "Delete"
+msgstr ""
+
+#: templates/teacher/teacher_action/object_table_detail.html:9
+#: templates/teacher/teacher_education/object_table_detail.html:9
+#: templates/teacher/teacher_family_detail/object_table_detail.html:9
+#: templates/teacher/teacher_immovalble_property/object_table_detail.html:9
+#: templates/teacher/teacher_leave/object_table_detail.html:9
+#: templates/teacher/teacher_leave_credit/object_table_detail.html:9
+#: templates/teacher/teacher_leave_surrender/object_table_detail.html:9
+#: templates/teacher/teacher_loan/object_table_detail.html:9
+#: templates/teacher/teacher_ltc/object_table_detail.html:9
+#: templates/teacher/teacher_movable_property/object_table_detail.html:9
+#: templates/teacher/teacher_nomini/object_table_detail.html:9
+#: templates/teacher/teacher_personal_detail/object_table_detail.html:9
+#: templates/teacher/teacher_post/object_table_detail.html:9
+#: templates/teacher/teacher_previous_employment/object_table_detail.html:9
+#: templates/teacher/teacher_professional/object_table_detail.html:9
+#: templates/teacher/teacher_test/object_table_detail.html:9
+#: templates/teacher/teacher_training/object_table_detail.html:9
+msgid "Field"
+msgstr ""
+
+#: templates/teacher/teacher_action/object_table_detail.html:12
+#: templates/teacher/teacher_education/object_table_detail.html:12
+#: templates/teacher/teacher_family_detail/object_table_detail.html:12
+#: templates/teacher/teacher_immovalble_property/object_table_detail.html:12
+#: templates/teacher/teacher_leave/object_table_detail.html:12
+#: templates/teacher/teacher_leave_credit/object_table_detail.html:12
+#: templates/teacher/teacher_leave_surrender/object_table_detail.html:12
+#: templates/teacher/teacher_loan/object_table_detail.html:12
+#: templates/teacher/teacher_ltc/object_table_detail.html:12
+#: templates/teacher/teacher_movable_property/object_table_detail.html:12
+#: templates/teacher/teacher_nomini/object_table_detail.html:12
+#: templates/teacher/teacher_personal_detail/object_table_detail.html:12
+#: templates/teacher/teacher_post/object_table_detail.html:12
+#: templates/teacher/teacher_previous_employment/object_table_detail.html:12
+#: templates/teacher/teacher_professional/object_table_detail.html:12
+#: templates/teacher/teacher_test/object_table_detail.html:12
+#: templates/teacher/teacher_training/object_table_detail.html:12
+msgid "Value"
+msgstr ""
+
+#: templates/teacher/teacher_action/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual Teacher_action's "
+"page."
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_archive.html:12
+#: templates/teacher/teacher_action/teacher_action_archive.html:25
+msgid "Teacher_action Archive Index"
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_archive.html:18
+#: templates/teacher/teacher_action/teacher_action_archive_day.html:18
+#: templates/teacher/teacher_action/teacher_action_archive_month.html:15
+#: templates/teacher/teacher_action/teacher_action_archive_year.html:16
+#: templates/teacher/teacher_education/teacher_education_archive.html:18
+#: templates/teacher/teacher_education/teacher_education_archive_day.html:18
+#: templates/teacher/teacher_education/teacher_education_archive_month.html:15
+#: templates/teacher/teacher_education/teacher_education_archive_year.html:16
+#: templates/teacher/teacher_family_detail/teacher_family_detail_archive.html:18
+#: templates/teacher/teacher_family_detail/teacher_family_detail_archive_day.html:18
+#: templates/teacher/teacher_family_detail/teacher_family_detail_archive_month.html:15
+#: templates/teacher/teacher_family_detail/teacher_family_detail_archive_year.html:16
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_archive.html:18
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_archive_day.html:18
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_archive_month.html:15
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_archive_year.html:16
+#: templates/teacher/teacher_leave/teacher_leave_archive.html:18
+#: templates/teacher/teacher_leave/teacher_leave_archive_day.html:18
+#: templates/teacher/teacher_leave/teacher_leave_archive_month.html:15
+#: templates/teacher/teacher_leave/teacher_leave_archive_year.html:16
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_archive.html:18
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_archive_day.html:18
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_archive_month.html:15
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_archive_year.html:16
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_archive.html:18
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_archive_day.html:18
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_archive_month.html:15
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_archive_year.html:16
+#: templates/teacher/teacher_loan/teacher_loan_archive.html:18
+#: templates/teacher/teacher_loan/teacher_loan_archive_day.html:18
+#: templates/teacher/teacher_loan/teacher_loan_archive_month.html:15
+#: templates/teacher/teacher_loan/teacher_loan_archive_year.html:16
+#: templates/teacher/teacher_ltc/teacher_ltc_archive.html:18
+#: templates/teacher/teacher_ltc/teacher_ltc_archive_day.html:18
+#: templates/teacher/teacher_ltc/teacher_ltc_archive_month.html:15
+#: templates/teacher/teacher_ltc/teacher_ltc_archive_year.html:16
+#: templates/teacher/teacher_movable_property/teacher_movable_property_archive.html:18
+#: templates/teacher/teacher_movable_property/teacher_movable_property_archive_day.html:18
+#: templates/teacher/teacher_movable_property/teacher_movable_property_archive_month.html:15
+#: templates/teacher/teacher_movable_property/teacher_movable_property_archive_year.html:16
+#: templates/teacher/teacher_nomini/teacher_nomini_archive.html:18
+#: templates/teacher/teacher_nomini/teacher_nomini_archive_day.html:18
+#: templates/teacher/teacher_nomini/teacher_nomini_archive_month.html:15
+#: templates/teacher/teacher_nomini/teacher_nomini_archive_year.html:16
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_archive.html:18
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_archive_day.html:18
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_archive_month.html:15
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_archive_year.html:16
+#: templates/teacher/teacher_post/teacher_post_archive.html:18
+#: templates/teacher/teacher_post/teacher_post_archive_day.html:18
+#: templates/teacher/teacher_post/teacher_post_archive_month.html:15
+#: templates/teacher/teacher_post/teacher_post_archive_year.html:16
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_archive.html:18
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_archive_day.html:18
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_archive_month.html:15
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_archive_year.html:16
+#: templates/teacher/teacher_professional/teacher_professional_archive.html:18
+#: templates/teacher/teacher_professional/teacher_professional_archive_day.html:18
+#: templates/teacher/teacher_professional/teacher_professional_archive_month.html:15
+#: templates/teacher/teacher_professional/teacher_professional_archive_year.html:16
+#: templates/teacher/teacher_test/teacher_test_archive.html:18
+#: templates/teacher/teacher_test/teacher_test_archive_day.html:18
+#: templates/teacher/teacher_test/teacher_test_archive_month.html:15
+#: templates/teacher/teacher_test/teacher_test_archive_year.html:16
+#: templates/teacher/teacher_training/teacher_training_archive.html:18
+#: templates/teacher/teacher_training/teacher_training_archive_day.html:18
+#: templates/teacher/teacher_training/teacher_training_archive_month.html:15
+#: templates/teacher/teacher_training/teacher_training_archive_year.html:16
+msgid "Archive Index"
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_archive.html:29
+#: templates/teacher/teacher_education/teacher_education_archive.html:29
+#: templates/teacher/teacher_family_detail/teacher_family_detail_archive.html:29
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_archive.html:29
+#: templates/teacher/teacher_leave/teacher_leave_archive.html:29
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_archive.html:29
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_archive.html:29
+#: templates/teacher/teacher_loan/teacher_loan_archive.html:29
+#: templates/teacher/teacher_ltc/teacher_ltc_archive.html:29
+#: templates/teacher/teacher_movable_property/teacher_movable_property_archive.html:29
+#: templates/teacher/teacher_nomini/teacher_nomini_archive.html:29
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_archive.html:29
+#: templates/teacher/teacher_post/teacher_post_archive.html:29
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_archive.html:29
+#: templates/teacher/teacher_professional/teacher_professional_archive.html:29
+#: templates/teacher/teacher_test/teacher_test_archive.html:29
+#: templates/teacher/teacher_training/teacher_training_archive.html:29
+msgid "A top-level index page showing the latest objects, by date."
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_archive.html:45
+msgid "Recent Teacher_actions"
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_archive_day.html:12
+#: templates/teacher/teacher_action/teacher_action_archive_day.html:49
+msgid "Teacher_action Day Archive"
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_archive_day.html:26
+#: templates/teacher/teacher_action/teacher_action_archive_month.html:23
+#: templates/teacher/teacher_action/teacher_action_archive_year.html:24
+#: templates/teacher/teacher_education/teacher_education_archive_day.html:26
+#: templates/teacher/teacher_education/teacher_education_archive_month.html:23
+#: templates/teacher/teacher_education/teacher_education_archive_year.html:24
+#: templates/teacher/teacher_family_detail/teacher_family_detail_archive_day.html:26
+#: templates/teacher/teacher_family_detail/teacher_family_detail_archive_month.html:23
+#: templates/teacher/teacher_family_detail/teacher_family_detail_archive_year.html:24
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_archive_day.html:26
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_archive_month.html:23
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_archive_year.html:24
+#: templates/teacher/teacher_leave/teacher_leave_archive_day.html:26
+#: templates/teacher/teacher_leave/teacher_leave_archive_month.html:23
+#: templates/teacher/teacher_leave/teacher_leave_archive_year.html:24
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_archive_day.html:26
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_archive_month.html:23
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_archive_year.html:24
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_archive_day.html:26
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_archive_month.html:23
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_archive_year.html:24
+#: templates/teacher/teacher_loan/teacher_loan_archive_day.html:26
+#: templates/teacher/teacher_loan/teacher_loan_archive_month.html:23
+#: templates/teacher/teacher_loan/teacher_loan_archive_year.html:24
+#: templates/teacher/teacher_ltc/teacher_ltc_archive_day.html:26
+#: templates/teacher/teacher_ltc/teacher_ltc_archive_month.html:23
+#: templates/teacher/teacher_ltc/teacher_ltc_archive_year.html:24
+#: templates/teacher/teacher_movable_property/teacher_movable_property_archive_day.html:26
+#: templates/teacher/teacher_movable_property/teacher_movable_property_archive_month.html:23
+#: templates/teacher/teacher_movable_property/teacher_movable_property_archive_year.html:24
+#: templates/teacher/teacher_nomini/teacher_nomini_archive_day.html:26
+#: templates/teacher/teacher_nomini/teacher_nomini_archive_month.html:23
+#: templates/teacher/teacher_nomini/teacher_nomini_archive_year.html:24
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_archive_day.html:26
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_archive_month.html:23
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_archive_year.html:24
+#: templates/teacher/teacher_post/teacher_post_archive_day.html:26
+#: templates/teacher/teacher_post/teacher_post_archive_month.html:23
+#: templates/teacher/teacher_post/teacher_post_archive_year.html:24
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_archive_day.html:26
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_archive_month.html:23
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_archive_year.html:24
+#: templates/teacher/teacher_professional/teacher_professional_archive_day.html:26
+#: templates/teacher/teacher_professional/teacher_professional_archive_month.html:23
+#: templates/teacher/teacher_professional/teacher_professional_archive_year.html:24
+#: templates/teacher/teacher_test/teacher_test_archive_day.html:26
+#: templates/teacher/teacher_test/teacher_test_archive_month.html:23
+#: templates/teacher/teacher_test/teacher_test_archive_year.html:24
+#: templates/teacher/teacher_training/teacher_training_archive_day.html:26
+#: templates/teacher/teacher_training/teacher_training_archive_month.html:23
+#: templates/teacher/teacher_training/teacher_training_archive_year.html:24
+msgid "Year Archive"
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_archive_day.html:34
+#: templates/teacher/teacher_action/teacher_action_archive_month.html:31
+#: templates/teacher/teacher_education/teacher_education_archive_day.html:34
+#: templates/teacher/teacher_education/teacher_education_archive_month.html:31
+#: templates/teacher/teacher_family_detail/teacher_family_detail_archive_day.html:34
+#: templates/teacher/teacher_family_detail/teacher_family_detail_archive_month.html:31
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_archive_day.html:34
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_archive_month.html:31
+#: templates/teacher/teacher_leave/teacher_leave_archive_day.html:34
+#: templates/teacher/teacher_leave/teacher_leave_archive_month.html:31
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_archive_day.html:34
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_archive_month.html:31
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_archive_day.html:34
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_archive_month.html:31
+#: templates/teacher/teacher_loan/teacher_loan_archive_day.html:34
+#: templates/teacher/teacher_loan/teacher_loan_archive_month.html:31
+#: templates/teacher/teacher_ltc/teacher_ltc_archive_day.html:34
+#: templates/teacher/teacher_ltc/teacher_ltc_archive_month.html:31
+#: templates/teacher/teacher_movable_property/teacher_movable_property_archive_day.html:34
+#: templates/teacher/teacher_movable_property/teacher_movable_property_archive_month.html:31
+#: templates/teacher/teacher_nomini/teacher_nomini_archive_day.html:34
+#: templates/teacher/teacher_nomini/teacher_nomini_archive_month.html:31
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_archive_day.html:34
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_archive_month.html:31
+#: templates/teacher/teacher_post/teacher_post_archive_day.html:34
+#: templates/teacher/teacher_post/teacher_post_archive_month.html:31
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_archive_day.html:34
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_archive_month.html:31
+#: templates/teacher/teacher_professional/teacher_professional_archive_day.html:34
+#: templates/teacher/teacher_professional/teacher_professional_archive_month.html:31
+#: templates/teacher/teacher_test/teacher_test_archive_day.html:34
+#: templates/teacher/teacher_test/teacher_test_archive_month.html:31
+#: templates/teacher/teacher_training/teacher_training_archive_day.html:34
+#: templates/teacher/teacher_training/teacher_training_archive_month.html:31
+msgid "Month Archive"
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_archive_day.html:42
+#: templates/teacher/teacher_education/teacher_education_archive_day.html:42
+#: templates/teacher/teacher_family_detail/teacher_family_detail_archive_day.html:42
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_archive_day.html:42
+#: templates/teacher/teacher_leave/teacher_leave_archive_day.html:42
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_archive_day.html:42
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_archive_day.html:42
+#: templates/teacher/teacher_loan/teacher_loan_archive_day.html:42
+#: templates/teacher/teacher_ltc/teacher_ltc_archive_day.html:42
+#: templates/teacher/teacher_movable_property/teacher_movable_property_archive_day.html:42
+#: templates/teacher/teacher_nomini/teacher_nomini_archive_day.html:42
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_archive_day.html:42
+#: templates/teacher/teacher_post/teacher_post_archive_day.html:42
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_archive_day.html:42
+#: templates/teacher/teacher_professional/teacher_professional_archive_day.html:42
+#: templates/teacher/teacher_test/teacher_test_archive_day.html:42
+#: templates/teacher/teacher_training/teacher_training_archive_day.html:42
+msgid "Day Archive"
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_archive_day.html:57
+#, python-format
+msgid ""
+"\n"
+"      Teacher_actions created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_archive_month.html:38
+msgid "Teacher_action Month Archive"
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_archive_month.html:42
+#: templates/teacher/teacher_education/teacher_education_archive_month.html:42
+#: templates/teacher/teacher_family_detail/teacher_family_detail_archive_month.html:42
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_archive_month.html:42
+#: templates/teacher/teacher_leave/teacher_leave_archive_month.html:42
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_archive_month.html:42
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_archive_month.html:42
+#: templates/teacher/teacher_loan/teacher_loan_archive_month.html:42
+#: templates/teacher/teacher_ltc/teacher_ltc_archive_month.html:42
+#: templates/teacher/teacher_movable_property/teacher_movable_property_archive_month.html:42
+#: templates/teacher/teacher_nomini/teacher_nomini_archive_month.html:42
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_archive_month.html:42
+#: templates/teacher/teacher_post/teacher_post_archive_month.html:42
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_archive_month.html:42
+#: templates/teacher/teacher_professional/teacher_professional_archive_month.html:42
+#: templates/teacher/teacher_test/teacher_test_archive_month.html:42
+#: templates/teacher/teacher_training/teacher_training_archive_month.html:42
+msgid "A monthly archive page showing all objects in a given month."
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_archive_month.html:58
+#, python-format
+msgid ""
+"\n"
+"      Teacher_actions created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_archive_week.html:12
+#: templates/teacher/teacher_action/teacher_action_archive_week.html:16
+msgid "Teacher_action Week Archive"
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_archive_week.html:20
+#: templates/teacher/teacher_education/teacher_education_archive_week.html:20
+#: templates/teacher/teacher_family_detail/teacher_family_detail_archive_week.html:20
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_archive_week.html:20
+#: templates/teacher/teacher_leave/teacher_leave_archive_week.html:20
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_archive_week.html:20
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_archive_week.html:20
+#: templates/teacher/teacher_loan/teacher_loan_archive_week.html:20
+#: templates/teacher/teacher_ltc/teacher_ltc_archive_week.html:20
+#: templates/teacher/teacher_movable_property/teacher_movable_property_archive_week.html:20
+#: templates/teacher/teacher_nomini/teacher_nomini_archive_week.html:20
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_archive_week.html:20
+#: templates/teacher/teacher_post/teacher_post_archive_week.html:20
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_archive_week.html:20
+#: templates/teacher/teacher_professional/teacher_professional_archive_week.html:20
+#: templates/teacher/teacher_test/teacher_test_archive_week.html:20
+#: templates/teacher/teacher_training/teacher_training_archive_week.html:20
+msgid "A weekly archive page showing all objects in a given week."
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      Teacher_actions created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_archive_year.html:32
+msgid "Teacher_action Year Archive"
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_archive_year.html:36
+#: templates/teacher/teacher_education/teacher_education_archive_year.html:36
+#: templates/teacher/teacher_family_detail/teacher_family_detail_archive_year.html:36
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_archive_year.html:36
+#: templates/teacher/teacher_leave/teacher_leave_archive_year.html:36
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_archive_year.html:36
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_archive_year.html:36
+#: templates/teacher/teacher_loan/teacher_loan_archive_year.html:36
+#: templates/teacher/teacher_ltc/teacher_ltc_archive_year.html:36
+#: templates/teacher/teacher_movable_property/teacher_movable_property_archive_year.html:36
+#: templates/teacher/teacher_nomini/teacher_nomini_archive_year.html:36
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_archive_year.html:36
+#: templates/teacher/teacher_post/teacher_post_archive_year.html:36
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_archive_year.html:36
+#: templates/teacher/teacher_professional/teacher_professional_archive_year.html:36
+#: templates/teacher/teacher_test/teacher_test_archive_year.html:36
+#: templates/teacher/teacher_training/teacher_training_archive_year.html:36
+msgid "A yearly archive page showing all available months in a given year."
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_archive_year.html:40
+#: templates/teacher/teacher_education/teacher_education_archive_year.html:40
+#: templates/teacher/teacher_family_detail/teacher_family_detail_archive_year.html:40
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_archive_year.html:40
+#: templates/teacher/teacher_leave/teacher_leave_archive_year.html:40
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_archive_year.html:40
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_archive_year.html:40
+#: templates/teacher/teacher_loan/teacher_loan_archive_year.html:40
+#: templates/teacher/teacher_ltc/teacher_ltc_archive_year.html:40
+#: templates/teacher/teacher_movable_property/teacher_movable_property_archive_year.html:40
+#: templates/teacher/teacher_nomini/teacher_nomini_archive_year.html:40
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_archive_year.html:40
+#: templates/teacher/teacher_post/teacher_post_archive_year.html:40
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_archive_year.html:40
+#: templates/teacher/teacher_professional/teacher_professional_archive_year.html:40
+#: templates/teacher/teacher_test/teacher_test_archive_year.html:40
+#: templates/teacher/teacher_training/teacher_training_archive_year.html:40
+msgid "By Month"
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_archive_year.html:52
+#, python-format
+msgid ""
+"\n"
+"      Teacher_actions created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_confirm_delete.html:11
+msgid "Delete this Teacher_action?"
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_detail.html:21
+#: templates/teacher/teacher_action/teacher_action_form.html:48
+#: templates/teacher/teacher_education/teacher_education_detail.html:18
+#: templates/teacher/teacher_education/teacher_education_form.html:42
+#: templates/teacher/teacher_family_detail/teacher_family_detail_detail.html:19
+#: templates/teacher/teacher_family_detail/teacher_family_detail_form.html:40
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_detail.html:20
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_form.html:58
+#: templates/teacher/teacher_leave/teacher_leave_detail.html:19
+#: templates/teacher/teacher_leave/teacher_leave_form.html:45
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_detail.html:19
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_form.html:64
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_detail.html:19
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_form.html:46
+#: templates/teacher/teacher_loan/teacher_loan_detail.html:21
+#: templates/teacher/teacher_loan/teacher_loan_form.html:51
+#: templates/teacher/teacher_ltc/teacher_ltc_detail.html:19
+#: templates/teacher/teacher_ltc/teacher_ltc_form.html:47
+#: templates/teacher/teacher_movable_property/teacher_movable_property_detail.html:20
+#: templates/teacher/teacher_movable_property/teacher_movable_property_form.html:66
+#: templates/teacher/teacher_nomini/teacher_nomini_detail.html:22
+#: templates/teacher/teacher_nomini/teacher_nomini_form.html:49
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_detail.html:17
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:85
+#: templates/teacher/teacher_post/teacher_post_detail.html:18
+#: templates/teacher/teacher_post/teacher_post_form.html:48
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_detail.html:19
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_form.html:43
+#: templates/teacher/teacher_professional/teacher_professional_detail.html:19
+#: templates/teacher/teacher_professional/teacher_professional_form.html:78
+#: templates/teacher/teacher_test/teacher_test_detail.html:20
+#: templates/teacher/teacher_test/teacher_test_form.html:42
+#: templates/teacher/teacher_training/teacher_training_detail.html:19
+#: templates/teacher/teacher_training/teacher_training_form.html:49
+msgid "Update"
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_form.html:19
+#: templates/teacher/teacher_education/teacher_education_form.html:18
+#: templates/teacher/teacher_family_detail/teacher_family_detail_form.html:18
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_form.html:20
+#: templates/teacher/teacher_leave/teacher_leave_form.html:20
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_form.html:21
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_form.html:19
+#: templates/teacher/teacher_loan/teacher_loan_form.html:19
+#: templates/teacher/teacher_ltc/teacher_ltc_form.html:19
+#: templates/teacher/teacher_movable_property/teacher_movable_property_form.html:21
+#: templates/teacher/teacher_nomini/teacher_nomini_form.html:21
+#: templates/teacher/teacher_post/teacher_post_form.html:19
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_form.html:20
+#: templates/teacher/teacher_professional/teacher_professional_form.html:19
+#: templates/teacher/teacher_test/teacher_test_form.html:19
+#: templates/teacher/teacher_training/teacher_training_form.html:20
+msgid "Teacher key"
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_form.html:21
+msgid "File number"
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_form.html:23
+msgid "Rule"
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_form.html:25
+msgid "Gist"
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_form.html:27
+msgid "Present stage"
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_form.html:29
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_form.html:38
+#: templates/teacher/teacher_leave/teacher_leave_form.html:28
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_form.html:27
+msgid "Order no"
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_form.html:31
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_form.html:40
+#: templates/teacher/teacher_leave/teacher_leave_form.html:30
+msgid "Order date"
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_form.html:33
+msgid "Gist final"
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_form.html:35
+#: templates/teacher/teacher_education/teacher_education_form.html:28
+#: templates/teacher/teacher_family_detail/teacher_family_detail_form.html:26
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_form.html:42
+#: templates/teacher/teacher_leave/teacher_leave_form.html:32
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_form.html:48
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_form.html:31
+#: templates/teacher/teacher_loan/teacher_loan_form.html:37
+#: templates/teacher/teacher_ltc/teacher_ltc_form.html:33
+#: templates/teacher/teacher_movable_property/teacher_movable_property_form.html:54
+#: templates/teacher/teacher_nomini/teacher_nomini_form.html:34
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:73
+#: templates/teacher/teacher_post/teacher_post_form.html:35
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_form.html:30
+#: templates/teacher/teacher_professional/teacher_professional_form.html:64
+#: templates/teacher/teacher_test/teacher_test_form.html:27
+#: templates/teacher/teacher_training/teacher_training_form.html:35
+msgid "Complete flag"
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_form.html:37
+#: templates/teacher/teacher_education/teacher_education_form.html:30
+#: templates/teacher/teacher_family_detail/teacher_family_detail_form.html:28
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_form.html:44
+#: templates/teacher/teacher_leave/teacher_leave_form.html:34
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_form.html:50
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_form.html:33
+#: templates/teacher/teacher_loan/teacher_loan_form.html:39
+#: templates/teacher/teacher_ltc/teacher_ltc_form.html:35
+#: templates/teacher/teacher_movable_property/teacher_movable_property_form.html:56
+#: templates/teacher/teacher_nomini/teacher_nomini_form.html:36
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:75
+#: templates/teacher/teacher_post/teacher_post_form.html:37
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_form.html:32
+#: templates/teacher/teacher_professional/teacher_professional_form.html:66
+#: templates/teacher/teacher_test/teacher_test_form.html:29
+#: templates/teacher/teacher_training/teacher_training_form.html:37
+msgid "Modification flag"
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_form.html:39
+#: templates/teacher/teacher_education/teacher_education_form.html:32
+#: templates/teacher/teacher_family_detail/teacher_family_detail_form.html:30
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_form.html:46
+#: templates/teacher/teacher_leave/teacher_leave_form.html:36
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_form.html:52
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_form.html:35
+#: templates/teacher/teacher_loan/teacher_loan_form.html:41
+#: templates/teacher/teacher_ltc/teacher_ltc_form.html:37
+#: templates/teacher/teacher_movable_property/teacher_movable_property_form.html:58
+#: templates/teacher/teacher_nomini/teacher_nomini_form.html:38
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:77
+#: templates/teacher/teacher_post/teacher_post_form.html:39
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_form.html:34
+#: templates/teacher/teacher_professional/teacher_professional_form.html:68
+#: templates/teacher/teacher_test/teacher_test_form.html:31
+#: templates/teacher/teacher_training/teacher_training_form.html:39
+msgid "Verification flag"
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_form.html:42
+#: templates/teacher/teacher_education/teacher_education_form.html:35
+#: templates/teacher/teacher_family_detail/teacher_family_detail_form.html:33
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_form.html:49
+#: templates/teacher/teacher_leave/teacher_leave_form.html:39
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_form.html:55
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_form.html:38
+#: templates/teacher/teacher_loan/teacher_loan_form.html:44
+#: templates/teacher/teacher_ltc/teacher_ltc_form.html:40
+#: templates/teacher/teacher_movable_property/teacher_movable_property_form.html:61
+#: templates/teacher/teacher_nomini/teacher_nomini_form.html:41
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:80
+#: templates/teacher/teacher_post/teacher_post_form.html:42
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_form.html:37
+#: templates/teacher/teacher_professional/teacher_professional_form.html:71
+#: templates/teacher/teacher_test/teacher_test_form.html:34
+#: templates/teacher/teacher_training/teacher_training_form.html:42
+msgid "Staff id"
+msgstr ""
+
+#: templates/teacher/teacher_action/teacher_action_form.html:50
+#: templates/teacher/teacher_education/teacher_education_form.html:44
+#: templates/teacher/teacher_family_detail/teacher_family_detail_form.html:42
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_form.html:60
+#: templates/teacher/teacher_leave/teacher_leave_form.html:47
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_form.html:66
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_form.html:48
+#: templates/teacher/teacher_loan/teacher_loan_form.html:53
+#: templates/teacher/teacher_ltc/teacher_ltc_form.html:49
+#: templates/teacher/teacher_movable_property/teacher_movable_property_form.html:68
+#: templates/teacher/teacher_nomini/teacher_nomini_form.html:51
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:87
+#: templates/teacher/teacher_post/teacher_post_form.html:50
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_form.html:45
+#: templates/teacher/teacher_professional/teacher_professional_form.html:80
+#: templates/teacher/teacher_test/teacher_test_form.html:44
+#: templates/teacher/teacher_training/teacher_training_form.html:51
+msgid "Create"
+msgstr ""
+
+#: templates/teacher/teacher_education/base.html:10
+msgid "Teacher education List "
+msgstr ""
+
+#: templates/teacher/teacher_education/base.html:15
+msgid "Create teacher education detail"
+msgstr ""
+
+#: templates/teacher/teacher_education/base.html:21
+msgid "Teacher education"
+msgstr ""
+
+#: templates/teacher/teacher_education/base.html:26
+msgid "Update teacher education"
+msgstr ""
+
+#: templates/teacher/teacher_education/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual Teacher_education's "
+"page."
+msgstr ""
+
+#: templates/teacher/teacher_education/teacher_education_archive.html:12
+#: templates/teacher/teacher_education/teacher_education_archive.html:25
+msgid "Teacher_education Archive Index"
+msgstr ""
+
+#: templates/teacher/teacher_education/teacher_education_archive.html:45
+msgid "Recent Teacher_educations"
+msgstr ""
+
+#: templates/teacher/teacher_education/teacher_education_archive_day.html:12
+#: templates/teacher/teacher_education/teacher_education_archive_day.html:49
+msgid "Teacher_education Day Archive"
+msgstr ""
+
+#: templates/teacher/teacher_education/teacher_education_archive_day.html:57
+#, python-format
+msgid ""
+"\n"
+"      Teacher_educations created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_education/teacher_education_archive_month.html:38
+msgid "Teacher_education Month Archive"
+msgstr ""
+
+#: templates/teacher/teacher_education/teacher_education_archive_month.html:58
+#, python-format
+msgid ""
+"\n"
+"      Teacher_educations created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_education/teacher_education_archive_week.html:12
+#: templates/teacher/teacher_education/teacher_education_archive_week.html:16
+msgid "Teacher_education Week Archive"
+msgstr ""
+
+#: templates/teacher/teacher_education/teacher_education_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      Teacher_educations created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_education/teacher_education_archive_year.html:32
+msgid "Teacher_education Year Archive"
+msgstr ""
+
+#: templates/teacher/teacher_education/teacher_education_archive_year.html:52
+#, python-format
+msgid ""
+"\n"
+"      Teacher_educations created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_education/teacher_education_confirm_delete.html:12
+msgid "Delete this Teacher_education?"
+msgstr ""
+
+#: templates/teacher/teacher_education/teacher_education_form.html:20
+msgid "Qualification"
+msgstr ""
+
+#: templates/teacher/teacher_education/teacher_education_form.html:22
+#: templates/teacher/teacher_professional/teacher_professional_form.html:46
+msgid "Subject"
+msgstr ""
+
+#: templates/teacher/teacher_education/teacher_education_form.html:24
+#: templates/teacher/teacher_test/teacher_test_form.html:25
+msgid "Year"
+msgstr ""
+
+#: templates/teacher/teacher_education/teacher_education_form.html:26
+msgid "university"
+msgstr ""
+
+#: templates/teacher/teacher_family_detail/base.html:10
+msgid "Teacher family detail List "
+msgstr ""
+
+#: templates/teacher/teacher_family_detail/base.html:15
+msgid "Create teacher family detail"
+msgstr ""
+
+#: templates/teacher/teacher_family_detail/base.html:21
+msgid "Teacher family Detail"
+msgstr ""
+
+#: templates/teacher/teacher_family_detail/base.html:26
+msgid "Update teacher family detail"
+msgstr ""
+
+#: templates/teacher/teacher_family_detail/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual "
+"Teacher_family_detail's page."
+msgstr ""
+
+#: templates/teacher/teacher_family_detail/teacher_family_detail_archive.html:12
+#: templates/teacher/teacher_family_detail/teacher_family_detail_archive.html:25
+msgid "Teacher_family_detail Archive Index"
+msgstr ""
+
+#: templates/teacher/teacher_family_detail/teacher_family_detail_archive.html:45
+msgid "Recent Teacher_family_details"
+msgstr ""
+
+#: templates/teacher/teacher_family_detail/teacher_family_detail_archive_day.html:12
+#: templates/teacher/teacher_family_detail/teacher_family_detail_archive_day.html:49
+msgid "Teacher_family_detail Day Archive"
+msgstr ""
+
+#: templates/teacher/teacher_family_detail/teacher_family_detail_archive_day.html:57
+#, python-format
+msgid ""
+"\n"
+"      Teacher_family_details created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_family_detail/teacher_family_detail_archive_month.html:38
+msgid "Teacher_family_detail Month Archive"
+msgstr ""
+
+#: templates/teacher/teacher_family_detail/teacher_family_detail_archive_month.html:58
+#, python-format
+msgid ""
+"\n"
+"      Teacher_family_details created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_family_detail/teacher_family_detail_archive_week.html:12
+#: templates/teacher/teacher_family_detail/teacher_family_detail_archive_week.html:16
+msgid "Teacher_family_detail Week Archive"
+msgstr ""
+
+#: templates/teacher/teacher_family_detail/teacher_family_detail_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      Teacher_family_details created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_family_detail/teacher_family_detail_archive_year.html:32
+msgid "Teacher_family_detail Year Archive"
+msgstr ""
+
+#: templates/teacher/teacher_family_detail/teacher_family_detail_archive_year.html:52
+#, python-format
+msgid ""
+"\n"
+"      Teacher_family_details created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_family_detail/teacher_family_detail_confirm_delete.html:11
+msgid "Delete this Teacher_family_detail?"
+msgstr ""
+
+#: templates/teacher/teacher_family_detail/teacher_family_detail_form.html:20
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:27
+msgid "Name"
+msgstr ""
+
+#: templates/teacher/teacher_family_detail/teacher_family_detail_form.html:22
+msgid "date of birth"
+msgstr ""
+
+#: templates/teacher/teacher_family_detail/teacher_family_detail_form.html:24
+msgid "Relation"
+msgstr ""
+
+#: templates/teacher/teacher_immovalble_property/base.html:10
+#: templates/teacher/teacher_personal_detail/base.html:10
+msgid "Teacher personal detail List "
+msgstr ""
+
+#: templates/teacher/teacher_immovalble_property/base.html:15
+msgid "Create teacher immovalble_property detail"
+msgstr ""
+
+#: templates/teacher/teacher_immovalble_property/base.html:21
+#: templates/teacher/teacher_personal_detail/base.html:21
+msgid "Teacher personal Detail"
+msgstr ""
+
+#: templates/teacher/teacher_immovalble_property/base.html:26
+msgid "Update teacher immovalble property"
+msgstr ""
+
+#: templates/teacher/teacher_immovalble_property/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual "
+"Teacher_immovalble_property's page."
+msgstr ""
+
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_archive.html:12
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_archive.html:25
+msgid "Teacher_immovalble_property Archive Index"
+msgstr ""
+
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_archive.html:45
+msgid "Recent Teacher_immovalble_propertys"
+msgstr ""
+
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_archive_day.html:12
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_archive_day.html:49
+msgid "Teacher_immovalble_property Day Archive"
+msgstr ""
+
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_archive_day.html:57
+#, python-format
+msgid ""
+"\n"
+"      Teacher_immovalble_propertys created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_archive_month.html:38
+msgid "Teacher_immovalble_property Month Archive"
+msgstr ""
+
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_archive_month.html:58
+#, python-format
+msgid ""
+"\n"
+"      Teacher_immovalble_propertys created in the month of "
+"%(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_archive_week.html:12
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_archive_week.html:16
+msgid "Teacher_immovalble_property Week Archive"
+msgstr ""
+
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      Teacher_immovalble_propertys created during the week beginning on "
+"%(week)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_archive_year.html:32
+msgid "Teacher_immovalble_property Year Archive"
+msgstr ""
+
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_archive_year.html:52
+#, python-format
+msgid ""
+"\n"
+"      Teacher_immovalble_propertys created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_confirm_delete.html:12
+msgid "Delete this Teacher_immovalble_property?"
+msgstr ""
+
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_form.html:22
+msgid "Prop description"
+msgstr ""
+
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_form.html:24
+msgid "No installment"
+msgstr ""
+
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_form.html:26
+#: templates/teacher/teacher_movable_property/teacher_movable_property_form.html:30
+msgid "Doc number"
+msgstr ""
+
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_form.html:28
+#: templates/teacher/teacher_movable_property/teacher_movable_property_form.html:34
+msgid "Doc date"
+msgstr ""
+
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_form.html:30
+#: templates/teacher/teacher_movable_property/teacher_movable_property_form.html:38
+#: templates/teacher/teacher_post/teacher_post_form.html:25
+msgid "Place"
+msgstr ""
+
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_form.html:32
+#: templates/teacher/teacher_movable_property/teacher_movable_property_form.html:42
+msgid "Acquired"
+msgstr ""
+
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_form.html:34
+#: templates/teacher/teacher_movable_property/teacher_movable_property_form.html:46
+msgid "Purchase value"
+msgstr ""
+
+#: templates/teacher/teacher_immovalble_property/teacher_immovalble_property_form.html:36
+msgid "Present value"
+msgstr ""
+
+#: templates/teacher/teacher_leave/base.html:10
+msgid "Teacher leave List "
+msgstr ""
+
+#: templates/teacher/teacher_leave/base.html:15
+msgid "Create teacher leave"
+msgstr ""
+
+#: templates/teacher/teacher_leave/base.html:21
+msgid "Teacher leave"
+msgstr ""
+
+#: templates/teacher/teacher_leave/base.html:26
+msgid "Update teacher leave"
+msgstr ""
+
+#: templates/teacher/teacher_leave/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual Teacher_leave's page."
+msgstr ""
+
+#: templates/teacher/teacher_leave/teacher_leave_archive.html:12
+#: templates/teacher/teacher_leave/teacher_leave_archive.html:25
+msgid "Teacher_leave Archive Index"
+msgstr ""
+
+#: templates/teacher/teacher_leave/teacher_leave_archive.html:45
+msgid "Recent Teacher_leaves"
+msgstr ""
+
+#: templates/teacher/teacher_leave/teacher_leave_archive_day.html:12
+#: templates/teacher/teacher_leave/teacher_leave_archive_day.html:49
+msgid "Teacher_leave Day Archive"
+msgstr ""
+
+#: templates/teacher/teacher_leave/teacher_leave_archive_day.html:57
+#, python-format
+msgid ""
+"\n"
+"      Teacher_leaves created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_leave/teacher_leave_archive_month.html:38
+msgid "Teacher_leave Month Archive"
+msgstr ""
+
+#: templates/teacher/teacher_leave/teacher_leave_archive_month.html:58
+#, python-format
+msgid ""
+"\n"
+"      Teacher_leaves created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_leave/teacher_leave_archive_week.html:12
+#: templates/teacher/teacher_leave/teacher_leave_archive_week.html:16
+msgid "Teacher_leave Week Archive"
+msgstr ""
+
+#: templates/teacher/teacher_leave/teacher_leave_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      Teacher_leaves created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_leave/teacher_leave_archive_year.html:32
+msgid "Teacher_leave Year Archive"
+msgstr ""
+
+#: templates/teacher/teacher_leave/teacher_leave_archive_year.html:52
+#, python-format
+msgid ""
+"\n"
+"      Teacher_leaves created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_leave/teacher_leave_confirm_delete.html:12
+msgid "Delete this Teacher_leave?"
+msgstr ""
+
+#: templates/teacher/teacher_leave/teacher_leave_form.html:22
+#: templates/teacher/teacher_ltc/teacher_ltc_form.html:25
+msgid "Leave type"
+msgstr ""
+
+#: templates/teacher/teacher_leave/teacher_leave_form.html:24
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_form.html:21
+msgid "Leave from"
+msgstr ""
+
+#: templates/teacher/teacher_leave/teacher_leave_form.html:26
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_form.html:23
+msgid "Leave to"
+msgstr ""
+
+#: templates/teacher/teacher_leave_credit/base.html:10
+msgid "Teacher leave credit List "
+msgstr ""
+
+#: templates/teacher/teacher_leave_credit/base.html:15
+msgid "Create teacher leave credit"
+msgstr ""
+
+#: templates/teacher/teacher_leave_credit/base.html:21
+msgid "Teacher leave credit"
+msgstr ""
+
+#: templates/teacher/teacher_leave_credit/base.html:26
+msgid "Update teacher_leave_credit"
+msgstr ""
+
+#: templates/teacher/teacher_leave_credit/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual "
+"Teacher_leave_credit's page."
+msgstr ""
+
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_archive.html:12
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_archive.html:25
+msgid "Teacher_leave_credit Archive Index"
+msgstr ""
+
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_archive.html:45
+msgid "Recent Teacher_leave_credits"
+msgstr ""
+
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_archive_day.html:12
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_archive_day.html:49
+msgid "Teacher_leave_credit Day Archive"
+msgstr ""
+
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_archive_day.html:57
+#, python-format
+msgid ""
+"\n"
+"      Teacher_leave_credits created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_archive_month.html:38
+msgid "Teacher_leave_credit Month Archive"
+msgstr ""
+
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_archive_month.html:58
+#, python-format
+msgid ""
+"\n"
+"      Teacher_leave_credits created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_archive_week.html:12
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_archive_week.html:16
+msgid "Teacher_leave_credit Week Archive"
+msgstr ""
+
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      Teacher_leave_credits created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_archive_year.html:32
+msgid "Teacher_leave_credit Year Archive"
+msgstr ""
+
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_archive_year.html:52
+#, python-format
+msgid ""
+"\n"
+"      Teacher_leave_credits created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_confirm_delete.html:12
+msgid "Delete this Teacher_leave_credit?"
+msgstr ""
+
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_form.html:23
+msgid "Earned effective"
+msgstr ""
+
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_form.html:25
+msgid "Earned credit"
+msgstr ""
+
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_form.html:27
+msgid "Earned prebalance"
+msgstr ""
+
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_form.html:29
+msgid "Earned curbalance"
+msgstr ""
+
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_form.html:31
+msgid "Earned orderno"
+msgstr ""
+
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_form.html:33
+msgid "Earned orderdate"
+msgstr ""
+
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_form.html:35
+msgid "Half effective"
+msgstr ""
+
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_form.html:38
+msgid "Half credit"
+msgstr ""
+
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_form.html:40
+msgid "Half prebalance"
+msgstr ""
+
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_form.html:42
+msgid "Half curbalance"
+msgstr ""
+
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_form.html:44
+msgid "Half orderno"
+msgstr ""
+
+#: templates/teacher/teacher_leave_credit/teacher_leave_credit_form.html:46
+msgid "Half orderdate"
+msgstr ""
+
+#: templates/teacher/teacher_leave_surrender/base.html:10
+msgid "Teacher leave surrender List "
+msgstr ""
+
+#: templates/teacher/teacher_leave_surrender/base.html:15
+msgid "Create teacher leave surrender"
+msgstr ""
+
+#: templates/teacher/teacher_leave_surrender/base.html:21
+msgid "Teacher leave surrender"
+msgstr ""
+
+#: templates/teacher/teacher_leave_surrender/base.html:26
+msgid "Update teacher leave surrender"
+msgstr ""
+
+#: templates/teacher/teacher_leave_surrender/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual "
+"Teacher_leave_surrender's page."
+msgstr ""
+
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_archive.html:12
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_archive.html:25
+msgid "Teacher_leave_surrender Archive Index"
+msgstr ""
+
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_archive.html:45
+msgid "Recent Teacher_leave_surrenders"
+msgstr ""
+
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_archive_day.html:12
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_archive_day.html:49
+msgid "Teacher_leave_surrender Day Archive"
+msgstr ""
+
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_archive_day.html:57
+#, python-format
+msgid ""
+"\n"
+"      Teacher_leave_surrenders created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_archive_month.html:38
+msgid "Teacher_leave_surrender Month Archive"
+msgstr ""
+
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_archive_month.html:58
+#, python-format
+msgid ""
+"\n"
+"      Teacher_leave_surrenders created in the month of "
+"%(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_archive_week.html:12
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_archive_week.html:16
+msgid "Teacher_leave_surrender Week Archive"
+msgstr ""
+
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      Teacher_leave_surrenders created during the week beginning on "
+"%(week)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_archive_year.html:32
+msgid "Teacher_leave_surrender Year Archive"
+msgstr ""
+
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_archive_year.html:52
+#, python-format
+msgid ""
+"\n"
+"      Teacher_leave_surrenders created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_confirm_delete.html:12
+msgid "Delete this Teacher_leave_surrender?"
+msgstr ""
+
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_form.html:25
+msgid "Days"
+msgstr ""
+
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_form.html:29
+msgid "Order date "
+msgstr ""
+
+#: templates/teacher/teacher_leave_surrender/teacher_leave_surrender_list.html:12
+msgid "Teacher_leave_surrenders"
+msgstr ""
+
+#: templates/teacher/teacher_loan/base.html:10
+msgid "Teacher loan List "
+msgstr ""
+
+#: templates/teacher/teacher_loan/base.html:15
+msgid "Create teacher loan"
+msgstr ""
+
+#: templates/teacher/teacher_loan/base.html:21
+msgid "Teacher loan"
+msgstr ""
+
+#: templates/teacher/teacher_loan/base.html:26
+msgid "Update teacher loan"
+msgstr ""
+
+#: templates/teacher/teacher_loan/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual Teacher_loan's page."
+msgstr ""
+
+#: templates/teacher/teacher_loan/teacher_loan_archive.html:12
+#: templates/teacher/teacher_loan/teacher_loan_archive.html:25
+msgid "Teacher_loan Archive Index"
+msgstr ""
+
+#: templates/teacher/teacher_loan/teacher_loan_archive.html:45
+msgid "Recent Teacher_loans"
+msgstr ""
+
+#: templates/teacher/teacher_loan/teacher_loan_archive_day.html:12
+#: templates/teacher/teacher_loan/teacher_loan_archive_day.html:49
+msgid "Teacher_loan Day Archive"
+msgstr ""
+
+#: templates/teacher/teacher_loan/teacher_loan_archive_day.html:57
+#, python-format
+msgid ""
+"\n"
+"      Teacher_loans created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_loan/teacher_loan_archive_month.html:38
+msgid "Teacher_loan Month Archive"
+msgstr ""
+
+#: templates/teacher/teacher_loan/teacher_loan_archive_month.html:58
+#, python-format
+msgid ""
+"\n"
+"      Teacher_loans created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_loan/teacher_loan_archive_week.html:12
+#: templates/teacher/teacher_loan/teacher_loan_archive_week.html:16
+msgid "Teacher_loan Week Archive"
+msgstr ""
+
+#: templates/teacher/teacher_loan/teacher_loan_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      Teacher_loans created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_loan/teacher_loan_archive_year.html:32
+msgid "Teacher_loan Year Archive"
+msgstr ""
+
+#: templates/teacher/teacher_loan/teacher_loan_archive_year.html:52
+#, python-format
+msgid ""
+"\n"
+"      Teacher_loans created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_loan/teacher_loan_confirm_delete.html:11
+msgid "Delete this Teacher_loan?"
+msgstr ""
+
+#: templates/teacher/teacher_loan/teacher_loan_form.html:21
+msgid "Loan category"
+msgstr ""
+
+#: templates/teacher/teacher_loan/teacher_loan_form.html:23
+msgid "Loan details"
+msgstr ""
+
+#: templates/teacher/teacher_loan/teacher_loan_form.html:25
+msgid "Sanctioned amt"
+msgstr ""
+
+#: templates/teacher/teacher_loan/teacher_loan_form.html:27
+msgid "Monthly installment"
+msgstr ""
+
+#: templates/teacher/teacher_loan/teacher_loan_form.html:29
+msgid "Installments"
+msgstr ""
+
+#: templates/teacher/teacher_loan/teacher_loan_form.html:31
+msgid "First insta date"
+msgstr ""
+
+#: templates/teacher/teacher_loan/teacher_loan_form.html:33
+msgid "Sanctioned order"
+msgstr ""
+
+#: templates/teacher/teacher_loan/teacher_loan_form.html:35
+msgid "Sanctioned date"
+msgstr ""
+
+#: templates/teacher/teacher_ltc/base.html:10
+msgid "Teacher ltc List "
+msgstr ""
+
+#: templates/teacher/teacher_ltc/base.html:15
+msgid "Create teacher ltc"
+msgstr ""
+
+#: templates/teacher/teacher_ltc/base.html:21
+msgid "Teacher ltc"
+msgstr ""
+
+#: templates/teacher/teacher_ltc/base.html:26
+msgid "Update teacher ltc"
+msgstr ""
+
+#: templates/teacher/teacher_ltc/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual Teacher_ltc's page."
+msgstr ""
+
+#: templates/teacher/teacher_ltc/teacher_ltc_archive.html:12
+#: templates/teacher/teacher_ltc/teacher_ltc_archive.html:25
+msgid "Teacher_ltc Archive Index"
+msgstr ""
+
+#: templates/teacher/teacher_ltc/teacher_ltc_archive.html:45
+msgid "Recent Teacher_ltcs"
+msgstr ""
+
+#: templates/teacher/teacher_ltc/teacher_ltc_archive_day.html:12
+#: templates/teacher/teacher_ltc/teacher_ltc_archive_day.html:49
+msgid "Teacher_ltc Day Archive"
+msgstr ""
+
+#: templates/teacher/teacher_ltc/teacher_ltc_archive_day.html:57
+#, python-format
+msgid ""
+"\n"
+"      Teacher_ltcs created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_ltc/teacher_ltc_archive_month.html:38
+msgid "Teacher_ltc Month Archive"
+msgstr ""
+
+#: templates/teacher/teacher_ltc/teacher_ltc_archive_month.html:58
+#, python-format
+msgid ""
+"\n"
+"      Teacher_ltcs created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_ltc/teacher_ltc_archive_week.html:12
+#: templates/teacher/teacher_ltc/teacher_ltc_archive_week.html:16
+msgid "Teacher_ltc Week Archive"
+msgstr ""
+
+#: templates/teacher/teacher_ltc/teacher_ltc_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      Teacher_ltcs created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_ltc/teacher_ltc_archive_year.html:32
+msgid "Teacher_ltc Year Archive"
+msgstr ""
+
+#: templates/teacher/teacher_ltc/teacher_ltc_archive_year.html:52
+#, python-format
+msgid ""
+"\n"
+"      Teacher_ltcs created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_ltc/teacher_ltc_confirm_delete.html:11
+msgid "Delete this Teacher_ltc?"
+msgstr ""
+
+#: templates/teacher/teacher_ltc/teacher_ltc_form.html:21
+msgid "Block year1"
+msgstr ""
+
+#: templates/teacher/teacher_ltc/teacher_ltc_form.html:23
+msgid "Block year2"
+msgstr ""
+
+#: templates/teacher/teacher_ltc/teacher_ltc_form.html:27
+msgid "Sanction amt"
+msgstr ""
+
+#: templates/teacher/teacher_ltc/teacher_ltc_form.html:29
+msgid "Sanction number"
+msgstr ""
+
+#: templates/teacher/teacher_ltc/teacher_ltc_form.html:31
+msgid "Sanction date"
+msgstr ""
+
+#: templates/teacher/teacher_ltc/teacher_ltc_list.html:14
+msgid "Teacher_ltcs"
+msgstr ""
+
+#: templates/teacher/teacher_movable_property/base.html:10
+msgid "Teacher movable property List "
+msgstr ""
+
+#: templates/teacher/teacher_movable_property/base.html:15
+msgid "Create teacher movable property"
+msgstr ""
+
+#: templates/teacher/teacher_movable_property/base.html:21
+msgid "Teacher movable property"
+msgstr ""
+
+#: templates/teacher/teacher_movable_property/base.html:26
+msgid "Update teacher movable_property"
+msgstr ""
+
+#: templates/teacher/teacher_movable_property/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual "
+"Teacher_movable_property's page."
+msgstr ""
+
+#: templates/teacher/teacher_movable_property/teacher_movable_property_archive.html:12
+#: templates/teacher/teacher_movable_property/teacher_movable_property_archive.html:25
+msgid "Teacher_movable_property Archive Index"
+msgstr ""
+
+#: templates/teacher/teacher_movable_property/teacher_movable_property_archive.html:45
+msgid "Recent Teacher_movable_propertys"
+msgstr ""
+
+#: templates/teacher/teacher_movable_property/teacher_movable_property_archive_day.html:12
+#: templates/teacher/teacher_movable_property/teacher_movable_property_archive_day.html:49
+msgid "Teacher_movable_property Day Archive"
+msgstr ""
+
+#: templates/teacher/teacher_movable_property/teacher_movable_property_archive_day.html:57
+#, python-format
+msgid ""
+"\n"
+"      Teacher_movable_propertys created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_movable_property/teacher_movable_property_archive_month.html:38
+msgid "Teacher_movable_property Month Archive"
+msgstr ""
+
+#: templates/teacher/teacher_movable_property/teacher_movable_property_archive_month.html:58
+#, python-format
+msgid ""
+"\n"
+"      Teacher_movable_propertys created in the month of "
+"%(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_movable_property/teacher_movable_property_archive_week.html:12
+#: templates/teacher/teacher_movable_property/teacher_movable_property_archive_week.html:16
+msgid "Teacher_movable_property Week Archive"
+msgstr ""
+
+#: templates/teacher/teacher_movable_property/teacher_movable_property_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      Teacher_movable_propertys created during the week beginning on "
+"%(week)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_movable_property/teacher_movable_property_archive_year.html:32
+msgid "Teacher_movable_property Year Archive"
+msgstr ""
+
+#: templates/teacher/teacher_movable_property/teacher_movable_property_archive_year.html:52
+#, python-format
+msgid ""
+"\n"
+"      Teacher_movable_propertys created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_movable_property/teacher_movable_property_confirm_delete.html:12
+msgid "Delete this Teacher_movable_property?"
+msgstr ""
+
+#: templates/teacher/teacher_movable_property/teacher_movable_property_form.html:23
+msgid "prop description"
+msgstr ""
+
+#: templates/teacher/teacher_movable_property/teacher_movable_property_form.html:25
+msgid "no installment"
+msgstr ""
+
+#: templates/teacher/teacher_movable_property/teacher_movable_property_form.html:48
+msgid "present value"
+msgstr ""
+
+#: templates/teacher/teacher_movable_property/teacher_movable_property_form.html:50
+msgid "order no"
+msgstr ""
+
+#: templates/teacher/teacher_movable_property/teacher_movable_property_form.html:52
+msgid "order date"
+msgstr ""
+
+#: templates/teacher/teacher_movable_property/teacher_movable_property_list.html:13
+msgid "Teacher_movable_propertys"
+msgstr ""
+
+#: templates/teacher/teacher_nomini/base.html:10
+msgid "Teacher nomini List "
+msgstr ""
+
+#: templates/teacher/teacher_nomini/base.html:15
+msgid "Create teacher nomini"
+msgstr ""
+
+#: templates/teacher/teacher_nomini/base.html:21
+msgid "Teacher nomini"
+msgstr ""
+
+#: templates/teacher/teacher_nomini/base.html:26
+msgid "Update teacher nomini"
+msgstr ""
+
+#: templates/teacher/teacher_nomini/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual Teacher_nomini's "
+"page."
+msgstr ""
+
+#: templates/teacher/teacher_nomini/teacher_nomini_archive.html:12
+#: templates/teacher/teacher_nomini/teacher_nomini_archive.html:25
+msgid "Teacher_nomini Archive Index"
+msgstr ""
+
+#: templates/teacher/teacher_nomini/teacher_nomini_archive.html:45
+msgid "Recent Teacher_nominis"
+msgstr ""
+
+#: templates/teacher/teacher_nomini/teacher_nomini_archive_day.html:12
+#: templates/teacher/teacher_nomini/teacher_nomini_archive_day.html:49
+msgid "Teacher_nomini Day Archive"
+msgstr ""
+
+#: templates/teacher/teacher_nomini/teacher_nomini_archive_day.html:57
+#, python-format
+msgid ""
+"\n"
+"      Teacher_nominis created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_nomini/teacher_nomini_archive_month.html:38
+msgid "Teacher_nomini Month Archive"
+msgstr ""
+
+#: templates/teacher/teacher_nomini/teacher_nomini_archive_month.html:58
+#, python-format
+msgid ""
+"\n"
+"      Teacher_nominis created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_nomini/teacher_nomini_archive_week.html:12
+#: templates/teacher/teacher_nomini/teacher_nomini_archive_week.html:16
+msgid "Teacher_nomini Week Archive"
+msgstr ""
+
+#: templates/teacher/teacher_nomini/teacher_nomini_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      Teacher_nominis created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_nomini/teacher_nomini_archive_year.html:32
+msgid "Teacher_nomini Year Archive"
+msgstr ""
+
+#: templates/teacher/teacher_nomini/teacher_nomini_archive_year.html:52
+#, python-format
+msgid ""
+"\n"
+"      Teacher_nominis created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_nomini/teacher_nomini_confirm_delete.html:11
+msgid "Delete this Teacher_nomini?"
+msgstr ""
+
+#: templates/teacher/teacher_nomini/teacher_nomini_form.html:23
+msgid "Fund name"
+msgstr ""
+
+#: templates/teacher/teacher_nomini/teacher_nomini_form.html:25
+msgid "Nominee name"
+msgstr ""
+
+#: templates/teacher/teacher_nomini/teacher_nomini_form.html:27
+msgid "relationship"
+msgstr ""
+
+#: templates/teacher/teacher_nomini/teacher_nomini_form.html:29
+msgid "Age"
+msgstr ""
+
+#: templates/teacher/teacher_nomini/teacher_nomini_form.html:32
+msgid "Percentage"
+msgstr ""
+
+#: templates/teacher/teacher_nomini/teacher_nomini_list.html:13
+msgid "Teacher_nominis"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/base.html:15
+msgid "Create teacher personal detail"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/base.html:26
+msgid "Update teacher_personal_detail"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual "
+"Teacher_personal_detail's page."
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_archive.html:12
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_archive.html:25
+msgid "Teacher_personal_detail Archive Index"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_archive.html:45
+msgid "Recent Teacher_personal_details"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_archive_day.html:12
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_archive_day.html:49
+msgid "Teacher_personal_detail Day Archive"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_archive_day.html:57
+#, python-format
+msgid ""
+"\n"
+"      Teacher_personal_details created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_archive_month.html:38
+msgid "Teacher_personal_detail Month Archive"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_archive_month.html:58
+#, python-format
+msgid ""
+"\n"
+"      Teacher_personal_details created in the month of "
+"%(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_archive_week.html:12
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_archive_week.html:16
+msgid "Teacher_personal_detail Week Archive"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      Teacher_personal_details created during the week beginning on "
+"%(week)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_archive_year.html:32
+msgid "Teacher_personal_detail Year Archive"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_archive_year.html:52
+#, python-format
+msgid ""
+"\n"
+"      Teacher_personal_details created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_confirm_delete.html:12
+msgid "Delete this Teacher personal detail?"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:19
+msgid "Code"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:21
+msgid "Gpf no"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:23
+#: templates/teacher/teacher_post/teacher_post_form.html:23
+msgid "School"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:25
+msgid "School code"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:29
+msgid "Pan"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:31
+msgid "Date of birth"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:33
+msgid "Blood"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:35
+msgid "Gender"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:37
+msgid "Community"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:39
+msgid "Religion"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:41
+msgid "Mother tongue"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:43
+msgid "Native distict"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:45
+msgid "Native taluk"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:47
+msgid "Native village"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:49
+msgid "languages"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:51
+msgid "Identification"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:53
+msgid "Railway"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:55
+msgid "Permanent address"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:57
+msgid "Permanent pincode"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:59
+msgid "Permanent phone"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:61
+msgid "Present address"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:63
+msgid "Present pincode"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:65
+msgid "Present phone"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:67
+msgid "District"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:69
+msgid "Block"
+msgstr ""
+
+#: templates/teacher/teacher_personal_detail/teacher_personal_detail_form.html:71
+msgid "Habitation"
+msgstr ""
+
+#: templates/teacher/teacher_post/base.html:10
+msgid "Teacher post List "
+msgstr ""
+
+#: templates/teacher/teacher_post/base.html:15
+msgid "Create teacher post"
+msgstr ""
+
+#: templates/teacher/teacher_post/base.html:21
+msgid "Teacher post"
+msgstr ""
+
+#: templates/teacher/teacher_post/base.html:26
+msgid "Update teacher post"
+msgstr ""
+
+#: templates/teacher/teacher_post/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual Teacher_post's page."
+msgstr ""
+
+#: templates/teacher/teacher_post/teacher_post_archive.html:12
+#: templates/teacher/teacher_post/teacher_post_archive.html:25
+msgid "Teacher_post Archive Index"
+msgstr ""
+
+#: templates/teacher/teacher_post/teacher_post_archive.html:45
+msgid "Recent Teacher_posts"
+msgstr ""
+
+#: templates/teacher/teacher_post/teacher_post_archive_day.html:12
+#: templates/teacher/teacher_post/teacher_post_archive_day.html:49
+msgid "Teacher_post Day Archive"
+msgstr ""
+
+#: templates/teacher/teacher_post/teacher_post_archive_day.html:57
+#, python-format
+msgid ""
+"\n"
+"      Teacher_posts created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_post/teacher_post_archive_month.html:38
+msgid "Teacher_post Month Archive"
+msgstr ""
+
+#: templates/teacher/teacher_post/teacher_post_archive_month.html:58
+#, python-format
+msgid ""
+"\n"
+"      Teacher_posts created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_post/teacher_post_archive_week.html:12
+#: templates/teacher/teacher_post/teacher_post_archive_week.html:16
+msgid "Teacher_post Week Archive"
+msgstr ""
+
+#: templates/teacher/teacher_post/teacher_post_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      Teacher_posts created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_post/teacher_post_archive_year.html:32
+msgid "Teacher_post Year Archive"
+msgstr ""
+
+#: templates/teacher/teacher_post/teacher_post_archive_year.html:52
+#, python-format
+msgid ""
+"\n"
+"      Teacher_posts created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_post/teacher_post_confirm_delete.html:12
+msgid "Delete this Teacher post?"
+msgstr ""
+
+#: templates/teacher/teacher_post/teacher_post_form.html:21
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_form.html:22
+msgid "Designation"
+msgstr ""
+
+#: templates/teacher/teacher_post/teacher_post_form.html:27
+msgid "Category"
+msgstr ""
+
+#: templates/teacher/teacher_post/teacher_post_form.html:29
+msgid "Post from"
+msgstr ""
+
+#: templates/teacher/teacher_post/teacher_post_form.html:31
+msgid "Post to"
+msgstr ""
+
+#: templates/teacher/teacher_post/teacher_post_form.html:33
+msgid "pay scale"
+msgstr ""
+
+#: templates/teacher/teacher_post/teacher_post_list.html:13
+msgid "Teacher_posts"
+msgstr ""
+
+#: templates/teacher/teacher_previous_employment/base.html:10
+msgid "Teacher previous employment List "
+msgstr ""
+
+#: templates/teacher/teacher_previous_employment/base.html:15
+msgid "Create teacher previous employment"
+msgstr ""
+
+#: templates/teacher/teacher_previous_employment/base.html:21
+msgid "Teacher previous employment"
+msgstr ""
+
+#: templates/teacher/teacher_previous_employment/base.html:26
+msgid "Update teacher previous employment"
+msgstr ""
+
+#: templates/teacher/teacher_previous_employment/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual "
+"Teacher_previous_employment's page."
+msgstr ""
+
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_archive.html:12
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_archive.html:25
+msgid "Teacher_previous_employment Archive Index"
+msgstr ""
+
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_archive.html:45
+msgid "Recent Teacher_previous_employments"
+msgstr ""
+
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_archive_day.html:12
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_archive_day.html:49
+msgid "Teacher_previous_employment Day Archive"
+msgstr ""
+
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_archive_day.html:57
+#, python-format
+msgid ""
+"\n"
+"      Teacher_previous_employments created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_archive_month.html:38
+msgid "Teacher_previous_employment Month Archive"
+msgstr ""
+
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_archive_month.html:58
+#, python-format
+msgid ""
+"\n"
+"      Teacher_previous_employments created in the month of "
+"%(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_archive_week.html:12
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_archive_week.html:16
+msgid "Teacher_previous_employment Week Archive"
+msgstr ""
+
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      Teacher_previous_employments created during the week beginning on "
+"%(week)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_archive_year.html:32
+msgid "Teacher_previous_employment Year Archive"
+msgstr ""
+
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_archive_year.html:52
+#, python-format
+msgid ""
+"\n"
+"      Teacher_previous_employments created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_confirm_delete.html:11
+msgid "Delete this Teacher_previous_employment?"
+msgstr ""
+
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_form.html:24
+msgid "Posting place"
+msgstr ""
+
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_form.html:26
+msgid "Posting from"
+msgstr ""
+
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_form.html:28
+msgid "Posting to"
+msgstr ""
+
+#: templates/teacher/teacher_previous_employment/teacher_previous_employment_list.html:13
+msgid "Teacher_previous_employments"
+msgstr ""
+
+#: templates/teacher/teacher_professional/base.html:10
+msgid "Teacher professional List "
+msgstr ""
+
+#: templates/teacher/teacher_professional/base.html:15
+msgid "Create teacher professional"
+msgstr ""
+
+#: templates/teacher/teacher_professional/base.html:21
+msgid "Teacher professional"
+msgstr ""
+
+#: templates/teacher/teacher_professional/base.html:26
+msgid "Update teacher_professional"
+msgstr ""
+
+#: templates/teacher/teacher_professional/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual "
+"Teacher_professional's page."
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_archive.html:12
+#: templates/teacher/teacher_professional/teacher_professional_archive.html:25
+msgid "Teacher_professional Archive Index"
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_archive.html:45
+msgid "Recent Teacher_professionals"
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_archive_day.html:12
+#: templates/teacher/teacher_professional/teacher_professional_archive_day.html:49
+msgid "Teacher_professional Day Archive"
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_archive_day.html:57
+#, python-format
+msgid ""
+"\n"
+"      Teacher_professionals created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_archive_month.html:38
+msgid "Teacher_professional Month Archive"
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_archive_month.html:58
+#, python-format
+msgid ""
+"\n"
+"      Teacher_professionals created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_archive_week.html:12
+#: templates/teacher/teacher_professional/teacher_professional_archive_week.html:16
+msgid "Teacher_professional Week Archive"
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      Teacher_professionals created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_archive_year.html:32
+msgid "Teacher_professional Year Archive"
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_archive_year.html:52
+#, python-format
+msgid ""
+"\n"
+"      Teacher_professionals created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_confirm_delete.html:12
+msgid "Delete this Teacher_professional?"
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_form.html:21
+msgid "Doj govt"
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_form.html:23
+msgid "doj dept"
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_form.html:25
+msgid "Desig onjoining"
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_form.html:28
+msgid "Typewriting english"
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_form.html:30
+msgid "Typewriting tamil"
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_form.html:32
+msgid "Shorthand english"
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_form.html:34
+msgid "Shorthand tamil"
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_form.html:36
+msgid "Emply status"
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_form.html:38
+msgid "Char verification"
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_form.html:40
+msgid "Physical certi"
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_form.html:42
+msgid "Doj presentpost"
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_form.html:44
+msgid "Present desig"
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_form.html:48
+msgid "Working dist"
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_form.html:50
+msgid "Working blk"
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_form.html:52
+msgid "Working place"
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_form.html:54
+msgid "Controlling officer"
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_form.html:56
+msgid "Pay scale"
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_form.html:58
+msgid "Incr month"
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_form.html:60
+msgid "Seniority no"
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_form.html:62
+msgid "Computer training"
+msgstr ""
+
+#: templates/teacher/teacher_professional/teacher_professional_list.html:14
+msgid "Teacher_professionals"
+msgstr ""
+
+#: templates/teacher/teacher_test/base.html:10
+msgid "Teacher test List "
+msgstr ""
+
+#: templates/teacher/teacher_test/base.html:15
+msgid "Create teacher test"
+msgstr ""
+
+#: templates/teacher/teacher_test/base.html:21
+msgid "Teacher test"
+msgstr ""
+
+#: templates/teacher/teacher_test/base.html:26
+msgid "Update teacher test"
+msgstr ""
+
+#: templates/teacher/teacher_test/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual Teacher_test's page."
+msgstr ""
+
+#: templates/teacher/teacher_test/teacher_test_archive.html:12
+#: templates/teacher/teacher_test/teacher_test_archive.html:25
+msgid "Teacher_test Archive Index"
+msgstr ""
+
+#: templates/teacher/teacher_test/teacher_test_archive.html:45
+msgid "Recent Teacher_tests"
+msgstr ""
+
+#: templates/teacher/teacher_test/teacher_test_archive_day.html:12
+#: templates/teacher/teacher_test/teacher_test_archive_day.html:49
+msgid "Teacher_test Day Archive"
+msgstr ""
+
+#: templates/teacher/teacher_test/teacher_test_archive_day.html:57
+#, python-format
+msgid ""
+"\n"
+"      Teacher_tests created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_test/teacher_test_archive_month.html:38
+msgid "Teacher_test Month Archive"
+msgstr ""
+
+#: templates/teacher/teacher_test/teacher_test_archive_month.html:58
+#, python-format
+msgid ""
+"\n"
+"      Teacher_tests created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_test/teacher_test_archive_week.html:12
+#: templates/teacher/teacher_test/teacher_test_archive_week.html:16
+msgid "Teacher_test Week Archive"
+msgstr ""
+
+#: templates/teacher/teacher_test/teacher_test_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      Teacher_tests created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_test/teacher_test_archive_year.html:32
+msgid "Teacher_test Year Archive"
+msgstr ""
+
+#: templates/teacher/teacher_test/teacher_test_archive_year.html:52
+#, python-format
+msgid ""
+"\n"
+"      Teacher_tests created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_test/teacher_test_confirm_delete.html:12
+msgid "Delete this Teacher_test?"
+msgstr ""
+
+#: templates/teacher/teacher_test/teacher_test_form.html:21
+msgid "Tests passed"
+msgstr ""
+
+#: templates/teacher/teacher_test/teacher_test_form.html:23
+msgid "Month"
+msgstr ""
+
+#: templates/teacher/teacher_test/teacher_test_list.html:14
+msgid "Teacher_tests"
+msgstr ""
+
+#: templates/teacher/teacher_training/base.html:10
+msgid "Teacher training List "
+msgstr ""
+
+#: templates/teacher/teacher_training/base.html:15
+msgid "Create teacher training"
+msgstr ""
+
+#: templates/teacher/teacher_training/base.html:21
+msgid "Teacher training"
+msgstr ""
+
+#: templates/teacher/teacher_training/base.html:26
+msgid "Update teacher_training"
+msgstr ""
+
+#: templates/teacher/teacher_training/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual Teacher_training's "
+"page."
+msgstr ""
+
+#: templates/teacher/teacher_training/teacher_training_archive.html:12
+#: templates/teacher/teacher_training/teacher_training_archive.html:25
+msgid "Teacher_training Archive Index"
+msgstr ""
+
+#: templates/teacher/teacher_training/teacher_training_archive.html:45
+msgid "Recent Teacher_trainings"
+msgstr ""
+
+#: templates/teacher/teacher_training/teacher_training_archive_day.html:12
+#: templates/teacher/teacher_training/teacher_training_archive_day.html:49
+msgid "Teacher_training Day Archive"
+msgstr ""
+
+#: templates/teacher/teacher_training/teacher_training_archive_day.html:57
+#, python-format
+msgid ""
+"\n"
+"      Teacher_trainings created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_training/teacher_training_archive_month.html:38
+msgid "Teacher_training Month Archive"
+msgstr ""
+
+#: templates/teacher/teacher_training/teacher_training_archive_month.html:58
+#, python-format
+msgid ""
+"\n"
+"      Teacher_trainings created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_training/teacher_training_archive_week.html:12
+#: templates/teacher/teacher_training/teacher_training_archive_week.html:16
+msgid "Teacher_training Week Archive"
+msgstr ""
+
+#: templates/teacher/teacher_training/teacher_training_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      Teacher_trainings created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_training/teacher_training_archive_year.html:32
+msgid "Teacher_training Year Archive"
+msgstr ""
+
+#: templates/teacher/teacher_training/teacher_training_archive_year.html:52
+#, python-format
+msgid ""
+"\n"
+"      Teacher_trainings created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/teacher/teacher_training/teacher_training_confirm_delete.html:11
+msgid "Delete this Teacher_training?"
+msgstr ""
+
+#: templates/teacher/teacher_training/teacher_training_form.html:22
+msgid "Course"
+msgstr ""
+
+#: templates/teacher/teacher_training/teacher_training_form.html:25
+msgid "Institution"
+msgstr ""
+
+#: templates/teacher/teacher_training/teacher_training_form.html:27
+msgid "City"
+msgstr ""
+
+#: templates/teacher/teacher_training/teacher_training_form.html:29
+msgid "Country"
+msgstr ""
+
+#: templates/teacher/teacher_training/teacher_training_form.html:31
+msgid "Duration from"
+msgstr ""
+
+#: templates/teacher/teacher_training/teacher_training_form.html:33
+msgid "Duration to"
+msgstr ""
+
+#: templates/teacher/teacher_training/teacher_training_list.html:14
+msgid "Teacher_trainings"
+msgstr ""

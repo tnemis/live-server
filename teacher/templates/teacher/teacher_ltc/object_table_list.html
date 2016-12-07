@@ -1,0 +1,75 @@
+
+
+{% load i18n %}
+
+<p>
+  {% trans "Click on the primary key value to access the individual Teacher_ltc's page." %}
+</p>
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        Id
+      </th>
+      
+        <th>
+          Teacher key
+        </th>
+      
+        <th>
+          Block year1
+        </th>
+      
+        <th>
+          Block year2
+        </th>
+      
+        <th>
+          Leave type
+        </th>
+      
+        <th>
+          Sanction amt
+        </th>
+      
+        <th>
+          Sanction number
+        </th>
+      
+        <th>
+          Sanction date
+        </th>
+      
+        
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+      <tr>
+        <td>
+          <a href='{% url "teacher_teacher_ltc_detail" pk=object.pk %}'>
+            {{ object.id|stringformat:".3d" }}
+          </a>
+        </td>
+        
+          <td>{{ object.teacher_key }}</td>
+        
+          <td>{{ object.block_yr1 }}</td>
+        
+          <td>{{ object.block_yr2 }}</td>
+        
+          <td>{{ object.leave_type }}</td>
+        
+          <td>{{ object.sanction_amt }}</td>
+        
+          <td>{{ object.sanction_number }}</td>
+        
+          <td>{{ object.sanction_date }}</td>
+        
+          
+        
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

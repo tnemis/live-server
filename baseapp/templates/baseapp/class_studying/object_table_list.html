@@ -1,0 +1,38 @@
+
+
+{% load i18n %}
+
+<p>
+  {% trans "Click on the primary key value to access the individual Class_Studying's page." %}
+</p>
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        id
+      </th>
+      
+        <th>
+          Class Studying
+        </th>
+      
+        
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+      <tr>
+        <td>
+          <a href='{% url "baseapp_class_studying_detail" pk=object.pk %}'>
+            {{ object.id|stringformat:".3d" }}
+          </a>
+        </td>
+        
+          <td>{{ object.class_studying }}</td>
+        
+          
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

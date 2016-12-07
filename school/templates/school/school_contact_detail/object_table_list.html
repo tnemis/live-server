@@ -1,0 +1,74 @@
+
+
+{% load i18n %}
+
+<p>
+  {% trans "Click on the primary key value to access the individual School_contact_detail's page." %}
+</p>
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        Id
+      </th>
+      
+        <th>
+          School Name
+        </th>
+      
+        <th>
+          Office Landline
+        </th>
+      
+        <th>
+          Office Mobile
+        </th>
+      
+        <th>
+          Office Email
+        </th>
+      
+        <th>
+          Hm Landline
+        </th>
+      
+        <th>
+          Hm Mobile
+        </th>
+      
+        <th>
+          Hm Email
+        </th>
+      
+       
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+      <tr>
+        <td>
+          <a href='{% url "school_school_contact_detail_detail" pk=object.pk %}'>
+            {{ object.id|stringformat:".3d" }}
+          </a>
+        </td>
+        
+          <td>{{ object.school_key.school.school_name }}</td>
+        
+          <td>{{ object.office_landline }}</td>
+        
+          <td>{{ object.office_mobile }}</td>
+        
+          <td>{{ object.office_email }}</td>
+        
+          <td>{{ object.hm_landline }}</td>
+        
+          <td>{{ object.hm_mobile }}</td>
+        
+          <td>{{ object.hm_email }}</td>
+        
+        
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

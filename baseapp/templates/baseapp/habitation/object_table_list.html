@@ -1,0 +1,56 @@
+
+
+{% load i18n %}
+
+<p>
+  {% trans "Click on the primary key value to access the individual Habitation's page." %}
+</p>
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        Id
+      </th>
+      
+        <th>
+          Habitation Code
+        </th>
+      
+        <th>
+          Habitation Name
+        </th>
+      
+        <th>
+          Habitation Area
+        </th>
+      
+       
+      
+        <th>
+          Block
+        </th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+      <tr>
+        <td>
+          <a href='{% url "baseapp_habitation_detail" pk=object.pk %}'>
+            {{ object.id|stringformat:".3d" }}
+          </a>
+        </td>
+        
+          <td>{{ object.code }}</td>
+        
+          <td>{{ object.name }}</td>
+        
+          <td>{{ object.zone }}</td>
+        
+      
+          <td>{{ object.block }}</td>
+        
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

@@ -1,0 +1,32 @@
+{% extends 'baseapp/zone/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="row">
+        <div class="col-md-8">
+  <form action='{% if object %}{% url "baseapp_zone_update" pk=object.pk %}{% else %}{% url "baseapp_zone_create" %}{% endif %}' method='post' encoding='utf-8'>
+     <fieldset>
+      {% csrf_token %}
+      
+      <div class="form-group"> <b>{% trans "Zone Type" %}</b>{{ form.zone_type|add_class:"form-control" }}</div><span class="error_message">{{form.zone_type.errors}}</span>
+      <div class="form-group"> <b>{% trans "Zone Code" %}</b>{{ form.code|add_class:"form-control" }}</div><span class="error_message">{{form.code.errors}}</span>
+      <div class="form-group"> <b>{% trans "Zone Name" %}</b>{{ form.name|add_class:"form-control" }}</div><span class="error_message">{{form.name.errors}}</span>
+      <div class="form-group"> <b>{% trans "Block" %}</b>{{ form.block|add_class:"form-control" }}</div><span class="error_message">{{form.block.errors}}</span>
+      
+        <button class='btn btn-large btn-success' type='submit'>
+          {% if object %}
+            {% trans "Update" %}
+          {% else %}
+            {% trans "Create" %}
+          {% endif %}
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+</div>
+{% endblock %}
+

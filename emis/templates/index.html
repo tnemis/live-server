@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="/site_media/static/css/style.css">
+<style type="text/css">
+.test{
+    background-color: #006FA0;
+} 
+</style>
+</head>
+<body>
+  <div class="main_body">
+<center>
+        <div class="test" id="image" style="overflow: hidden; width:100%;">
+<img src="/site_media/static/img/SED_logo.png"> <h1 style="color:MidnightBlue; height:28px;"> </h1>
+<h1 style="color:white; font-size: 26px; height: 70px;" > Educational Management Information System </h1>
+
+</div>
+</center> 
+<div class="login_box">
+ <form method="post" action="/accounts/" class="login">
+  {% csrf_token %}
+    <p>
+      <label for="login">Username:</label>
+      <input type="text" name="login" id="login" value="">
+<!--       <input type="text" name="login" id="login" value="username">
+ -->    </p>
+
+    <p>
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password" value="">
+    </p>
+
+    <p class="login-submit">
+      <button type="submit" class="login-button">Login</button>
+    </p>
+<p class="forgot-password"><a href="{% url "account_password_reset" %}" class="btn btn-default">Forgot your password?</a></p>
+<!--     <p class="forgot-password"><a href="/password/reset/">Forgot your password?</a></p>
+ -->  </form>
+  <div>
+  <div style="height:50px;"></div>
+    <div align="center">
+| © Educational Management Information System
+ | <br>
+| Pilot Project Designed & Developed by <a href="http://au-kbc.org" target="_blank" title="AU_KBC Home"> AU-KBC Research Centre</a>, Anna University Chennai |
+
+  </div>
+</div>
+</body>
+</html>

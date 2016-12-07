@@ -1,0 +1,49 @@
+
+
+{% extends 'school/school_flag/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+
+{% block filename %}
+  /home/mur/testing/emis_d15/scafold/school/templates/school/school_flag/school_flag_archive.html
+{% endblock %}
+{% block title %}
+  {% trans "School_flag Archive Index" %}
+{% endblock %}
+{% block breadcrumbs %}
+  <ul class='breadcrumb'>
+    <li>
+      <a href='{% url "school_school_flag_archive_index" %}'>
+        {% trans "Archive Index" %}
+      </a>
+    </li>
+  </ul>
+{% endblock %}
+{% block header-link %}
+  <a href='{% url "school_school_flag_archive_index" %}'>
+    {% trans "School_flag Archive Index" %}
+  </a>
+{% endblock %}
+{% block header-description %}
+  {% trans "A top-level index page showing the latest objects, by date." %}
+{% endblock %}
+{% block content %}
+  <h2>
+    By Year
+  </h2>
+  <ul class='nav nav-tabs nav-stacked'>
+    {% for date in date_list %}
+      <li>
+        <a href='{% url "school_school_flag_year_archive" year=date.year %}'>
+          {{ date.year }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  <h2>
+    {% trans "Recent School_flags" %}
+  </h2>
+  {% include 'school/school_flag/object_table_list.html' %}
+  {% include 'school/school_flag/pagination.html' %}
+{% endblock %}

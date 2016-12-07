@@ -1,0 +1,32 @@
+{% extends "helpdesk/base.html" %}{% load i18n %}
+{% load widget_tweaks %}
+
+{% block helpdesk_title %}{% trans "Create Ticket" %}{% endblock %}
+
+{% block helpdesk_body %}
+{% blocktrans %}<h3>Submit a Ticket</h3>
+
+<p>Unless otherwise stated, all fields are required. Please provide as descriptive a title and description as possible.</p>{% endblocktrans %}
+
+<form method='post' action='./' enctype='multipart/form-data'>
+<fieldset style="border: #3C8DBC 1px solid; padding:20px; width:70%;">
+    <dl>
+        {% for field in form %}
+            {% if field.is_hidden %}
+                {{ field|add_class:"form-control" }}
+            {% else %}
+                <dt><label for='id_{{ field.name }}'>{% trans field.label %}</label>{% if not field.field.required %} <span class='form_optional'>{% trans "(Optional)" %}</span>{% endif %}</dt>
+                <dd>{{ field|add_class:"form-control" }}</dd>
+                {% if field.errors %}<dd class='error'>{{ field.errors }}</dd>{% endif %}
+                {% if field.help_text %}<dd class='form_help_text'>{% trans field.help_text %}</dd>{% endif %}
+            {% endif %}
+        {% endfor %}
+    </dl>
+    
+    <div class='buttons'>
+        <input type='submit' value='{% trans "Submit Ticket" %}' />
+    </div>
+</fieldset>
+
+{% csrf_token %}</form>
+{% endblock %}

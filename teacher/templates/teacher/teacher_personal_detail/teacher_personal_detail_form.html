@@ -1,0 +1,136 @@
+
+
+
+{% extends 'teacher/teacher_personal_detail/base.html' %}
+{% load widget_tweaks %}
+
+{% load i18n %}
+{% load url from future %}
+
+
+{% block content %}
+
+
+
+        <script type="text/javascript">
+            $(function() {
+                //Datemask dd/mm/yyyy
+                $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+                //Datemask2 mm/dd/yyyy
+
+                $("[data-mask]").inputmask();
+
+                //Date range as a button
+
+            });
+        </script>
+
+
+<div class="row">
+<div class="col-md-8" >
+<form action='{% if object %}{% url "teacher_teacher_personal_detail_update" pk=object.pk %}{% else %}{% url "teacher_teacher_personal_detail_create" %}{% endif %}' method='post' encoding='utf-8'>
+    <fieldset>
+      {% csrf_token %}
+     <div class="form-group"> <b>{% trans "Code" %}</b>{{ form.code|add_class:"form-control" }}</div><span class="error_message">{{form.code.errors}}</span>
+
+   <div class="form-group"> <b>{% trans "Gpf No" %}</b>{{ form.gpf_no|add_class:"form-control" }}</div><span class="error_message">{{form.gpf_no.errors}}</span>
+
+   <input type="hidden" name="school" id="school" value="{{user.account.get_user_info.id}}">
+
+    <div class="form-group"> <b>{% trans "Name" %}</b>{{ form.name|add_class:"form-control" }}</div><span class="error_message">{{form.name.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Designation" %}</b>{{ form.designation|add_class:"form-control" }}</div><span class="error_message">{{form.designation.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Subject" %}</b>{{ form.subject|add_class:"form-control" }}</div><span class="error_message">{{form.subject.errors}}</span>
+
+     <div class="form-group"> <b>{% trans "Pan" %}</b>{{ form.pan|add_class:"form-control" }}</div><span class="error_message">{{form.pan.errors}}</span>
+
+     <div class="form-group"> <b>{% trans "Aadhaar Number" %}</b>{{ form.aadhaar_uid_number|add_class:"form-control" }}</div><span class="error_message">{{form.aadhaar_uid_number.errors}}</span>
+
+ <div class="form-group"> <b>{% trans "Date of Birth" %}</b>
+      <div class="input-group">
+        <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
+        </div>
+        <input class="form-control" name="dob" id="dob" type="text" data-mask="" data-inputmask="'alias': 'dd/mm/yyyy'" value="{{form.dob.value|date:"d/m/Y"  }}">
+      </div></div><span class="error_message">{{form.dob.errors}}</span>
+
+     <div class="form-group"> <b>{% trans "Blood Group" %}</b>
+       <select name="blood" id="blood" class="form-control">
+              <option value="" >---------</option>
+              <option value="A+" >A+</option>
+              <option value="A1+">A1+</option>
+              <option value="A2+">A2+</option>
+              <option value="B+">B+</option>
+              <option value="A1B+">A1B+</option>
+              <option value="A2B+">A2B+</option>
+              <option value="AB+">AB+</option>
+              <option value="O+">O+</option>
+              <option value="A-">A-</option>
+              <option value="A1-">A1-</option>
+              <option value="A2-">A2-</option>
+              <option value="B-">B-</option>
+              <option value="A1B-">A1B-</option>
+              <option value="A2B-">A2B-</option>
+              <option value="AB-">AB-</option>
+              <option value="O-">O-</option>
+            </select>
+     </div>
+     <span class="error_message">{{form.blood.errors}}</span>
+     <div class="form-group"> <b>{% trans "Gender" %}</b>
+              <select name="gender" id="gender" class="form-control" >
+              <option value="Male" >Male </option>
+              <option value="Female" >Female</option>
+              <option value="Transgender" >Transgender</option>
+            </select>
+            </div><span class="error_message">{{form.gender.errors}}</span>
+
+     <div class="form-group"> <b>{% trans "Community" %}</b>{{ form.community|add_class:"form-control" }}</div><span class="error_message">{{form.community.errors}}</span>
+
+     <div class="form-group"> <b>{% trans "Religion" %}</b>{{ form.religion|add_class:"form-control" }}</div><span class="error_message">{{form.religion.errors}}</span>
+
+     <div class="form-group"> <b>{% trans "Mother Tongue" %}</b>{{ form.mother_tongue|add_class:"form-control" }}</div><span class="error_message">{{form.mother_tongue.errors}}</span>
+
+
+
+     <div class="form-group"> <b>{% trans "Languages" %}</b>{{ form.languages|add_class:"form-control" }}</div><span class="error_message">{{form.languages.errors}}</span>
+
+     <div class="form-group"> <b>{% trans "Identification" %}</b>{{ form.identification|add_class:"form-control" }}</div><span class="error_message">{{form.identification.errors}}</span>
+
+     <div class="form-group"> <b>{% trans "Permanent Address" %}</b>{{ form.permanent_address|add_class:"form-control" }}</div><span class="error_message">{{form.permanent_address.errors}}</span>
+
+     <div class="form-group"> <b>{% trans "Permanent Pincode" %}</b>{{ form.permanent_pincode|add_class:"form-control" }}</div><span class="error_message">{{form.permanent_pincode.errors}}</span>
+
+     <div class="form-group"> <b>{% trans "Permanent Phone" %}</b>{{ form.permanent_phone|add_class:"form-control" }}</div><span class="error_message">{{form.permanent_phone.errors}}</span>
+
+     <div class="form-group"> <b>{% trans "Present Address" %}</b>{{ form.present_address|add_class:"form-control" }}</div><span class="error_message">{{form.present_address.errors}}</span>
+
+     <div class="form-group"> <b>{% trans "Present Pincode" %}</b>{{ form.present_pincode|add_class:"form-control" }}</div><span class="error_message">{{form.present_pincode.errors}}</span>
+
+     <div class="form-group"> <b>{% trans "Present Phone" %}</b>{{ form.present_phone|add_class:"form-control" }}</div><span class="error_message">{{form.present_phone.errors}}</span>
+
+<!--    
+  <div class="form-group"> <b>{% trans "Complete Flag" %}</b>{{ form.complete_flag|add_class:"form-control" }}</div><span class="error_message">{{form.complete_flag.errors}}</span>
+
+  <div class="form-group"> <b>{% trans "Modification Flag" %}</b>{{ form.modification_flag|add_class:"form-control" }}</div><span class="error_message">{{form.modification_flag.errors}}</span>
+
+  <div class="form-group"> <b>{% trans "Verification Flag" %}</b>{{ form.verification_flag|add_class:"form-control" }}</div><span class="error_message">{{form.verification_flag.errors}}</span> -->
+
+  <div class="form-group"> <b>{% trans "Staff Id" %}</b>{{ form.staff_id|add_class:"form-control" }}</div><span class="error_message">{{form.staff_id.errors}}</span>
+      <div class='form-actions'>
+        <button class='btn btn-large btn-success' type='submit'>
+          {% if object %}
+            {% trans "Update" %}
+          {% else %}
+            {% trans "Create" %}
+          {% endif %}
+        </button>
+      </div>
+    </fieldset>
+  </form>
+
+
+</div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,52 @@
+
+
+{% extends 'teacher/teacher_education/base.html' %}
+{% load widget_tweaks %}
+
+{% load i18n %}
+{% load url from future %}
+
+
+
+{% block content %}
+<div class="row">
+<div class="col-md-8" >
+  <form action='{% if object %}{% url "teacher_teacher_education_update" pk=object.pk %}{% else %}{% url "teacher_teacher_education_create" %}{% endif %}' method='post' encoding='utf-8'>
+    <fieldset>
+      {% csrf_token %}
+    <!--   {{ form }} -->
+  <div class="form-group"> <b>{% trans "Teacher Key" %}</b>{{ form.teacher_key|add_class:"form-control" }}</div><span class="error_message">{{form.teacher_key.errors}}</span>
+
+  <div class="form-group"> <b>{% trans "Qualification" %}</b>{{ form.qualification|add_class:"form-control" }}</div><span class="error_message">{{form.qualification.errors}}</span>
+
+   <div class="form-group"> <b>{% trans "Subject" %}</b>{{ form.subject|add_class:"form-control" }}</div><span class="error_message">{{form.subject.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Year" %}</b>{{ form.year|add_class:"form-control" }}</div><span class="error_message">{{form.year.errors}}</span>
+
+     <div class="form-group"> <b>{% trans "University" %}</b>{{ form.university|add_class:"form-control" }}</div><span class="error_message">{{form.university.errors}}</span>
+
+      <div class="form-group"> <b>{% trans "Complete Flag" %}</b>{{ form.complete_flag|add_class:"form-control" }}</div><span class="error_message">{{form.complete_flag.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Modification Flag" %}</b>{{ form.modification_flag|add_class:"form-control" }}</div><span class="error_message">{{form.modification_flag.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Verification Flag" %}</b>{{ form.verification_flag|add_class:"form-control" }}</div><span class="error_message">{{form.verification_flag.errors}}</span>
+
+
+    <div class="form-group"> <b>{% trans "Staff Id" %}</b>{{ form.staff_id|add_class:"form-control" }}</div><span class="error_message">{{form.staff_id.errors}}</span>
+
+
+
+      <div class='form-actions'>
+        <button class='btn btn-large btn-success' type='submit'>
+          {% if object %}
+            {% trans "Update" %}
+          {% else %}
+            {% trans "Create" %}
+          {% endif %}
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+</div>
+{% endblock %}

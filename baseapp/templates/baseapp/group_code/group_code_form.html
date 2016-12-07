@@ -1,0 +1,33 @@
+{% extends 'baseapp/group_code/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="row">
+        <div class="col-md-8">
+  <form action='{% if object %}{% url "baseapp_group_code_update" pk=object.pk %}{% else %}{% url "baseapp_group_code_create" %}{% endif %}' method='post' encoding='utf-8'>
+     <fieldset>
+      {% csrf_token %}
+      
+      <div class="form-group"> <b>{% trans "Group Code" %}</b>{{ form.group_code|add_class:"form-control" }}</div><span class="error_message">{{form.group_code.errors}}</span>
+
+      <div class="form-group"> <b>{% trans "Group Name" %}</b>{{ form.group_name|add_class:"form-control" }}</div><span class="error_message">{{form.group_name.errors}}</span>
+
+      <div class="form-group"> <b>{% trans "Group Description" %}</b>{{ form.group_description|add_class:"form-control" }}</div><span class="error_message">{{form.group_description.errors}}</span>
+      
+      
+        <button class='btn btn-large btn-success' type='submit'>
+          {% if object %}
+            {% trans "Update" %}
+          {% else %}
+            {% trans "Create" %}
+          {% endif %}
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+</div>
+{% endblock %}

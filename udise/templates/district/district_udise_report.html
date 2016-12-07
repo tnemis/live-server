@@ -1,0 +1,218 @@
+{% extends 'block/base.html' %}
+{% load i18n %}
+{% block content %}
+
+
+<script type="text/javascript">
+
+  $(function() { 
+    // for bootstrap 3 use 'shown.bs.tab', for bootstrap 2 use 'shown' in the next line
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        // save the latest tab; use cookies if you like 'em better:
+        localStorage.setItem('lastTab', $(this).attr('href'));
+    });
+
+    // go to the latest tab, if it exists:
+    var lastTab = localStorage.getItem('lastTab');
+    if (lastTab) {
+        $('[href="' + lastTab + '"]').tab('show');
+    }
+});
+</script>
+
+
+<style type="text/css">
+@media print {
+  a[href]:after {
+    content: none !important;
+  }
+}
+  th{
+    text-align: center;
+  }
+  a:link {text-decoration: none}
+</style>
+
+<style type="text/css">
+ * { margin:0 padding:0 }
+   
+  input {
+    border: none;
+    background: transparent;
+}
+.nav-tabs > li, .nav-pills > li {
+    float:none;
+    display:inline-block;
+    *display:inline; /* ie7 fix */
+     /* hasLayout ie7 trigger */
+}
+
+.nav-tabs, .nav-pills {
+    text-align:center;
+}
+.tag.example{
+	text-align: center;
+	color:#3C8DBC;
+}
+
+.example{
+	color:#3C8DBC;
+}
+th tr td {
+text-align: center;
+}
+
+</style>
+
+
+
+<center>
+<!-- <h4 style="color:#3C8DBC;">State level data entry progress report</h4></center> -->
+
+
+
+<center>
+<div class="container" id="myTab" >
+ <ul class="nav nav-tabs">
+    <li class="active" ><a data-toggle="tab" href="#menu0">district level school wise report</a></li>
+    <li><a data-toggle="tab" href="#menu1">district level consolidated report
+   </a></li>
+    </ul></center>
+<div class="tab-content">
+<br>
+<!-- school wise -->
+<div id="menu0" class="tab-pane fade  in active">     
+
+<table style="width:800px;" class='table table-bordered table-striped2' border="2">
+  <tr>
+    <th colspan="6"></th>
+  </tr>
+    <tr>
+    <th style="width:10px;" >S.no</th>
+    <th >District</th>
+    <th >Block Name</th>
+      <th>Udise total</th>
+      <th>Emis total</th>
+      <th>difference</th>
+    </tr>
+
+{% for w,x,y,z in mylist %}
+    <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ district.district_name }}</td>
+          <td><a href="/udise/block_level_udise_report/{{ w }}">{{ x }}</a></td>
+          <td><input type ='text' id='udise_count_{{forloop.counter}}' size="5" readonly value="{{ y }}"  ></td>
+          <td><input type ='text' id='emis_count_{{forloop.counter}}' size="5" readonly value="{{ z }}"></td>
+          <td><input type ='text' id='diff_count_{{forloop.counter}}' size="5" readonly   ></td>
+      </tr>
+<script type="text/javascript">
+$(document).ready(function() { 
+  var udise_count = document.getElementById('udise_count_{{forloop.counter}}').value;
+  var emis_count = document.getElementById('emis_count_{{forloop.counter}}').value;
+  var result = parseInt(udise_count) - parseInt(emis_count);
+  document.getElementById('diff_count_{{forloop.counter}}').value = result;
+  
+});
+</script>
+{% endfor %}
+<tr>
+  <th colspan="3">Total</th>
+  <th>{{ udise_district_total }}</th>
+  <th>{{ emis_district_total }}</th>
+  <th>{{diff_district_total}}</th>
+</tr>
+</table>
+
+</div><!-- menu0 -->
+<!-- school wise End-->
+
+
+
+<!-- consolidated -->
+<div id="menu1" class="tab-pane fade ">
+
+<table style="width:1100px;" class='table table-bordered table-striped2' border="2">
+  
+  <tr>
+    <th colspan="15">{{district_name}} consolidated data entry progress report - 
+     </th>
+  </tr>
+    <tr>
+    <th></th>
+      <th>I</th>
+      <th>II</th>
+      <th>III</th>
+      <th>IV</th>
+      <th>V</th>
+      <th>VI</th>
+      <th>VII</th>
+      <th>VIII</th>
+      <th>IX</th>
+      <th>X</th>
+      <th>XI</th>
+      <th>XII</th>
+      <th>Total</th>
+    </tr>
+
+
+    <tr>
+    <th>Udise</th>
+          <td>{{ district_udise_c1|default:"0" }}</td>
+          <td>{{ district_udise_c2|default:"0" }}</td>
+          <td>{{ district_udise_c3|default:"0" }}</td>
+          <td>{{ district_udise_c4|default:"0" }}</td>
+          <td>{{ district_udise_c5|default:"0" }}</td>
+          <td>{{ district_udise_c6|default:"0" }}</td>
+          <td>{{ district_udise_c7|default:"0" }}</td>
+          <td>{{ district_udise_c8|default:"0" }}</td>
+          <td>{{ district_udise_c9|default:"0" }}</td>
+          <td>{{ district_udise_c10|default:"0" }}</td>
+          <td>{{ district_udise_c11|default:"0" }}</td>
+          <td>{{ district_udise_c12|default:"0" }}</td>
+          <td>{{ district_udise_school_total|default:"0" }}</td>
+      </tr>
+
+      <tr>
+      <th>Emis</th>
+          <td>{{ district_emis_one|default:"0" }}</td>
+          <td>{{ district_emis_two|default:"0" }}</td>
+          <td>{{ district_emis_three|default:"0" }}</td>
+          <td>{{ district_emis_four|default:"0" }}</td>
+          <td>{{ district_emis_five|default:"0" }}</td>
+          <td>{{ district_emis_six|default:"0" }}</td>
+          <td>{{ district_emis_seven|default:"0" }}</td>
+          <td>{{ district_emis_eight|default:"0" }}</td>
+          <td>{{ district_emis_nine|default:"0" }}</td>
+          <td>{{ district_emis_ten|default:"0" }}</td>
+          <td>{{ district_emis_eleven|default:"0" }}</td>
+          <td>{{ district_emis_twelve|default:"0" }}</td>
+          <td>{{ district_emis_total_count|default:"0" }}</td>
+      </tr>
+
+
+<tr>
+      <th>Difference</th>
+          <td  >{{ district_diff_1|default:"0" }}</td>
+          <td  >{{ district_diff_2|default:"0" }}</td>
+          <td  >{{ district_diff_3|default:"0" }}</td>
+          <td>{{ district_diff_4|default:"0" }}</td>
+          <td>{{ district_diff_5|default:"0" }}</td>
+          <td>{{ district_diff_6|default:"0" }}</td>
+          <td>{{ district_diff_7|default:"0" }}</td>
+          <td>{{ district_diff_8|default:"0" }}</td>
+          <td>{{ district_diff_9|default:"0" }}</td>
+          <td>{{ district_diff_10|default:"0" }}</td>
+          <td>{{ district_diff_11|default:"0" }}</td>
+          <td>{{ district_diff_12|default:"0" }}</td>
+          <td>{{ district_diff_total|default:"0" }}</td>
+      </tr>
+</table>
+</div><!-- menu1 -->
+<!-- consolidated end -->
+
+
+
+{% if no_udise %}
+<h4 style="color:#3C8DBC;">{{ no_udise }}</h4></center>
+{% endif %}
+{% endblock %}

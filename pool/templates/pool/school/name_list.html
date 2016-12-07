@@ -1,0 +1,60 @@
+{% extends 'students/child_detail/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+{% load widget_tweaks %}
+{% load imagekit %}
+{% block content %}
+
+<p style="float:left;" id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = Date();
+</script>
+
+<style type="text/css">
+  th{
+    text-align: center;
+  }
+</style>
+
+  <center>
+                  <table  class='table table-bordered table-striped2' border="2">
+                  <tr  >
+                    <th colspan="6"> Student pool Name List - {{ school.school_name }}</th>
+                  </tr>
+                 
+                      <tr>
+                        <th style="width:15px;" >S.NO</th>
+                        <th  >Unique id</th>
+                        <th  >Name</th>
+                        <th  >Gender</th>
+                        <th  >Class</th>
+                        <th  >Date of birth</th>
+                        
+                       
+                      </tr>
+
+                      
+                      {% for i in my_students %}
+                      <tr>
+                        <td>{{ forloop.counter }}</td>
+                         <td>{{i.unique_id_no}}</td>
+                        <td>{{i.name}}</td>
+                        <td>{{i.gender}}</td>
+
+
+                        <td> {{i.class_studying}}</td>
+                         <td> {{i.dob}}</td>
+                          
+                        
+                      </tr>
+                    
+                    {% endfor %}
+                  </table>
+                  <br> 
+        </center>
+
+
+
+{% endblock %}

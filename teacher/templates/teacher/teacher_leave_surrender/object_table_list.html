@@ -1,0 +1,69 @@
+
+
+{% load i18n %}
+
+<p>
+  {% trans "Click on the primary key value to access the individual Teacher_leave_surrender's page." %}
+</p>
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        id
+      </th>
+      
+        <th>
+          teacher_key
+        </th>
+      
+        <th>
+          leave_from
+        </th>
+      
+        <th>
+          leave_to
+        </th>
+      
+        <th>
+          days
+        </th>
+      
+        <th>
+          order_no
+        </th>
+      
+        <th>
+          order_date
+        </th>
+      
+        
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+      <tr>
+        <td>
+          <a href='{% url "teacher_teacher_leave_surrender_detail" pk=object.pk %}'>
+            {{ object.id|stringformat:".3d" }}
+          </a>
+        </td>
+        
+          <td>{{ object.teacher_key }}</td>
+        
+          <td>{{ object.leave_from }}</td>
+        
+          <td>{{ object.leave_to }}</td>
+        
+          <td>{{ object.days }}</td>
+        
+          <td>{{ object.order_no }}</td>
+        
+          <td>{{ object.order_date }}</td>
+        
+          
+        
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

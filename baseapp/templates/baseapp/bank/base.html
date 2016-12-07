@@ -1,0 +1,43 @@
+{% extends "baseapp/master_base.html"|pjax:request %}
+
+{% load i18n %}
+{% block contentmenu %}
+    
+        <ul id="nav">
+                  
+                  <li >
+                    <a  href='{% url "baseapp_bank_list" %}'>
+                      {% trans "Bank List " %}
+                    </a>
+                  </li>
+                  <li >
+                    <a href='{% url "baseapp_bank_create" %}'>
+                      {% trans "Create Bank" %}
+                    </a>
+                  </li>
+                  {% if object %}
+                    <li >
+                      <a  href='{{ object.get_absolute_url }}'>
+                        {% trans "Bank Detail" %}
+                      </a>
+                    </li>
+                    <li >
+                      <a  href='{% url "baseapp_bank_update" pk=object.pk %}'>
+                        {% trans "Update Bank" %}
+                      </a>
+                    </li>
+                    <li >
+                      <a  href='{% url "baseapp_bank_delete" pk=object.pk %}'>
+                        {% trans "Delete" %}
+                      </a>
+                    </li>
+                  
+                  {% endif %}
+                  
+                </ul>
+        </a>
+      
+   
+   
+{% endblock %}
+

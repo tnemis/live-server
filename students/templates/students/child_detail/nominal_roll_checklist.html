@@ -1,0 +1,231 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>Emis-Nominal list</title>
+        <style type="text/css">
+            @page {
+                size: {{ pagesize }};
+                margin: 1cm;
+                @frame footer {
+                    -pdf-frame-content: footerContent;
+                    bottom: 0cm;
+                    margin-left: 9cm;
+                    margin-right: 9cm;
+                    height: 1cm;
+                }
+            }
+        </style>
+
+<style type="text/css">
+    table.tableizer-table {
+        font-size:12px;
+        /*border: 1px solid #CCC; */
+        font-family: Arial, Helvetica, sans-serif;
+    } 
+    .tableizer-table td {
+        padding: 4px;
+        margin: 4px;
+        /*border: 1px solid #CCC;*/
+    }
+    .tableizer-table th{
+        background-color:#b8e7ff;
+        padding: 4px;
+    }
+
+</style>
+
+    </head>
+    <body>
+
+        <div>
+        <center>
+
+{% if class == '12' %}
+
+<img src="{{MEDIA_URL}}images/child_pics/tn.png" alt="emis" ><br>
+      <font size="5"  color="#001999"><b>  Directorate of Government Examinations,Chennai-6<br></font>
+       <font size="5"  color="#ff1493;"> {{school.district.district_name}}&nbsp;-{{school.school_name}}</font><br>
+        <font size="5"  color="#001999">HSE - MARCH-2017 - SCHOOL CANDIDATE NOMINAL ROLL CHECK LIST
+        </b></font></center><br>
+<!-- table -->
+
+{% for child in nominal_roll_list %}
+
+<table  border="1" class="tableizer-table">
+<tbody>
+<tr>
+    <th colspan="4" ><center>{{child.group_code.group_code}}-{{child.group_code.group_name}}</center></th>
+</tr>
+<tr  >
+
+<!-- part1 -->
+<td  >S.No.<b>{{forloop.counter}}</b><br>
+<img src="{{MEDIA_URL}}{{child.photograph}}">              
+ </td>
+<!-- part1 end --> 
+
+
+<!-- part2 -->
+<td  >
+Name&nbsp;:&nbsp;<b>{{child.name}}</b><br>
+Section&nbsp;:&nbsp;<b>{{child.class_section}}</b><br>
+Sex&nbsp;:&nbsp;<b>{{child.gender}}</b><br>
+Dob&nbsp;:&nbsp;<b>{{child.dob}}</b><br>
+Religion&nbsp;:&nbsp;<b>{{child.religion}}</b><br>
+Community&nbsp;:&nbsp;<b>{{child.community}}</b><br>
+Subcaste&nbsp;:&nbsp;<b>{{child.subcaste}}</b><br>
+Aadhaar&nbsp;:&nbsp;<b>{{child.aadhaar_uid_number}}</b><br>
+</td>
+<!-- part2 end -->
+
+
+<!-- part3 -->
+<td >
+Disability&nbsp;:&nbsp;<b>{{child.child_differently_abled}}</b><br>
+Disability name&nbsp;:&nbsp;<b>{{child.differently_abled}}</b><br>
+Disability Id No&nbsp;:&nbsp;<b>{{child.da_id_no}}</b><br>
+Lang Exmp&nbsp;:&nbsp;<b>{{child.lang_exemption1}}</b><br>
+Father Name&nbsp;:&nbsp;<b>{{child.father_name}}</b><br>
+Mother Name&nbsp;:&nbsp;<b>{{child.mother_name}}</b><br>
+Nationality&nbsp;:&nbsp;<b>{{child.nationality}}</b><br>
+Mobile&nbsp;:&nbsp;<b>{{child.phone_number}}</b><br>
+First Language&nbsp;:&nbsp;<b>{{child.first_language}}</b><br>
+Medium&nbsp;:&nbsp;<b>{{child.education_medium}}</b>
+</td>
+
+<td>
+    <table border="1" >
+        <tr>
+                <td>S.no</td>
+                <td>Subjects</td>
+                <td>Medium</td>
+            
+        </tr>
+        <tr>
+            <td>(1)</td>
+            <td>Sub-I</td>
+            <td>{{child.grpcode_language1}}</td>
+        </tr>
+        <tr>
+            <td>(2)</td>
+            <td>Sub-II</td>
+            <td>{{child.grpcode_language2}}</td>
+        </tr>
+        <tr>
+            <td>(3)</td>
+            <td>Sub-III</td>
+            <td>{{child.grpcode_language3}}</td>
+        </tr>
+        <tr>
+            <td>(4)</td>
+            <td>Sub-IV</td>
+            <td>{{child.grpcode_language4}}</td>
+        </tr>
+    </table>     
+</td>
+<!-- part3 end -->
+
+
+
+
+
+</tr>
+</tbody></table><br>
+
+{% endfor %}
+{% endif %} 
+
+
+
+
+
+
+
+
+
+
+
+{% if class == '10' %}
+
+<img src="{{MEDIA_URL}}images/child_pics/tn.png" alt="emis" ><br>
+      <font size="5"  color="#001999"><b>  Directorate of Government Examinations,Chennai-6<br></font>
+       <font size="5"  color="#ff1493;"> {{school.district.district_name}}&nbsp;-{{school.school_name}}</font><br>
+        <font size="5"  color="#001999">SSLC - MARCH-2017 - SCHOOL CANDIDATE NOMINAL ROLL CHECK LIST
+        </b></font></center><br>
+<!-- table -->
+{% for child in nominal_roll_list %}
+
+<table border="1" class="tableizer-table">
+<tbody>
+
+<tr style="width:100%" >
+
+<!-- part1 -->
+<td  >S.No.<b>{{forloop.counter}}</b><br>
+<img src="{{MEDIA_URL}}{{child.photograph}}">                
+</td>
+<!-- part1 end --> 
+
+
+<!-- part2 -->
+<td  >
+Name&nbsp;:&nbsp;<b>{{child.name}}</b><br>
+Section&nbsp;:&nbsp;<b>{{child.class_section}}</b><br>
+Sex&nbsp;:&nbsp;<b>{{child.gender}}</b><br>
+Dob&nbsp;:&nbsp;<b>{{child.dob}}</b><br>
+Religion&nbsp;:&nbsp;<b>{{child.religion}}</b><br>
+Community&nbsp;:&nbsp;<b>{{child.community}}</b><br>
+Subcaste&nbsp;:&nbsp;<b>{{child.subcaste}}</b><br>
+Medium&nbsp;:&nbsp;<b>{{child.education_medium}}</b><br>
+Optional Language&nbsp;:&nbsp;<b>{{child.optional_language}}</b><br>         
+
+</td>
+<!-- part2 end -->
+
+
+<!-- part3 -->
+<td >
+Disability&nbsp;:&nbsp;<b>{{child.child_differently_abled}}</b><br>
+Disability name&nbsp;:&nbsp;<b>{{child.differently_abled}}</b><br>
+Disability Id No&nbsp;:&nbsp;<b>{{child.da_id_no}}</b><br>
+Lang Exmp&nbsp;:&nbsp;<b>{{child.lang_exemption}}</b><br>
+Sci.Prac.Exmp&nbsp;:&nbsp;<b>{{child.sci_practical}}</b><br>
+Aadhaar&nbsp;:&nbsp;<b>{{child.aadhaar_uid_number}}</b><br>
+Father Name&nbsp;:&nbsp;<b>{{child.father_name}}</b><br>
+Mother Name&nbsp;:&nbsp;<b>{{child.mother_name}}</b><br>
+Mobile&nbsp;:&nbsp;<b>{{child.phone_number}}</b><br>
+Nationality&nbsp;:&nbsp;<b>{{child.nationality}}</b><br>
+
+</td>
+<!-- part3 end -->
+
+
+
+
+
+</tr>
+</tbody></table><br>
+
+{% endfor %}
+{% endif %} 
+
+
+
+
+
+<!-- table end -->
+            
+        </div>
+        <div id="footerContent">
+            {%block page_foot%}
+                Page <pdf:pagenumber>
+            {%endblock%}
+        </div>
+        <p id="demo" ></p>
+<script type="text/javascript">
+window.onload = function(){
+    document.getElementById("demo").innerHTML = window.location.toString();
+}
+</script>
+    </body>
+</html>

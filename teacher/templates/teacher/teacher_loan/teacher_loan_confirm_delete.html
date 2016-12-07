@@ -1,0 +1,25 @@
+
+
+{% extends 'teacher/teacher_loan/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+
+
+{% block content %}
+  <h2>
+    {% trans "Delete this Teacher_loan?" %}
+  </h2>
+  <br />
+  {% include 'teacher/teacher_loan/object_table_detail.html' %}
+  <form action='{% url "teacher_teacher_loan_delete" pk=object.pk %}' charset='utf-8' method='post'>
+    <fieldset>
+      {% csrf_token %}
+      <div class='form-actions'>
+        <button class='btn btn-danger' type='submit'>
+          {% trans "Delete" %}
+        </button>
+      </div>
+    </fieldset>
+  </form>
+{% endblock %}

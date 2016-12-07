@@ -1,0 +1,43 @@
+{% extends "baseapp/master_base.html"|pjax:request %}
+
+{% load i18n %}
+{% block contentmenu %}
+    
+        <ul id="nav">
+                  
+                  <li >
+                    <a  href='{% url "baseapp_zone_list" %}'>
+                      {% trans "Zone List " %}
+                    </a>
+                  </li>
+                  <li >
+                    <a href='{% url "baseapp_zone_create" %}'>
+                      {% trans "Create Zone" %}
+                    </a>
+                  </li>
+                  {% if object %}
+                    <li >
+                      <a  href='{{ object.get_absolute_url }}'>
+                        {% trans "Zone Detail" %}
+                      </a>
+                    </li>
+                    <li >
+                      <a  href='{% url "baseapp_zone_update" pk=object.pk %}'>
+                        {% trans "Update Zone" %}
+                      </a>
+                    </li>
+                    <li >
+                      <a  href='{% url "baseapp_zone_delete" pk=object.pk %}'>
+                        {% trans "Delete" %}
+                      </a>
+                    </li>
+                  
+                  {% endif %}
+                  
+                </ul>
+        </a>
+      
+   
+   
+{% endblock %}
+

@@ -1,0 +1,106 @@
+
+
+{% load i18n %}
+
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        {% trans "Field" %}
+      </th>
+      <th>
+        {% trans "Value" %}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        id
+      </td>
+      <td>
+          <a href='{% url "teacher_teacher_leave_detail" pk=object.pk %}'>
+          {{ object.id|stringformat:".3d" }}
+        </a>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        teacher_key
+      </td>
+      <td>{{ object.teacher_key }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        leave_type
+      </td>
+      <td>{{ object.leave_type }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        leave_from
+      </td>
+      <td>{{ object.leave_from }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        leave_to
+      </td>
+      <td>{{ object.leave_to }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        order_no
+      </td>
+      <td>{{ object.order_no }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        order_date
+      </td>
+      <td>{{ object.order_date }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        complete_flag
+      </td>
+      <td>{{ object.complete_flag }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        modification_flag
+      </td>
+      <td>{{ object.modification_flag }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        verification_flag
+      </td>
+      <td>{{ object.verification_flag }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        staff_id
+      </td>
+      <td>{{ object.staff_id }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        timestamp
+      </td>
+      <td>{{ object.timestamp }}</td>
+    </tr>
+    
+  </tbody>
+</table>

@@ -1,0 +1,106 @@
+
+
+{% load i18n %}
+
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        {% trans "Field" %}
+      </th>
+      <th>
+        {% trans "Value" %}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        id
+      </td>
+      <td>
+        <a href='{{ object.get_absolute_url }}'>
+          {{ object.id|stringformat:".3d" }}
+        </a>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        teacher_key
+      </td>
+      <td>{{ object.teacher_key }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        fund_name
+      </td>
+      <td>{{ object.fund_name }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        nominee_name
+      </td>
+      <td>{{ object.nominee_name }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        relationship
+      </td>
+      <td>{{ object.relationship }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        age
+      </td>
+      <td>{{ object.age }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        percentage
+      </td>
+      <td>{{ object.percentage }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        complete_flag
+      </td>
+      <td>{{ object.complete_flag }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        modification_flag
+      </td>
+      <td>{{ object.modification_flag }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        verification_flag
+      </td>
+      <td>{{ object.verification_flag }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        staff_id
+      </td>
+      <td>{{ object.staff_id }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        timestamp
+      </td>
+      <td>{{ object.timestamp }}</td>
+    </tr>
+    
+  </tbody>
+</table>

@@ -1,0 +1,114 @@
+{% extends 'students/child_detail/base.html' %}
+{% load i18n %}
+{% block content %}
+
+<style type="text/css">
+@media print {
+  a[href]:after {
+    content: none !important;
+  }
+}
+  th{
+    text-align: center;
+  }
+  a {text-decoration: none}
+</style>
+
+
+
+
+
+
+
+<center>
+<!-- <h4 style="color:#3C8DBC;">State level data entry progress report</h4></center> -->
+
+
+
+
+<table id="Mytable" style="width:1100px;" class='table table-bordered table-striped2' border="2">
+  <thead>
+  <tr>
+    <th colspan="15">{{school_id}} data entry progress report</th>
+  </tr>
+    <tr>
+    <th></th>
+      <th class="th_1" >I</th>
+      <th class="th_2" >II</th>
+      <th class="th_3" >III</th>
+      <th class="th_4" >IV</th>
+      <th class="th_5" >V</th>
+      <th class="th_6" >VI</th>
+      <th class="th_7" >VII</th>
+      <th class="th_8" >VIII</th>
+      <th class="th_9" >IX</th>
+      <th class="th_10" >X</th>
+      <th class="th_11" >XI</th>
+      <th class="th_12" >XII</th>
+      <th >Total</th>
+    </tr>
+</thead>
+<tbody>
+   <!--  <tr>
+    <td>Udise</td>
+          <td class="td_1" >{{ udise_count.c1|default:"0" }}</td>
+          <td class="td_2" >{{ udise_count.c2|default:"0" }}</td>
+          <td class="td_3" >{{ udise_count.c3|default:"0" }}</td>
+          <td class="td_4" >{{ udise_count.c4|default:"0" }}</td>
+          <td class="td_5" >{{ udise_count.c5|default:"0" }}</td>
+          <td class="td_6" >{{ udise_count.c6|default:"0" }}</td>
+          <td class="td_7" >{{ udise_count.c7|default:"0" }}</td>
+          <td class="td_8" >{{ udise_count.c8|default:"0" }}</td>
+          <td class="td_9" >{{ udise_count.c9|default:"0" }}</td>
+          <td class="td_10" >{{ udise_count.c10|default:"0" }}</td>
+          <td class="td_11" >{{ udise_count.c11|default:"0" }}</td>
+          <td class="td_12" >{{ udise_count.c12|default:"0" }}</td>
+          <td  >{{ udise_count.school_total|default:"0" }}</td>
+      </tr>
+
+      <tr> -->
+      <td>Emis</td>
+          <td class="td_1"  >{{ emis_count_one|default:"0" }}</td>
+          <td class="td_2"  >{{ emis_count_two|default:"0" }}</td>
+          <td class="td_3"  >{{ emis_count_three|default:"0" }}</td>
+          <td class="td_4"  >{{ emis_count_four|default:"0" }}</td>
+          <td class="td_5"  >{{ emis_count_five|default:"0" }}</td>
+          <td class="td_6"  >{{ emis_count_six|default:"0" }}</td>
+          <td class="td_7"  >{{ emis_count_seven|default:"0" }}</td>
+          <td class="td_8"  >{{ emis_count_eight|default:"0" }}</td>
+          <td class="td_9"  >{{ emis_count_nine|default:"0" }}</td>
+          <td class="td_10" >{{ emis_count_ten|default:"0" }}</td>
+          <td class="td_11" >{{ emis_count_eleven|default:"0" }}</td>
+          <td class="td_12" >{{ emis_count_twelve|default:"0" }}</td>
+          <td  >{{ emis_count_total_count|default:"0" }}</td>
+      </tr>
+
+
+<!-- <tr>
+      <td>Difference</td>
+          <td >{{ diff_1|default:"0" }}</td>
+          <td >{{ diff_2|default:"0" }}</td>
+          <td  >{{ diff_3|default:"0" }}</td>
+          <td >{{ diff_4|default:"0" }}</td>
+          <td  >{{ diff_5|default:"0" }}</td>
+          <td >{{ diff_6|default:"0" }}</td>
+          <td >{{ diff_7|default:"0" }}</td>
+          <td >{{ diff_8|default:"0" }}</td>
+          <td >{{ diff_9|default:"0" }}</td>
+          <td >{{ diff_10|default:"0" }}</td>
+          <td >{{ diff_11|default:"0" }}</td>
+          <td >{{ diff_12|default:"0" }}</td>
+          <td >{{ diff_total|default:"0" }}</td>
+      </tr> -->
+  </tbody>
+</table>
+
+
+
+
+
+
+{% if no_udise %}
+<h4 style="color:#3C8DBC;">{{ no_udise }}</h4></center>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,80 @@
+
+
+{% load i18n %}
+
+<p>
+  {% trans "Click on the primary key value to access the individual Teacher_action's page." %}
+</p>
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        Id
+      </th>
+      
+        <th>
+          Teacher Key
+        </th>
+      
+        <th>
+          File Number
+        </th>
+      
+        <th>
+          Rule
+        </th>
+      
+        <th>
+          Gist
+        </th>
+      
+        <th>
+          Present Stage
+        </th>
+      
+        <th>
+          Order No
+        </th>
+      
+        <th>
+          Order Date
+        </th>
+      
+        <th>
+          Gist Final
+        </th>
+      
+        
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+      <tr>
+        <td>
+          <a href='{% url "teacher_teacher_action_detail" pk=object.pk %}'>
+            {{ object.id|stringformat:".3d" }}
+          </a>
+        </td>
+        
+          <td>{{ object.teacher_key }}</td>
+        
+          <td>{{ object.file_number }}</td>
+        
+          <td>{{ object.rule }}</td>
+        
+          <td>{{ object.gist }}</td>
+        
+          <td>{{ object.present_stage }}</td>
+        
+          <td>{{ object.order_no }}</td>
+        
+          <td>{{ object.order_date }}</td>
+        
+          <td>{{ object.gist_final }}</td>
+        
+        
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
