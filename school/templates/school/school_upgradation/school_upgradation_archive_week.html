@@ -1,0 +1,31 @@
+
+
+{% extends 'school/school_upgradation/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /home/mur/testing/emis_d15/scafold/school/templates/school/school_upgradation/school_upgradation_archive_week.html
+{% endblock %}
+
+{% block title %}
+  {% trans "School_upgradation Week Archive" %}
+{% endblock %}
+
+{% block header-link %}
+  {% trans "School_upgradation Week Archive" %}
+{% endblock %}
+
+{% block header-description %}
+  {% trans "A weekly archive page showing all objects in a given week." %}
+{% endblock %}
+
+{% block content %}
+  <h2>
+    {% blocktrans %}
+      School_upgradations created during the week beginning on {{ week }}
+    {% endblocktrans %}
+  </h2>
+  {% include 'school/school_upgradation/object_table_list.html' %}
+  {% include 'school/school_upgradation/pagination.html' %}
+{% endblock %}

@@ -1,0 +1,84 @@
+
+
+{% extends 'school/school_detail/base.html' %}
+{% load widget_tweaks %}
+
+{% load i18n %}
+{% load url from future %}
+
+
+ 
+{% block content %}
+<div class="row">
+<div class="col-md-8" >
+  <form action='{% if object %}{% url "school_school_detail_update" pk=object.pk %}{% else %}{% url "school_school_detail_create" %}{% endif %}' method='post' encoding='utf-8'>
+    <fieldset>
+      {% csrf_token %}
+
+     
+      <div class="form-group"> <b>{% trans "School key" %}</b>{{ form.school_key|add_class:"form-control" }}</div><span class="error_message">{{form.school_key.errors}}</span>
+
+      <div class="form-group"> <b>{% trans "Village ward" %}</b>{{ form.village_ward|add_class:"form-control" }}</div><span class="error_message">{{form.village_ward.errors}}</span>
+
+      <div class="form-group"> <b>{% trans "Pincode" %}</b>{{ form.pincode|add_class:"form-control" }}</div><span class="error_message">{{form.pincode.errors}}</span>
+
+      <div class="form-group"> <b>{% trans "Panchayat name" %}</b>{{ form.panchayat_name|add_class:"form-control" }}</div><span class="error_message">{{form.panchayat_name.errors}}</span>
+
+      <div class="form-group"> <b>{% trans "Municipality" %}</b>{{ form.municipality|add_class:"form-control" }}</div><span class="error_message">{{form.municipality.errors}}</span>
+
+      <div class="form-group"> <b>{% trans "City" %}</b>{{ form.city|add_class:"form-control" }}</div><span class="error_message">{{form.city.errors}}</span>
+
+      <div class="form-group"> <b>{% trans "Lowest class" %}</b>{{ form.lowest_class|add_class:"form-control" }}</div><span class="error_message">{{form.lowest_class.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Highest class" %}</b>{{ form.highest_class|add_class:"form-control" }}</div><span class="error_message">{{form.highest_class.errors}}</span>
+
+
+    <div class="form-group"> <b>{% trans "Road" %}</b>{{ form.road|add_class:"form-control" }}</div><span class="error_message">{{form.road.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Year" %}</b>{{ form.year|add_class:"form-control" }}</div><span class="error_message">{{form.year.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Spl school" %}</b>{{ form.spl_school|add_class:"form-control" }}</div><span class="error_message">{{form.spl_school.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Shift school" %}</b>{{ form.shift_school|add_class:"form-control" }}</div><span class="error_message">{{form.shift_school.errors}}</span>
+
+
+    <div class="form-group"> <b>{% trans "Latitude" %}</b>{{ form.latitude|add_class:"form-control" }}</div><span class="error_message">{{form.latitude.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Longitude" %}</b>{{ form.longitude|add_class:"form-control" }}</div><span class="error_message">{{form.longitude.errors}}</span>
+
+  <div class="form-group"> <b>{% trans "Assembly" %}</b>{{ form.assembly|add_class:"form-control" }}</div><span class="error_message">{{form.assembly.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Parliamentary" %}</b>{{ form.parliamentary|add_class:"form-control" }}</div><span class="error_message">{{form.parliamentary.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Contact detail" %}</b>{{ form.contact_detail|add_class:"form-control" }}</div><span class="error_message">{{form.contact_detail.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Recognition" %}</b>{{ form.recognition|add_class:"form-control" }}</div><span class="error_message">{{form.recognition.errors}}</span>
+
+
+    <div class="form-group"> <b>{% trans "Upgradation" %}</b>{{ form.upgradation|add_class:"form-control" }}</div><span class="error_message">{{form.upgradation.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Residential" %}</b>{{ form.residential|add_class:"form-control" }}</div><span class="error_message">{{form.residential.errors}}</span>
+
+
+    <div class="form-group"> <b>{% trans "Crc" %}</b>{{ form.crc|add_class:"form-control" }}</div><span class="error_message">{{form.crc.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Brc" %}</b>{{ form.brc|add_class:"form-control" }}</div><span class="error_message">{{form.brc.errors}}</span>
+
+
+    <div class="form-group"> <b>{% trans "Anganwadi" %}</b>{{ form.anganwadi|add_class:"form-control" }}</div><span class="error_message">{{form.anganwadi.errors}}</span>
+
+   
+       <div class='form-actions'>
+        <button class='btn btn-large btn-success' type='submit'>
+          {% if object %}
+            {% trans "Update" %}
+          {% else %}
+            {% trans "Create" %}
+          {% endif %}
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+</div>
+{% endblock %}

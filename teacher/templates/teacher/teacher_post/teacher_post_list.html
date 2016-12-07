@@ -1,0 +1,20 @@
+
+
+{% extends 'teacher/teacher_post/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+
+
+{% block content %}
+<div class="row">
+<div class="col-md-8" >
+  <h2>
+    {% trans "Teacher posts" %}
+  </h2>
+  {% include 'teacher/teacher_post/object_table_list.html' %}
+  {% include 'teacher/teacher_post/pagination.html' %}
+
+  </divs>
+</div>
+{% endblock %}

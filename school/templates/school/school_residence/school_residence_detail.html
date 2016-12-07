@@ -1,0 +1,29 @@
+
+
+{% extends 'school/school_residence/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+
+   
+
+{% block content %}
+<div class="row">
+<div class="col-md-8" >
+  {% include 'school/school_residence/object_table_detail.html' %}
+  <form action='{% url "school_school_residence_delete" pk=object.pk %}' charset='utf-8' method='post'>
+    <fieldset>
+      {% csrf_token %}
+      <div class='form-actions'>
+        <a class='btn btn-success' href='{% url "school_school_residence_update" pk=object.pk %}'>
+          {% trans "Update" %}
+        </a>
+        <button class='btn btn-danger' type='submit'>
+          {% trans "Delete" %}
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+</div>
+{% endblock %}

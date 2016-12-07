@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<form action='{% url "report_list" %}' method='post' enctype="multipart/form-data" >
+  {% csrf_token %}
+
+School : <select name="school_list" id="school_list" >
+{% for sch in school_list %}
+<option value="{{sch.id}}">{{sch.school_name}}</option>
+{% endfor %}
+</select>
+Class Studying : <select name="class_studying" id="class_studying" >
+<option value="all">All</option>
+<option value="1">I</option>
+<option value="2">II</option>
+<option value="3">III</option>
+<option value="4">IV</option>
+<option value="5">V</option>
+<option value="6">VI</option>
+<option value="7">VII</option>
+<option value="8">VIII</option>
+<option value="9">IX</option>
+<option value="10">X</option>
+<option value="11">XI</option>
+<option value="12">XII</option>
+</select>
+Academic Year: <select name="academic_year" id="academic_year" >
+<option value="all">All</option>
+<option value="1">2012-13</option>
+<option value="2">2013-14</option>
+<option value="3">2014-15</option>
+<option value="4">2015-16</option>
+</select>
+<input type="submit" value="Submit">
+</form>
+<table style="width:50%" border ="1">
+<tr>
+	<th>Id</th>
+	<th>Name</th>
+	<th>Unique Id</th>
+	<th>School Id</th>
+	<th>Class Studying</th>
+	</tr>
+{% for i in page_objs %}
+  <tr>
+    <td>{{forloop.counter0|add:page_objs.start_index}}</td>
+    <td>{{i.id}}</td>
+    <td>{{i.name}}</td>
+    <td>{{i.unique_id_no}}</td>
+    <td>{{i.school_id}}</td>
+    <td>{{i.class_studying}}</td>
+    <td><a href="/reports/download_child_profile/{{i.id}}/" ><br><img src="" alt="Download" title="Download Report as PDF"></a></td>
+  </tr>
+{% endfor %}
+        <ul class="pagination pagination-centered">
+            {% if page_objs.has_previous %}
+                <li><a href="?school_id={{school_id}}&page=1"><<</a></li>
+                <li><a href="?school_id={{school_id}}&page={{ page_objs.previous_page_number }}"><</a></li>
+            {% endif %}
+
+            {% for i in page_objs.paginator.page_range %}
+                {% if page_objs.number == i %}
+                {% if page_objs.has_previous %}
+                    <li><a href="?school_id={{school_id}}&page={{i|add:-1}}">{{i|add:-1}}</a></li>
+                {% endif %}
+                <li  class="active">
+
+                <a href="?school_id={{school_id}}&page={{i}}">{{i}}</a></li>
+                {% if page_objs.has_next %}
+                <li><a href="?school_id={{school_id}}&page={{i|add:1}}">{{i|add:1}}</a></li>
+                {% endif %}
+                {% endif %}
+
+            {% endfor %}
+
+
+            {% if page_objs.has_next %}
+                <li><a href="?page={{ page_objs.next_page_number }}">></a></li>
+                <li><a href="?page={{ page_objs.paginator.num_pages }}">>></a></li>
+            {% endif %}
+        </ul>
+</table>
+
+{% endblock %}

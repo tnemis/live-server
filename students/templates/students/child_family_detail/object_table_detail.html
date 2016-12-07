@@ -1,0 +1,106 @@
+
+
+{% load i18n %}
+
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        {% trans "Field" %}
+      </th>
+      <th>
+        {% trans "Value" %}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        Id
+      </td>
+      <td>
+        <a href='{{ object.get_absolute_url }}'>
+          {{ object.id|stringformat:".3d" }}
+        </a>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        Child key
+      </td>
+      <td>{{ object.child_key }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Block
+      </td>
+      <td>{{ object.block }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Sibling Name
+      </td>
+      <td>{{ object.sibling_name }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Sibling Relationship
+      </td>
+      <td>{{ object.sibling_relationship }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Sibling Age
+      </td>
+      <td>{{ object.sibling_age }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Sibling Status
+      </td>
+      <td>{{ object.sibling_status }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Sibling Studying
+      </td>
+      <td>{{ object.sibling_studying }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Sibling studying in same school
+      </td>
+      <td>{{ object.sibling_studying_same_school }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Staff id
+      </td>
+      <td>{{ object.staff_id }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Created date
+      </td>
+      <td>{{ object.created_date }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Modified date
+      </td>
+      <td>{{ object.modified_date }}</td>
+    </tr>
+    
+  </tbody>
+</table>

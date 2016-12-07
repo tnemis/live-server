@@ -1,0 +1,19 @@
+
+
+
+{% extends 'students/child_family_detail/base.html' %}
+
+{% load i18n %}
+{% block content %}
+<div class="row">
+        <div class="col-md-8">
+  <h2>
+    {% blocktrans %}
+      Child_family_details created on {{ day }}
+    {% endblocktrans %}
+  </h2>
+  {% include 'students/child_family_detail/object_table_list.html' %}
+  {% include 'students/child_family_detail/pagination.html' %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,102 @@
+
+
+{% extends 'teacher/teacher_leave_credit/base.html' %}
+{% load widget_tweaks %}
+
+{% load i18n %}
+{% load url from future %}
+
+
+
+
+
+{% block content %}
+<script type="text/javascript">
+            $(function() {
+                //Datemask dd/mm/yyyy
+                $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+                //Datemask2 mm/dd/yyyy
+
+                $("[data-mask]").inputmask();
+
+                //Date range as a button
+
+            });
+        </script>
+<div class="row">
+<div class="col-md-8" >
+  <form action='{% if object %}{% url "teacher_teacher_leave_credit_update" pk=object.pk %}{% else %}{% url "teacher_teacher_leave_credit_create" %}{% endif %}' method='post' encoding='utf-8'>
+    <fieldset>
+      {% csrf_token %}
+<!--       {{ form }}
+ -->    
+  <div class="form-group"> <b>{% trans "Teacher key" %}</b>{{ form.teacher_key|add_class:"form-control" }}</div><span class="error_message">{{form.teacher_key.errors}}</span>
+
+  <div class="form-group"> <b>{% trans "Earned effective" %}</b>{{ form.earned_effective|add_class:"form-control" }}</div><span class="error_message">{{form.earned_effective.errors}}</span>
+
+  <div class="form-group"> <b>{% trans "Earned credit" %}</b>{{ form.earned_credit|add_class:"form-control" }}</div><span class="error_message">{{form.earned_credit.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Earned prebalance" %}</b>{{ form.earned_prebalance|add_class:"form-control" }}</div><span class="error_message">{{form.earned_prebalance.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Earned curbalance" %}</b>{{ form.earned_curbalance|add_class:"form-control" }}</div><span class="error_message">{{form.earned_curbalance.errors}}</span>
+
+  <div class="form-group"> <b>{% trans "Earned orderno" %}</b>{{ form.earned_orderno|add_class:"form-control" }}</div><span class="error_message">{{form.earned_orderno.errors}}</span>
+
+  
+
+          <div class="form-group"> <b>{% trans "Earned orderdate" %}</b>
+      <div class="input-group">
+        <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
+        </div>
+        <input class="form-control" name="earned_orderdate" id="earned_orderdate" type="text" data-mask="" data-inputmask="'alias': 'dd/mm/yyyy'" value="{{form.earned_orderdate.value|date:"d/m/Y"  }}">
+      </div></div><span class="error_message">{{form.earned_orderdate.errors}}</span>
+
+     <div class="form-group"> <b>{% trans "Half effective" %}</b>{{ form.half_effective|add_class:"form-control" }}</div><span class="error_message">{{form.half_effective.errors}}</span>
+
+
+  <div class="form-group"> <b>{% trans "Half credit" %}</b>{{ form.half_credit|add_class:"form-control" }}</div><span class="error_message">{{form.half_credit.errors}}</span>
+
+  <div class="form-group"> <b>{% trans "Half prebalance" %}</b>{{ form.half_prebalance|add_class:"form-control" }}</div><span class="error_message">{{form.half_prebalance.errors}}</span>
+
+  <div class="form-group"> <b>{% trans "Half curbalance" %}</b>{{ form.half_curbalance|add_class:"form-control" }}</div><span class="error_message">{{form.half_curbalance.errors}}</span>
+
+  <div class="form-group"> <b>{% trans "Half orderno" %}</b>{{ form.half_orderno|add_class:"form-control" }}</div><span class="error_message">{{form.half_orderno.errors}}</span>
+
+
+
+           <div class="form-group"> <b>{% trans "Half orderdate" %}</b>
+      <div class="input-group">
+        <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
+        </div>
+        <input class="form-control" name="half_orderdate" id="half_orderdate" type="text" data-mask="" data-inputmask="'alias': 'dd/mm/yyyy'" value="{{form.half_orderdate.value|date:"d/m/Y"  }}">
+      </div></div><span class="error_message">{{form.half_orderdate.errors}}</span>
+
+<div class="form-group"> <b>{% trans "Complete flag" %}</b>{{ form.complete_flag|add_class:"form-control" }}</div><span class="error_message">{{form.complete_flag.errors}}</span>
+
+  <div class="form-group"> <b>{% trans "Modification flag" %}</b>{{ form.modification_flag|add_class:"form-control" }}</div><span class="error_message">{{form.modification_flag.errors}}</span>
+
+  <div class="form-group"> <b>{% trans "Verification flag" %}</b>{{ form.verification_flag|add_class:"form-control" }}</div><span class="error_message">{{form.verification_flag.errors}}</span>
+
+
+  <div class="form-group"> <b>{% trans "Staff id" %}</b>{{ form.staff_id|add_class:"form-control" }}</div><span class="error_message">{{form.staff_id.errors}}</span>
+
+
+
+
+
+   <div class='form-actions'>
+        <button class='btn btn-large btn-success' type='submit'>
+          {% if object %}
+            {% trans "Update" %}
+          {% else %}
+            {% trans "Create" %}
+          {% endif %}
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+</div>
+{% endblock %}

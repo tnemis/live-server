@@ -1,0 +1,62 @@
+
+
+{% extends 'baseapp/zone/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /home/murad/testing/baseapp/templates/baseapp/zone/zone_archive_day.html
+{% endblock %}
+{% block title %}
+  {% trans "Zone Day Archive" %}
+{% endblock %}
+{% block breadcrumbs %}
+  <ul class='breadcrumb'>
+    <li>
+      <a href='{% url "baseapp_zone_archive_index" %}'>
+        {% trans "Archive Index" %}
+      </a>
+      <span class='divider'>
+        /
+      </span>
+    </li>
+    <li>
+      <a href='{% url "baseapp_zone_year_archive" year=day.year %}'>
+        {% trans "Year Archive" %}
+      </a>
+      <span class='divider'>
+        /
+      </span>
+    </li>
+    <li>
+      <a href='{% url "baseapp_zone_month_archive" year=day.year month=day.month %}'>
+        {% trans "Month Archive" %}
+      </a>
+      <span class='divider'>
+        /
+      </span>
+    </li>
+    <li>
+      <a href='{% url "baseapp_zone_day_archive" year=day.year month=day.month day=day.day %}'>
+        {% trans "Day Archive" %}
+      </a>
+    </li>
+  </ul>
+{% endblock %}
+{% block header-link %}
+  <a href='{% url "baseapp_zone_day_archive" year=day.year month=day.month day=day.day %}'>
+    {% trans "Zone Day Archive" %}
+  </a>
+{% endblock %}
+{% block header-description %}
+  {% trans "A day archive page showing all objects in a given day." {%
+{% endblock %}
+{% block content %}
+  <h2>
+    {% blocktrans %}
+      Zones created on {{ day }}
+    {% endblocktrans %}
+  </h2>
+  {% include 'baseapp/zone/object_table_list.html' %}
+  {% include 'baseapp/zone/pagination.html' %}
+{% endblock %}

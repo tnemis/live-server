@@ -1,0 +1,43 @@
+{% extends "baseapp/master_base.html"|pjax:request %}
+
+{% load i18n %}
+{% block contentmenu %}
+    
+        <ul id="nav">
+                  
+                  <li >
+                    <a  href='{% url "baseapp_assembly_list" %}'>
+                      {% trans "Assembly List " %}
+                    </a>
+                  </li>
+                  <li >
+                    <a href='{% url "baseapp_assembly_create" %}'>
+                      {% trans "Create Assembly" %}
+                    </a>
+                  </li>
+                  {% if object %}
+                    <li >
+                      <a  href='{{ object.get_absolute_url }}'>
+                        {% trans "Assembly Detail" %}
+                      </a>
+                    </li>
+                    <li >
+                      <a  href='{% url "baseapp_assembly_update" pk=object.pk %}'>
+                        {% trans "Update Assembly" %}
+                      </a>
+                    </li>
+                    <li >
+                      <a  href='{% url "baseapp_assembly_delete" pk=object.pk %}'>
+                        {% trans "Delete" %}
+                      </a>
+                    </li>
+                  
+                  {% endif %}
+                  
+                </ul>
+        </a>
+      
+   
+   
+{% endblock %}
+

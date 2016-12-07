@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+
+{% if child %}
+<table>
+<tr>
+<td>
+<table border="1" style="border-style:solid; border-color: blue; width: 400px; height: 208px;">
+    <tr>
+        <th style="border-color: #0000FF; border-right-width: 0;">
+            <object data="{{MEDIA_URL}}/tnlogo.png" type="image/png+xml" border-bottom-width: 1px;>
+                    <img src="{{MEDIA_URL}}/tnlogo.png" />
+            </object>
+        </th style= "border-left-width: 0; border-right-width: 0; border-left-width: 0;">
+
+        <th colspan="2" style="color: #000080;"><b>{{child.school.school_name}}</b></th>
+    </tr>
+    <tr>
+        <td rowspan="5" >
+            <div style= "height: 122px; width: 120px; overflow: hidden;">
+               {% if child.photo == '' and child.photograph == '' %}
+                    <img src="{{MEDIA_URL}}/child.png" />
+                    {% endif %}
+
+                    {% if child.photo %}
+                    <img src="{{MEDIA_URL}}{{child.photo}}" />
+                    {% else %}
+                    <img src="{{MEDIA_URL}}{{img_name}}" />
+
+                    {% endif %}
+%}
+            </div>
+
+        </td>
+        <td style="border-bottom:0; border-right:0;">Name : </td>
+        <td style="border-bottom:0; border-left:0;"><b>{{child.name}} </b></td>
+
+
+    </tr>
+    <tr>
+        <td style="border:0;">Class : </td>
+        <td style="border:0;"><b>{{child.class_studying}}</b></td>
+    </tr>
+    <tr>
+        <td style="border:0;">ID : </td>
+        <td style="border:0;"><b>{{child.unique_id_no}}</b></td>
+    </tr>
+    <tr>
+        <td style="border:0;"> &nbsp; &nbsp;</td>
+        <td style="border:0;">&nbsp; &nbsp; </td>
+    </tr>
+    <tr>
+        <td style="border:0;"> </td>
+        <td style="border:0;" align="right">Head Master</td>
+    </tr>
+</table>
+</td>
+<td>&nbsp;</td>
+<td>
+<table style="border-style:solid; border-color: blue; width: 400px; height: 208px; " border="1">
+    <tr>
+        <td style="border:0; width: 115px; " >Date of Birth : </td>
+        <td style="border:0;" >{{child.dob}}</td>
+    </tr>
+    <tr>
+        <td style="border:0; width: 115px; " >Blood Group : </td>
+        <td style="border:0;" >{{child.blood_group}}</td>
+    </tr>
+    <tr>
+        <td style="border:0; width: 115px; " >Father's Name : </td>
+        <td style="border:0;" > {{child.father_name}}</td>
+    </tr>
+    <tr>
+        <td style="border:0;" >Address : </td>
+        <td style="border:0;" >{{child.house_address}}</td>
+    </tr>
+    <tr>
+        <td colspan="2" style="border:0;" >
+        <div style="height: 25px; overflow: hidden;"
+              <object data="{{MEDIA_URL}}/{{child.unique_id_no}}.svg"  type="image/svg+xml" border-bottom-width: 1px;>
+                    <img src="{{MEDIA_URL}}/{{child.unique_id_no}}.svg"  />
+            </object>
+
+            </div>
+        </td>
+    </tr>
+  <tr>
+        <td colspan="2" style="border:0;" > If you find this card please drop in postbox</td>
+    </tr>
+
+
+</table>
+</td>
+</tr>
+</table>
+{% else %}
+<div class = 'form-class'>
+<div class="row">
+        <div class="col-md-4">
+<form method="POST" action={% url 'students_barcode_generator' %}>{% csrf_token %}
+ Student Unique Id Number : <input type="text" class = 'form-control' name='uuid'/>
+ <br>
+<button class='btn btn-large btn-success' type='submit' >
+            {% trans "Submit" %}
+        </button>
+
+ <p style="color:red;">{{error}}</p>
+ </form>
+ </div>
+ </div></div>
+{% endif %}
+{% endblock %}

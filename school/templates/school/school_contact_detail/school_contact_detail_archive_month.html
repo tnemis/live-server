@@ -1,0 +1,64 @@
+
+
+{% extends 'school/school_contact_detail/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+
+{% block filename %}
+  /home/mur/testing/emis_d15/scafold/school/templates/school/school_contact_detail/school_contact_detail_archive_month.html
+{% endblock %}
+{% block breadcrumbs %}
+  <ul class='breadcrumb'>
+    <li>
+      <a href='{% url "school_school_contact_detail_archive_index" %}'>
+        {% trans "Archive Index" %}
+      </a>
+      <span class='divider'>
+        /
+      </span>
+    </li>
+    <li>
+      <a href='{% url "school_school_contact_detail_year_archive" year=month.year %}'>
+        {% trans "Year Archive" %}
+      </a>
+      <span class='divider'>
+        /
+      </span>
+    </li>
+    <li>
+      <a href='{% url "school_school_contact_detail_month_archive" year=month.year month=month.month %}'>
+        {% trans "Month Archive" %}
+      </a>
+    </li>
+  </ul>
+{% endblock %}
+{% block header-link %}
+  <a href='{% url "school_school_contact_detail_month_archive" year=month.year month=month.month %}'>
+    {% trans "School_contact_detail Month Archive" %}
+  </a>
+{% endblock %}
+{% block header-description %}
+  {% trans "A monthly archive page showing all objects in a given month." %}
+{% endblock %}
+{% block content %}
+  <h2>
+    By Day
+  </h2>
+  <ul class='nav nav-tabs nav-stacked'>
+    {% for date in date_list %}
+      <li>
+        <a href='{% url "school_school_contact_detail_day_archive" year=date.year month=date.month day=date.day %}'>
+          {{ date|date:"M. d, Y" }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  <h2>
+    {% blocktrans %}
+      School_contact_details created in the month of {{ month|date:"M Y" }}
+    {% endblocktrans %}
+  </h2>
+  {% include 'school/school_contact_detail/object_table_list.html' %}
+  {% include 'school/school_contact_detail/pagination.html' %}
+{% endblock %}

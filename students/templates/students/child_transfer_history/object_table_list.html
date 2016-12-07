@@ -1,0 +1,59 @@
+
+
+{% load i18n %}
+
+<p>
+  {% trans "Click on the primary key value to access the individual Child_Transfer_History's page." %}
+</p>
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        Id
+      </th>
+      
+        <th>
+          Child key
+        </th>
+      
+        <th>
+          Old school
+        </th>
+      
+        <th>
+          Tc issue date
+        </th>
+      
+        <th>
+          Created date
+        </th>
+      
+        <th>
+          Modified date
+        </th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+      <tr>
+        <td>
+          <a href='{% url "students_child_transfer_history_detail" pk=object.pk %}'>
+            {{ object.id|stringformat:".3d" }}
+          </a>
+        </td>
+        
+          <td>{{ object.child_key }}</td>
+        
+          <td>{{ object.old_school }}</td>
+        
+          <td>{{ object.tc_issue_date }}</td>
+        
+          <td>{{ object.created_date }}</td>
+        
+          <td>{{ object.modified_date }}</td>
+        
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

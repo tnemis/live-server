@@ -1,0 +1,32 @@
+{% if page_obj.has_previous or page_obj.has_next %}
+  <div class='pagination pagination-centered'>
+    <ul>
+      {% if page_obj.has_previous %}
+        <li>
+          <a href='?page={{ page_obj.previous_page_number }}'>
+            &lt;
+          </a>
+        </li>
+      {% else %}
+        <li class='disabled'>
+          <a>
+           &lt;
+          </a>
+        </li>
+      {% endif %}
+      {% if page_obj.has_next %}
+        <li>
+          <a href='?page={{ page_obj.next_page_number }}'>
+            &gt;
+          </a>
+        </li>
+      {% else %}
+        <li class='disabled'>
+          <a>
+            &gt;
+          </a>
+        </li>
+      {% endif %}
+    </ul>
+  </div>
+{% endif %}

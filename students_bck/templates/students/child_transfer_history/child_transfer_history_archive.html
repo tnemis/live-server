@@ -1,0 +1,27 @@
+{% extends 'students/child_transfer_history/base.html' %}
+
+{% load i18n %}
+
+{% block content %}
+  <div class="row">
+        <div class="col-md-8">
+  <h2>
+    By Year
+  </h2>
+  <ul class='nav nav-tabs nav-stacked'>
+    {% for date in date_list %}
+      <li>
+        <a href='{% url "students_child_transfer_history_year_archive" year=date.year %}'>
+          {{ date.year }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  <h2>
+    {% trans "Recent Child_Transfer_Historys" %}
+  </h2>
+  {% include 'students/child_transfer_history/object_table_list.html' %}
+  {% include 'students/child_transfer_history/pagination.html' %}
+  </div>
+  </div>
+{% endblock %}

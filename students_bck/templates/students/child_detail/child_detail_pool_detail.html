@@ -1,0 +1,1264 @@
+{% extends 'students/child_detail/base.html' %}
+{% load i18n %}
+{% load url from future %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+
+<style type="text/css">
+.container {padding:20px;}
+/*.form-control {width:120px;}*/
+.popover {max-width:1000px;}
+  </style>
+
+  
+</head>
+
+<body>
+  
+  
+<script language="Javascript" type="text/javascript">
+ 
+        function onlyAlphabets(e, t) {
+            try {
+                if (window.event) {
+                    var charCode = window.event.keyCode;
+                }
+                else if (e) {
+                    var charCode = e.which;
+                }
+                else { return true; }
+                if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123))
+                    return true;
+                else
+                    return false;
+            }
+            catch (err) {
+                alert(err.Description);
+            }
+        }
+ 
+    </script>
+
+
+  
+
+
+
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/themes/base/jquery-ui.css">
+
+
+
+
+<style type="text/css">
+
+
+table{
+  text-align: center;
+}
+th{
+  text-align: center;
+}
+    .ui-autocomplete {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    display: none;
+    min-width: 160px;   
+    padding: 4px 0;
+    margin: 0 0 10px 25px;
+    list-style: none;
+    background-color: #ffffff;
+    border-color: #ccc;
+    border-color: rgba(0, 0, 0, 0.2);
+    border-style: solid;
+    border-width: 1px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    *border-right-width: 2px;
+    *border-bottom-width: 2px;
+}
+
+.ui-menu-item > a.ui-corner-all {
+    display: block;
+    padding: 3px 15px;
+    clear: both;
+    font-weight: normal;
+    line-height: 18px;
+    color: #555555;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.ui-menu-item > a.hover {
+    color:#0088cc;
+    text-decoration: none;
+    background-color: #0088cc;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    background-image: none;
+}
+
+	</style>
+
+<script type="text/javascript">
+    function validate_uid(){
+        var  x = document.getElementById('uid');
+        var y = x.value.toString();
+        var z=document.getElementById('uid_alert');
+        z.innerHTML = '';
+        
+        if (y.length == 1){if(x.value != 3){ z.innerHTML = 'Enter Valid  code'; x.value = "";}}
+        if (y.length == 2){if(x.value != 33){ z.innerHTML = 'Enter Valid  code'; x.value = x.value.substring(0, x.value.length - 1);}}
+        if (y.length == 3){if(x.value < 330 || x.value > 333){ z.innerHTML = 'Enter Valid udise code'; x.value = x.value.substring(0, x.value.length - 1);}}
+        if (y.length == 4){if(x.value < 3301 || x.value > 3331){ z.innerHTML = 'Enter Valid udise code'; x.value = x.value.substring(0, x.value.length - 1);}}
+        if (y.length == 5){if(x.value < 33010 || x.value > 33314){ z.innerHTML = 'Enter Valid udise code'; x.value = x.value.substring(0, x.value.length - 1);}}
+        if (y.length == 6){if(x.value < 330101 || x.value > 333140){ z.innerHTML = 'Enter Valid udise code'; x.value = x.value.substring(0, x.value.length - 1);}}
+        if (y.length == 7){if(x.value < 3301010 || x.value > 3331400){ z.innerHTML = 'Enter Valid udise code'; x.value = x.value.substring(0, x.value.length - 1);}}
+        if (y.length == 8){if(x.value < 33010100 || x.value > 33314005){ z.innerHTML = 'Enter Valid udise code'; x.value = x.value.substring(0, x.value.length - 1);}}
+        if (y.length == 9){if(x.value < 330101001 || x.value > 333140050){ z.innerHTML = 'Enter Valid udise code'; x.value = x.value.substring(0, x.value.length - 1);}}
+        if (y.length == 10){if(x.value < 3301010010 || x.value > 3331400505){ z.innerHTML = 'Enter Valid udise code'; x.value = x.value.substring(0, x.value.length - 1);}}
+        if (y.length == 11){if(x.value < 33010100101 || x.value > 33314005050){ z.innerHTML = 'Enter Valid udise code'; x.value = x.value.substring(0, x.value.length - 1);}}     
+
+}
+</script>
+
+
+<script type="text/javascript">
+    function validate_unique_id(){
+        var  x = document.getElementById('unique_id');
+        var y = x.value.toString();
+        var z=document.getElementById('unique_id_alert');
+        z.innerHTML = '';
+        
+        if (y.length == 1){if(x.value != 3){ z.innerHTML = 'Enter Valid  code'; x.value = "";}}
+        if (y.length == 2){if(x.value != 33){ z.innerHTML = 'Enter Valid  code'; x.value = x.value.substring(0, x.value.length - 1);}}
+        if (y.length == 3){if(x.value < 330 || x.value > 333){ z.innerHTML = 'Enter Valid udise code'; x.value = x.value.substring(0, x.value.length - 1);}}
+        if (y.length == 4){if(x.value < 3301 || x.value > 3331){ z.innerHTML = 'Enter Valid udise code'; x.value = x.value.substring(0, x.value.length - 1);}}
+        if (y.length == 5){if(x.value < 33010 || x.value > 33314){ z.innerHTML = 'Enter Valid udise code'; x.value = x.value.substring(0, x.value.length - 1);}}
+        if (y.length == 6){if(x.value < 330101 || x.value > 333140){ z.innerHTML = 'Enter Valid udise code'; x.value = x.value.substring(0, x.value.length - 1);}}
+        if (y.length == 7){if(x.value < 3301010 || x.value > 3331400){ z.innerHTML = 'Enter Valid udise code'; x.value = x.value.substring(0, x.value.length - 1);}}
+        if (y.length == 8){if(x.value < 33010100 || x.value > 33314005){ z.innerHTML = 'Enter Valid udise code'; x.value = x.value.substring(0, x.value.length - 1);}}
+        if (y.length == 9){if(x.value < 330101001 || x.value > 333140050){ z.innerHTML = 'Enter Valid udise code'; x.value = x.value.substring(0, x.value.length - 1);}}
+        if (y.length == 10){if(x.value < 3301010010 || x.value > 3331400505){ z.innerHTML = 'Enter Valid udise code'; x.value = x.value.substring(0, x.value.length - 1);}}
+        if (y.length == 11){if(x.value < 33010100101 || x.value > 33314005050){ z.innerHTML = 'Enter Valid udise code'; x.value = x.value.substring(0, x.value.length - 1);}}     
+
+}
+
+
+
+
+function AllowAlphabet(){
+if (!frm.school_name.value.match(/^[a-zA-Z\.\ ]+$/) && frm.school_name.value !="")
+{
+frm.school_name.value="";
+frm.school_name.focus();
+}
+}
+
+
+
+
+function AllowAlphabet_name(){
+	var x=document.getElementById('student_name')
+if (!x.student_name.value.match(/^[a-zA-Z\.\ ]+$/) && x.student_name.value !="")
+{
+x.student_name.value="";
+x.student_name.focus();
+}
+}
+</script>
+
+
+
+
+<script type="text/javascript">
+    function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true; 
+ }
+
+</script>
+
+
+{% if form %}
+<script type="text/javascript">
+           
+      
+$(function() {
+    var availableSchools ={{school_list|safe}};
+    previousValue = "";
+  $('#school_name').autocomplete({
+    autoFocus: true,
+    source: availableSchools
+     }).keyup(function() {
+    var isValid = false;
+    for (i in availableSchools) {
+        if (availableSchools[i].toLowerCase().match(this.value.toLowerCase())) {
+            isValid = true;
+        }
+    }
+    if (!isValid) {
+        this.value = previousValue
+    } else {
+        previousValue = this.value;
+    }
+});
+
+});
+</script>
+<script type='text/javascript'>//<![CDATA[
+$( document ).ready(function() {
+function blinker() {
+    $('.blink_me').fadeOut(500);
+    $('.blink_me').fadeIn(500);
+}
+setInterval(blinker, 1000);
+});
+</script>
+<style type="text/css">
+	h6{
+		color:#ff9a9a;
+		/*font-weight: bold;*/
+		font-size:20px;
+    /*background-color:#ff9a9a;*/
+    padding: 0px 50px 0px 0px ;
+    margin-top: 40px;
+    font-family: 'Open Sans', sans-serif;
+	}
+</style>
+</head>
+<body>
+ 
+{% if stu_exist %}
+<center> <span class="blink_me"><h6 >{{ stu_exist }}-{{name}} is already in class-{{ classs }}, {{ school.school_name }} <br>We cannot absorb this student,as the record is not in student pool</h6></span></center>
+{% endif %}
+
+{% if does_nt_exist %}
+<center> <span class="blink_me"><h6 >{{student_code}}-{{ does_nt_exist }}</h6></span></center>
+{% endif %}
+
+{% if udise_does_nt_exist %}
+<center> <span class="blink_me"><h6 >{{udise_code}}-{{ udise_does_nt_exist }}</h6></span></center>
+{% endif %}
+
+{% if school_name_not_exist %}
+<center> <span class="blink_me"><h6 >The school '{{ our_school }}' {{ school_name_not_exist }}</h6></span></center>
+{% endif %}
+
+{% if no_record %}
+<center> <span class="blink_me"><h6 >{{ no_record }} in {{ our_school }}s student pool </h6></span></center>
+{% endif %}
+
+
+{% if school_exist %}
+<center> <span class="blink_me"> <h6 >{{ school_exist }}</h6></span></center>
+{% endif %}
+
+{% if no_name %}
+<center><span class="blink_me"><h6 > {{no_name}}-Name:{{ name }}-Dob:{{ dob }}</h6></span></center>
+{% endif %}
+
+{{ msg }}
+<table  class='table table-bordered' border="2"  align="center">
+<tr>
+<th colspan="2" >Select Any one option</th></tr>
+<th><center> Select Option</center>
+</th>
+<th><center>Search Options</center></th>
+
+
+  <tr>
+  <td style="width:40%" >
+  <table bgcolor="white" class='table table-bordered ' border="2" ><br>
+  <form autocomplete='off' name="select_form" action='{% url "students_child_detail_pool_detail" %}' method='post' encoding='utf-8' onsubmit="validate_uid()">     
+      {% csrf_token %}
+      <div class="form-group"> <b>
+      <center>{% trans "District" %}</b></center>{{ form.district|add_class:"form-control"|attr:'required:true' }}</div>
+      <div class="form-group"> <b>
+      <center>{% trans "Block" %}</b></center>{{ form.block|add_class:"form-control"|attr:'required:true' }}</div>
+      <div class="form-group"> <b>
+      <center>{% trans "School" %}</b></center>{{ form.school|add_class:"form-control"|attr:'required:true' }}</div>
+      <center> <button class='btn btn-large btn-success' type='submit'>
+            {% trans "Submit" %}
+        </button> </center>
+      </div>    
+  </form></table>
+</td>
+
+
+
+  <td>
+  
+  <table class='table table-bordered' border="2" ><!-- inter table -->
+  <tr>
+  <td style="color:green;">1</td> 
+  <td style="color:green;">Search with Udise Code</td>
+  <td>
+  <form autocomplete='off'  name="udise_form" action='{% url "students_child_detail_pool_detail" %}' method='post' encoding='utf-8'>{% csrf_token %}
+  <span id="uid_alert" style="color:#ff9a9a;" ></span>
+  <center>
+   <input type="text" minlength=11 class="form-control" id="uid" name="udise_no" placeholder="Enter School udise code" maxlength="11" style="width:200px;" onkeypress="return isNumber(event)"  onkeyup="validate_uid()" required title="Enter correct udise code" ></center></td>
+   <td>
+  <button class='btn btn-large btn-success' type='submit'>{% trans "Submit" %}</button>
+  </form></td>
+  </tr>
+
+
+    <tr>
+  <td style="color:green;">2</td> 
+  <td style="color:green;">Search with UNIQUE ID</td>
+  <td>
+  <form autocomplete='off'  name="unique_id_form" action='{% url "students_child_detail_pool_detail" %}' method='post' encoding='utf-8'> 
+  {% csrf_token %}
+  <span id="unique_id_alert" style="color:#ff9a9a;" ></span>
+  <center>
+   <input type="text" minlength=16 class="form-control" id="unique_id" name="unique_id" placeholder="Unique id number"  maxlength="16" style="width:200px;" onkeypress="return isNumber(event)"  onkeyup="validate_unique_id()" required  title="Enter unique correct id number"></center>
+   </td>
+   <td>
+  <button class='btn btn-large btn-success' type='submit'>{% trans "Submit" %}</button>
+  </form></td>
+  </tr>
+
+
+  <tr> 
+  <td style="color:green;">3</td> 
+  <td style="color:green;">Search School name <br> (with in the district only)</td>
+  <td>
+  <form autocomplete='off'  name="school_name_form" action='{% url "students_child_detail_pool_detail" %}' method='post' encoding='utf-8'>{% csrf_token %}
+  <center>
+  <div class="form-group">
+  <input autocomplete='off'  type="text" class="form-control" id="school_name" name="school_name" placeholder="School name" maxlength="50" style="width:200px;" value="{{ school_name.id }}" required  onkeyup="AllowAlphabet()"></center>
+  </div>
+   </td>
+   <td>
+  <button class='btn btn-large btn-success' type='submit'>{% trans "Submit" %}</button>
+  </form>
+  </td>
+  </tr>
+
+
+
+
+
+  <tr> 
+  <td style="color:green;"><br>4</td> 
+  <td style="color:green;"><br>Search with Student name & Dob </td>
+  <td>
+  <form autocomplete='off'  name="student_name_form" action='{% url "students_child_detail_pool_detail" %}' method='post' encoding='utf-8'>{% csrf_token %}
+  <center>
+  <div class="form-group">
+  <input autocomplete='off'  type="text" class="form-control" id="student_name" name="student_name" placeholder="Student name" maxlength="25" style="width:200px;" value="{{ student_name.id }}" required onkeypress="return onlyAlphabets(event,this);" >
+  </div>
+
+  <div class="form-group">
+  <input autocomplete='off'  type="text" class="form-control" name="dob" id="dob" type="text" data-mask="" data-inputmask="'alias': 'dd/mm/yyyy'" placeholder="Date of birth" maxlength="50" style="width:200px;"  required  >
+  </div>
+   </td>
+   <td><br>
+  <button class='btn btn-large btn-success' type='submit'>{% trans "Submit" %}</button>
+  </form>
+  </td>
+  </tr>
+
+<script type="text/javascript">
+            $(function() {
+                //Datemask dd/mm/yyyy
+                $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+                //Datemask2 mm/dd/yyyy
+
+                $("[data-mask]").inputmask();
+
+                //Date range as a button
+
+            });
+        </script>
+  
+
+  </table><!-- inter table -->
+
+  </td>
+  </tr>
+</table>
+
+{% else %}
+
+
+<script type="text/javascript">
+        $(document).ready(function() {
+          {% if user.account.get_user_info.category_id == 1 %}
+            $('table#mytable').css({'width': '50%'});
+                $('.div_6,.tab_6,.th_6,.td_6').hide();
+                $('.div_7,.tab_7,.th_7,.td_7').hide();
+                $('.div_8,.tab_8,.th_8,.td_8').hide();
+                $('.div_9,.tab_9,.th_9,.td_9').hide();
+                $('.div_10,.tab_10,.th_10,.td_10').hide();
+                $('.div_11,.tab_11,.th_11,.td_11').hide();
+                $('.div_12,.tab_12,.th_12,.td_12').hide();
+            {% endif %}
+            {% if user.account.get_user_info.category_id == 2 %}
+              $('table#mytable').css({'width': '60%'});
+                $('.div_9,.tab_9,.th_9,.td_9').hide();
+                $('.div_10,.tab_10,.th_10,.td_10').hide();
+                $('.div_11,.tab_11,.th_11,.td_11').hide();
+                $('.div_12,.tab_12,.th_12,.td_12').hide();
+            {% endif %}
+            {% if user.account.get_user_info.category_id == 4 %}
+            $('table#mytable').css({'width': '30%'});
+                $('.div_1,.tab_1,.th_1,.td_1').hide();
+                $('.div_2,.tab_2,.th_2,.td_2').hide();
+                $('.div_3,.tab_3,.th_3,.td_3').hide();
+                $('.div_4,.tab_4,.th_4,.td_4').hide();
+                $('.div_5,.tab_5,.th_5,.td_5').hide();
+                $('.div_9,.tab_9,.th_9,.td_9').hide();
+                $('.div_10,.tab_10,.th_10,.td_10').hide();
+                $('.div_11,.tab_11,.th_11,.td_11').hide();
+                $('.div_12,.tab_12,.th_12,.td_12').hide();
+            {% endif %}
+            {% if user.account.get_user_info.category_id == 5 %}
+            $('table#mytable').css({'width': '70%'});
+                $('.div_1,.tab_1,.th_1,.td_1').hide();
+                $('.div_2,.tab_2,.th_2,.td_2').hide();
+                $('.div_3,.tab_3,.th_3,.td_3').hide();
+                $('.div_4,.tab_4,.th_4,.td_4').hide();
+                $('.div_5,.tab_5,.th_5,.td_5').hide();
+            {% endif %}
+            {% if user.account.get_user_info.category_id == 6 %}
+            $('table#mytable').css({'width': '95%'});
+                $('.div_11,.tab_11,.th_11,.td_11').hide();
+                $('.div_12,.tab_12,.th_12,.td_12').hide();
+            {% endif %}
+            {% if user.account.get_user_info.category_id == 7 %}
+            $('table#mytable').css({'width': '40%'});
+                $('.div_1,.tab_1,.th_1,.td_1').hide();
+                $('.div_2,.tab_2,.th_2,.td_2').hide();
+                $('.div_3,.tab_3,.th_3,.td_3').hide();
+                $('.div_4,.tab_4,.th_4,.td_4').hide();
+                $('.div_5,.tab_5,.th_5,.td_5').hide();
+                $('.div_11,.tab_11,.th_11,.td_11').hide();
+                $('.div_12,.tab_12,.th_12,.td_12').hide();
+            {% endif %}
+            {% if user.account.get_user_info.category_id == 8 %}
+            $('table#mytable').css({'width': '20%'});
+                $('.div_1,.tab_1,.th_1,.td_1').hide();
+                $('.div_2,.tab_2,.th_2,.td_2').hide();
+                $('.div_3,.tab_3,.th_3,.td_3').hide();
+                $('.div_4,.tab_4,.th_4,.td_4').hide();
+                $('.div_5,.tab_5,.th_5,.td_5').hide();
+                $('.div_6,.tab_6,.th_6,.td_6').hide();
+                $('.div_7,.tab_7,.th_7,.td_7').hide();
+                $('.div_8,.tab_8,.th_8,.td_8').hide();
+                $('.div_11,.tab_11,.th_11,.td_11').hide();
+                $('.div_12,.tab_12,.th_12,.td_12').hide();
+            {% endif %}
+            {% if user.account.get_user_info.category_id == 9 %}
+            $('table#mytable').css({'width': '40%'});
+                $('.div_1,.tab_1,.th_1,.td_1').hide();
+                $('.div_2,.tab_2,.th_2,.td_2').hide();
+                $('.div_3,.tab_3,.th_3,.td_3').hide();
+                $('.div_4,.tab_4,.th_4,.td_4').hide();
+                $('.div_5,.tab_5,.th_5,.td_5').hide();
+                $('.div_6,.tab_6,.th_6,.td_6').hide();
+                $('.div_7,.tab_7,.th_7,.td_7').hide();
+                $('.div_8,.tab_8,.th_8,.td_8').hide();
+            {% endif %}
+            {% if user.account.get_user_info.category_id == 10 %}
+            $('table#mytable').css({'width': '20%'});
+                $('.div_1,tab_1,.th_1,.td_1').hide();
+                $('.div_2,tab_2,.th_2,.td_2').hide();
+                $('.div_3,tab_3,.th_3,.td_3').hide();
+                $('.div_4,tab_4,.th_4,.td_4').hide();
+                $('.div_5,tab_5,.th_5,.td_5').hide();
+                $('.div_6,tab_6,.th_6,.td_6').hide();
+                $('.div_7,tab_7,.th_7,.td_7').hide();
+                $('.div_8,tab_8,.th_8,.td_8').hide();
+                $('.div_9,tab_9,.th_9,.td_9').hide();
+                $('.div_10,tab_10,.th_10,.td_10').hide();
+            {% endif %}
+            {% if user.account.get_user_info.category_id == 11 %}
+            $('table#mytable').css({'width': '50%'});
+                $('.div_6,tab_6,.th_6,.td_6').hide();
+                $('.div_7,tab_7,.th_7,.td_7').hide();
+                $('.div_8,tab_8,.th_8,.td_8').hide();
+                $('.div_9,tab_9,.th_9,.td_9').hide();
+                $('.div_10,tab_10,.th_10,.td_10').hide();
+                $('.div_11,tab_11,.th_11,.td_11').hide();
+                $('.div_12,tab_12,.th_12,.td_12').hide();
+            {% endif %}
+        });
+
+</script>
+
+
+{% if student_list %}
+
+<table class='table table-bordered ' border="2" align="center">
+<tr>
+  <th colspan="8"><center> Student Pool -{{student_list|length}} Records in  School code:{{ udise_code }}, School name: {{ school.school_name }}, Block:{{ school.block.block_name }}</center></th>
+</tr>
+  <th style="width:10px" >S.No</th>
+  <!-- <th>Photo</th> -->
+  <th>Unique id no</th>
+  <th>Student Name</th>
+  <th>DOB</th>
+  <th>Gender</th>
+  <th>Last Studied class</th>
+  <th>Admiting class</th>
+  <th>Admit</th>
+
+{% for i  in student_list %}
+<tr>
+<td>{{ forloop.counter }} </td>
+<!-- <td>{{MEDIA_URL}}</td> -->
+<td>{{i.unique_id_no}}</td>
+<td><a href="" class="popoverThis_{{ forloop.counter }}" id="popoverId_{{ forloop.counter }}">{{i.name}}</a> </td>
+<td>{{i.dob|date:"d.m.Y"}} </td>
+<td>{{i.gender}} </td>
+<td>{{i.class_studying}} </td>
+
+
+
+<form autocomplete='off' id="pool_admit_form_{{ forloop.counter }}"  action='/students/child_admit/{{ i.id }}/' method='post' encoding='utf-8' onsubmit="validate_uid()">
+{% csrf_token %} 
+
+<td>
+  <select id="new_class_{{ forloop.counter }}" name="new_class"  class="form-control" required title="Select class">
+        <option value="" >---------</option>
+
+        {% if i.class_studying_id == 1 %}
+        <option class="tab_1" value=1>I</option>
+        <option class="tab_2" value=2>II</option>
+        <option class="tab_3" value=3>III</option>
+        <option class="tab_4" value=4>IV</option>
+        <option class="tab_5" value=5>V</option>
+        {% endif %}
+        {% if i.class_studying_id == 2 %}
+        <option class="tab_1" value=1>I</option>
+        <option class="tab_2" value=2>II</option>
+        <option class="tab_3" value=3>III</option>
+        <option class="tab_4" value=4>IV</option>
+        <option class="tab_5" value=5>V</option>
+        <option class="tab_6" value=6>VI</option>
+        {% endif %}
+        {% if i.class_studying_id == 3 %}
+        <option class="tab_2" value=2>II</option>
+        <option class="tab_3" value=3>III</option>
+        <option class="tab_4" value=4>IV</option>
+        <option class="tab_5" value=5>V</option>
+        <option class="tab_6" value=6>VI</option>
+        <option class="tab_7" value=7>VII</option>
+        {% endif %}
+        {% if i.class_studying_id == 4 %}
+        <option class="tab_3" value=3>III</option>
+        <option class="tab_4" value=4>IV</option>
+        <option class="tab_5" value=5>V</option>
+         <option class="tab_6" value=6>VI</option>
+        <option class="tab_7" value=7>VII</option>
+        <option class="tab_8" value=8>VIII</option>        
+        {% endif %}
+        {% if i.class_studying_id == 5 %}
+        <option class="tab_4" value=4>IV</option>
+        <option class="tab_5" value=5>V</option>
+         <option class="tab_6" value=6>VI</option>
+        <option class="tab_7" value=7>VII</option>
+        <option class="tab_8" value=8>VIII</option>
+        <option class="tab_9" value=9>IX</option>        
+        {% endif %}
+        {% if i.class_studying_id == 6 %}
+        <option class="tab_5" value=5>V</option>
+        <option class="tab_6" value=6>VI</option>
+        <option class="tab_7" value=7>VII</option>
+        <option class="tab_8" value=8>VIII</option>
+        <option class="tab_9" value=9>IX</option>
+        <option class="tab_10" value=10>X</option> 
+        {% endif %}
+        {% if i.class_studying_id == 7 %}
+        <option class="tab_6" value=6>VI</option>
+        <option class="tab_7" value=7>VII</option>
+        <option class="tab_8" value=8>VIII</option>
+        <option class="tab_9" value=9>IX</option>
+        <option class="tab_10" value=10>X</option>
+        <option class="tab_11" value=11>XI</option> 
+        {% endif %}
+        {% if i.class_studying_id == 8 %}
+        <option class="tab_7" value=7>VII</option>
+        <option class="tab_8" value=8>VIII</option>
+        <option class="tab_9" value=9>IX</option>
+        <option class="tab_10" value=10>X</option>
+        <option class="tab_11" value=11>XI</option>
+         <option class="tab_12" value=12>XII</option> 
+        {% endif %}
+        {% if i.class_studying_id == 9 %}
+        <option class="tab_8" value=8>VIII</option>
+        <option class="tab_9" value=9>IX</option>
+        <option class="tab_10" value=10>X</option>
+        <option class="tab_11" value=11>XI</option>
+         <option class="tab_12" value=12>XII</option> 
+        {% endif %}
+        {% if i.class_studying_id == 10 %}
+         <option class="tab_9" value=9>IX</option>
+        <option class="tab_10" value=10>X</option>
+        <option class="tab_11" value=11>XI</option>
+         <option class="tab_12" value=12>XII</option>
+        {% endif %}
+        {% if i.class_studying_id == 11 %}
+        <option class="tab_10" value=10>X</option>
+        <option class="tab_11" value=11>XI</option>
+         <option class="tab_12" value=12>XII</option>
+        {% endif %}
+        {% if i.class_studying_id == 12 %}
+        <option class="tab_11" value=11>XI</option>
+         <option class="tab_12" value=12>XII</option>
+        {% endif %}
+
+      </select>
+</td>
+<!-- <td  >
+<input class="form-control" id="admit_date_{{ forloop.counter }}" name="doa" style="width:100px" type="text" data-mask="" data-inputmask="'alias': 'dd/mm/yyyy'" value="{{form.dodoaalue|date:"d/m/Y"  }}" required='required'>     
+</td> -->
+<td>
+<center><input type="hidden" value="{{ udise_code }}" name="udise_no">
+  <button id="admit_button_{{ forloop.counter }}"  class="btn btn-info active custom" type='submit'>{% trans "Admit" %}
+  </button></center>
+</form>
+
+
+
+<script type='text/javascript'>//<![CDATA[
+$(window).load(function(){
+$('#popoverId_{{ forloop.counter }}').popover({
+    html: true,
+    
+    content: function () {
+        return $('#popoverContent_{{ forloop.counter }}').html();
+    }
+});
+
+
+var isVisible = false;
+var clickedAway = false;
+
+$('.popoverThis_{{ forloop.counter }}').popover({
+    html: true,
+    trigger: 'manual'
+}).click(function (e) {
+    $(this).popover('show');
+    $('.popover-content').append('<a class="close" style="position: absolute; top: 0; right: 6px;">&times;</a>');
+    clickedAway = false
+    isVisible = true
+    e.preventDefault()
+});
+
+$(document).click(function (e) {
+    if (isVisible & clickedAway) {
+        $('.popoverThis_{{ forloop.counter }}').popover('hide')
+        isVisible = clickedAway = false
+    } else {
+        clickedAway = true
+    }
+});
+});//]]> 
+
+</script>
+
+
+<div id="popoverContent_{{ forloop.counter }}" class="hide"><!-- POP up div -->
+<table>
+<tr>
+<td>
+<table border="1" style="border-style:solid;  width: 400px; height: 208px;">
+
+    <tr>
+        <th style="border-color: #0000FF; border-right-width: 0;">
+            <object data="{{MEDIA_URL}}/tnlogo.png" type="image/png+xml" border-bottom-width: 1px;>
+                    <img src="{{MEDIA_URL}}/tnlogo.png" />
+            </object>
+        </th style= "border-left-width: 0; border-right-width: 0; border-left-width: 0;">
+
+        <th colspan="2" style="color:white;"><b>{{i.name}}</b><br><b>{{i.unique_id_no}}</b></th>
+
+        
+    </tr>
+    <tr>
+        <td rowspan="5" >
+            <div style= "height: 122px; width: 120px; overflow: hidden;">
+               {% if i.photo == '' and i.photograph == '' %}
+                    <img width="120" height="120" src="/site_media/static/img/student.png" />
+                    {% endif %}
+
+                    {% if i.photo %}
+                    <img width="120" height="120" src="/site_media/static/img/student.png" />
+                    {% else %}
+                    <img width="120" height="120" src="/site_media/static/img/student.png" />
+
+                    {% endif %}
+%}
+            </div>
+
+        </td>
+    </tr>
+    <tr>
+        <td style="border:0;">Class:</td>
+        <td style="border:0;"><b>{{i.class_studying}}</b></td>
+    </tr>
+    <tr>
+        <td style="border:0;">Gender:</td>
+        <td style="border:0;"><b>{{i.gender}}</b></td>
+    </tr>
+    <tr>
+        <td style="border:0;">DOB:</td>
+        <td style="border:0;"><b>{{i.dob|date:"d.m.Y"}}</b></td>
+    </tr>
+    <tr>
+        <td style="border:0;">Father:</td>
+        <td style="border:0;"><b>{{i.father_name}}</b></td>
+    </tr>
+</table>
+</td>
+<td>&nbsp;</td>
+<td>
+
+</td>
+</tr>
+</table>
+</div><!-- popup div end -->
+</td>
+</tr>
+{% endfor %}
+</table>
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+{% if student_list_in_name_search %}
+
+
+<style type="text/css">
+  
+button[type="text"]:hover + #title {
+  display: block;
+}
+
+#title {
+  display: none;
+  color: #ffffff;
+  background-color: #000000;
+  text-align: center; 
+  width:250px;
+  padding: 10px;
+  position: absolute;
+}
+</style>
+
+<table class='table table-bordered ' border="2" align="center">
+<tr>
+  <th colspan="9"><center> {{student_list_in_name_search|length}} Records in matches {{name}}-{{dob}} <br></center></th>
+</tr>
+  <th style="width:10px" >S.No</th>
+  <!-- <th>Photo</th> -->
+  <th>Unique id no</th>
+  <th>Student Name</th>
+  <th>DOB</th>
+  <th>Gender</th>
+  <th>Last Studied class</th>
+  <th>Last Studied School</th>
+  <th>Admiting class</th>
+  <th>Admit</th>
+
+{% for i  in student_list_in_name_search %}
+<tr>
+<td>{{ forloop.counter }} </td>
+<!-- <td>{{MEDIA_URL}}</td> -->
+<td>{{i.unique_id_no}}</td>
+<td><a href="" class="popoverThis_{{ forloop.counter }}" id="popoverId_{{ forloop.counter }}">{{i.name}}</a><div id="alert_div_{{ forloop.counter }}" hidden ><h6 style="color:red" >{{i.name}} is already in class {{ i.class_studying_id }} {{ i.school.school_name }},we cannot obsorp this student,as the record is not in student pool</h6></div> </td>
+<td>{{i.dob|date:"d.m.Y"}} </td>
+<td>{{i.gender}} </td>
+<td>{{i.class_studying}} </td>
+<td>{{i.school.school_name}} </td>
+
+
+
+<form autocomplete='off' id="pool_admit_form_{{ forloop.counter }}"  action='/students/child_admit/{{ i.id }}/' method='post' encoding='utf-8' onsubmit="validate_uid()">
+{% csrf_token %} 
+
+<td>
+  <select id="new_class_{{ forloop.counter }}" name="new_class"  class="form-control" required title="Select class">
+        <option value="" >---------</option>
+
+        {% if i.class_studying_id == 1 %}
+        <option class="tab_1" value=1>I</option>
+        <option class="tab_2" value=2>II</option>
+        <option class="tab_3" value=3>III</option>
+        <option class="tab_4" value=4>IV</option>
+        <option class="tab_5" value=5>V</option>
+        {% endif %}
+        {% if i.class_studying_id == 2 %}
+        <option class="tab_1" value=1>I</option>
+        <option class="tab_2" value=2>II</option>
+        <option class="tab_3" value=3>III</option>
+        <option class="tab_4" value=4>IV</option>
+        <option class="tab_5" value=5>V</option>
+        <option class="tab_6" value=6>VI</option>
+        {% endif %}
+        {% if i.class_studying_id == 3 %}
+        <option class="tab_2" value=2>II</option>
+        <option class="tab_3" value=3>III</option>
+        <option class="tab_4" value=4>IV</option>
+        <option class="tab_5" value=5>V</option>
+        <option class="tab_6" value=6>VI</option>
+        <option class="tab_7" value=7>VII</option>
+        {% endif %}
+        {% if i.class_studying_id == 4 %}
+        <option class="tab_3" value=3>III</option>
+        <option class="tab_4" value=4>IV</option>
+        <option class="tab_5" value=5>V</option>
+         <option class="tab_6" value=6>VI</option>
+        <option class="tab_7" value=7>VII</option>
+        <option class="tab_8" value=8>VIII</option>        
+        {% endif %}
+        {% if i.class_studying_id == 5 %}
+        <option class="tab_4" value=4>IV</option>
+        <option class="tab_5" value=5>V</option>
+         <option class="tab_6" value=6>VI</option>
+        <option class="tab_7" value=7>VII</option>
+        <option class="tab_8" value=8>VIII</option>
+        <option class="tab_9" value=9>IX</option>        
+        {% endif %}
+        {% if i.class_studying_id == 6 %}
+        <option class="tab_5" value=5>V</option>
+        <option class="tab_6" value=6>VI</option>
+        <option class="tab_7" value=7>VII</option>
+        <option class="tab_8" value=8>VIII</option>
+        <option class="tab_9" value=9>IX</option>
+        <option class="tab_10" value=10>X</option> 
+        {% endif %}
+        {% if i.class_studying_id == 7 %}
+        <option class="tab_6" value=6>VI</option>
+        <option class="tab_7" value=7>VII</option>
+        <option class="tab_8" value=8>VIII</option>
+        <option class="tab_9" value=9>IX</option>
+        <option class="tab_10" value=10>X</option>
+        <option class="tab_11" value=11>XI</option> 
+        {% endif %}
+        {% if i.class_studying_id == 8 %}
+        <option class="tab_7" value=7>VII</option>
+        <option class="tab_8" value=8>VIII</option>
+        <option class="tab_9" value=9>IX</option>
+        <option class="tab_10" value=10>X</option>
+        <option class="tab_11" value=11>XI</option>
+         <option class="tab_12" value=12>XII</option> 
+        {% endif %}
+        {% if i.class_studying_id == 9 %}
+        <option class="tab_8" value=8>VIII</option>
+        <option class="tab_9" value=9>IX</option>
+        <option class="tab_10" value=10>X</option>
+        <option class="tab_11" value=11>XI</option>
+         <option class="tab_12" value=12>XII</option> 
+        {% endif %}
+        {% if i.class_studying_id == 10 %}
+         <option class="tab_9" value=9>IX</option>
+        <option class="tab_10" value=10>X</option>
+        <option class="tab_11" value=11>XI</option>
+         <option class="tab_12" value=12>XII</option>
+        {% endif %}
+        {% if i.class_studying_id == 11 %}
+        <option class="tab_10" value=10>X</option>
+        <option class="tab_11" value=11>XI</option>
+         <option class="tab_12" value=12>XII</option>
+        {% endif %}
+        {% if i.class_studying_id == 12 %}
+        <option class="tab_11" value=11>XI</option>
+         <option class="tab_12" value=12>XII</option>
+        {% endif %}
+
+      </select>
+</td>
+<!-- <td  >
+<input class="form-control" id="admit_date_{{ forloop.counter }}" name="doa" style="width:100px" type="text" data-mask="" data-inputmask="'alias': 'dd/mm/yyyy'" value="{{form.dodoaalue|date:"d/m/Y"  }}" required='required'>     
+</td> -->
+<td>
+<center><input hidden type="text" name='my_student' value=1>
+  <button id="admit_button_{{ forloop.counter }}" {% if i.transfer_flag == 0 %} onclick="myalert_{{forloop.counter}}(); return false;" class="btn btn-danger active" {% endif %} {% if i.transfer_flag == 2 %} onclick="myalert_{{forloop.counter}}(); return false;" class="btn btn-danger active" {% endif %}class="btn btn-info active custom" type='submit'>{% trans "Admit" %}
+  </button></center>
+</form>
+
+
+<script type="text/javascript">
+  function myalert_{{forloop.counter}}(){
+     $('#alert_div_{{forloop.counter}}').slideToggle();
+  }
+</script>
+
+<script type='text/javascript'>//<![CDATA[
+$(window).load(function(){
+$('#popoverId_{{ forloop.counter }}').popover({
+    html: true,
+    
+    content: function () {
+        return $('#popoverContent_{{ forloop.counter }}').html();
+    }
+});
+
+
+var isVisible = false;
+var clickedAway = false;
+
+$('.popoverThis_{{ forloop.counter }}').popover({
+    html: true,
+    trigger: 'manual'
+}).click(function (e) {
+    $(this).popover('show');
+    $('.popover-content').append('<a class="close" style="position: absolute; top: 0; right: 6px;">&times;</a>');
+    clickedAway = false
+    isVisible = true
+    e.preventDefault()
+});
+
+$(document).click(function (e) {
+    if (isVisible & clickedAway) {
+        $('.popoverThis_{{ forloop.counter }}').popover('hide')
+        isVisible = clickedAway = false
+    } else {
+        clickedAway = true
+    }
+});
+});//]]> 
+
+</script>
+
+
+<div id="popoverContent_{{ forloop.counter }}" class="hide"><!-- POP up div -->
+<table>
+<tr>
+<td>
+<table border="1" style="border-style:solid;  width: 400px; height: 208px;">
+
+    <tr>
+        <th style="border-color: #0000FF; border-right-width: 0;">
+            <object data="{{MEDIA_URL}}/tnlogo.png" type="image/png+xml" border-bottom-width: 1px;>
+                    <img src="{{MEDIA_URL}}/tnlogo.png" />
+            </object>
+        </th style= "border-left-width: 0; border-right-width: 0; border-left-width: 0;">
+
+        <th colspan="2" style="color:white;"><b>{{i.name}}</b><br><b>{{i.unique_id_no}}</b></th>
+
+        
+    </tr>
+    <tr>
+        <td rowspan="5" >
+            <div style= "height: 122px; width: 120px; overflow: hidden;">
+               {% if i.photo == '' and i.photograph == '' %}
+                    <img width="120" height="120" src="/site_media/static/img/student.png" />
+                    {% endif %}
+
+                    {% if i.photo %}
+                    <img width="120" height="120" src="/site_media/static/img/student.png" />
+                    {% else %}
+                    <img width="120" height="120" src="/site_media/static/img/student.png" />
+
+                    {% endif %}
+%}
+            </div>
+
+        </td>
+    </tr>
+    <tr>
+        <td style="border:0;">Class:</td>
+        <td style="border:0;"><b>{{i.class_studying}}</b></td>
+    </tr>
+    <tr>
+        <td style="border:0;">Gender:</td>
+        <td style="border:0;"><b>{{i.gender}}</b></td>
+    </tr>
+    <tr>
+        <td style="border:0;">DOB:</td>
+        <td style="border:0;"><b>{{i.dob|date:"d.m.Y"}}</b></td>
+    </tr>
+    <tr>
+        <td style="border:0;">Father:</td>
+        <td style="border:0;"><b>{{i.father_name}}</b></td>
+    </tr>
+</table>
+</td>
+<td>&nbsp;</td>
+<td>
+
+</td>
+</tr>
+</table>
+</div><!-- popup div end -->
+</td>
+</tr>
+{% endfor %}
+</table>
+{% endif %}
+
+
+
+
+
+
+
+
+
+{% if my_student %}
+<!-- <center><h6 style="font-size:160%;color:green;" > Student Pool list in {{ school.school_name }}</h6></center> -->
+<table class='table table-bordered ' border="2" align="center">
+<tr>
+  <th colspan="8"><center>School code:{{ my_student.school.school_code }}, School name: {{ school.school_name }}, Block:{{ school.block.block_name }}</center></th>
+</tr>
+  <th style="width:10px" >S.No</th>
+  <th>Unique id no</th>
+  <th>Student Name</th>
+  <th>DOB</th>
+  <th>Gender</th>
+  <th>Last Studied class</th>
+  <th>Admiting class</th>
+  <!-- <th>Admission Date</th> -->
+  <th>Admit</th>
+<tr>
+<td>{{ 1 }} </td>
+<td>{{my_student.unique_id_no}}
+<td><a href="" class="popoverThis" id="popoverId">{{my_student.name}}</a> </td>
+<td>{{my_student.dob|date:"d.m.Y"}} </td>
+<td>{{my_student.gender}} </td>
+<td>{{my_student.class_studying}} </td>
+
+<form autocomplete='off'   action='/students/child_admit/{{ my_student.id }}/' method='post' encoding='utf-8' onsubmit="validate_uid()">
+{% csrf_token %} 
+
+<td>
+  <select id="new_class_{{ forloop.counter }}" name="new_class"  class="form-control" required title="Select any one class">
+
+        <option value="" >---------</option>
+
+        {% if my_student.class_studying_id == 1 %}
+        <option class="tab_1" value=1>I</option>
+        <option class="tab_2" value=2>II</option>
+        <option class="tab_3" value=3>III</option>
+        <option class="tab_4" value=4>IV</option>
+        <option class="tab_5" value=5>V</option>
+        {% endif %}
+        {% if my_student.class_studying_id == 2 %}
+        <option class="tab_1" value=1>I</option>
+        <option class="tab_2" value=2>II</option>
+        <option class="tab_3" value=3>III</option>
+        <option class="tab_4" value=4>IV</option>
+        <option class="tab_5" value=5>V</option>
+        <option class="tab_6" value=6>VI</option>
+        {% endif %}
+        {% if my_student.class_studying_id == 3 %}
+        <option class="tab_2" value=2>II</option>
+        <option class="tab_3" value=3>III</option>
+        <option class="tab_4" value=4>IV</option>
+        <option class="tab_5" value=5>V</option>
+        <option class="tab_6" value=6>VI</option>
+        <option class="tab_7" value=7>VII</option>
+        {% endif %}
+        {% if my_student.class_studying_id == 4 %}
+        <option class="tab_3" value=3>III</option>
+        <option class="tab_4" value=4>IV</option>
+        <option class="tab_5" value=5>V</option>
+         <option class="tab_6" value=6>VI</option>
+        <option class="tab_7" value=7>VII</option>
+        <option class="tab_8" value=8>VIII</option>        
+        {% endif %}
+        {% if my_student.class_studying_id == 5 %}
+        <option class="tab_4" value=4>IV</option>
+        <option class="tab_5" value=5>V</option>
+         <option class="tab_6" value=6>VI</option>
+        <option class="tab_7" value=7>VII</option>
+        <option class="tab_8" value=8>VIII</option>
+        <option class="tab_9" value=9>IX</option>        
+        {% endif %}
+        {% if my_student.class_studying_id == 6 %}
+        <option class="tab_5" value=5>V</option>
+        <option class="tab_6" value=6>VI</option>
+        <option class="tab_7" value=7>VII</option>
+        <option class="tab_8" value=8>VIII</option>
+        <option class="tab_9" value=9>IX</option>
+        <option class="tab_10" value=10>X</option> 
+        {% endif %}
+        {% if my_student.class_studying_id == 7 %}
+        <option class="tab_6" value=6>VI</option>
+        <option class="tab_7" value=7>VII</option>
+        <option class="tab_8" value=8>VIII</option>
+        <option class="tab_9" value=9>IX</option>
+        <option class="tab_10" value=10>X</option>
+        <option class="tab_11" value=11>XI</option> 
+        {% endif %}
+        {% if my_student.class_studying_id == 8 %}
+        <option class="tab_7" value=7>VII</option>
+        <option class="tab_8" value=8>VIII</option>
+        <option class="tab_9" value=9>IX</option>
+        <option class="tab_10" value=10>X</option>
+        <option class="tab_11" value=11>XI</option>
+         <option class="tab_12" value=12>XII</option> 
+        {% endif %}
+        {% if my_student.class_studying_id == 9 %}
+        <option class="tab_8" value=8>VIII</option>
+        <option class="tab_9" value=9>IX</option>
+        <option class="tab_10" value=10>X</option>
+        <option class="tab_11" value=11>XI</option>
+         <option class="tab_12" value=12>XII</option> 
+        {% endif %}
+        {% if my_student.class_studying_id == 10 %}
+         <option class="tab_9" value=9>IX</option>
+        <option class="tab_10" value=10>X</option>
+        <option class="tab_11" value=11>XI</option>
+         <option class="tab_12" value=12>XII</option>
+        {% endif %}
+        {% if my_student.class_studying_id == 11 %}
+        <option class="tab_10" value=10>X</option>
+        <option class="tab_11" value=11>XI</option>
+         <option class="tab_12" value=12>XII</option>
+        {% endif %}
+        {% if my_student.class_studying_id == 12 %}
+        <option class="tab_11" value=11>XI</option>
+         <option class="tab_12" value=12>XII</option>
+        {% endif %}
+      </select>
+</td>
+<!-- <td  >
+<input id="admit_date_{{ forloop.counter }}" name="doa" style="width:100px" type="text" data-mask="" data-inputmask="'alias': 'dd/mm/yyyy'" value="{{form.dodoaalue|date:"d/m/Y"  }}" required='required'>     
+</td> -->
+<td>
+
+
+<input hidden type="text" name='my_student' value=1>
+
+  <button id="admit_button_{{ forloop.counter }}"  class="btn btn-info active " type='submit'>
+            {% trans "Admit" %}
+        </button>
+</form>
+
+<script type='text/javascript'>//<![CDATA[
+$(window).load(function(){
+$('#popover').popover({
+    html: true,
+    
+    content: function () {
+        return $('#popoverContent').html();
+    }
+});
+
+
+var isVisible = false;
+var clickedAway = false;
+
+$('.popoverThis').popover({
+    html: true,
+    trigger: 'manual'
+}).click(function (e) {
+    $(this).popover('show');
+    $('.popover-content').append('<a class="close" style="position: absolute; top: 0; right: 6px;">&times;</a>');
+    clickedAway = false
+    isVisible = true
+    e.preventDefault()
+});
+
+$(document).click(function (e) {
+    if (isVisible & clickedAway) {
+        $('.popoverThis').popover('hide')
+        isVisible = clickedAway = false
+    } else {
+        clickedAway = true
+    }
+});
+});//]]> 
+
+</script>
+
+
+<div id="popoverContent" class="hide"><!-- POP up div -->
+<table>
+<tr>
+<td>
+<table border="1" style="border-style:solid;  width: 400px; height: 208px;">
+
+    <tr>
+        <th style="border-color: #0000FF; border-right-width: 0;">
+            <object data="{{MEDIA_URL}}/tnlogo.png" type="image/png+xml" border-bottom-width: 1px;>
+                    <img src="{{MEDIA_URL}}/tnlogo.png" />
+            </object>
+        </th style= "border-left-width: 0; border-right-width: 0; border-left-width: 0;">
+
+        <th colspan="2" style="color:white;"><b>{{i.name}}</b><br><b>{{i.unique_id_no}}</b></th>
+
+        
+    </tr>
+    <tr>
+        <td rowspan="5" >
+            <div style= "height: 122px; width: 120px; overflow: hidden;">
+               {% if i.photo == '' and i.photograph == '' %}
+                    <img width="120" height="120" src="/site_media/static/img/student.png" />
+                    {% endif %}
+
+                    {% if i.photo %}
+                    <img width="120" height="120" src="/site_media/static/img/student.png" />
+                    {% else %}
+                    <img width="120" height="120" src="/site_media/static/img/student.png" />
+
+                    {% endif %}
+%}
+            </div>
+
+        </td>
+    </tr>
+    <tr>
+        <td style="border:0;">Class:</td>
+        <td style="border:0;"><b>{{i.class_studying}}</b></td>
+    </tr>
+    <tr>
+        <td style="border:0;">Gender:</td>
+        <td style="border:0;"><b>{{i.gender}}</b></td>
+    </tr>
+    <tr>
+        <td style="border:0;">DOB:</td>
+        <td style="border:0;"><b>{{i.dob|date:"d.m.Y"}}</b></td>
+    </tr>
+    <tr>
+        <td style="border:0;">Father:</td>
+        <td style="border:0;"><b>{{i.father_name}}</b></td>
+    </tr>
+</table>
+</td>
+<td>&nbsp;</td>
+<td>
+
+</td>
+</tr>
+</table>
+</div><!-- popup div end -->
+</td>
+
+
+</tr>
+</table>
+{% endif %}
+{% endif %}
+{% endblock %}
+

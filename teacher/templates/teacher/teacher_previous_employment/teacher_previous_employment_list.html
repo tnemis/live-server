@@ -1,0 +1,19 @@
+
+
+{% extends 'teacher/teacher_previous_employment/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+
+
+{% block content %}
+<div class="row">
+<div class="col-md-8" >
+  <h2>
+    {% trans "Teacher previous employments" %}
+  </h2>
+  {% include 'teacher/teacher_previous_employment/object_table_list.html' %}
+  {% include 'teacher/teacher_previous_employment/pagination.html' %}
+</div>
+</div>
+{% endblock %}

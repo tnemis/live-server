@@ -1,0 +1,87 @@
+
+
+{% load i18n %}
+
+<p>
+  {% trans "Click on the primary key value to access the individual Teacher_loan's page." %}
+</p>
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        id
+      </th>
+      
+        <th>
+          Teacher key
+        </th>
+      
+        <th>
+          Loan category
+        </th>
+      
+        <th>
+          Loan details
+        </th>
+      
+        <th>
+          Sanctioned amt
+        </th>
+      
+        <th>
+          Monthly installment
+        </th>
+      
+        <th>
+          Installments
+        </th>
+      
+        <th>
+          First insta date
+        </th>
+      
+        <th>
+          Sanctioned order
+        </th>
+      
+        <th>
+          Sanctioned date
+        </th>
+      
+        
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+      <tr>
+        <td>
+          <a href='{% url "teacher_teacher_loan_detail" pk=object.pk %}'>
+            {{ object.id|stringformat:".3d" }}
+          </a>
+        </td>
+        
+          <td>{{ object.teacher_key }}</td>
+        
+          <td>{{ object.loan_category }}</td>
+        
+          <td>{{ object.loan_details }}</td>
+        
+          <td>{{ object.sanctioned_amt }}</td>
+        
+          <td>{{ object.monthly_installment }}</td>
+        
+          <td>{{ object.installments }}</td>
+        
+          <td>{{ object.first_insta_date }}</td>
+        
+          <td>{{ object.sanctioned_order }}</td>
+        
+          <td>{{ object.sanctioned_date }}</td>
+        
+          
+        
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

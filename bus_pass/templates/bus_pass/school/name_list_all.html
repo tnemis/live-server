@@ -1,0 +1,47 @@
+{% extends 'students/child_detail/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+{% load widget_tweaks %}
+{% load imagekit %}
+{% block content %}
+
+
+<center><h6 style="display:block;text-align:top;float:center;font-size:200%;color:red;"> 
+              Students Bus Pass Name List</h6></center><br> <br> 
+
+
+  <center>
+                  <table class='table table-bordered table-striped2' border="2" align="center" cellspacing="0">
+                 
+                      <tr>
+                        <th width=5% >S.NO</th>
+                        <th width=15% >Name</th>
+                        <th width=15% >Class</th>
+                        <th width=5% >From</th>
+                        <th width=5% >To</th>
+                        <th width=5% >Route No</th>
+                       
+                      </tr>
+
+                      
+                      {% for i in a %}
+                      <tr>
+                        <td>{{ forloop.counter }}</td>
+                         
+                        <td>{{i.name}}</a></td>
+                        <td>{{i.class_studying}}</a></td>
+                        <td> {{i.bus_from_route}}</td>
+                         <td> {{i.bus_to_route}}</td>
+                          <td> {{i.bus_route_no}}</td>
+                        
+                      </tr>
+                    {% endfor %}
+                    
+                  </table>
+                  <br> 
+        </center>
+
+
+
+{% endblock %}

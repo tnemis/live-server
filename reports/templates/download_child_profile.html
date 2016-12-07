@@ -1,0 +1,56 @@
+{% if class_studying and academic_year %}
+<b>School Name: {{school_name}}</b>
+<table style="width:50%" border ="1" cellpadding="5px">
+  
+
+<tr>
+  <th>S.No<th>
+	<th>Name</th>
+	<th>Unique Id</th>	
+  	<th>Class Studying</th>
+  	<th>Academic Year</th>
+	<th>Gender</th>
+    <th>Attendance Status</th>
+    <th>Community</th>
+  	<th>DOB</th>
+	</tr>
+{% for i in student_detail %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{i.name}}</td>
+    <td>{{i.unique_id_no}}</td>    
+    <td>{{i.class_studying}}</td>
+    <td>{{i.academic_year}}</td>
+    <td>{{i.gender}}</td>
+    <td>{{i.attendance_status}}</td>
+    <td>{{i.community}}</td>
+    <td>{{i.dob}}</td>
+  </tr>
+{% endfor %}
+</table>
+{% else %}
+<b>School Name : {{school_name}}  --  Class Studying : {{class_study}}  --  Academic Year : {{aca_year}}</b>
+<table style="width:50%" border ="1" cellpadding="5px">
+
+<tr>
+  <th>S.No</th>
+	<th>Name</th>
+	<th>Unique Id</th>
+	<th>Gender</th>
+    <th>Attendance Status</th>
+    <th>Community</th>
+  	<th>DOB</th>
+	</tr>
+{% for i in student_detail %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td style="width:22%">{{i.name}}</td>
+    <td>{{i.unique_id_no}}</td>
+    <td>{{i.gender}}</td>
+    <td>{{i.attendance_status}}</td>
+    <td>{{i.community}}</td>
+    <td>{{i.dob}}</td>
+  </tr>
+{% endfor %}
+</table>
+{% endif %}

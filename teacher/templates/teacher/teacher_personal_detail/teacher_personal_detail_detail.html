@@ -1,0 +1,36 @@
+
+
+{% extends 'teacher/teacher_personal_detail/base.html' %}
+
+{% load i18n %}
+
+
+{% block content %}
+<div class="row">
+        <div class="col-md-8">
+  {% include 'teacher/teacher_personal_detail/object_table_detail.html' %}
+
+  <form action='{% url "teacher_teacher_personal_detail_delete" pk=object.pk %}' charset='utf-8' method='post'>
+    <fieldset>
+      {% csrf_token %}
+      {% if user.account.user_category.user_category == 'school' %}
+      <div class='form-actions'>
+          {% if object.school.id = 0 %}
+        <a class="btn btn-success" href="" onClick="MyWindow=window.open('{% url 'teacher_teacher_personal_detail_pool_update' pk=object.id %}','MyWindow','toolbar=no,location=no,directories=no,status=no, menubar=no,scrollbars=no,resizable=no,width=400,height=250'); return false;" >{% trans "Update School Info" %}</a>
+          {% else %}
+      
+        <a class='btn btn-success' href='{% url "teacher_teacher_personal_detail_update" pk=object.pk %}'>
+          {% trans "Update" %}
+        </a>
+        <button class='btn btn-danger' type='submit'>
+          {% trans "Delete" %}
+        </button>
+              {% endif %}
+
+      </div>
+      {% endif %}
+    </fieldset>
+  </form>
+</div>
+</div>
+{% endblock %}

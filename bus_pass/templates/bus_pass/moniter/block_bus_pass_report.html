@@ -1,0 +1,211 @@
+{% extends 'students/block/base.html' %}
+{% load i18n %}
+{% block content %}
+
+<center><h6 style="display:block;text-align:top;float:center;font-size:200%;color:red;"> 
+              Block Level Bus Pass Report</h6></center><br> <br> 
+
+
+  <center>
+                  <table class='table table-bordered table-striped2' border="2" align="center" cellspacing="0">
+                 
+                      <tr>
+                        <th width=5% >S.NO</th>
+                       
+                        <th width=15% >DISTRICT</th>
+                        <th width=5% >1</th>
+                        <th width=5% >2</th>
+                        <th width=5% >3</th>
+                        <th width=5% >4</th>
+                        <th width=5% >5</th>
+                        <th width=5% >6</th>
+                        <th width=5% >7</th>
+                        <th width=5% >8</th>
+                        <th width=5% >9</th>
+                        <th width=5% >10</th>
+                        <th width=5% >11</th>
+                        <th width=5% >12</th>
+                        <th width=5% >TOTAL</th>
+                      </tr>
+
+                      
+                      {% for i in lisst %}
+                      <tr>
+                        <td>{{ forloop.counter }}</td>
+                         
+                        <td><a href="/bus_pass/school_report/{{i.id}}">{{i.school_name}}</a></td>
+
+
+                        <td> {% for j in  a %}
+                                {% if j.school == i.id and j.class_studying == 1 %}
+                                    {{ j.x }}
+                                {% endif %}
+                              {% endfor %}
+                        </td>
+                        <td> {% for j in  a %}
+                                {% if j.school == i.id and j.class_studying == 2 %}
+                                    {{ j.x }}
+                                {% endif %}
+                              {% endfor %}
+                        </td>
+                        <td> {% for j in  a %}
+                                {% if j.school == i.id and j.class_studying == 3 %}
+                                    {{ j.x }}
+                                {% endif %}
+                              {% endfor %}
+                        </td>
+                        <td> {% for j in  a %}
+                                {% if j.school == i.id and j.class_studying == 4 %}
+                                    {{ j.x }}
+                                {% endif %}
+                              {% endfor %}
+                        </td>
+                        <td> {% for j in  a %}
+                                {% if j.school == i.id and j.class_studying == 5 %}
+                                    {{ j.x }}
+                                {% endif %}
+                              {% endfor %}
+                        </td>
+                        <td> {% for j in  a %}
+                                {% if j.school == i.id and j.class_studying == 6 %}
+                                    {{ j.x }}
+                                {% endif %}
+                              {% endfor %}
+                        </td>
+                        <td> {% for j in  a %}
+                                {% if j.school == i.id and j.class_studying == 7 %}
+                                    {{ j.x }}
+                                {% endif %}
+                              {% endfor %}
+                        </td>
+                        <td> {% for j in  a %}
+                                {% if j.school == i.id and j.class_studying == 8 %}
+                                    {{ j.x }}
+                                {% endif %}
+                              {% endfor %}
+                        </td>
+                        <td> {% for j in  a %}
+                                {% if j.school == i.id and j.class_studying == 9 %}
+                                    {{ j.x }}
+                                {% endif %}
+                              {% endfor %}
+                        </td>
+                        <td> {% for j in  a %}
+                                {% if j.school == i.id and j.class_studying == 10 %}
+                                    {{ j.x }}
+                                {% endif %}
+                              {% endfor %}
+                        </td>
+                        <td> {% for j in  a %}
+                                {% if j.school == i.id and j.class_studying == 11 %}
+                                    {{ j.x }}
+                                {% endif %}
+                              {% endfor %}
+                        </td>
+                        <td> {% for j in  a %}
+                                {% if j.school == i.id and j.class_studying == 12 %}
+                                    {{ j.x }}
+                                {% endif %}
+                              {% endfor %}
+                        </td>
+                        
+                       <td>  {% for k in  st %}
+                                {% if k.school == i.id %}
+                                    {{ k.y }}
+                                {% endif %}
+                              {% endfor %}
+                        </td>
+                    {% endfor %}
+                   
+                    
+                    <tr>
+                        <th> TOTAL</th>
+                       
+                        <th> </th>
+                        <th> {% for l in  bt %}
+                                {% if l.class_studying == 1 %}
+                                    {{ l.z }}
+                                {% endif %}
+                              {% endfor %}
+                        </th>
+                        <th> {% for l in  bt %}
+                                {% if l.class_studying == 2 %}
+                                    {{ l.z }}
+                                {% endif %}
+                              {% endfor %}
+                        </th>
+                        <th> {% for l in  bt %}
+                                {% if l.class_studying == 3 %}
+                                    {{ l.z }}
+                                {% endif %}
+                              {% endfor %}
+                        </th>
+                        <th> {% for l in  bt %}
+                                {% if l.class_studying == 4 %}
+                                    {{ l.z }}
+                                {% endif %}
+                              {% endfor %}
+                        </th>
+                        <th> {% for l in  bt %}
+                                {% if l.class_studying == 5 %}
+                                    {{ l.z }}
+                                {% endif %}
+                              {% endfor %}
+                        </th>
+                        <th> {% for l in  bt %}
+                                {% if l.class_studying == 6 %}
+                                    {{ l.z }}
+                                {% endif %}
+                              {% endfor %}
+                        </th>
+                        <th> {% for l in  bt %}
+                                {% if l.class_studying == 7 %}
+                                    {{ l.z }}
+                                {% endif %}
+                              {% endfor %}
+                        </th>
+                        <th> {% for l in  bt %}
+                                {% if l.class_studying == 8 %}
+                                    {{ l.z }}
+                                {% endif %}
+                              {% endfor %}
+                        </th>
+                        <th> {% for l in  bt %}
+                                {% if l.class_studying == 9 %}
+                                    {{ l.z }}
+                                {% endif %}
+                              {% endfor %}
+                        </th>
+                        <th> {% for l in  bt %}
+                                {% if l.class_studying == 10 %}
+                                    {{ l.z }}
+                                {% endif %}
+                              {% endfor %}
+                        </th>
+                        <th> {% for l in  bt %}
+                                {% if l.class_studying == 11 %}
+                                    {{ l.z }}
+                                {% endif %}
+                              {% endfor %}
+                        </th>
+                        <th> {% for l in  bt %}
+                                {% if l.class_studying == 12 %}
+                                    {{ l.z }}
+                                {% endif %}
+                              {% endfor %}
+                        </th>
+                        
+                        <th> {{total}}</th>
+                        
+                      </tr>
+                
+                  </table>
+                  <br> 
+        </center>
+
+
+
+
+
+
+{% endblock %}
