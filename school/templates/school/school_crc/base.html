@@ -1,0 +1,43 @@
+{% extends "baseapp/master_base.html"|pjax:request %}
+
+{% load i18n %}
+{% block contentmenu %}
+    
+        <ul id="nav">
+                  
+                  <li >
+                    <a  href='{% url "school_school_crc_list" %}'>
+                      {% trans "School Crc List " %}
+                    </a>
+                  </li>
+                  <li >
+                    <a href='{% url "school_school_crc_create" %}'>
+                      {% trans "Create School Crc " %}
+                    </a>
+                  </li>
+                  {% if object %}
+                    <li >
+                      <a  href='{{ object.get_absolute_url }}'>
+                        {% trans "School Crc " %}
+                      </a>
+                    </li>
+                    <li >
+                      <a  href='{% url "school_school_crc_update" pk=object.pk %}'>
+                        {% trans "Update School Crc Detail" %}
+                      </a>
+                    </li>
+                    <li >
+                      <a  href='{% url "school_school_crc_delete" pk=object.pk %}'>
+                        {% trans "Delete" %}
+                      </a>
+                    </li>
+                  
+                  {% endif %}
+                  
+                </ul>
+        </a>
+      
+   
+   
+{% endblock %}
+

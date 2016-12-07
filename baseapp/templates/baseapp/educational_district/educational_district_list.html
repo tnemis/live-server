@@ -1,0 +1,19 @@
+{% extends 'baseapp/educational_district/base.html' %}
+
+{% load i18n %}
+
+{% load url from future %}
+{% block head_title %}Educational District{% endblock %}
+
+{% block content %}
+  <div class="row">
+        <div class="col-md-8">
+  {% include 'baseapp/educational_district/object_table_list.html' %}
+  {% include 'baseapp/pagination.html' %}
+</div>
+    </div>
+{% endblock %}
+
+
+
+

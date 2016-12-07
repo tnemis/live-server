@@ -1,0 +1,31 @@
+
+
+{% extends 'school/school_brc/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /home/mur/testing/emis_d15/scafold/school/templates/school/school_brc/school_brc_archive_week.html
+{% endblock %}
+
+{% block title %}
+  {% trans "School_brc Week Archive" %}
+{% endblock %}
+
+{% block header-link %}
+  {% trans "School_brc Week Archive" %}
+{% endblock %}
+
+{% block header-description %}
+  {% trans "A weekly archive page showing all objects in a given week." %}
+{% endblock %}
+
+{% block content %}
+  <h2>
+    {% blocktrans %}
+      School_brcs created during the week beginning on {{ week }}
+    {% endblocktrans %}
+  </h2>
+  {% include 'school/school_brc/object_table_list.html' %}
+  {% include 'school/school_brc/pagination.html' %}
+{% endblock %}

@@ -1,0 +1,52 @@
+
+
+{% load i18n %}
+
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        {% trans "Field" %}
+      </th>
+      <th>
+        {% trans "Value" %}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        id
+      </td>
+      <td>
+        <a href='{{ object.get_absolute_url }}'>
+          {{ object.id|stringformat:".3d" }}
+        </a>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        caste_code
+      </td>
+      <td>{{ object.caste_code }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        caste_name
+      </td>
+      <td>{{ object.caste_name }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        community
+      </td>
+      <td>{{ object.community }}</td>
+    </tr>
+    
+    
+    
+  </tbody>
+</table>

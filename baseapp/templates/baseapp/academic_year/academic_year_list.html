@@ -1,0 +1,19 @@
+{% extends 'baseapp/academic_year/base.html' %}
+
+{% load i18n %}
+
+{% load url from future %}
+{% block head_title %}academic_year{% endblock %}
+
+{% block content %}
+  <div class="row">
+        <div class="col-md-8">
+  {% include 'baseapp/academic_year/object_table_list.html' %}
+  {% include 'baseapp/pagination.html' %}
+</div>
+    </div>
+{% endblock %}
+
+
+
+

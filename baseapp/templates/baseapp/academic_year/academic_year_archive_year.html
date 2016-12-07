@@ -1,0 +1,57 @@
+
+
+{% extends 'baseapp/academic_year/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /home/murad/testing/baseapp/templates/baseapp/academic_year/academic_year_archive_year.html
+{% endblock %}
+
+{% block breadcrumbs %}
+  <ul class='breadcrumb'>
+    <li>
+      <a href='{% url "baseapp_academic_year_archive_index" %}'>
+        {% trans "Archive Index" %}
+      </a>
+      <span class='divider'>
+        /
+      </span>
+    </li>
+    <li>
+      <a href='{% url "baseapp_academic_year_year_archive" year=year %}'>
+        {% trans "Year Archive" %}
+      </a>
+    </li>
+  </ul>
+{% endblock %}
+
+{% block header-link %}
+  <a href='{% url "baseapp_academic_year_year_archive" year=year %}'>
+    {% trans "Academic_Year Year Archive" %}
+  </a>
+{% endblock %}
+{% block header-description %}
+  {% trans "A yearly archive page showing all available months in a given year." %}
+{% endblock %}
+{% block content %}
+  <h2>
+    {% trans "By Month" %}
+  </h2>
+  <ul class='nav nav-tabs nav-stacked'>
+    {% for date in date_list %}
+      <li>
+        <a href='{% url "baseapp_academic_year_month_archive" year=date.year month=date.month %}'>
+          {{ date|date:"M Y" }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  <h2>
+    {% blocktrans %}
+      Academic_Years created in the year {{ year }}
+    {% endblocktrans %}
+  </h2>
+  {% include 'baseapp/academic_year/object_table_list.html' %}
+  {% include 'baseapp/academic_year/pagination.html' %}
+{% endblock %}

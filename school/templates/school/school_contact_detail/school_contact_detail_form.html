@@ -1,0 +1,47 @@
+
+
+{% extends 'school/school_contact_detail/base.html' %}
+{% load widget_tweaks %}
+
+{% load i18n %}
+{% load url from future %}
+
+
+{% block content %}
+<div class="row">
+<div class="col-md-8" >
+  <form action='{% if object %}{% url "school_school_contact_detail_update" pk=object.pk %}{% else %}{% url "school_school_contact_detail_create" %}{% endif %}' method='post' encoding='utf-8'>
+    <fieldset>
+      {% csrf_token %}
+
+    <div class="form-group"> <b>{% trans "School key" %}</b>{{ form.school_key|add_class:"form-control" }}</div><span class="error_message">{{form.school_key.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Office landline" %}</b>{{ form.office_landline|add_class:"form-control" }}</div><span class="error_message">{{form.office_landline.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Office mobile" %}</b>{{ form.office_mobile|add_class:"form-control" }}</div><span class="error_message">{{form.office_mobile.errors}}</span>
+
+  <div class="form-group"> <b>{% trans "Office email" %}</b>{{ form.office_email|add_class:"form-control" }}</div><span class="error_message">{{form.office_email.errors}}</span>
+
+
+  <div class="form-group"> <b>{% trans "Hm landline" %}</b>{{ form.hm_landline|add_class:"form-control" }}</div><span class="error_message">{{form.hm_landline.errors}}</span>
+
+  <div class="form-group"> <b>{% trans "Hm mobile" %}</b>{{ form.hm_mobile|add_class:"form-control" }}</div><span class="error_message">{{form.hm_mobile.errors}}</span>
+
+  <div class="form-group"> <b>{% trans "Hm email" %}</b>{{ form.hm_email|add_class:"form-control" }}</div><span class="error_message">{{form.hm_email.errors}}</span>
+
+  
+
+      <div class='form-actions'>
+        <button class='btn btn-large btn-success' type='submit'>
+          {% if object %}
+            {% trans "Update" %}
+          {% else %}
+            {% trans "Create" %}
+          {% endif %}
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+</div>
+{% endblock %}

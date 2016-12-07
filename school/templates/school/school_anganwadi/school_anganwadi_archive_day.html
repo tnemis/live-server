@@ -1,0 +1,63 @@
+
+
+{% extends 'school/school_anganwadi/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+
+{% block filename %}
+  /home/mur/testing/emis_d15/scafold/school/templates/school/school_anganwadi/school_anganwadi_archive_day.html
+{% endblock %}
+{% block title %}
+  {% trans "School_anganwadi Day Archive" %}
+{% endblock %}
+{% block breadcrumbs %}
+  <ul class='breadcrumb'>
+    <li>
+      <a href='{% url "school_school_anganwadi_archive_index" %}'>
+        {% trans "Archive Index" %}
+      </a>
+      <span class='divider'>
+        /
+      </span>
+    </li>
+    <li>
+      <a href='{% url "school_school_anganwadi_year_archive" year=day.year %}'>
+        {% trans "Year Archive" %}
+      </a>
+      <span class='divider'>
+        /
+      </span>
+    </li>
+    <li>
+      <a href='{% url "school_school_anganwadi_month_archive" year=day.year month=day.month %}'>
+        {% trans "Month Archive" %}
+      </a>
+      <span class='divider'>
+        /
+      </span>
+    </li>
+    <li>
+      <a href='{% url "school_school_anganwadi_day_archive" year=day.year month=day.month day=day.day %}'>
+        {% trans "Day Archive" %}
+      </a>
+    </li>
+  </ul>
+{% endblock %}
+{% block header-link %}
+  <a href='{% url "school_school_anganwadi_day_archive" year=day.year month=day.month day=day.day %}'>
+    {% trans "School_anganwadi Day Archive" %}
+  </a>
+{% endblock %}
+{% block header-description %}
+  {% trans "A day archive page showing all objects in a given day." {%
+{% endblock %}
+{% block content %}
+  <h2>
+    {% blocktrans %}
+      School_anganwadis created on {{ day }}
+    {% endblocktrans %}
+  </h2>
+  {% include 'school/school_anganwadi/object_table_list.html' %}
+  {% include 'school/school_anganwadi/pagination.html' %}
+{% endblock %}

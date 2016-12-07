@@ -1,0 +1,31 @@
+
+
+{% extends 'school/school_flag/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /home/mur/testing/emis_d15/scafold/school/templates/school/school_flag/school_flag_archive_week.html
+{% endblock %}
+
+{% block title %}
+  {% trans "School_flag Week Archive" %}
+{% endblock %}
+
+{% block header-link %}
+  {% trans "School_flag Week Archive" %}
+{% endblock %}
+
+{% block header-description %}
+  {% trans "A weekly archive page showing all objects in a given week." %}
+{% endblock %}
+
+{% block content %}
+  <h2>
+    {% blocktrans %}
+      School_flags created during the week beginning on {{ week }}
+    {% endblocktrans %}
+  </h2>
+  {% include 'school/school_flag/object_table_list.html' %}
+  {% include 'school/school_flag/pagination.html' %}
+{% endblock %}

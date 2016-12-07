@@ -1,0 +1,56 @@
+
+
+{% load i18n %}
+
+<p>
+  {% trans "Click on the primary key value to access the individual School_anganwadi's page." %}
+</p>
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        Id
+      </th>
+      
+        <th>
+          School Name
+        </th>
+      
+        <th>
+          Anganwadi
+        </th>
+      
+        <th>
+          Student Count
+        </th>
+      
+        <th>
+          Teacher Count
+        </th>
+      
+       
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+      <tr>
+        <td>
+          <a href='{% url "school_school_anganwadi_detail" pk=object.pk %}'>
+            {{ object.id|stringformat:".3d" }}
+          </a>
+        </td>
+        
+          <td>{{ object.school_key.school.school_name }}</td>
+        
+          <td>{{ object.anganwadi }}</td>
+        
+          <td>{{ object.student_count }}</td>
+        
+          <td>{{ object.teacher_count }}</td>
+        
+                
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

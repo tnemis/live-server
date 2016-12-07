@@ -1,0 +1,1707 @@
+# django-admin.py compilemessages
+# django-admin.py makemessages -a
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 16:07+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: settings.py:6
+msgid "This field is mandatory."
+msgstr "இந்த தகவல் அவசியமானது"
+
+#: settings.py:19 templates/base.html:215
+msgid "Tamil"
+msgstr "தமிழ்"
+
+#: settings.py:20 templates/base.html:215
+msgid "English"
+msgstr "ஆங்கிலம்"
+
+#: templates/_account_bar.html:13 templates/base.html:235
+msgid "Settings"
+msgstr "அமைப்பு"
+
+#: templates/_account_bar.html:15 templates/base.html:237
+msgid "Admin"
+msgstr "நிர்வாகி"
+
+#: templates/_account_bar.html:19 templates/base.html:241
+msgid "Log out"
+msgstr "விடுபதிகை"
+
+#: templates/_account_bar.html:24 templates/base.html:246
+msgid "Log in"
+msgstr "புகுபதிகை"
+
+#: templates/_account_bar.html:26 templates/base.html:248
+msgid "Sign up"
+msgstr ""
+
+#: templates/_footer.html:3
+msgid "&copy; 2014 Department Of School Education "
+msgstr "&copy; 2014 தமிழ்நாடு பள்ளி கல்வி துறை "
+
+#: templates/access_denied.html:5 templates/homepage.html:5
+#: templates/register_import.html:5
+msgid "Welcome"
+msgstr "நல்வரவு"
+
+#: templates/base.html:84 templates/postman/base_folder.html:80
+msgid "g:i A,M j,n/j/y"
+msgstr ""
+
+#: templates/base.html:210
+msgid "Helpdesk"
+msgstr "உதவிக்காக"
+
+#: templates/base.html:215
+msgid "Current Language:"
+msgstr "தற்போதைய மொழி :"
+
+#: templates/base.html:292 templates/helpdesk/navigation.html:6
+msgid "Dashboard"
+msgstr "முகப்பு"
+
+#: templates/base.html:334
+msgid "Messages"
+msgstr "தகவல்கள்"
+
+#: templates/base.html:338 templates/postman/base.html:10
+#: templates/postman/base_folder.html:38 templates/postman/base_write.html:31
+#: templates/postman/view.html:34
+msgid "Inbox"
+msgstr "இன்பாக்ஸ்"
+
+#: templates/base.html:339 templates/postman/base.html:11
+#: templates/postman/base_folder.html:39 templates/postman/base_write.html:32
+#: templates/postman/sent.html:3 templates/postman/view.html:35
+msgid "Sent Messages"
+msgstr "அனுப்பியது"
+
+#: templates/base.html:340 templates/postman/base.html:12
+msgid "Write"
+msgstr "புதிதாக அனுப்ப "
+
+#: templates/base.html:341 templates/postman/base.html:13
+msgid "Archives"
+msgstr "தகவல் பெட்டகம்"
+
+#: templates/base.html:342 templates/postman/base.html:14
+msgid "Trash"
+msgstr "குப்பை"
+
+#: templates/base.html:422
+msgid "School Name"
+msgstr "பள்ளியின் பெயர்"
+
+#: templates/base.html:425
+msgid "Block"
+msgstr "தொகுதி"
+
+#: templates/base.html:430
+msgid "Block Name"
+msgstr "தொகுதி பெயர்"
+
+#: templates/base.html:433
+msgid "District"
+msgstr "மாவட்டம்"
+
+#: templates/base.html:438
+msgid "District Name"
+msgstr "மாவட்டத்தின் பெயர் "
+
+#: templates/base.html:441 templates/base.html.py:446
+msgid "State"
+msgstr ""
+
+#: templates/homepage.html:22 templates/homepage.html.py:26
+#: templates/homepage.html:30 templates/homepage.html.py:34
+msgid "Students"
+msgstr "மாணாக்கர்கள்"
+
+#: templates/homepage.html:41
+msgid "Students ID Card"
+msgstr "மாணவர் அடையாள அட்டை"
+
+#: templates/homepage.html:45 templates/homepage.html.py:49
+#: templates/homepage.html:53
+msgid "Reports"
+msgstr "அறிக்கைகள்"
+
+#: templates/homepage.html:59
+msgid "School"
+msgstr "பள்ளிக்கூடம் "
+
+#: templates/homepage.html:68
+msgid "Teacher"
+msgstr "ஆசிரியர்"
+
+#: templates/homepage.html:73
+msgid "Teacher Attendance"
+msgstr "ஆசிரியர் வருகைபதிவேடு"
+
+#: templates/homepage.html:78
+msgid "Mailbox"
+msgstr "அஞ்சல் பெட்டி"
+
+#: templates/admin/postman/pendingmessage/change_form.html:17
+msgid "Please correct the error below."
+msgid_plural "Please correct the errors below."
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/admin/postman/pendingmessage/submit_line.html:6
+#: templates/helpdesk/public_view_ticket.html:46
+#: templates/helpdesk/ticket_desc_table.html:74
+msgid "Accept"
+msgstr ""
+
+#: templates/admin/postman/pendingmessage/submit_line.html:7
+msgid "Reject"
+msgstr ""
+
+#: templates/helpdesk/attribution.html:2
+msgid ""
+"Powered by <a href='https://github.com/rossp/django-helpdesk'>django-"
+"helpdesk</a>."
+msgstr ""
+
+#: templates/helpdesk/attribution.html:4
+msgid "For technical support please contact:"
+msgstr ""
+
+#: templates/helpdesk/base.html:10
+msgid "Powered by django-helpdesk"
+msgstr ""
+
+#: templates/helpdesk/base.html:16 templates/helpdesk/rss_list.html:9
+#: templates/helpdesk/rss_list.html:23 templates/helpdesk/rss_list.html:28
+msgid "My Open Tickets"
+msgstr ""
+
+#: templates/helpdesk/base.html:17
+msgid "All Recent Activity"
+msgstr ""
+
+#: templates/helpdesk/base.html:18 templates/helpdesk/dashboard.html:98
+#: templates/helpdesk/rss_list.html:15
+msgid "Unassigned Tickets"
+msgstr ""
+
+#: templates/helpdesk/base.html:57
+msgid "API"
+msgstr ""
+
+#: templates/helpdesk/base.html:58
+#, fuzzy
+msgid "User Settings"
+msgstr "அமைப்பு"
+
+#: templates/helpdesk/base.html:60
+#, fuzzy
+msgid "Change Language"
+msgstr "தற்போதைய மொழி :"
+
+#: templates/helpdesk/base.html:62
+#, fuzzy
+msgid "System Settings"
+msgstr "அமைப்பு"
+
+#: templates/helpdesk/confirm_delete_saved_query.html:3
+#: templates/helpdesk/ticket_list.html:144
+msgid "Delete Saved Query"
+msgstr ""
+
+#: templates/helpdesk/confirm_delete_saved_query.html:5
+#, python-format
+msgid ""
+"\n"
+"<h2>Delete Query</h2>\n"
+"\n"
+"<p>Are you sure you want to delete this saved filter (<em>%(query_title)s</"
+"em>)? To re-create it, you will need to manually re-filter your ticket "
+"listing.</p>\n"
+msgstr ""
+
+#: templates/helpdesk/confirm_delete_saved_query.html:11
+msgid ""
+"\n"
+"<p>You have shared this query, so other users may be using it. If you delete "
+"it, they will have to manually create their own query.</p>\n"
+msgstr ""
+
+#: templates/helpdesk/confirm_delete_saved_query.html:15
+#: templates/helpdesk/delete_ticket.html:11
+msgid "No, Don't Delete It"
+msgstr ""
+
+#: templates/helpdesk/confirm_delete_saved_query.html:17
+#: templates/helpdesk/delete_ticket.html:13
+msgid "Yes - Delete It"
+msgstr ""
+
+#: templates/helpdesk/create_ticket.html:4
+#, fuzzy
+msgid "Create Ticket"
+msgstr "புதிய மாவட்டத்தை உருவாக்க"
+
+#: templates/helpdesk/create_ticket.html:7
+msgid ""
+"<h3>Submit a Ticket</h3>\n"
+"\n"
+"<p>Unless otherwise stated, all fields are required. Please provide as "
+"descriptive a title and description as possible.</p>"
+msgstr ""
+
+#: templates/helpdesk/create_ticket.html:18
+#: templates/helpdesk/edit_ticket.html:19
+#: templates/helpdesk/public_homepage.html:61
+msgid "(Optional)"
+msgstr ""
+
+#: templates/helpdesk/create_ticket.html:27
+#: templates/helpdesk/public_homepage.html:70
+msgid "Submit Ticket"
+msgstr ""
+
+#: templates/helpdesk/dashboard.html:2
+msgid "Helpdesk Dashboard"
+msgstr ""
+
+#: templates/helpdesk/dashboard.html:10
+msgid "Helpdesk Summary"
+msgstr ""
+
+#: templates/helpdesk/dashboard.html:11 templates/helpdesk/dashboard.html:59
+#: templates/helpdesk/dashboard.html:79 templates/helpdesk/dashboard.html:99
+#: templates/helpdesk/dashboard.html:121 templates/helpdesk/rss_list.html:23
+#: templates/helpdesk/ticket_list.html:56
+#: templates/helpdesk/ticket_list.html:78
+#: templates/helpdesk/ticket_list.html:195
+msgid "Queue"
+msgstr ""
+
+#: templates/helpdesk/dashboard.html:11 templates/helpdesk/ticket.html:136
+msgid "Open"
+msgstr ""
+
+#: templates/helpdesk/dashboard.html:11 templates/helpdesk/ticket.html:137
+#: templates/helpdesk/ticket.html.py:143 templates/helpdesk/ticket.html:149
+msgid "Resolved"
+msgstr ""
+
+#: templates/helpdesk/dashboard.html:11 templates/helpdesk/ticket.html:138
+#: templates/helpdesk/ticket.html.py:144 templates/helpdesk/ticket.html:150
+#: templates/helpdesk/ticket.html.py:154
+msgid "Closed"
+msgstr ""
+
+#: templates/helpdesk/dashboard.html:25
+msgid ""
+"Welcome to your Helpdesk Dashboard! From here you can quickly see tickets "
+"submitted by you, tickets you are working on, and those tickets that have no "
+"owner."
+msgstr ""
+
+#: templates/helpdesk/dashboard.html:27
+msgid ""
+"Welcome to your Helpdesk Dashboard! From here you can quickly see your own "
+"tickets, and those tickets that have no owner. Why not pick up an orphan "
+"ticket and sort it out for a customer?"
+msgstr ""
+
+#: templates/helpdesk/dashboard.html:36
+msgid "Current Ticket Stats"
+msgstr ""
+
+#: templates/helpdesk/dashboard.html:37
+msgid "Average number of days until ticket is closed (all tickets): "
+msgstr ""
+
+#: templates/helpdesk/dashboard.html:38
+msgid ""
+"Average number of days until ticket is closed (tickets opened in last 60 "
+"days): "
+msgstr ""
+
+#: templates/helpdesk/dashboard.html:39
+msgid "Click"
+msgstr ""
+
+#: templates/helpdesk/dashboard.html:39
+msgid "for detailed average by month."
+msgstr ""
+
+#: templates/helpdesk/dashboard.html:40
+msgid "Distribution of open tickets, grouped by time period:"
+msgstr ""
+
+#: templates/helpdesk/dashboard.html:41
+msgid "Days since opened"
+msgstr ""
+
+#: templates/helpdesk/dashboard.html:41
+msgid "Number of open tickets"
+msgstr ""
+
+#: templates/helpdesk/dashboard.html:58
+msgid "All Tickets submitted by you"
+msgstr ""
+
+#: templates/helpdesk/dashboard.html:59 templates/helpdesk/dashboard.html:79
+#: templates/helpdesk/dashboard.html:99 templates/helpdesk/dashboard.html:121
+#: templates/helpdesk/ticket_list.html:195
+msgid "Pr"
+msgstr ""
+
+#: templates/helpdesk/dashboard.html:59 templates/helpdesk/dashboard.html:79
+#: templates/helpdesk/dashboard.html:99 templates/helpdesk/dashboard.html:121
+#: templates/helpdesk/ticket.html:176 templates/helpdesk/ticket_list.html:75
+#: templates/helpdesk/ticket_list.html:195
+msgid "Title"
+msgstr ""
+
+#: templates/helpdesk/dashboard.html:59 templates/helpdesk/dashboard.html:79
+#: templates/helpdesk/dashboard.html:121
+#: templates/helpdesk/ticket_list.html:57
+#: templates/helpdesk/ticket_list.html:81
+#: templates/helpdesk/ticket_list.html:195
+msgid "Status"
+msgstr ""
+
+#: templates/helpdesk/dashboard.html:59 templates/helpdesk/dashboard.html:79
+#: templates/helpdesk/dashboard.html:121
+msgid "Last Update"
+msgstr ""
+
+#: templates/helpdesk/dashboard.html:78
+msgid "Open Tickets assigned to you (you are working on this ticket)"
+msgstr ""
+
+#: templates/helpdesk/dashboard.html:91
+msgid "You have no tickets assigned to you."
+msgstr ""
+
+#: templates/helpdesk/dashboard.html:98
+msgid "(pick up a ticket if you start to work on it)"
+msgstr ""
+
+#: templates/helpdesk/dashboard.html:99 templates/helpdesk/ticket_list.html:72
+#: templates/helpdesk/ticket_list.html:195
+msgid "Created"
+msgstr ""
+
+#: templates/helpdesk/dashboard.html:107
+#: templates/helpdesk/ticket_desc_table.html:22
+msgid "Take"
+msgstr ""
+
+#: templates/helpdesk/dashboard.html:107
+#: templates/helpdesk/email_ignore_list.html:13
+#: templates/helpdesk/email_ignore_list.html:23
+#: templates/helpdesk/ticket_cc_list.html:15
+#: templates/helpdesk/ticket_cc_list.html:23
+#: templates/helpdesk/ticket_list.html:230
+#: templates/postman/base_folder.html:44 templates/postman/view.html:29
+msgid "Delete"
+msgstr ""
+
+#: templates/helpdesk/dashboard.html:111
+msgid "There are no unassigned tickets."
+msgstr ""
+
+#: templates/helpdesk/dashboard.html:120
+msgid "Closed & resolved Tickets you used to work on"
+msgstr ""
+
+#: templates/helpdesk/delete_ticket.html:3
+msgid "Delete Ticket"
+msgstr ""
+
+#: templates/helpdesk/delete_ticket.html:5
+#, python-format
+msgid ""
+"\n"
+"<h2>Delete Ticket</h2>\n"
+"\n"
+"<p>Are you sure you want to delete this ticket (<em>%(ticket_title)s</em>)? "
+"All traces of the ticket, including followups, attachments, and updates will "
+"be irreversably removed.</p>\n"
+msgstr ""
+
+#: templates/helpdesk/edit_ticket.html:3
+msgid "Edit Ticket"
+msgstr ""
+
+#: templates/helpdesk/edit_ticket.html:6
+msgid ""
+"<h2>Edit a Ticket</h2>\n"
+"\n"
+"<p>Unless otherwise stated, all fields are required. Please provide as "
+"descriptive a title and description as possible.</p>\n"
+"\n"
+"<p><strong>Note:</strong> Editing a ticket does <em>not</em> send an e-mail "
+"to the ticket owner or submitter. No new details should be entered, this "
+"form should only be used to fix incorrect details or clean up the submission."
+"</p>"
+msgstr ""
+
+#: templates/helpdesk/edit_ticket.html:28
+msgid "Save Changes"
+msgstr ""
+
+#: templates/helpdesk/email_ignore_add.html:3
+#: templates/helpdesk/email_ignore_add.html:23
+msgid "Ignore E-Mail Address"
+msgstr ""
+
+#: templates/helpdesk/email_ignore_add.html:5
+msgid ""
+"\n"
+"<h2>Ignore E-Mail Address</h2>\n"
+"\n"
+"<p>To ignore an e-mail address and prevent any emails from that address "
+"creating tickets automatically, enter the e-mail address below.</p>\n"
+"\n"
+"<p>You can either enter a whole e-mail address such as <em>email@domain.com</"
+"em> or a portion of an e-mail address with a wildcard, such as <em>*@domain."
+"com</em> or <em>user@*</em>.</p>"
+msgstr ""
+
+#: templates/helpdesk/email_ignore_del.html:3
+msgid "Delete Ignored E-Mail Address"
+msgstr ""
+
+#: templates/helpdesk/email_ignore_del.html:5
+#, python-format
+msgid ""
+"\n"
+"<h2>Un-Ignore E-Mail Address</h2>\n"
+"\n"
+"<p>Are you sure you wish to stop removing this email address (<em>"
+"%(email_address)s</em>) and allow their e-mails to automatically create "
+"tickets in your system? You can re-add this e-mail address at any time.</p>\n"
+msgstr ""
+
+#: templates/helpdesk/email_ignore_del.html:11
+msgid "Keep Ignoring It"
+msgstr ""
+
+#: templates/helpdesk/email_ignore_del.html:13
+msgid "Stop Ignoring It"
+msgstr ""
+
+#: templates/helpdesk/email_ignore_list.html:3
+#: templates/helpdesk/email_ignore_list.html:12
+msgid "Ignored E-Mail Addresses"
+msgstr ""
+
+#: templates/helpdesk/email_ignore_list.html:5
+msgid ""
+"\n"
+"<h2>Ignored E-Mail Addresses</h2>\n"
+"\n"
+"<p>The following e-mail addresses are currently being ignored by the "
+"incoming e-mail processor. You can <a href='add/'>add a new e-mail address "
+"to the list</a> or delete any of the items below as required.</p>"
+msgstr ""
+
+#: templates/helpdesk/email_ignore_list.html:13
+msgid "Name"
+msgstr ""
+
+#: templates/helpdesk/email_ignore_list.html:13
+#: templates/helpdesk/ticket_cc_list.html:15
+msgid "E-Mail Address"
+msgstr ""
+
+#: templates/helpdesk/email_ignore_list.html:13
+msgid "Date Added"
+msgstr ""
+
+#: templates/helpdesk/email_ignore_list.html:13
+msgid "Queues"
+msgstr ""
+
+#: templates/helpdesk/email_ignore_list.html:13
+msgid "Keep in mailbox?"
+msgstr ""
+
+#: templates/helpdesk/email_ignore_list.html:21
+#: templates/helpdesk/ticket_list.html:228
+msgid "All"
+msgstr ""
+
+#: templates/helpdesk/email_ignore_list.html:22
+msgid "Keep"
+msgstr ""
+
+#: templates/helpdesk/email_ignore_list.html:29
+msgid ""
+"<strong>Note:</strong> If the 'Keep' option is not selected, emails sent "
+"from that address will be deleted permanently."
+msgstr ""
+
+#: templates/helpdesk/followup_edit.html:2
+msgid "Edit followup"
+msgstr ""
+
+#: templates/helpdesk/followup_edit.html:9
+msgid "Edit FollowUp"
+msgstr ""
+
+#: templates/helpdesk/followup_edit.html:14
+msgid "Reassign ticket:"
+msgstr ""
+
+#: templates/helpdesk/followup_edit.html:16
+msgid "Title:"
+msgstr ""
+
+#: templates/helpdesk/followup_edit.html:18
+msgid "Comment:"
+msgstr ""
+
+#: templates/helpdesk/kb_category.html:4
+#: templates/helpdesk/kb_category.html:11
+#, python-format
+msgid "Knowledgebase Category: %(kbcat)s"
+msgstr ""
+
+#: templates/helpdesk/kb_category.html:6
+#, python-format
+msgid "You are viewing all items in the %(kbcat)s category."
+msgstr ""
+
+#: templates/helpdesk/kb_category.html:12
+msgid "Article"
+msgstr ""
+
+#: templates/helpdesk/kb_index.html:4 templates/helpdesk/navigation.html:13
+#: templates/helpdesk/navigation.html:34
+msgid "Knowledgebase"
+msgstr ""
+
+#: templates/helpdesk/kb_index.html:6
+msgid ""
+"We have listed a number of knowledgebase articles for your perusal in the "
+"following categories. Please check to see if any of these articles address "
+"your problem prior to opening a support ticket."
+msgstr ""
+
+#: templates/helpdesk/kb_index.html:9
+#: templates/helpdesk/public_homepage.html:10
+#: templates/helpdesk/public_homepage.html:81
+msgid "Knowledgebase Categories"
+msgstr ""
+
+#: templates/helpdesk/kb_index.html:10
+#: templates/helpdesk/public_homepage.html:11
+#: templates/helpdesk/public_homepage.html:82
+msgid "Category"
+msgstr ""
+
+#: templates/helpdesk/kb_item.html:4
+#, python-format
+msgid "Knowledgebase: %(item)s"
+msgstr ""
+
+#: templates/helpdesk/kb_item.html:13
+#, python-format
+msgid ""
+"View <a href='%(category_url)s'>other <em>%(category_title)s</em> articles</"
+"a>, or continue <a href='../'>viewing other knowledgebase articles</a>."
+msgstr ""
+
+#: templates/helpdesk/kb_item.html:15
+msgid "Feedback"
+msgstr ""
+
+#: templates/helpdesk/kb_item.html:17
+msgid ""
+"We give our users an opportunity to vote for items that they believe have "
+"helped them out, in order for us to better serve future customers. We would "
+"appreciate your feedback on this article. Did you find it useful?"
+msgstr ""
+
+#: templates/helpdesk/kb_item.html:20
+msgid "This article was useful to me"
+msgstr ""
+
+#: templates/helpdesk/kb_item.html:21
+msgid "This article was <strong>not</strong> useful to me"
+msgstr ""
+
+#: templates/helpdesk/kb_item.html:24
+msgid "The results of voting by other readers of this article are below:"
+msgstr ""
+
+#: templates/helpdesk/kb_item.html:27
+#, python-format
+msgid "Recommendations: %(recommendations)s"
+msgstr ""
+
+#: templates/helpdesk/kb_item.html:28
+#, python-format
+msgid "Votes: %(votes)s"
+msgstr ""
+
+#: templates/helpdesk/kb_item.html:29
+#, python-format
+msgid "Overall Rating: %(score)s"
+msgstr ""
+
+#: templates/helpdesk/navigation.html:7
+#: templates/helpdesk/ticket_list.html:194
+msgid "Tickets"
+msgstr ""
+
+#: templates/helpdesk/navigation.html:8
+msgid "New Ticket"
+msgstr ""
+
+#: templates/helpdesk/navigation.html:10
+msgid "Stats"
+msgstr ""
+
+#: templates/helpdesk/navigation.html:16
+#: templates/helpdesk/ticket_list.html:46
+msgid "Load Saved Query"
+msgstr ""
+
+#: templates/helpdesk/navigation.html:27
+msgid "Search..."
+msgstr ""
+
+#: templates/helpdesk/navigation.html:27
+msgid "Enter a keyword, or a ticket number to jump straight to that ticket."
+msgstr ""
+
+#: templates/helpdesk/navigation.html:32
+msgid "Submit A Ticket"
+msgstr ""
+
+#: templates/helpdesk/public_change_language.html:2
+#: templates/helpdesk/public_view_form.html:4
+#: templates/helpdesk/public_view_ticket.html:2
+msgid "View a Ticket"
+msgstr ""
+
+#: templates/helpdesk/public_change_language.html:5
+msgid "Change the display language"
+msgstr ""
+
+#: templates/helpdesk/public_homepage.html:7
+msgid "Knowledgebase Articles"
+msgstr ""
+
+#: templates/helpdesk/public_homepage.html:36
+#: templates/helpdesk/public_view_form.html:12
+msgid "Ticket"
+msgstr ""
+
+#: templates/helpdesk/public_homepage.html:39
+#: templates/helpdesk/public_view_form.html:15
+msgid "Your E-mail Address"
+msgstr ""
+
+#: templates/helpdesk/public_homepage.html:43
+#: templates/helpdesk/public_view_form.html:19
+msgid "View Ticket"
+msgstr ""
+
+#: templates/helpdesk/public_homepage.html:52
+msgid ""
+"All fields are required. Please provide as descriptive a title and "
+"description as possible."
+msgstr ""
+
+#: templates/helpdesk/public_homepage.html:93
+msgid "Please use button at upper right to login first."
+msgstr ""
+
+#: templates/helpdesk/public_spam.html:4
+msgid "Unable To Open Ticket"
+msgstr ""
+
+#: templates/helpdesk/public_spam.html:6
+msgid ""
+"<p>Sorry, but there has been an error trying to submit your ticket.</p>\n"
+"\n"
+"<p>Our system has marked your submission as <strong>spam</strong>, so we are "
+"unable to save it. If this is not spam, please press back and re-type your "
+"message. Be careful to avoid sounding 'spammy', and if you have heaps of "
+"links please try removing them if possible.</p>\n"
+"\n"
+"<p>We are sorry for any inconvenience, however this check is required to "
+"avoid our helpdesk resources being overloaded by spammers.</p>\n"
+msgstr ""
+
+#: templates/helpdesk/public_view_form.html:8
+msgid "Error:"
+msgstr ""
+
+#: templates/helpdesk/public_view_ticket.html:8
+#, python-format
+msgid "Queue: %(queue_name)s"
+msgstr ""
+
+#: templates/helpdesk/public_view_ticket.html:11
+#: templates/helpdesk/ticket_desc_table.html:16
+msgid "Submitted On"
+msgstr ""
+
+#: templates/helpdesk/public_view_ticket.html:16
+#: templates/helpdesk/ticket_desc_table.html:26
+msgid "Submitter E-Mail"
+msgstr ""
+
+#: templates/helpdesk/public_view_ticket.html:21
+#: templates/helpdesk/ticket.html:182
+#: templates/helpdesk/ticket_desc_table.html:31
+#: templates/helpdesk/ticket_list.html:84
+msgid "Priority"
+msgstr ""
+
+#: templates/helpdesk/public_view_ticket.html:33
+#: templates/helpdesk/ticket.html:188
+#: templates/helpdesk/ticket_desc_table.html:42
+#: templates/helpdesk/ticket_list.html:61
+#: templates/helpdesk/ticket_list.html:195
+msgid "Tags"
+msgstr ""
+
+#: templates/helpdesk/public_view_ticket.html:39
+#: templates/helpdesk/ticket_desc_table.html:67
+msgid "Description"
+msgstr ""
+
+#: templates/helpdesk/public_view_ticket.html:46
+#: templates/helpdesk/ticket_desc_table.html:74
+msgid "Resolution"
+msgstr ""
+
+#: templates/helpdesk/public_view_ticket.html:46
+#: templates/helpdesk/ticket_desc_table.html:74
+msgid "Accept and Close"
+msgstr ""
+
+#: templates/helpdesk/public_view_ticket.html:55
+#: templates/helpdesk/ticket.html:64
+msgid "Follow-Ups"
+msgstr ""
+
+#: templates/helpdesk/public_view_ticket.html:63
+#: templates/helpdesk/ticket.html:98
+#, python-format
+msgid "Changed %(field)s from %(old_value)s to %(new_value)s."
+msgstr ""
+
+#: templates/helpdesk/report_index.html:3
+#: templates/helpdesk/report_index.html:6
+#: templates/helpdesk/report_output.html:3
+#: templates/helpdesk/report_output.html:16
+msgid "Reports &amp; Statistics"
+msgstr ""
+
+#: templates/helpdesk/report_index.html:9
+msgid "You haven't created any tickets yet, so you cannot run any reports."
+msgstr ""
+
+#: templates/helpdesk/report_index.html:13
+msgid "Reports By User"
+msgstr ""
+
+#: templates/helpdesk/report_index.html:15
+#: templates/helpdesk/report_index.html:24
+msgid "by Priority"
+msgstr ""
+
+#: templates/helpdesk/report_index.html:16
+msgid "by Queue"
+msgstr ""
+
+#: templates/helpdesk/report_index.html:17
+#: templates/helpdesk/report_index.html:25
+msgid "by Status"
+msgstr ""
+
+#: templates/helpdesk/report_index.html:18
+#: templates/helpdesk/report_index.html:26
+msgid "by Month"
+msgstr ""
+
+#: templates/helpdesk/report_index.html:22
+msgid "Reports By Queue"
+msgstr ""
+
+#: templates/helpdesk/report_index.html:27
+msgid "Days until ticket closed by Month"
+msgstr ""
+
+#: templates/helpdesk/report_output.html:19
+msgid ""
+"You can run this query on filtered data by using one of your saved queries."
+msgstr ""
+
+#: templates/helpdesk/report_output.html:21
+msgid "Select Query:"
+msgstr ""
+
+#: templates/helpdesk/report_output.html:26
+msgid "Filter Report"
+msgstr ""
+
+#: templates/helpdesk/report_output.html:29
+msgid ""
+"Want to filter this report to just show a subset of data? Go to the Ticket "
+"List, filter your query, and save your query."
+msgstr ""
+
+#: templates/helpdesk/rss_list.html:2 templates/helpdesk/rss_list.html.py:4
+msgid "RSS Feeds"
+msgstr ""
+
+#: templates/helpdesk/rss_list.html:6
+msgid ""
+"The following RSS feeds are available for you to monitor using your "
+"preferred RSS software. With the exception of the 'Latest Activity' feed, "
+"all feeds provide information only on Open and Reopened cases. This ensures "
+"your RSS reader isn't full of information about closed or historical tasks."
+msgstr ""
+
+#: templates/helpdesk/rss_list.html:9 templates/helpdesk/rss_list.html:12
+#: templates/helpdesk/rss_list.html:15 templates/helpdesk/rss_list.html:27
+#: templates/helpdesk/rss_list.html:28
+msgid "RSS Icon"
+msgstr ""
+
+#: templates/helpdesk/rss_list.html:10
+msgid ""
+"A summary of your open tickets - useful for getting alerted to new tickets "
+"opened for you"
+msgstr ""
+
+#: templates/helpdesk/rss_list.html:12
+msgid "Latest Activity"
+msgstr ""
+
+#: templates/helpdesk/rss_list.html:13
+msgid ""
+"A summary of all helpdesk activity - including comments, emails, "
+"attachments, and more"
+msgstr ""
+
+#: templates/helpdesk/rss_list.html:16
+msgid ""
+"All unassigned tickets - useful for being alerted to new tickets opened by "
+"the public via the web or via e-mail"
+msgstr ""
+
+#: templates/helpdesk/rss_list.html:19
+msgid ""
+"These RSS feeds allow you to view a summary of either your own tickets, or "
+"all tickets, for each of the queues in your helpdesk. For example, if you "
+"manage the staff who utilise a particular queue, this may be used to view "
+"new tickets coming into that queue."
+msgstr ""
+
+#: templates/helpdesk/rss_list.html:22
+msgid "Per-Queue Feeds"
+msgstr ""
+
+#: templates/helpdesk/rss_list.html:23
+msgid "All Open Tickets"
+msgstr ""
+
+#: templates/helpdesk/rss_list.html:27
+msgid "Open Tickets"
+msgstr ""
+
+#: templates/helpdesk/system_settings.html:3
+msgid "Change System Settings"
+msgstr ""
+
+#: templates/helpdesk/system_settings.html:5
+msgid ""
+"\n"
+"<h2>System Settings</h2>\n"
+"\n"
+"<p>The following items can be maintained by you or other superusers:</p>"
+msgstr ""
+
+#: templates/helpdesk/system_settings.html:11
+msgid "E-Mail Ignore list"
+msgstr ""
+
+#: templates/helpdesk/system_settings.html:12
+msgid "Maintain Queues"
+msgstr ""
+
+#: templates/helpdesk/system_settings.html:13
+msgid "Maintain Pre-Set Replies"
+msgstr ""
+
+#: templates/helpdesk/system_settings.html:14
+msgid "Maintain Knowledgebase Categories"
+msgstr ""
+
+#: templates/helpdesk/system_settings.html:15
+msgid "Maintain Knowledgebase Items"
+msgstr ""
+
+#: templates/helpdesk/system_settings.html:16
+msgid "Maintain E-Mail Templates"
+msgstr ""
+
+#: templates/helpdesk/system_settings.html:17
+msgid "Maintain Users"
+msgstr ""
+
+#: templates/helpdesk/ticket.html:2
+msgid "View Ticket Details"
+msgstr ""
+
+#: templates/helpdesk/ticket.html:34
+msgid "Attach another File"
+msgstr ""
+
+#: templates/helpdesk/ticket.html:34 templates/helpdesk/ticket.html.py:203
+msgid "Add Another File"
+msgstr ""
+
+#: templates/helpdesk/ticket.html:71 templates/helpdesk/ticket.html.py:84
+msgid "Private"
+msgstr ""
+
+#: templates/helpdesk/ticket.html:117
+msgid "Respond to this ticket"
+msgstr ""
+
+#: templates/helpdesk/ticket.html:124
+msgid "Use a Pre-set Reply"
+msgstr ""
+
+#: templates/helpdesk/ticket.html:126
+msgid ""
+"Selecting a pre-set reply will over-write your comment below. You can then "
+"modify the pre-set reply to your liking before saving this update."
+msgstr ""
+
+#: templates/helpdesk/ticket.html:129
+msgid "Comment / Resolution"
+msgstr ""
+
+#: templates/helpdesk/ticket.html:131
+msgid ""
+"You can insert ticket and queue details in your message. For more "
+"information, see the <a href='../../help/context/'>context help page</a>."
+msgstr ""
+
+#: templates/helpdesk/ticket.html:133
+msgid "New Status"
+msgstr ""
+
+#: templates/helpdesk/ticket.html:134
+msgid ""
+"This ticket cannot be resolved or closed until the tickets it depends on are "
+"resolved."
+msgstr ""
+
+#: templates/helpdesk/ticket.html:139 templates/helpdesk/ticket.html.py:145
+#: templates/helpdesk/ticket.html:158
+msgid "Duplicate"
+msgstr ""
+
+#: templates/helpdesk/ticket.html:142 templates/helpdesk/ticket.html.py:148
+#: templates/helpdesk/ticket.html:153 templates/helpdesk/ticket.html.py:157
+msgid "Reopened"
+msgstr ""
+
+#: templates/helpdesk/ticket.html:164
+msgid "Is this update public?"
+msgstr ""
+
+#: templates/helpdesk/ticket.html:166
+msgid ""
+"If this is public, the submitter will be e-mailed your comment or resolution."
+msgstr ""
+
+#: templates/helpdesk/ticket.html:170
+msgid "Change Further Details &raquo;"
+msgstr ""
+
+#: templates/helpdesk/ticket.html:179 templates/helpdesk/ticket_list.html:55
+#: templates/helpdesk/ticket_list.html:87
+#: templates/helpdesk/ticket_list.html:195
+msgid "Owner"
+msgstr ""
+
+#: templates/helpdesk/ticket.html:180
+msgid "Unassign"
+msgstr ""
+
+#: templates/helpdesk/ticket.html:184
+msgid "Due on"
+msgstr ""
+
+#: templates/helpdesk/ticket.html:196
+msgid "Attach File(s) &raquo;"
+msgstr ""
+
+#: templates/helpdesk/ticket.html:202
+msgid "Attach a File"
+msgstr ""
+
+#: templates/helpdesk/ticket.html:210
+msgid "Update This Ticket"
+msgstr ""
+
+#: templates/helpdesk/ticket_cc_add.html:3
+msgid "Add Ticket CC"
+msgstr ""
+
+#: templates/helpdesk/ticket_cc_add.html:5
+msgid ""
+"\n"
+"<h2>Add Ticket CC</h2>\n"
+"\n"
+"<p>To automatically send an email to a user or e-mail address when this "
+"ticket is updated, select the user or enter an e-mail address below.</p>"
+msgstr ""
+
+#: templates/helpdesk/ticket_cc_add.html:21
+msgid "Save Ticket CC"
+msgstr ""
+
+#: templates/helpdesk/ticket_cc_del.html:3
+msgid "Delete Ticket CC"
+msgstr ""
+
+#: templates/helpdesk/ticket_cc_del.html:5
+#, python-format
+msgid ""
+"\n"
+"<h2>Delete Ticket CC</h2>\n"
+"\n"
+"<p>Are you sure you wish to delete this email address (<em>"
+"%(email_address)s</em>) from the CC list for this ticket? They will stop "
+"receiving updates.</p>\n"
+msgstr ""
+
+#: templates/helpdesk/ticket_cc_del.html:11
+#: templates/helpdesk/ticket_dependency_del.html:11
+msgid "Don't Delete"
+msgstr ""
+
+#: templates/helpdesk/ticket_cc_del.html:13
+#: templates/helpdesk/ticket_dependency_del.html:13
+msgid "Yes, Delete"
+msgstr ""
+
+#: templates/helpdesk/ticket_cc_list.html:3
+#, fuzzy
+msgid "Ticket CC Settings"
+msgstr "அமைப்பு"
+
+#: templates/helpdesk/ticket_cc_list.html:5
+#, python-format
+msgid ""
+"\n"
+"<h2>Ticket CC Settings</h2>\n"
+"\n"
+"<p>The following people will receive an e-mail whenever <em><a href='../'>"
+"%(ticket_title)s</a></em> is updated. Some people can also view or edit the "
+"ticket via the public ticket views.</p>\n"
+"\n"
+"<p>You can <a href='add/'>add a new e-mail address to the list</a> or delete "
+"any of the items below as required.</p>"
+msgstr ""
+
+#: templates/helpdesk/ticket_cc_list.html:14
+msgid "Ticket CC List"
+msgstr ""
+
+#: templates/helpdesk/ticket_cc_list.html:15
+msgid "View?"
+msgstr ""
+
+#: templates/helpdesk/ticket_cc_list.html:15
+msgid "Update?"
+msgstr ""
+
+#: templates/helpdesk/ticket_cc_list.html:29
+#, python-format
+msgid "Return to <em>%(ticket_title)s</em>"
+msgstr ""
+
+#: templates/helpdesk/ticket_dependency_add.html:3
+msgid "Add Ticket Dependency"
+msgstr ""
+
+#: templates/helpdesk/ticket_dependency_add.html:5
+msgid ""
+"\n"
+"<h2>Add Ticket Dependency</h2>\n"
+"\n"
+"<p>Adding a dependency will stop you resolving this ticket until the "
+"dependent ticket has been resolved or closed.</p>"
+msgstr ""
+
+#: templates/helpdesk/ticket_dependency_add.html:21
+msgid "Save Ticket Dependency"
+msgstr ""
+
+#: templates/helpdesk/ticket_dependency_del.html:3
+msgid "Delete Ticket Dependency"
+msgstr ""
+
+#: templates/helpdesk/ticket_dependency_del.html:5
+msgid ""
+"\n"
+"<h2>Delete Ticket Dependency</h2>\n"
+"\n"
+"<p>Are you sure you wish to remove the dependency on this ticket?</p>\n"
+msgstr ""
+
+#: templates/helpdesk/ticket_desc_table.html:11
+msgid "Unhold"
+msgstr ""
+
+#: templates/helpdesk/ticket_desc_table.html:11
+msgid "Hold"
+msgstr ""
+
+#: templates/helpdesk/ticket_desc_table.html:13
+#, python-format
+msgid "Queue: %(queue)s"
+msgstr ""
+
+#: templates/helpdesk/ticket_desc_table.html:21
+msgid "Assigned To"
+msgstr ""
+
+#: templates/helpdesk/ticket_desc_table.html:22
+msgid "Unassigned"
+msgstr ""
+
+#: templates/helpdesk/ticket_desc_table.html:27
+msgid "Ignore"
+msgstr ""
+
+#: templates/helpdesk/ticket_desc_table.html:36
+msgid "Copies To"
+msgstr ""
+
+#: templates/helpdesk/ticket_desc_table.html:37
+msgid "Manage"
+msgstr ""
+
+#: templates/helpdesk/ticket_desc_table.html:37
+msgid ""
+"Click here to add / remove people who should receive an e-mail whenever this "
+"ticket is updated."
+msgstr ""
+
+#: templates/helpdesk/ticket_desc_table.html:37
+msgid "Subscribe"
+msgstr ""
+
+#: templates/helpdesk/ticket_desc_table.html:37
+msgid ""
+"Click here to subscribe yourself to this ticket, if you want to receive an e-"
+"mail whenever this ticket is updated."
+msgstr ""
+
+#: templates/helpdesk/ticket_desc_table.html:48
+msgid "Dependencies"
+msgstr ""
+
+#: templates/helpdesk/ticket_desc_table.html:50
+msgid ""
+"This ticket cannot be resolved until the following ticket(s) are resolved"
+msgstr ""
+
+#: templates/helpdesk/ticket_desc_table.html:51
+msgid "Remove Dependency"
+msgstr ""
+
+#: templates/helpdesk/ticket_desc_table.html:54
+msgid "This ticket has no dependencies."
+msgstr ""
+
+#: templates/helpdesk/ticket_desc_table.html:56
+msgid "Add Dependency"
+msgstr ""
+
+#: templates/helpdesk/ticket_desc_table.html:56
+msgid ""
+"Click on 'Add Dependency', if you want to make this ticket dependent on "
+"another ticket. A ticket may not be closed until all tickets it depends on "
+"are closed."
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:2
+msgid "Ticket Listing"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:41
+msgid "Query Options"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:43
+msgid "Save This Query"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:51
+msgid "Change Query"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:54
+#: templates/helpdesk/ticket_list.html:69
+#, fuzzy
+msgid "Sorting"
+msgstr "அமைப்பு"
+
+#: templates/helpdesk/ticket_list.html:58
+#: templates/helpdesk/ticket_list.html:137
+msgid "Keywords"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:59
+msgid "Date Range"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:90
+msgid "Reverse"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:92
+msgid "Ordering applied to tickets"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:97
+msgid "Owner(s)"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:101
+msgid "(ME)"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:105
+msgid "Ctrl-Click to select multiple options"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:110
+msgid "Queue(s)"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:111
+#: templates/helpdesk/ticket_list.html:117
+#: templates/helpdesk/ticket_list.html:131
+msgid "Ctrl-click to select multiple options"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:116
+msgid "Status(es)"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:122
+msgid "Date (From)"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:123
+msgid "Date (To)"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:124
+msgid "Use YYYY-MM-DD date format, eg 2011-05-29"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:130
+msgid "Tag(s)"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:138
+msgid ""
+"Keywords are case-insensitive, and will be looked for in the title, body and "
+"submitter fields."
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:142
+msgid "Apply Filter"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:144
+#, python-format
+msgid "You are currently viewing saved query <em>%(query_name)s</em>."
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:147
+#, python-format
+msgid ""
+"<a href='../reports/?saved_query=%(query_id)s'>Run a report</a> on this "
+"query to see stats and charts for the data listed below."
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:154
+#: templates/helpdesk/ticket_list.html:169
+msgid "Save Query"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:158
+msgid "Query Name"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:160
+msgid ""
+"This name appears in the drop-down list of saved queries. If you share your "
+"query, other users will see this name, so choose something clear and "
+"descriptive!"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:162
+msgid "Shared?"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:163
+msgid "Yes, share this query with other users."
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:164
+msgid ""
+"If you share this query, it will be visible by <em>all</em> other logged-in "
+"users."
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:176
+msgid "Use Saved Query"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:178
+msgid "Query"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:183
+msgid "Run Query"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:209
+msgid "No Tickets Match Your Selection"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:215
+msgid "Previous"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:219
+#, python-format
+msgid "Page %(ticket_num)s of %(num_pages)s."
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:223
+msgid "Next"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:228
+msgid "Select:"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:228
+msgid "None"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:228
+msgid "Inverse"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:230
+msgid "With Selected Tickets:"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:230
+msgid "Take (Assign to me)"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:230
+msgid "Close"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:230
+msgid "Close (Don't Send E-Mail)"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:230
+msgid "Close (Send E-Mail)"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:230
+msgid "Assign To"
+msgstr ""
+
+#: templates/helpdesk/ticket_list.html:230
+msgid "Nobody (Unassign)"
+msgstr ""
+
+#: templates/helpdesk/user_settings.html:3
+msgid "Change User Settings"
+msgstr ""
+
+#: templates/helpdesk/user_settings.html:14
+msgid ""
+"\n"
+"<h2>User Settings</h2>\n"
+"\n"
+"<p>Use the following options to change the way your helpdesk system works "
+"for you. These settings do not impact any other user.</p>\n"
+msgstr ""
+
+#: templates/helpdesk/user_settings.html:29
+msgid "Save Options"
+msgstr ""
+
+#: templates/helpdesk/registration/logged_out.html:2
+msgid "Logged Out"
+msgstr ""
+
+#: templates/helpdesk/registration/logged_out.html:4
+msgid ""
+"\n"
+"<h2>Logged Out</h2>\n"
+"\n"
+"<p>Thanks for being here. Hopefully you've helped resolve a few tickets and "
+"make the world a better place.</p>\n"
+"\n"
+msgstr ""
+
+#: templates/helpdesk/registration/login.html:2
+msgid "Helpdesk Login"
+msgstr ""
+
+#: templates/helpdesk/registration/login.html:9
+#: templates/helpdesk/registration/login.html:21
+msgid "Login"
+msgstr ""
+
+#: templates/helpdesk/registration/login.html:11
+msgid ""
+"To log in and begin responding to cases, simply enter your username and "
+"password below."
+msgstr ""
+
+#: templates/helpdesk/registration/login.html:14
+msgid "Your username and password didn't match. Please try again."
+msgstr ""
+
+#: templates/helpdesk/registration/login.html:16
+msgid "Username"
+msgstr ""
+
+#: templates/helpdesk/registration/login.html:18
+msgid "Password"
+msgstr ""
+
+#: templates/postman/archives.html:3
+msgid "Archived Messages"
+msgstr ""
+
+#: templates/postman/archives.html:7
+msgid ""
+"Messages in this folder will never be removed. You can use this folder for "
+"long term storage."
+msgstr ""
+
+#: templates/postman/base.html:4
+msgid "Messaging"
+msgstr ""
+
+#: templates/postman/base_folder.html:27
+msgid "Sorry, this page number is invalid."
+msgstr ""
+
+#: templates/postman/base_folder.html:32
+msgid "By Conversation"
+msgstr ""
+
+#: templates/postman/base_folder.html:33
+msgid "By Message"
+msgstr ""
+
+#: templates/postman/base_folder.html:37 templates/postman/view.html:33
+#: templates/postman/write.html:3
+msgid "Compose"
+msgstr ""
+
+#: templates/postman/base_folder.html:45 templates/postman/view.html:30
+msgid "Archive"
+msgstr ""
+
+#: templates/postman/base_folder.html:46
+msgid "Undelete"
+msgstr ""
+
+#: templates/postman/base_folder.html:57
+msgid "Sender"
+msgstr ""
+
+#: templates/postman/base_folder.html:58 templates/postman/reply.html:4
+msgid "Recipient"
+msgstr ""
+
+#: templates/postman/base_folder.html:59 templates/postman/base_write.html:41
+msgid "Subject"
+msgstr ""
+
+#: templates/postman/base_folder.html:60
+msgid "Date"
+msgstr ""
+
+#: templates/postman/base_folder.html:88
+msgid "No messages."
+msgstr ""
+
+#: templates/postman/base_write.html:40
+msgid "Recipients"
+msgstr ""
+
+#: templates/postman/base_write.html:42 templates/postman/view.html:44
+msgid "Body"
+msgstr ""
+
+#: templates/postman/base_write.html:43
+msgid "Notify via SMS"
+msgstr ""
+
+#: templates/postman/base_write.html:45
+msgid "Send"
+msgstr ""
+
+#: templates/postman/email_user.txt:1
+msgid "Dear user,"
+msgstr ""
+
+#: templates/postman/email_user.txt:3 templates/postman/email_visitor.txt:3
+#, python-format
+msgid "On %(date)s, you asked to send a message to the user '%(recipient)s'."
+msgstr ""
+
+#: templates/postman/email_user.txt:5 templates/postman/email_visitor.txt:5
+msgid "Your message has been rejected by the moderator"
+msgstr ""
+
+#: templates/postman/email_user.txt:5 templates/postman/email_visitor.txt:5
+msgid ", for the following reason:"
+msgstr ""
+
+#: templates/postman/email_user.txt:9 templates/postman/email_visitor.txt:10
+#, python-format
+msgid "On %(date)s, you sent a message to the user '%(sender)s'."
+msgstr ""
+
+#: templates/postman/email_user.txt:10
+msgid "Your correspondent has given you an answer."
+msgstr ""
+
+#: templates/postman/email_user.txt:11
+#, python-format
+msgid "You have received a copy of a response from the user '%(sender)s'."
+msgstr ""
+
+#: templates/postman/email_user.txt:13
+#, python-format
+msgid "You have received a message from the user '%(sender)s'."
+msgstr ""
+
+#: templates/postman/email_user.txt:16 templates/postman/email_visitor.txt:14
+msgid "Thank you again for your interest in our services."
+msgstr ""
+
+#: templates/postman/email_user.txt:17 templates/postman/email_visitor.txt:16
+msgid "The site administrator"
+msgstr ""
+
+#: templates/postman/email_user.txt:19 templates/postman/email_visitor.txt:18
+msgid ""
+"Note: This message is issued by an automated system.\n"
+"Do not reply, this would not be taken into account."
+msgstr ""
+
+#: templates/postman/email_user_subject.txt:1
+#: templates/postman/email_visitor_subject.txt:1
+#, python-format
+msgid "Message \"%(subject)s\" on the site %(sitename)s"
+msgstr ""
+
+#: templates/postman/email_visitor.txt:1
+msgid "Dear visitor,"
+msgstr ""
+
+#: templates/postman/email_visitor.txt:8
+msgid "As a reminder, please find below the content of your message."
+msgstr ""
+
+#: templates/postman/email_visitor.txt:11
+msgid "Please find below the answer from your correspondent."
+msgstr ""
+
+#: templates/postman/email_visitor.txt:15
+msgid "For more comfort, we encourage you to open an account on the site."
+msgstr ""
+
+#: templates/postman/inbox.html:6
+msgid "Received"
+msgstr ""
+
+#: templates/postman/reply.html:3 templates/postman/view.html:32
+#: templates/postman/view.html.py:40 templates/postman/view.html:45
+msgid "Reply"
+msgstr ""
+
+#: templates/postman/sent.html:6
+msgid "Sent"
+msgstr ""
+
+#: templates/postman/trash.html:3
+msgid "Deleted Messages"
+msgstr ""
+
+#: templates/postman/trash.html:10
+msgid ""
+"Messages in this folder can be removed from time to time. For long term "
+"storage, use instead the archive folder."
+msgstr ""
+
+#: templates/postman/view.html:9
+msgid "Conversation"
+msgstr ""
+
+#: templates/postman/view.html:9
+msgid "Message"
+msgstr ""
+
+#: templates/postman/view.html:17
+msgid "Rejected"
+msgstr ""
+
+#: templates/postman/view.html:17
+msgid ":"
+msgstr ""
+
+#: templates/postman/view.html:27
+msgid "Back"
+msgstr ""

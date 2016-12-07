@@ -1,0 +1,31 @@
+
+
+{% extends 'baseapp/group_code/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /home/murad/testing/baseapp/templates/baseapp/group_code/group_code_archive_week.html
+{% endblock %}
+
+{% block title %}
+  {% trans "Group_code Week Archive" %}
+{% endblock %}
+
+{% block header-link %}
+  {% trans "Group_code Week Archive" %}
+{% endblock %}
+
+{% block header-description %}
+  {% trans "A weekly archive page showing all objects in a given week." %}
+{% endblock %}
+
+{% block content %}
+  <h2>
+    {% blocktrans %}
+      Group_codes created during the week beginning on {{ week }}
+    {% endblocktrans %}
+  </h2>
+  {% include 'baseapp/group_code/object_table_list.html' %}
+  {% include 'baseapp/group_code/pagination.html' %}
+{% endblock %}

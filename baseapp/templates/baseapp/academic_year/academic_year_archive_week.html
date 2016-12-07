@@ -1,0 +1,31 @@
+
+
+{% extends 'baseapp/academic_year/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /home/murad/testing/baseapp/templates/baseapp/academic_year/academic_year_archive_week.html
+{% endblock %}
+
+{% block title %}
+  {% trans "Academic_Year Week Archive" %}
+{% endblock %}
+
+{% block header-link %}
+  {% trans "Academic_Year Week Archive" %}
+{% endblock %}
+
+{% block header-description %}
+  {% trans "A weekly archive page showing all objects in a given week." %}
+{% endblock %}
+
+{% block content %}
+  <h2>
+    {% blocktrans %}
+      Academic_Years created during the week beginning on {{ week }}
+    {% endblocktrans %}
+  </h2>
+  {% include 'baseapp/academic_year/object_table_list.html' %}
+  {% include 'baseapp/academic_year/pagination.html' %}
+{% endblock %}

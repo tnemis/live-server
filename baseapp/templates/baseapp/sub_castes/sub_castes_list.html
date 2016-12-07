@@ -1,0 +1,19 @@
+{% extends 'baseapp/sub_castes/base.html' %}
+
+{% load i18n %}
+
+{% load url from future %}
+{% block head_title %}Sub Castes{% endblock %}
+
+{% block content %}
+  <div class="row">
+        <div class="col-md-8">
+  {% include 'baseapp/sub_castes/object_table_list.html' %}
+  {% include 'baseapp/pagination.html' %}
+</div>
+    </div>
+{% endblock %}
+
+
+
+

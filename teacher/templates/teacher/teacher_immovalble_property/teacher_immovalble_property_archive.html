@@ -1,0 +1,49 @@
+
+
+{% extends 'teacher/teacher_immovalble_property/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+
+{% block filename %}
+  /home/mur/testing/emis_d15/scafold/teacher/templates/teacher/teacher_immovalble_property/teacher_immovalble_property_archive.html
+{% endblock %}
+{% block title %}
+  {% trans "Teacher_immovalble_property Archive Index" %}
+{% endblock %}
+{% block breadcrumbs %}
+  <ul class='breadcrumb'>
+    <li>
+      <a href='{% url "teacher_teacher_immovalble_property_archive_index" %}'>
+        {% trans "Archive Index" %}
+      </a>
+    </li>
+  </ul>
+{% endblock %}
+{% block header-link %}
+  <a href='{% url "teacher_teacher_immovalble_property_archive_index" %}'>
+    {% trans "Teacher_immovalble_property Archive Index" %}
+  </a>
+{% endblock %}
+{% block header-description %}
+  {% trans "A top-level index page showing the latest objects, by date." %}
+{% endblock %}
+{% block content %}
+  <h2>
+    By Year
+  </h2>
+  <ul class='nav nav-tabs nav-stacked'>
+    {% for date in date_list %}
+      <li>
+        <a href='{% url "teacher_teacher_immovalble_property_year_archive" year=date.year %}'>
+          {{ date.year }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  <h2>
+    {% trans "Recent Teacher_immovalble_propertys" %}
+  </h2>
+  {% include 'teacher/teacher_immovalble_property/object_table_list.html' %}
+  {% include 'teacher/teacher_immovalble_property/pagination.html' %}
+{% endblock %}

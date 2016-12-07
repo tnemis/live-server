@@ -1,0 +1,43 @@
+{% extends "baseapp/master_base.html"|pjax:request %}
+
+{% load i18n %}
+{% block contentmenu %}
+    
+        <ul id="nav">
+                  
+                  <li >
+                    <a  href='{% url "school_area_classification_list" %}'>
+                      {% trans "school area classification List " %}
+                    </a>
+                  </li>
+                  <li >
+                    <a href='{% url "school_area_classification_create" %}'>
+                      {% trans "Create school area classification" %}
+                    </a>
+                  </li>
+                  {% if object %}
+                    <li >
+                      <a  href='{{ object.get_absolute_url }}'>
+                        {% trans "school area classification" %}
+                      </a>
+                    </li>
+                    <li >
+                      <a  href='{% url "school_area_classification_update" pk=object.pk %}'>
+                        {% trans "Update school area classification detail" %}
+                      </a>
+                    </li>
+                    <li >
+                      <a  href='{% url "school_area_classification_delete" pk=object.pk %}'>
+                        {% trans "Delete" %}
+                      </a>
+                    </li>
+                  
+                  {% endif %}
+                  
+                </ul>
+        </a>
+      
+   
+   
+{% endblock %}
+

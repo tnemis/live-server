@@ -1,0 +1,47 @@
+
+
+{% extends 'school/school_flag/base.html' %}
+{% load widget_tweaks %}
+
+{% load i18n %}
+{% load url from future %}
+
+
+
+
+{% block content %}
+<div class="row">
+<div class="col-md-8" >
+  <form action='{% if object %}{% url "school_school_flag_update" pk=object.pk %}{% else %}{% url "school_school_flag_create" %}{% endif %}' method='post' encoding='utf-8'>
+    <fieldset>
+      {% csrf_token %}
+<!--       {{ form }}
+ -->      
+
+    <div class="form-group"> <b>{% trans "School key" %}</b>{{ form.school_key|add_class:"form-control" }}</div><span class="error_message">{{form.school_key.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Area flag" %}</b>{{ form.area_flag|add_class:"form-control" }}</div><span class="error_message">{{form.area_flag.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Education block flag" %}</b>{{ form.edu_block_flag|add_class:"form-control" }}</div><span class="error_message">{{form.edu_block_flag.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "School type flag" %}</b>{{ form.school_type_flag|add_class:"form-control" }}</div><span class="error_message">{{form.school_type_flag.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "School managed flag" %}</b>{{ form.school_managed_flag|add_class:"form-control" }}</div><span class="error_message">{{form.school_managed_flag.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "School category flag" %}</b>{{ form.school_category_flag|add_class:"form-control" }}</div><span class="error_message">{{form.school_category_flag.errors}}</span>
+
+    
+    <div class='form-actions'>
+        <button class='btn btn-large btn-success' type='submit'>
+          {% if object %}
+            {% trans "Update" %}
+          {% else %}
+            {% trans "Create" %}
+          {% endif %}
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+</div>
+{% endblock %}

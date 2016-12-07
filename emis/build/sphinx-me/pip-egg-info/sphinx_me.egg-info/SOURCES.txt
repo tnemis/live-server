@@ -1,0 +1,10 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+sphinx_me.py
+pip-egg-info/sphinx_me.egg-info/PKG-INFO
+pip-egg-info/sphinx_me.egg-info/SOURCES.txt
+pip-egg-info/sphinx_me.egg-info/dependency_links.txt
+pip-egg-info/sphinx_me.egg-info/entry_points.txt
+pip-egg-info/sphinx_me.egg-info/top_level.txt

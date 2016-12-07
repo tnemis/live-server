@@ -1,0 +1,31 @@
+
+
+{% extends 'baseapp/sub_castes/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /home/murad/testing/baseapp/templates/baseapp/sub_castes/sub_castes_archive_week.html
+{% endblock %}
+
+{% block title %}
+  {% trans "Sub_Castes Week Archive" %}
+{% endblock %}
+
+{% block header-link %}
+  {% trans "Sub_Castes Week Archive" %}
+{% endblock %}
+
+{% block header-description %}
+  {% trans "A weekly archive page showing all objects in a given week." %}
+{% endblock %}
+
+{% block content %}
+  <h2>
+    {% blocktrans %}
+      Sub_Castess created during the week beginning on {{ week }}
+    {% endblocktrans %}
+  </h2>
+  {% include 'baseapp/sub_castes/object_table_list.html' %}
+  {% include 'baseapp/sub_castes/pagination.html' %}
+{% endblock %}
