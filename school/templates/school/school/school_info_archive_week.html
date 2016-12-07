@@ -1,0 +1,31 @@
+
+
+{% extends 'school/school/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /home/mur/testing/emis_d15/scafold/school/templates/school/school/school_archive_week.html
+{% endblock %}
+
+{% block title %}
+  {% trans "School Week Archive" %}
+{% endblock %}
+
+{% block header-link %}
+  {% trans "School Week Archive" %}
+{% endblock %}
+
+{% block header-description %}
+  {% trans "A weekly archive page showing all objects in a given week." %}
+{% endblock %}
+
+{% block content %}
+  <h2>
+    {% blocktrans %}
+      Schools created during the week beginning on {{ week }}
+    {% endblocktrans %}
+  </h2>
+  {% include 'school/school/object_table_list.html' %}
+  {% include 'school/school/pagination.html' %}
+{% endblock %}

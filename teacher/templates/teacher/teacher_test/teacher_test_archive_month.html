@@ -1,0 +1,64 @@
+
+
+{% extends 'teacher/teacher_test/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+
+{% block filename %}
+  /home/mur/testing/emis_d15/scafold/teacher/templates/teacher/teacher_test/teacher_test_archive_month.html
+{% endblock %}
+{% block breadcrumbs %}
+  <ul class='breadcrumb'>
+    <li>
+      <a href='{% url "teacher_teacher_test_archive_index" %}'>
+        {% trans "Archive Index" %}
+      </a>
+      <span class='divider'>
+        /
+      </span>
+    </li>
+    <li>
+      <a href='{% url "teacher_teacher_test_year_archive" year=month.year %}'>
+        {% trans "Year Archive" %}
+      </a>
+      <span class='divider'>
+        /
+      </span>
+    </li>
+    <li>
+      <a href='{% url "teacher_teacher_test_month_archive" year=month.year month=month.month %}'>
+        {% trans "Month Archive" %}
+      </a>
+    </li>
+  </ul>
+{% endblock %}
+{% block header-link %}
+  <a href='{% url "teacher_teacher_test_month_archive" year=month.year month=month.month %}'>
+    {% trans "Teacher_test Month Archive" %}
+  </a>
+{% endblock %}
+{% block header-description %}
+  {% trans "A monthly archive page showing all objects in a given month." %}
+{% endblock %}
+{% block content %}
+  <h2>
+    By Day
+  </h2>
+  <ul class='nav nav-tabs nav-stacked'>
+    {% for date in date_list %}
+      <li>
+        <a href='{% url "teacher_teacher_test_day_archive" year=date.year month=date.month day=date.day %}'>
+          {{ date|date:"M. d, Y" }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  <h2>
+    {% blocktrans %}
+      Teacher_tests created in the month of {{ month|date:"M Y" }}
+    {% endblocktrans %}
+  </h2>
+  {% include 'teacher/teacher_test/object_table_list.html' %}
+  {% include 'teacher/teacher_test/pagination.html' %}
+{% endblock %}

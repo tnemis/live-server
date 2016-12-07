@@ -1,0 +1,48 @@
+
+
+{% extends 'baseapp/academic_year/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /home/murad/testing/baseapp/templates/baseapp/academic_year/academic_year_archive.html
+{% endblock %}
+{% block title %}
+  {% trans "Academic_Year Archive Index" %}
+{% endblock %}
+{% block breadcrumbs %}
+  <ul class='breadcrumb'>
+    <li>
+      <a href='{% url "baseapp_academic_year_archive_index" %}'>
+        {% trans "Archive Index" %}
+      </a>
+    </li>
+  </ul>
+{% endblock %}
+{% block header-link %}
+  <a href='{% url "baseapp_academic_year_archive_index" %}'>
+    {% trans "Academic_Year Archive Index" %}
+  </a>
+{% endblock %}
+{% block header-description %}
+  {% trans "A top-level index page showing the latest objects, by date." %}
+{% endblock %}
+{% block content %}
+  <h2>
+    By Year
+  </h2>
+  <ul class='nav nav-tabs nav-stacked'>
+    {% for date in date_list %}
+      <li>
+        <a href='{% url "baseapp_academic_year_year_archive" year=date.year %}'>
+          {{ date.year }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  <h2>
+    {% trans "Recent Academic_Years" %}
+  </h2>
+  {% include 'baseapp/academic_year/object_table_list.html' %}
+  {% include 'baseapp/academic_year/pagination.html' %}
+{% endblock %}

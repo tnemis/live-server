@@ -1,0 +1,65 @@
+{% extends 'teacher/teacher_personal_detail/base.html' %}
+{% load widget_tweaks %}
+
+{% load i18n %}
+{% load url from future %}
+
+
+{% block content %}
+
+      {% csrf_token %}
+      {% if user.account.user_category.user_category == 'school' %}
+         
+{%if teacher_detail%}
+<table class='table table-bordered table-striped1' border="2" align="center">
+  <th>Teacher Name</th>
+  <th>School Code</th>
+  <th>GPF No</th>
+{% for teach in teacher_detail%}
+<tr>
+<td>{{teach.name}} </td>
+<td>{{teach.school.school_code}}</td>
+<td>{{teach.gpf_no}} &nbsp;&nbsp;&nbsp;  
+  <a href='{% url "teacher_teacher_personal_detail_detail" pk=teach.id %}'>View</a>
+&nbsp;&nbsp;&nbsp;  </td>
+</tr>
+{% endfor %}
+</table>
+
+            {% else %}
+            <div class="row">
+<div class="col-md-8" >
+             <form action='{% url "teacher_teacher_personal_detail_pool_detail" %}' method='post' enctype="multipart/form-data" >
+             <fieldset>
+              {% csrf_token %}
+
+              <div class="form-group"><b>{% trans "Enter the GPF No" %} </b>{{ form.gpf_no|add_class:"form-control" }}</div>
+              <div class="form-group"><center><b>{% trans "OR" %}</b></center></div>
+              <div class="form-group"> <b>{% trans "Enter the Name" %}</b>{{ form.name|add_class:"form-control" }}</div>
+              <div class="form-group"> <b>{% trans "Enter the Date of Birth" %}</b>
+      <div class="input-group">
+        <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
+        </div>
+        <input class="form-control" name="dob" id="dob" type="text" data-mask="" data-inputmask="'alias': 'dd/mm/yyyy'" value="{{form.dob.value|date:"d/m/Y"  }}">
+      </div></div>
+              <button class='btn btn-large btn-success' type='submit' onclick="this.disabled=true,this.form.submit(); type='submit'"> 
+            {% trans "Submit" %}
+</fieldset>
+          </form>
+          </div></div>
+          {% endif %}
+      {% endif %}
+<script type="text/javascript">
+            $(function() {
+                //Datemask dd/mm/yyyy
+                $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+                //Datemask2 mm/dd/yyyy
+
+                $("[data-mask]").inputmask();
+
+                //Date range as a button
+
+            });
+        </script>
+{% endblock %}

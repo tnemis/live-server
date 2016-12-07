@@ -1,0 +1,48 @@
+
+
+{% load i18n %}
+
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        {% trans "Field" %}
+      </th>
+      <th>
+        {% trans "Value" %}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        School Key
+      </td>
+      <td>{{ object.school_key }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Anganwadi
+      </td>
+      <td>{{ object.anganwadi }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Student Count
+      </td>
+      <td>{{ object.student_count }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Teacher Count
+      </td>
+      <td>{{ object.teacher_count }}</td>
+    </tr>
+
+    
+  </tbody>
+</table>

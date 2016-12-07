@@ -1,0 +1,106 @@
+{% extends 'students/block/base.html' %}
+{% load i18n %}
+{% block content %}
+{% if request.user.account.user_category_id == 6 or request.user.account.user_category_id == 7 or request.user.account.user_category_id == 8 or request.user.account.user_category_id == 12  or request.user.account.user_category_id == 13  or request.user.account.user_category_id == 14  %}
+<table><tr>
+  <td><h4><a href='{% url "district_detail" %}'>Home</a></h4></td></tr></table> 
+{% endif %}
+{% if request.user.account.user_category_id == 9 or request.user.account.user_category_id == 10 or request.user.account.user_category_id == 11 or request.user.account.user_category_id == 15 or request.user.account.user_category_id == 16 or request.user.account.user_category_id == 17 or request.user.account.user_category_id == 4 %}
+<table><tr>
+  <td><h4><a href='{% url "state_detail" %}'>Home</a></h4></td></tr></table>
+  {% endif %}
+  <br>
+<table class='table table-bordered table-striped4' border="2">
+  <thead>
+    <tr>
+      <th></th>
+      <th>School</th>
+      <th>Student</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Total Count</td>
+          <td>{{Number_of_schools_in_block|default:0}}</td>
+          <td>{{school_count|default:0 }}</td>
+      </tr>
+  </tbody>
+</table>
+<table class='table table-bordered table-striped3' border="2">
+  <thead>
+    <tr>
+      <th>School UDISE CODE</th>
+      <th>School Name</th>
+      <th>Total Students</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for schl in page_objs %}
+      <tr>
+          <td><a href="/students/child_detail/?school_code={{ schl.school.school_code }}">{{ schl.school.school_code }}</a></td>
+          <td>{{ schl.school.school_name }}</td>
+          <td>{{ schl.total_count|default:0}}</td>
+      </tr>
+      
+    {% endfor %}
+{% if request.user.account.user_category_id == 2 or request.user.account.user_category_id == 5 %}
+
+        <ul class="pagination pagination-centered">
+            {% if page_objs.has_previous %}
+                <li><a href="?page=1"><<</a></li>
+                <li><a href="?page={{ page_objs.previous_page_number }}"><</a></li>
+            {% endif %}
+
+            {% for i in page_objs.paginator.page_range %}
+                {% if page_objs.number == i %}
+                {% if page_objs.has_previous %}
+                    <li><a href="?page={{i|add:-1}}">{{i|add:-1}}</a></li>
+                {% endif %}
+                <li  class="active">
+
+                <a href="?page={{i}}">{{i}}</a></li>
+                {% if page_objs.has_next %}
+                <li><a href="?page={{i|add:1}}">{{i|add:1}}</a></li>
+                {% endif %}
+                {% endif %}
+
+            {% endfor %}
+
+
+            {% if page_objs.has_next %}
+                <li><a href="?page={{ page_objs.next_page_number }}">></a></li>
+                <li><a href="?page={{ page_objs.paginator.num_pages }}">>></a></li>
+            {% endif %}
+        </ul>
+{% else %}
+        <ul class="pagination pagination-centered">
+            {% if page_objs.has_previous %}
+                <li><a href="?block_id={{block_id}}&page=1"><<</a></li>
+                <li><a href="?block_id={{block_id}}&page={{ page_objs.previous_page_number }}"><</a></li>
+            {% endif %}
+
+            {% for i in page_objs.paginator.page_range %}
+                {% if page_objs.number == i %}
+                {% if page_objs.has_previous %}
+                    <li><a href="?block_id={{block_id}}&page={{i|add:-1}}">{{i|add:-1}}</a></li>
+                {% endif %}
+                <li  class="active">
+
+                <a href="?block_id={{block_id}}&page={{i}}">{{i}}</a></li>
+                {% if page_objs.has_next %}
+                <li><a href="?block_id={{block_id}}&page={{i|add:1}}">{{i|add:1}}</a></li>
+                {% endif %}
+                {% endif %}
+
+            {% endfor %}
+
+
+            {% if page_objs.has_next %}
+                <li><a href="?block_id={{block_id}}&page={{ page_objs.next_page_number }}">></a></li>
+                <li><a href="?block_id={{block_id}}&page={{ page_objs.paginator.num_pages }}">>></a></li>
+            {% endif %}
+        </ul>
+  {% endif %}
+</tbody>
+</table>
+{% endblock %}

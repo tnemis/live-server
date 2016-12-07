@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Welcome" %}{% endblock %}
+
+{% block content_class %}home{% endblock %}
+
+{% block content %}
+{% for row in reader %}
+{{row.0.1}}
+
+{% endfor %}
+
+
+<!-- id {{id2}}
+username {{username}}
+password {{password}} -->
+{{hello}}
+{% endblock %}

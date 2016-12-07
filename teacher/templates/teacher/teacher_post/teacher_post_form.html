@@ -1,0 +1,85 @@
+
+
+{% extends 'teacher/teacher_post/base.html' %}
+{% load widget_tweaks %}
+
+{% load i18n %}
+{% load url from future %}
+
+
+
+{% block content %}
+<script type="text/javascript">
+            $(function() {
+                //Datemask dd/mm/yyyy
+                $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+                //Datemask2 mm/dd/yyyy
+
+                $("[data-mask]").inputmask();
+
+                //Date range as a button
+
+            });
+        </script>
+<div class="row">
+
+<div class="col-md-8" >
+  <form action='{% if object %}{% url "teacher_teacher_post_update" pk=object.pk %}{% else %}{% url "teacher_teacher_post_create" %}{% endif %}' method='post' encoding='utf-8'>
+    <fieldset>
+      {% csrf_token %}
+<!--       {{ form }}
+ -->      
+    <div class="form-group"> <b>{% trans "Teacher key" %}</b>{{ form.teacher_key|add_class:"form-control" }}</div><span class="error_message">{{form.teacher_key.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Designation" %}</b>{{ form.designation|add_class:"form-control" }}</div><span class="error_message">{{form.designation.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "School" %}</b>{{ form.school|add_class:"form-control" }}</div><span class="error_message">{{form.school.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Place" %}</b>{{ form.place|add_class:"form-control" }}</div><span class="error_message">{{form.place.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Category" %}</b>{{ form.category|add_class:"form-control" }}</div><span class="error_message">{{form.category.errors}}</span>
+
+     <div class="form-group"> <b>{% trans "Post from" %}</b>
+      <div class="input-group">
+        <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
+        </div>
+        <input class="form-control" name="post_from" id="post_from" type="text" data-mask="" data-inputmask="'alias': 'dd/mm/yyyy'" value="{{form.post_from.value|date:"d/m/Y"  }}">
+      </div></div><span class="error_message">{{form.post_from.errors}}</span>
+
+           <div class="form-group"> <b>{% trans "Post to" %}</b>
+      <div class="input-group">
+        <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
+        </div>
+        <input class="form-control" name="post_to" id="post_to" type="text" data-mask="" data-inputmask="'alias': 'dd/mm/yyyy'" value="{{form.post_to.value|date:"d/m/Y"  }}">
+      </div></div><span class="error_message">{{form.post_to.errors}}</span>
+
+ 
+
+    <div class="form-group"> <b>{% trans "pay scale" %}</b>{{ form.pay_scale|add_class:"form-control" }}</div><span class="error_message">{{form.pay_scale.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Complete flag" %}</b>{{ form.complete_flag|add_class:"form-control" }}</div><span class="error_message">{{form.complete_flag.errors}}</span>
+
+  <div class="form-group"> <b>{% trans "Modification flag" %}</b>{{ form.modification_flag|add_class:"form-control" }}</div><span class="error_message">{{form.modification_flag.errors}}</span>
+
+  <div class="form-group"> <b>{% trans "Verification flag" %}</b>{{ form.verification_flag|add_class:"form-control" }}</div><span class="error_message">{{form.verification_flag.errors}}</span>
+
+
+  <div class="form-group"> <b>{% trans "Staff id" %}</b>{{ form.staff_id|add_class:"form-control" }}</div><span class="error_message">{{form.staff_id.errors}}</span>
+
+
+ <div class='form-actions'>
+        <button class='btn btn-large btn-success' type='submit'>
+          {% if object %}
+            {% trans "Update" %}
+          {% else %}
+            {% trans "Create" %}
+          {% endif %}
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<form action='{% url "report_list_basic" %}' method='post' enctype="multipart/form-data" >
+  {% csrf_token %}
+{% if user.account.user_category.user_category == 'block' %}
+&nbsp;&nbsp;School : <select name="school_list" id="school_list" >
+{% for sch in school_list %}
+<option value="{{sch.id}}">{{sch.school_name}}</option>
+{% endfor %}
+</select>
+{% endif %}
+{% if user.account.user_category.user_category == 'district' or user.account.user_category.user_category == 'dee_district' or user.account.user_category.user_category == 'dse_district' or user.account.user_category.user_category == 'dms_district' or user.account.user_category.user_category == 'cbse_district' or user.account.user_category.user_category == 'icse_district' or user.account.user_category.user_category == 'othr_district' %}
+&nbsp;&nbsp;Block : <select name="block_list" id="block_list" >
+{% for blk in block_list %}
+<option value="{{blk.id}}">{{blk.block_name}}</option>
+{% endfor %}
+</select>
+&nbsp;&nbsp;School : <select name="school_list" id="school_list" >
+{% for sch in school_list %}
+<option value="{{sch.id}}">{{sch.school_name}}</option>
+{% endfor %}
+</select>
+{% endif %}
+{% if user.account.user_category.user_category == 'state' or user.account.user_category.user_category == 'dee_state' or user.account.user_category.user_category == 'dse_state' or user.account.user_category.user_category == 'dms_state' or user.account.user_category.user_category == 'cbse_state' or user.account.user_category.user_category == 'icse_state' or user.account.user_category.user_category == 'othr_state' %}
+&nbsp;&nbsp;District : <select name="district_list" id="district_list" >
+{% for dist in district_list %}
+<option value="{{dist.id}}">{{dist.district_name}}</option>
+{% endfor %}
+</select>
+&nbsp;&nbsp;Block : <select name="block_list" id="block_list" >
+{% for blk in block_list %}
+<option value="{{blk.id}}">{{blk.block_name}}</option>
+{% endfor %}
+</select>
+&nbsp;&nbsp;School : <select name="school_list" id="school_list" >
+{% for sch in school_list %}
+<option value="{{sch.id}}">{{sch.school_name}}</option>
+{% endfor %}
+</select>
+{% endif %}
+<br><br>
+&nbsp;&nbsp;Class Studying : <select name="class_studying" id="class_studying" >
+<option value="all">All</option>
+<option value="1">I</option>
+<option value="2">II</option>
+<option value="3">III</option>
+<option value="4">IV</option>
+<option value="5">V</option>
+<option value="6">VI</option>
+<option value="7">VII</option>
+<option value="8">VIII</option>
+<option value="9">IX</option>
+<option value="10">X</option>
+<option value="11">XI</option>
+<option value="12">XII</option>
+</select>
+&nbsp;&nbsp;Academic Year: <select name="academic_year" id="academic_year" >
+<option value="all">All</option>
+<option value="1">2012-13</option>
+<option value="2">2013-14</option>
+<option value="3">2014-15</option>
+<option value="4">2015-16</option>
+</select>
+<br>
+<br>
+<center><input type="submit" value="Generate PDF"></center>
+</form>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+
+
+{% extends 'school/school_anganwadi/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+
+
+
+{% block content %}
+<div class="row">
+<div class="col-md-8" >
+  <h2>
+    {% trans "School anganwadis" %}
+  </h2>
+  {% include 'school/school_anganwadi/object_table_list.html' %}
+  {% include 'school/school_anganwadi/pagination.html' %}
+
+</div>
+</div>
+{% endblock %}

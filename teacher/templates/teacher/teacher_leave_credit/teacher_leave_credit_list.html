@@ -1,0 +1,21 @@
+
+
+{% extends 'teacher/teacher_leave_credit/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+
+
+
+{% block content %}
+  
+  <div class="row">
+<div class="col-md-8" >
+	<h2>
+    {% trans "Teacher leave credits" %}
+  </h2>
+  {% include 'teacher/teacher_leave_credit/object_table_list.html' %}
+  {% include 'teacher/teacher_leave_credit/pagination.html' %}
+</div>
+</div>
+{% endblock %}

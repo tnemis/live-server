@@ -1,0 +1,43 @@
+{% load i18n %}
+
+<p>
+  {% trans "Click on the primary key value to access the individual Sub Castes's page." %}
+</p>
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        Id
+      </th>
+      <th>
+          Caste Code
+        </th>
+      
+        <th>
+          Caste Name
+        </th>
+      
+        <th>
+          Community
+        </th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+      <tr>
+        <td>
+          <a href='{% url "baseapp_sub_castes_detail" pk=object.pk %}'>
+            {{ object.id|stringformat:".3d" }}
+          </a>
+        </td>
+        <td>{{ object.caste_code }}</td>
+        
+          <td>{{ object.caste_name }}</td>
+        
+          <td>{{ object.community }}</td>
+        
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

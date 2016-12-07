@@ -1,0 +1,113 @@
+
+
+{% load i18n %}
+
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        {% trans "Field" %}
+      </th>
+      <th>
+        {% trans "Value" %}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        id
+      </td>
+      <td>
+        <a href='{{ object.get_absolute_url }}'>
+          {{ object.id|stringformat:".3d" }}
+        </a>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        teacher_key
+      </td>
+      <td>{{ object.teacher_key }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        block_yr1
+      </td>
+      <td>{{ object.block_yr1 }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        block_yr2
+      </td>
+      <td>{{ object.block_yr2 }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        leave_type
+      </td>
+      <td>{{ object.leave_type }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        sanction_amt
+      </td>
+      <td>{{ object.sanction_amt }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        sanction_number
+      </td>
+      <td>{{ object.sanction_number }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        sanction_date
+      </td>
+      <td>{{ object.sanction_date }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        complete_flag
+      </td>
+      <td>{{ object.complete_flag }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        modification_flag
+      </td>
+      <td>{{ object.modification_flag }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        verification_flag
+      </td>
+      <td>{{ object.verification_flag }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        staff_id
+      </td>
+      <td>{{ object.staff_id }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        timestamp
+      </td>
+      <td>{{ object.timestamp }}</td>
+    </tr>
+    
+  </tbody>
+</table>

@@ -1,0 +1,31 @@
+
+
+{% extends 'students/child_detail/base.html' %}
+
+{% load i18n %}
+{% block content %}
+<div class="row">
+        <div class="col-md-8">
+  <h2>
+    {% trans "By Month" %}
+  </h2>
+  <ul class='nav nav-tabs nav-stacked'>
+    {% for date in date_list %}
+      <li>
+        <a href='{% url "students_child_detail_month_archive" year=date.year month=date.month %}'>
+          {{ date|date:"M Y" }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  <h2>
+    {% blocktrans %}
+      Child_details created in the year {{ year }}
+    {% endblocktrans %}
+  </h2>
+  {% include 'students/child_detail/object_table_list.html' %}
+  {% include 'students/child_detail/pagination.html' %}
+</div>
+</div>
+
+{% endblock %}

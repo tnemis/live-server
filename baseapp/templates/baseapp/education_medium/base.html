@@ -1,0 +1,43 @@
+{% extends "baseapp/master_base.html"|pjax:request %}
+
+{% load i18n %}
+{% block contentmenu %}
+    
+        <ul id="nav">
+                  
+                  <li >
+                    <a  href='{% url "baseapp_education_medium_list" %}'>
+                      {% trans "Education medium List " %}
+                    </a>
+                  </li>
+                  <li >
+                    <a href='{% url "baseapp_education_medium_create" %}'>
+                      {% trans "Create Education medium" %}
+                    </a>
+                  </li>
+                  {% if object %}
+                    <li >
+                      <a  href='{{ object.get_absolute_url }}'>
+                        {% trans "Education medium Detail" %}
+                      </a>
+                    </li>
+                    <li >
+                      <a  href='{% url "baseapp_education_medium_update" pk=object.pk %}'>
+                        {% trans "Update  Education medium" %}
+                      </a>
+                    </li>
+                    <li >
+                      <a  href='{% url "baseapp_education_medium_delete" pk=object.pk %}'>
+                        {% trans "Delete" %}
+                      </a>
+                    </li>
+                  
+                  {% endif %}
+                  
+                </ul>
+        </a>
+      
+   
+   
+{% endblock %}
+

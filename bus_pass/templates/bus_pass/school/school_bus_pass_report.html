@@ -1,0 +1,133 @@
+{% extends 'students/child_detail/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+{% load widget_tweaks %}
+{% load imagekit %}
+{% block content %}
+
+
+<center><h6 style="display:block;text-align:top;float:center;font-size:200%;color:red;"> 
+              School Level Bus Pass Report</h6></center><br> <br> 
+
+
+  <center>
+                  <table class='table table-bordered table-striped2' border="2" align="center" cellspacing="0">
+                 
+                      <tr>
+                        <th width=5% >S.NO</th>
+                       
+                        <th width=15% >School</th>
+                        <th width=5% >1</th>
+                        <th width=5% >2</th>
+                        <th width=5% >3</th>
+                        <th width=5% >4</th>
+                        <th width=5% >5</th>
+                        <th width=5% >6</th>
+                        <th width=5% >7</th>
+                        <th width=5% >8</th>
+                        <th width=5% >9</th>
+                        <th width=5% >10</th>
+                        <th width=5% >11</th>
+                        <th width=5% >12</th>
+                        <th width=5% >TOTAL</th>
+                      </tr>
+
+                      
+                      {% for i in lisst %}
+                      <tr>
+                        <td>{{ forloop.counter }}</td>
+                         
+                        <td>{{i.school_name}}</a></td>
+
+
+                        <td> {% for j in  a %}
+                                {% if j.school == i.id and j.class_studying == 1 %}
+                                    <a href="/bus_pass/list/{{i.id}}/1">{{ j.x }}</a>
+                                {% endif %}
+                              {% endfor %}
+                        </td>
+                        <td> {% for j in  a %}
+                                {% if j.school == i.id and j.class_studying == 2 %}
+                                     <a href="/bus_pass/list/{{i.id}}/2">{{ j.x }}</a>
+                                {% endif %}
+                              {% endfor %}
+                        </td>
+                        <td> {% for j in  a %}
+                                {% if j.school == i.id and j.class_studying == 3 %}
+                                     <a href="/bus_pass/list/{{i.id}}/3">{{ j.x }}</a>
+                                {% endif %}
+                              {% endfor %}
+                        </td>
+                        <td> {% for j in  a %}
+                                {% if j.school == i.id and j.class_studying == 4 %}
+                                     <a href="/bus_pass/list/{{i.id}}/4">{{ j.x }}</a>
+                                {% endif %}
+                              {% endfor %}
+                        </td>
+                        <td> {% for j in  a %}
+                                {% if j.school == i.id and j.class_studying == 5 %}
+                                     <a href="/bus_pass/list/{{i.id}}/5">{{ j.x }}</a>
+                                {% endif %}
+                              {% endfor %}
+                        </td>
+                        <td> {% for j in  a %}
+                                {% if j.school == i.id and j.class_studying == 6 %}
+                                     <a href="/bus_pass/list/{{i.id}}/6">{{ j.x }}</a>
+                                {% endif %}
+                              {% endfor %}
+                        </td>
+                        <td> {% for j in  a %}
+                                {% if j.school == i.id and j.class_studying == 7 %}
+                                     <a href="/bus_pass/list/{{i.id}}/7">{{ j.x }}</a>
+                                {% endif %}
+                              {% endfor %}
+                        </td>
+                        <td> {% for j in  a %}
+                                {% if j.school == i.id and j.class_studying == 8 %}
+                                     <a href="/bus_pass/list/{{i.id}}/8">{{ j.x }}</a>
+                                {% endif %}
+                              {% endfor %}
+                        </td>
+                        <td> {% for j in  a %}
+                                {% if j.school == i.id and j.class_studying == 9 %}
+                                     <a href="/bus_pass/list/{{i.id}}/9">{{ j.x }}</a>
+                                {% endif %}
+                              {% endfor %}
+                        </td>
+                        <td> {% for j in  a %}
+                                {% if j.school == i.id and j.class_studying == 10 %}
+                                    <a href="/bus_pass/list/{{i.id}}/10"> {{ j.x }}</a>
+                                {% endif %}
+                              {% endfor %}
+                        </td>
+                        <td> {% for j in  a %}
+                                {% if j.school == i.id and j.class_studying == 11 %}
+                                     <a href="/bus_pass/list/{{i.id}}/11">{{ j.x }}</a>
+                                {% endif %}
+                              {% endfor %}
+                        </td>
+                        <td> {% for j in  a %}
+                                {% if j.school == i.id and j.class_studying == 12 %}
+                                     <a href="/bus_pass/list/{{i.id}}/12">{{ j.x }}</a>
+                                {% endif %}
+                              {% endfor %}
+                        </td>
+                        
+                       <td>  {% for k in  st %}
+                                {% if k.school == i.id %}
+                                   <a href="/bus_pass/list_all/{{i.id}}">{{ k.y }}
+                                {% endif %}
+                              {% endfor %}
+                        </td>
+                    {% endfor %}
+                   
+                    
+                    
+                  </table>
+                  <br> 
+        </center>
+
+
+
+{% endblock %}

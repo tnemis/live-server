@@ -1,0 +1,48 @@
+
+
+{% extends 'baseapp/education_medium/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /home/murad/testing/baseapp/templates/baseapp/education_medium/education_medium_archive.html
+{% endblock %}
+{% block title %}
+  {% trans "Education_medium Archive Index" %}
+{% endblock %}
+{% block breadcrumbs %}
+  <ul class='breadcrumb'>
+    <li>
+      <a href='{% url "baseapp_education_medium_archive_index" %}'>
+        {% trans "Archive Index" %}
+      </a>
+    </li>
+  </ul>
+{% endblock %}
+{% block header-link %}
+  <a href='{% url "baseapp_education_medium_archive_index" %}'>
+    {% trans "Education_medium Archive Index" %}
+  </a>
+{% endblock %}
+{% block header-description %}
+  {% trans "A top-level index page showing the latest objects, by date." %}
+{% endblock %}
+{% block content %}
+  <h2>
+    By Year
+  </h2>
+  <ul class='nav nav-tabs nav-stacked'>
+    {% for date in date_list %}
+      <li>
+        <a href='{% url "baseapp_education_medium_year_archive" year=date.year %}'>
+          {{ date.year }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  <h2>
+    {% trans "Recent Education_mediums" %}
+  </h2>
+  {% include 'baseapp/education_medium/object_table_list.html' %}
+  {% include 'baseapp/education_medium/pagination.html' %}
+{% endblock %}

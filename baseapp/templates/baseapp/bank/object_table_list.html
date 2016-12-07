@@ -1,0 +1,47 @@
+
+
+{% load i18n %}
+
+<p>
+  {% trans "Click on the primary key value to access the individual Bank's page." %}
+</p>
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        id
+      </th>
+      
+        <th>
+          bank
+        </th>
+      
+        <th>
+          created_date
+        </th>
+      
+        <th>
+          modified_date
+        </th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+      <tr>
+        <td>
+          <a href='{% url "baseapp_bank_detail" pk=object.pk %}'>
+            {{ object.id|stringformat:".3d" }}
+          </a>
+        </td>
+        
+          <td>{{ object.bank }}</td>
+        
+          <td>{{ object.created_date }}</td>
+        
+          <td>{{ object.modified_date }}</td>
+        
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

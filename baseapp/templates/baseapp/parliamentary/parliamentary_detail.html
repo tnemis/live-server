@@ -1,0 +1,24 @@
+{% extends 'baseapp/parliamentary/base.html' %}
+
+{% load i18n %}
+
+{% block content %}
+  <div class="row">
+        <div class="col-md-8">
+  {% include 'baseapp/parliamentary/object_table_detail.html' %}
+  <form action='{% url "baseapp_parliamentary_delete" pk=object.pk %}' charset='utf-8' method='post'>
+    <fieldset>
+      {% csrf_token %}
+      <div class='form-actions'>
+        <a class='btn btn-success' href='{% url "baseapp_parliamentary_update" pk=object.pk %}'>
+          {% trans "Update" %}
+        </a>
+        <button class='btn btn-danger' type='submit'>
+          {% trans "Delete" %}
+        </button>
+      </div>
+    </fieldset>
+  </form>
+  </div>
+  </div>
+{% endblock %}

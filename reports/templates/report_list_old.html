@@ -1,0 +1,408 @@
+
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+
+<form action='{% url "report_list" %}' method='post' enctype="multipart/form-data" >
+  {% csrf_token %}
+{% if user.account.user_category.user_category == 'block' %}
+&nbsp;&nbsp;<center><b>LIST OF SCHOOL NOT STARTED STUDENT DATA ENTRY</b></center>
+<br><br>
+&nbsp;&nbsp;Class Studying : <select name="class_studying" id="class_studying" >
+<option value="all">I & II</option>
+</select>
+&nbsp;&nbsp;Academic Year: <select name="academic_year" id="academic_year" >
+<option value="3">2014-15</option>
+
+</select>
+<br>
+<center><input type="submit" value="Submit"></center>
+<br>
+<div style="border:1px solid black;overflow-y:hidden;overflow-x:scroll;">
+<table style="width:100%" border ="1">
+<tr>
+<center>
+<th><center>S.No</th>
+<th><center>School Name</th>
+<th><center>Village</th>
+<th><center>School Code</th>
+</center>
+</tr>
+
+{% for j in category_list %}
+    <tr>
+    <td><center>{{forloop.counter}}</td>
+        {% if j.id != blk1.school %}
+
+            <td><left>{{j.school_name}}</td>
+            <td><left>{{j.habitation_code}}</td>
+            <td><center>{{j.school_code}}</td>
+        {% endif%}
+            
+    </tr>
+{% endfor %}
+
+</table>
+<center>
+</div>
+<br>
+<br>
+{% endif %}
+{% if user.account.user_category.user_category == 'district' or user.account.user_category.user_category == 'dee_district' or user.account.user_category.user_category == 'dse_district' or user.account.user_category.user_category == 'dms_district' or user.account.user_category.user_category == 'cbse_district' or user.account.user_category.user_category == 'icse_district' or user.account.user_category.user_category == 'othr_district' %}
+&nbsp;&nbsp;
+Block : <select name="block_list" id="block_list" >
+<option value="NONE">All</option>{% for blk in block_list %}
+{% endfor %}
+</select>
+&nbsp;&nbsp;
+<br><br>
+&nbsp;&nbsp;Class Studying : <select name="class_studying" id="class_studying" >
+<option value="all">I & II</option>
+</select>
+&nbsp;&nbsp;Academic Year: <select name="academic_year" id="academic_year" >
+<option value="all">2014-2015</option>
+</select>
+<br>
+<center><input type="submit" value="Submit"></center>
+<br>
+<br>
+<div style="border:1px solid black;overflow-y:hidden;overflow-x:scroll;">
+
+<table style="width:100%" border ="1">
+
+<tr>
+<center>
+<th><center>S.No</th>
+<th><center>Block Name</th>
+<th><center>Class Studying</th>
+<th><center>Academic Year</th>
+<th><center>Total No. of Schools</th>
+<th><center>No.of Schools Data Entered</th>
+<th><center>No. of Students Data Entered</th>
+</center>
+</tr>
+
+{% for i in stud2 %}
+    <tr>
+    <td><center>{{forloop.counter}}</td>
+        {% for j in block_list1 %}
+        {% if j.id == i.block %}
+            <td>{{j.block_name}}</td>
+        {% endif%}
+        {% endfor %}
+
+    <td><center>I & II</td>
+    <td><center>2014-2015</td>
+    {% for m in stud4 %}
+            {% if i.block == m.block %}
+            <td><center>{{m.schcount}}</td>
+             
+            {% endif%}
+    {% endfor %}
+
+    {% for l in stud3 %}
+            {% if i.block == l.block %}
+            <td><center>{{l.scount}}</td>
+            
+            {% endif%}
+    {% endfor %}
+
+    
+    <td><center>{{i.bcount}}</td>
+    </tr>
+{% endfor %}
+
+</table>
+<center>
+</div>
+<br>
+
+{% endif %}
+{% if user.account.user_category.user_category == 'state' or user.account.user_category.user_category == 'dee_state' or user.account.user_category.user_category == 'dse_state' or user.account.user_category.user_category == 'dms_state' or user.account.user_category.user_category == 'cbse_state' or user.account.user_category.user_category == 'icse_state' or user.account.user_category.user_category == 'othr_state' %}
+&nbsp;&nbsp;
+District : <select name="district_list" id="district_list" >
+<option value="NONE">All</option>{% for dst in district_list %}
+{% endfor %}
+</select>
+&nbsp;&nbsp;
+<br><br>
+&nbsp;&nbsp;Class Studying : <select name="class_studying" id="class_studying" >
+<option value="all">I & II</option>
+</select>
+&nbsp;&nbsp;Academic Year: <select name="academic_year" id="academic_year" >
+<option value="all">2014-2015</option>
+</select>
+<br>
+<center><input type="submit" value="Submit"></center>
+<br>
+<br>
+<div style="border:1px solid black;overflow-y:hidden;overflow-x:scroll;">
+
+<table style="width:100%" border ="1">
+
+<tr>
+<center>
+<th><center>S.No</th>
+<th><center>District Name</th>
+<th><center>Class Studying</th>
+<th><center>Academic Year</th>
+<th><center>Total No. of Schools</th>
+<th><center>No.of Schools Data Entered</th>
+<th><center>No. of Students Data Entered</th>
+</center>
+</tr>
+
+{% for i in dist1 %}
+    <tr>
+    <td><center>{{forloop.counter}}</td>
+        {% for j in district_list %}
+        {% if j.id == i.district %}
+            <td>{{j.district_name}}</td>
+        {% endif%}
+        {% endfor %}
+
+    <td><center>I & II</td>
+    <td><center>2014-2015</td>
+    {% for m in dist3 %}
+            {% if i.district == m.district %}
+            <td><center>{{m.schcount}}</td>
+             
+            {% endif%}
+    {% endfor %}
+
+    {% for l in dist2 %}
+            {% if i.district == l.district %}
+            <td><center>{{l.scount}}</td>
+            
+            {% endif%}
+    {% endfor %}
+    
+    <td><center>{{i.bcount}}</td>
+    </tr>
+{% endfor %}
+
+</table>
+<center>
+</div>
+
+{% endif %}
+
+{% if user.account.user_category.user_category == 'school' %}
+
+<br><br>
+
+&nbsp;&nbsp;Class Studying : <select name="class_studying_id" id="class_studying_id" multiple>
+<option value="1">I</option>
+<option value="2">II</option>
+<option value="3">III</option>
+<option value="4">IV</option>
+<option value="5">V</option>
+<option value="6">VI</option>
+<option value="7">VII</option>
+<option value="8">VIII</option>
+<option value="9">IX</option>
+<option value="10">X</option>
+<option value="11">XI</option>
+<option value="12">XII</option>
+</select>
+
+&nbsp;&nbsp;Class Section : <select name="class_section" id="class_section" multiple>
+<option value="A">A</option>
+<option value="B">B</option>
+<option value="C">C</option>
+<option value="D">D</option>
+<option value="E">E</option>
+<option value="F">F</option>
+<option value="G">G</option>
+<option value="H">H</option>
+<option value="I">I</option>
+<option value="J">J</option>
+<option value="K">K</option>
+<option value="L">L</option>
+<option value="M">M</option>
+<option value="N">N</option>
+<option value="O">O</option>
+<option value="P">P</option>
+<option value="Q">Q</option>
+<option value="R">R</option>
+<option value="S">S</option>
+<option value="T">T</option>
+<option value="U">U</option>
+<option value="V">V</option>
+<option value="W">W</option>
+<option value="X">X</option>
+<option value="Y">Y</option>
+<option value="Z">Z</option>
+</select>
+&nbsp;&nbsp;Academic Year : <select name="academic_year_id" id="academic_year_id" multiple>
+<option value="1">2012-13</option>
+<option value="2">2013-14</option>
+<option value="3">2014-15</option>
+<option value="4">2015-16</option>
+</select>
+&nbsp;&nbsp;Gender : <select name="gender" id="gender" multiple>
+<option value="male" >Male </option>
+<option value="female" >Female</option>
+<option value="transgender" >Transgender</option>
+</select>
+&nbsp;&nbsp;Community : <select name="community_id" id="community_id" multiple>
+{% for comm in community_list %}
+<option value="{{comm.id}}">{{comm.community_name}}</option>
+{% endfor %}
+</select>
+<br><br>
+&nbsp;&nbsp;Religion : <select name="religion_id" id="religion_id" multiple>
+{% for rel in religion_list %}
+<option value="{{rel.id}}">{{rel.religion_name}}</option>
+{% endfor %}
+</select>
+
+&nbsp;&nbsp;Mother tongue : <select name="mothertounge_id" id="mothertounge_id" multiple>
+{% for lang in language_list %}
+<option value="{{lang.id}}">{{lang.language_name}}</option>
+{% endfor %}
+</select>
+&nbsp;&nbsp;Child Differently Abled : <select name="child_differently_abled" id="child_differently_abled" multiple>
+{% for diff in diff_abled_list %}
+<option value="{{diff.da_name}}">{{diff.da_name}}</option>
+{% endfor %}
+</select>
+&nbsp;&nbsp;Child Disadvantaged Group : <select name="child_disadvantaged_group" id="child_disadvantaged_group" multiple>
+{% for dis in dis_advantagedgrp_list %}
+<option value="{{dis.dis_group_name}}">{{dis.dis_group_name}}</option>
+{% endfor %}
+</select>
+<br><br>
+&nbsp;&nbsp;Nationality : <select name="nationality_id" id="nationality_id" multiple>
+{% for nat in nationality_list %}
+<option value="{{nat.id}}">{{nat.nationality}}</option>
+{% endfor %}
+</select>
+&nbsp;&nbsp;Blood Group : <select name="blood_group" id="blood_group" multiple>
+<option value="A+">A+</option>
+<option value="A1+">A1+</option>
+<option value="A2+">A2+</option>
+<option value="B+">B+</option>
+<option value="A1B+">A1B+</option>
+<option value="A2B+">A2B+</option>
+<option value="AB+">AB+</option>
+<option value="O+">O+</option>
+<option value="A-">A-</option>
+<option value="A1-">A1-</option>
+<option value="A2-">A2-</option>
+<option value="B-">B-</option>
+<option value="A1B-">A1B-</option>
+<option value="A2B-">A2B-</option>
+<option value="AB-">AB-</option>
+<option value="O-">O-</option>
+</select>
+&nbsp;&nbsp;Mother's Occupation : <select name="mother_occupation" id="mother_occupation" multiple>
+<option value="Govt" >Govt </option>
+<option value="Private" >Private</option>
+<option value="Agriculture" >Agriculture</option>
+<option value="Self-employed" >Self-employed</option>
+<option value="Daily wages" >Daily wages</option>
+</select>
+&nbsp;&nbsp;Father's Occupation : <select name="father_occupation" id="father_occupation" multiple>
+<option value="Govt" >Govt </option>
+<option value="Private" >Private</option>
+<option value="Agriculture" >Agriculture</option>
+<option value="Self-employed" >Self-employed</option>
+<option value="Daily wages" >Daily wages</option>
+</select>
+&nbsp;&nbsp;Attendance Status : <select name="attendance_status" id="attendance_status" multiple>
+<option value="Regular Present">Regular Present</option>
+<option value="Long Absent">Long Absent</option>
+<option value="Not Applicable">Not Applicable</option>
+</select>
+<br><br>
+&nbsp;&nbsp;Education Medium : <select name="education_medium_id" id="education_medium_id" multiple>
+{% for edu in education_medium_list %}
+<option value="{{edu.id}}">{{edu.education_medium}}</option>
+{% endfor %}
+</select>
+&nbsp;&nbsp;Govt Schemes : <select name="govt_schemes_status" id="govt_schemes_status" multiple>
+{% for schm in schemes_list %}
+<option value="{{schm.scheme_name}}">{{schm.scheme_name}}</option>
+{% endfor %}
+</select>
+&nbsp;&nbsp;Student Status : <select name="child_status" id="child_status" multiple>
+<option value="Studying in formal school (Regular School)">Studying in formal school (Regular School)</option>
+<option value="Enrolled under special training">Enrolled under special training</option>
+<option value="Mainstreamed under special training">Mainstreamed under special training</option>
+</select>
+<br><br><br><br>
+<center><input type="submit" value="Submit"></center>
+</form>
+
+<h4><b>Total Count = {{student_detail_count|default:0}}</b></h4>
+<br><br>
+<!-- <ul class="pagination pagination-centered">
+            {% if page_obj.has_previous %}
+                <li><a href="?page=1"><<</a></li>
+                <li><a href="?page={{ page_obj.previous_page_number }}"><</a></li>
+            {% endif %}
+
+            {% for i in page_obj.paginator.page_range %}
+                {% if page_obj.number == i %}
+                {% if page_obj.has_previous %}
+                    <li><a href="?page={{i|add:-1}}">{{i|add:-1}}</a></li>
+                {% endif %}
+                <li  class="active">
+
+                <a href="?page={{i}}">{{i}}</a></li>
+                {% if page_obj.has_next %}
+                <li><a href="?page={{i|add:1}}">{{i|add:1}}</a></li>
+                {% endif %}
+                {% endif %}
+
+            {% endfor %}
+
+
+            {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}">></a></li>
+                <li><a href="?page={{ page_obj.paginator.num_pages }}">>></a></li>
+            {% endif %}
+        </ul> -->
+<div style="border:1px solid black;overflow-y:hidden;overflow-x:scroll;">
+
+<table style="width:100%" border ="1">
+
+<tr>
+
+<th>S.No</th>
+<th>Name</th>
+<th>Unique Id</th>
+<th>Class Studying</th>
+<th>Class Section</th>
+<th>Academic Year</th>
+<th>Gender</th>
+<th>Community</th>
+<th>Religion</th>
+<th>Nationality</th>
+<th>Child Status</th>
+</tr>
+
+{% for i in student_detail_list %}
+<tr>
+<td>{{ forloop.counter }}</td>
+<td>{{i.name}}</td>
+<td >{{i.unique_id_no}}</td>
+<td>{{i.class_studying.class_studying}}</td>
+<td>{{i.class_section}}</td>
+<td>{{i.academic_year.academic_year}}</td>
+<td>{{i.gender}}</td>
+<td>{{i.community.community_name}}</td>
+<td>{{i.religion.religion_name}}</td>
+<td>{{i.nationality.nationality}}</td>
+<td width="50%">{{i.child_status}}</td>
+
+</tr>
+{% endfor %}
+
+</table>
+
+</div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,21 @@
+
+
+{% extends 'school/school_managed/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+
+
+
+{% block content %}
+<div class="row">
+<div class="col-md-8" >
+  <h2>
+    {% trans "School managed" %}
+  </h2>
+  {% include 'school/school_managed/object_table_list.html' %}
+  {% include 'school/school_managed/pagination.html' %}
+
+</div>
+</div>
+{% endblock %}

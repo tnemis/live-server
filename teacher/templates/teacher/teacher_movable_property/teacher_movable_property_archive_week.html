@@ -1,0 +1,31 @@
+
+
+{% extends 'teacher/teacher_movable_property/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /home/mur/testing/emis_d15/scafold/teacher/templates/teacher/teacher_movable_property/teacher_movable_property_archive_week.html
+{% endblock %}
+
+{% block title %}
+  {% trans "Teacher_movable_property Week Archive" %}
+{% endblock %}
+
+{% block header-link %}
+  {% trans "Teacher_movable_property Week Archive" %}
+{% endblock %}
+
+{% block header-description %}
+  {% trans "A weekly archive page showing all objects in a given week." %}
+{% endblock %}
+
+{% block content %}
+  <h2>
+    {% blocktrans %}
+      Teacher_movable_propertys created during the week beginning on {{ week }}
+    {% endblocktrans %}
+  </h2>
+  {% include 'teacher/teacher_movable_property/object_table_list.html' %}
+  {% include 'teacher/teacher_movable_property/pagination.html' %}
+{% endblock %}

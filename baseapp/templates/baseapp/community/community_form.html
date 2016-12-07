@@ -1,0 +1,30 @@
+{% extends 'baseapp/community/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="row">
+        <div class="col-md-8">
+  <form action='{% if object %}{% url "baseapp_community_update" pk=object.pk %}{% else %}{% url "baseapp_community_create" %}{% endif %}' method='post' encoding='utf-8'>
+     <fieldset>
+      {% csrf_token %}
+      
+      <div class="form-group"> <b>{% trans "Community Code" %}</b>{{ form.community_code|add_class:"form-control" }}</div><span class="error_message">{{form.community_code.errors}}</span>
+      <div class="form-group"> <b>{% trans "Community Name" %}</b>{{ form.community_name|add_class:"form-control" }}</div><span class="error_message">{{form.community_name.errors}}</span>
+      
+
+        <button class='btn btn-large btn-success' type='submit'>
+          {% if object %}
+            {% trans "Update" %}
+          {% else %}
+            {% trans "Create" %}
+          {% endif %}
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+</div>
+{% endblock %}

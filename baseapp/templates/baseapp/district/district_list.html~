@@ -1,0 +1,25 @@
+
+
+{% extends 'baseapp/district/base.html' %}
+
+{% load i18n %}
+
+
+
+{% block header-link %}
+  <a href='{% url "baseapp_district_list" %}'>
+    {% trans "District List" %}
+  </a>
+{% endblock %}
+
+{% block header-description %}
+  {% trans "A page representing a list of objects." %}
+{% endblock %}
+
+{% block content %}
+  <h2>
+    {% trans "Districts" %}
+  </h2>
+  {% include 'baseapp/district/object_table_list.html' %}
+  {% include 'baseapp/district/pagination.html' %}
+{% endblock %}
