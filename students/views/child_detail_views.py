@@ -756,14 +756,10 @@ class Child_detailUpdateView(View):
             child_edit.staff_id = form.cleaned_data['staff_id']
             child_edit.schl_cat_10 = form.cleaned_data['schl_cat_10']
             child_edit.schl_cat_12 = form.cleaned_data['schl_cat_12']
-            if form.cleaned_data['bank']:
-                child_edit.bank = form.cleaned_data['bank']
-            if form.cleaned_data['bank_branch']:
-                child_edit.bank_branch = form.cleaned_data['bank_branch']
-            if form.cleaned_data['bank_account_no']:
-                child_edit.bank_account_no = form.cleaned_data['bank_account_no']
-            if form.cleaned_data['bank_ifsc_code']:
-                child_edit.bank_ifsc_code = form.cleaned_data['bank_ifsc_code']
+            child_edit.bank = form.cleaned_data['bank']
+            child_edit.bank_branch = form.cleaned_data['bank_branch']
+            child_edit.bank_account_no = form.cleaned_data['bank_account_no']
+            child_edit.bank_ifsc_code = form.cleaned_data['bank_ifsc_code']
             # child_edit.govt_schemes_status = form.cleaned_data['govt_schemes_status']
             child_edit.schemes = scheme_lst
             child_edit.academic_year = form.cleaned_data['academic_year']
