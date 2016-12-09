@@ -83,7 +83,8 @@
             bodyTag: "fieldset",
             transitionEffect: "slideLeft",
             onStepChanging: function (event, currentIndex, newIndex)
-            { var xarr = [1,2,3,4,5,6,7,17];
+            { var xarr = [1,2,3,4,5,17];
+                var yarr = [6,7];
                 // var yarr = [3,5,6,7,8,9,10]
                 var check = parseInt($("#mgmt").val());
                 // alert(check);
@@ -97,8 +98,7 @@
                 }
                 // Forbid next action on BANK step if the class in 10,11,12
                 
-            if(newIndex === 3 && $("#class_studying").val() > 9 && xarr.indexOf(check) >= 0 ){
-            
+            if(newIndex === 3 && $("#class_studying").val() == 12 && xarr.indexOf(check) >= 0 ){
 
                 if ($("#bank").val() === '' || $("#bank_branch").val() === '' || $("#bank_account_no").val() === '' || $("#bank_ifsc_code").val() === '' )
                 {   
@@ -110,7 +110,20 @@
 
                     return true;
                 }
-            }
+            } 
+            else if (newIndex === 3 && $("#class_studying").val() == 12 && yarr.indexOf(check) >= 0  && $("#student_admitted_section").val() == "Govt Aid" ){
+
+                if ($("#bank").val() === '' || $("#bank_branch").val() === '' || $("#bank_account_no").val() === '' || $("#bank_ifsc_code").val() === '' )
+                {   
+                    
+                    alert("please fill up the bank details completely!!!");
+                    return false;
+                }
+                else{
+
+                    return true;
+                }
+            } 
 
 
                 // Needed in some cases if the user went back (clean up)
