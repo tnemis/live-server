@@ -1351,6 +1351,9 @@ if (typeof (fileUpload.files) != "undefined") {
 <script type="text/javascript">
 
 
+<script type="text/javascript">
+
+
 function no_future(dob_id){
    var bday = document.getElementById(dob_id).value;
    
@@ -1362,7 +1365,7 @@ function no_future(dob_id){
    // alert(year);
    var myDate = new Date(year,month-1,date);
    var today = new Date();
-   var curyr= today.getFullYear();
+   // var curyr= today.getFullYear();
    
    var minyr = today.getFullYear()-5;
    var maxyr = today.getFullYear()-25;
@@ -1370,7 +1373,7 @@ function no_future(dob_id){
    var minDate = new Date(minyr,5,1);
    var maxDate = new Date(maxyr,5,1);
 
-    if(year > curyr){
+    if(myDate > today){
     alert("Date Error: FUTURE DATE ENTERED !!!");
     document.getElementById('dob').value="";
     }
@@ -1380,15 +1383,16 @@ function no_future(dob_id){
     // alert(minyr);
     // alert(maxyr);
 
-    if(chkyr >= minyr || chkyr <=  maxyr)
+    if(myDate <= minDate && myDate >= maxDate)
        {           
-            alert("Age should be in the range 5-25");
-            document.getElementById('dob').value="";
             return;          
         }
         else
         {
-            return;
+            document.getElementById('dob').value="";
+            alert("Age should be in the range 5-25");
+            document.getElementById('dob').focus();
+            
         }
 }    
 
