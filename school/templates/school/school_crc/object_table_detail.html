@@ -1,0 +1,38 @@
+
+
+{% load i18n %}
+
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        {% trans "Field" %}
+      </th>
+      <th>
+        {% trans "Value" %}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        School Key
+      </td>
+      <td>{{ object.school_key }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Crc
+      </td>
+      <td>{{ object.crc }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Distance Crc
+      </td>
+      <td>{{ object.distance_crc }}</td>
+    </tr>
+  </tbody>
+</table>

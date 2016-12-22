@@ -1,0 +1,36 @@
+{% extends 'baseapp/block/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="row">
+        <div class="col-md-8">
+  <form action='{% if object %}{% url "baseapp_block_update" pk=object.pk %}{% else %}{% url "baseapp_block_create" %}{% endif %}' method='post' encoding='utf-8'>
+     <fieldset>
+      {% csrf_token %}
+      
+      <div class="form-group"> <b>{% trans "Block Code" %}</b>{{ form.block_code|add_class:"form-control" }}</div><span class="error_message">{{form.block_code.errors}}</span>
+      <div class="form-group"> <b>{% trans "Block Name" %}</b>{{ form.block_name|add_class:"form-control" }}</div><span class="error_message">{{form.block_name.errors}}</span>
+      <div class="form-group"> <b>{% trans "Type" %}</b><select name="block_type" id="block_type" class="form-control">
+       <option value="" >---------</option>
+       <option value="block" >Block</option>
+       <option value="educational_district" >Educational District</option>
+      </select>
+    </div><span class="error_message">{{form.block_type.errors}}</span>
+      <div class="form-group"> <b>{% trans "District" %}</b>{{ form.district|add_class:"form-control" }}</div><span class="error_message">{{form.district.errors}}</span>
+      
+        <button class='btn btn-large btn-success' type='submit'>
+          {% if object %}
+            {% trans "Update" %}
+          {% else %}
+            {% trans "Create" %}
+          {% endif %}
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+</div>
+{% endblock %}

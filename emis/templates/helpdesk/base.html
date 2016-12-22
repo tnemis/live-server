@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load url from future %}
+{% load saved_queries %}
+{% load load_helpdesk_settings %}
+{% with request|load_helpdesk_settings as helpdesk_settings %}
+{% with request|saved_queries as user_saved_queries_ %}
+
+    {% block extra_head %}
+        <title>{% block helpdesk_title %}Helpdesk{% endblock %} :: {% trans "Powered by django-helpdesk" %}</title>
+        <script src='{{ STATIC_URL }}helpdesk/jquery-1.5.min.js' type='text/javascript' language='javascript'></script>
+        <script src='{{ STATIC_URL }}helpdesk/jquery-ui-1.8.9.custom.min.js' type='text/javascript' language='javascript'></script>
+        <link rel='stylesheet' href='{{ STATIC_URL }}helpdesk/helpdesk.css' type='text/css'  media="screen" />
+        <link rel='stylesheet' href='{{ STATIC_URL }}helpdesk/helpdesk-print.css' type='text/css' media="print" />
+        <link rel='stylesheet' href='{{ STATIC_URL }}helpdesk/jquery-smoothness-theme/jquery-ui-1.8.9.custom.css' type='text/css' />
+        <link rel='alternate' href='{% url 'helpdesk_rss_user' user.username %}' type='application/rss+xml' title='{% trans "My Open Tickets" %}' />
+        <link rel='alternate' href='{% url 'helpdesk_rss_activity' %}' type='application/rss+xml' title='{% trans "All Recent Activity" %}' />
+        <link rel='alternate' href='{% url 'helpdesk_rss_unassigned' %}' type='application/rss+xml' title='{% trans "Unassigned Tickets" %}' />
+        
+        <style type="text/css">
+        /* hide google translate top bar */
+        .goog-te-banner-frame {display: none !important;}
+        .goog-te-balloon-frame {display: none !important;}
+        /* hide google translate tooltips (generated for every translated item) */
+        .goog-tooltip {display: none !important; } 
+        </style>
+
+        <style type="text/css">
+        /* header */
+        #dropdown li.headerlink { width: auto; float: left; text-align: center; }
+
+        /* query list */
+        #dropdown li.headerlink ul {    display: none;
+                                        text-align: left;
+                                        position: absolute;
+                                        padding: 5px;
+                                        z-index: 2; }
+        /* query entries */
+        #dropdown li.headerlink:hover ul { display: block; width: auto; }
+        #dropdown li.headerlink:hover ul li { padding: 5px; margin: 1px; float: none; display: block; }
+        </style>
+ 
+ {% endblock %}
+{% block content %}
+    
+        <div id='container'>
+            <div id='header'>
+                {% include "helpdesk/navigation.html" %}
+            </div>
+
+            <div id='body'>
+                {% block helpdesk_body %}{% endblock %}
+            </div>
+
+            <div id='footer'>
+               <br>
+                {% if helpdesk_settings.HELPDESK_FOOTER_SHOW_API_LINK %}<a href='{% url 'helpdesk_api_help' %}'>{% trans "API" %}</a>{% endif %}
+                <a href='{% url 'helpdesk_user_settings' %}'>{% trans "User Settings" %}</a>
+                {% if helpdesk_settings.HELPDESK_FOOTER_SHOW_CHANGE_LANGUAGE_LINK %}
+                <a href='{% url 'helpdesk_public_change_language' %}?return_to={{ request.path }}'>{% trans "Change Language" %}</a>
+                {% endif %}
+                {% if user.is_superuser %}<a href='{% url 'helpdesk_system_settings' %}'>{% trans "System Settings" %}</a>{% endif %}</p>
+            </div>
+        </div>
+        {% include "helpdesk/debug.html" %}
+{% endblock %}
+{% endwith %}
+{% endwith %}

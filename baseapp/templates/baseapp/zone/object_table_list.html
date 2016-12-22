@@ -1,0 +1,44 @@
+{% load i18n %}
+
+<p>
+  {% trans "Click on the primary key value to access the individual Zone's page." %}
+</p>
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        Id
+      </th>   
+        <th>
+          Zone Code
+        </th>
+         <th>
+          Zone Name
+        </th>
+         <th>
+          Zone Type
+        </th>
+           </th>
+         <th>
+          Block
+        </th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+      <tr>
+        <td>
+          <a href='{% url "baseapp_zone_detail" pk=object.pk %}'>
+            {{ object.id|stringformat:".3d" }}
+          </a>
+        </td>
+        
+          <td>{{ object.code }}</td>
+          <td>{{ object.name }}</td>
+          <td>{{ object.zone_type }}</td>
+          <td>{{ object.block }}</td>      
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+

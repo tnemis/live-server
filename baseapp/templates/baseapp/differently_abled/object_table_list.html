@@ -1,0 +1,39 @@
+{% load i18n %}
+
+<p>
+  {% trans "Click on the primary key value to access the individual Differently Abled's page." %}
+</p>
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        Id
+      </th>
+      
+        <th>
+          Differentlly Abled Code
+        </th>
+      
+        <th>
+          Differentlly Abled Name
+        </th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+      <tr>
+        <td>
+          <a href='{% url "baseapp_differently_abled_detail" pk=object.pk %}'>
+            {{ object.id|stringformat:".3d" }}
+          </a>
+        </td>
+        
+          <td>{{ object.da_code }}</td>
+        
+          <td>{{ object.da_name }}</td>
+        
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

@@ -1,0 +1,31 @@
+
+
+{% extends 'baseapp/education_medium/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /home/murad/testing/baseapp/templates/baseapp/education_medium/education_medium_archive_week.html
+{% endblock %}
+
+{% block title %}
+  {% trans "Education_medium Week Archive" %}
+{% endblock %}
+
+{% block header-link %}
+  {% trans "Education_medium Week Archive" %}
+{% endblock %}
+
+{% block header-description %}
+  {% trans "A weekly archive page showing all objects in a given week." %}
+{% endblock %}
+
+{% block content %}
+  <h2>
+    {% blocktrans %}
+      Education_mediums created during the week beginning on {{ week }}
+    {% endblocktrans %}
+  </h2>
+  {% include 'baseapp/education_medium/object_table_list.html' %}
+  {% include 'baseapp/education_medium/pagination.html' %}
+{% endblock %}

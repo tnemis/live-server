@@ -1,0 +1,508 @@
+
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+
+<script type="text/javascript">
+    
+    function filterDropDownList(search_by,ddl1,ddl3,ddl2,ddl4,ddl5,ddl6,ddl7,ddl8) {
+
+        var community = new Array('BC-Others ','BC-Muslim ','MBC ','ST ','SC-Others ','SC-Arunthathiyar ')
+        var community_id =  new Array('1','2','3','4','5','6')
+
+        var differently_abled =  new Array('Visual Impairment (Blindness)','Visual Impairment (Low-vision)','Hearing Impairment','Speech Impairment','Locomotor Impairment','Mental Retardation','Learning disability','Cerebral Palsy','Autism')
+
+        var differently_abled_id =  new Array('1','2','3','4','5','6','7','8','9')
+
+        var disadvantaged_group = new Array('Orphan','HIV Affected','Transgender','Child of a Scavenger')
+        var disadvantaged_group_id = new Array('1','2','3','4')
+
+        var family_income = new Array('<10000','>10000')
+        var family_income_id = new Array('1','2')
+
+        var attendance_status =  new Array('Regular Present','Long Absent')
+
+        var child_status =  new Array('Studying in formal school (Regular School)','Enrolled under special training','Mainstreamed under special training')
+
+        var education_medium = new Array('Tamil','English','Hindi','Telugu','Malayalam','Kannada','Urudu','Others')
+        var education_medium_id = new Array('1','2','3','4','5','6','7','8')
+
+
+        switch (search_by.value) {
+
+        case 'community_id':
+            ddl3.options.length = 0;
+            ddl1.options.length = 0;
+            ddl5.options.length = 0;
+            ddl6.options.length = 0;
+            ddl7.options.length = 0;
+            ddl8.options.length = 0;
+            ddl4.options.length = 0;
+            for (i = 0; i < community.length; i++) {
+                createOption(ddl1, community[i], community_id[i]);
+            }
+            break;
+
+        case 'differently_abled':
+            ddl1.options.length = 0;
+            ddl2.options.length = 0;
+            ddl4.options.length = 0;
+            ddl5.options.length = 0;
+            ddl6.options.length = 0;
+            ddl7.options.length = 0;
+            ddl8.options.length = 0;
+            ddl3.options.length = 0;
+            for (i = 0; i < differently_abled.length; i++) {
+                createOption(ddl3, differently_abled[i], differently_abled[i]);
+            }
+            break;
+
+        case 'disadvantaged_group':
+            ddl1.options.length = 0;
+            ddl2.options.length = 0;
+            ddl3.options.length = 0;
+            ddl5.options.length = 0;
+            ddl6.options.length = 0;
+            ddl7.options.length = 0;
+            ddl8.options.length = 0;
+            ddl4.options.length = 0;
+
+            for (i = 0; i < disadvantaged_group.length; i++) {
+                createOption(ddl4, disadvantaged_group[i], disadvantaged_group_id[i]);
+            }
+            break;
+
+        case 'family_income':
+            ddl1.options.length = 0;
+            ddl2.options.length = 0;
+            ddl3.options.length = 0;
+            ddl4.options.length = 0;
+            ddl6.options.length = 0;
+            ddl7.options.length = 0;
+            ddl8.options.length = 0;
+            ddl5.options.length = 0;
+
+
+            for (i = 0; i < family_income.length; i++) {
+                createOption(ddl5, family_income[i], family_income_id[i]);
+            }
+            break;
+
+        case 'attendance_status':
+            ddl1.options.length = 0;
+            ddl2.options.length = 0;
+            ddl3.options.length = 0;
+            ddl4.options.length = 0;
+            ddl5.options.length = 0;
+            ddl7.options.length = 0;
+            ddl8.options.length = 0;
+            ddl6.options.length = 0;
+            for (i = 0; i < attendance_status.length; i++) {
+                createOption(ddl6, attendance_status[i], attendance_status[i]);
+            }
+            break;
+
+        case 'child_status':
+            ddl1.options.length = 0;
+            ddl2.options.length = 0;
+            ddl3.options.length = 0;
+            ddl4.options.length = 0;
+            ddl5.options.length = 0;
+            ddl6.options.length = 0;
+            ddl8.options.length = 0;
+            ddl7.options.length = 0;
+            for (i = 0; i < child_status.length; i++) {
+                createOption(ddl7, child_status[i], child_status[i]);
+            }
+            break;
+
+
+        case 'education_medium_id':
+            ddl1.options.length = 0;
+            ddl2.options.length = 0;
+            ddl3.options.length = 0;
+            ddl4.options.length = 0;
+            ddl5.options.length = 0;
+            ddl6.options.length = 0;
+            ddl7.options.length = 0;
+            ddl8.options.length = 0;
+            for (i = 0; i < education_medium.length; i++) {
+                createOption(ddl8, education_medium[i], education_medium_id[i]);
+            }
+            break;
+
+
+
+
+            default:
+                ddl1.options.length = 0;
+                ddl2.options.length = 0;
+                ddl3.options.length = 0;
+                ddl4.options.length = 0;
+                ddl5.options.length = 0;
+            break;
+
+
+        }
+    }
+
+
+
+
+    function configureDropDownLists(ddl1,ddl2) {
+
+    var BC = new Array('Agamudayar including Thozhu or Thuluva Vellala','Agaram Vellan Chettiar','Alwar, Azhavar and Alavar ','Servai ','Nulayar ','Archakarai Vellala','Aryavathi ','Ayira Vaisyar','Badagar','Billava','Bondil','Boyas','Chakkala ','Chavalakarar ','Chettu or Chetty ','Chowdry','C.S.I. formerly S.I.U.C. ','Donga Dasaris','Devangar, Sedar','Dombs ','Enadi','Ezhavathy ','Ezhuthachar ','Ezhuva ','Gangavar','Gavara, Gavarai & Vadugar ','Gounder','Gowda ','Hegde','Idiga','Illathu Pillaimar, Illuvar, Ezhuvar & Illathar','Jhetty','Jogis ','Kabbera','Kaikolar, Sengunthar','Kaladi ','Kalari Kurup including Kalari Panicker ','Kalingi','Kallar','Kallar Kula Thondaman','Kalveli Gounder','Kambar','Kammalar or Viswakarma, Viswakarmala','Kani, Kanisu, Kaniyar Panikkar','Kaniyala Vellalar','Kannada Saineegar, Kannadiyar ','Kannadiya Naidu','Karpoora Chettiar','Karuneegar ','Kasukkara Chettiar','Katesar Pattamkatti','Kavuthiyar','Kerala Mudali','Kharvi','Khatri','Kongu Vaishnava','Kongu Vellalars ','Koppala Velama','Koteyar','Krishnanvaka ','Kudikara Vellalar','Kudumbi ','Kuga Vellalar','Kunchidigar','Latin Catholics','Lambadi','Lingayat ','Mahratta ','Malayar','Male','Maniagar','Maravars ','Moondrumandai Enbathunalu ','Mooppan','Muthuraja, Muthuracha, Muttiriyar, Mutharaiyar','Nadar, Shanar & Gramani including Christian','Nagaram','Naikkar ','Nangudi Vellalar','Nanjil Mudali ','Odar ','Odiya','Oottruvalanattu Vellalar','O.P.S. Vellalar','Ovachar','Paiyur Kotta Vellalar','Pamulu','Panar ','Pandiya Vellalar','Omitted','Kathikarar in Kanyakumari District','Pannirandam Chettiar or Uthama Chettiar','Parkavakulam ','Perike ','Perumkollar ','Podikara Vellalar','Pooluva Gounder','Poraya','Pulavar ','Pulluvar or Pooluvar','Pusala','Reddy ','Sadhu Chetty ','Sakkaravar or Kavathi ','Salivagana','Saliyar, Padmasaliyar, Pattusaliyar, Pattariyar','Savalakkarar','Senaithalaivar, Senaikudiyar and IIaivaniar','Serakula Vellalar','Sourashtra ','Sozhia Vellalar ','Srisayar','Sundaram Chetty','Thogatta Veerakshatriya','Tholkollar ','Tholuva Naicker and Vetalakara Naicker','Omitted','Thoriyar','Ukkirakula Kshatriya Naicker','Uppara, Uppillia and Sagara','Urali Gounder ','Urikkara Nayakkar','Virakodi Vellala','Vallambar','Vallanattu Chettiar','Valmiki','Vaniyar, Vania Chettiar ','Veduvar and Vedar ','Veerasaiva ','Velar','Vellan Chettiar','Veluthodathu Nair ','Vokkaligar ','Wynad Chetty ','Yadhava ','Yavana','Yerukula','Latin Catholic Christian Vannar ','Boyar, Oddar','pedda','Latin Catholics in Shencottah Taluk of Tirunelveli District','Kaloddars','NellorepetOddars','SooramariOddars','Vaduvar','KootappalKallars PiramalaiKallars PeriyasooriyurKallars','Jangama','omitted','PerikeBalija','Ganjam','Adhaviyar','Patnulkarar','Orphansand & Destitutechildren','Converts to Christianity from any Hindu BackwardClassesCommunity or MostBackwardClassesCommunity','APandiyaVellalar')
+    var BC_id = new Array('1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100','101','102','103','104','105','106','107','108','109','110','111','112','113','114','115','116','117','118','119','120','121','122','123','124','125','126','127','128','129','130','131','132','133','134','135','136','137','164','150','307','308','309','310','311','312','313','314','315','316','317','318','319','320','321','322')
+
+    var BC_Muslim = new Array('Ansar','Dekkani Muslims','Dudekula','Labbais including Rowthar and Marakayar','Mapilla','Sheik','Syed')
+    var BC_Muslim_id = new Array('138','139','140','141','142','143','144')
+
+    var MBC = new Array('Ambalakarar','Andipandaram','Arayar ','Bestha, Siviar','Bhatraju ','Dasari','Dommara','Eravallar ','Isaivellalar','Jambuvanodai','Jangam','Jogi','Kongu Chettiar ','Koracha','Kulala ','Kunnuvar Mannadi','Kurumba, Kurumba Goundar','Kuruhini Chetty','Maruthuvar, Navithar, Mangala, Velakattalavar, Velakatalanair and Pronopakari','Mond Golla','Moundadan Chetty','Mahendra, Medara','Mutlakampatti','Narikoravar ','Nokkar','Panisaivan / Panisivan','Vanniakula Kshatriya ','Paravar ','Paravar','Meenavar ','Mukkuvar or Mukayar ','Punnan Vettuva Gounder','Pannayar ','Sathatha Srivaishnava ','Sozhia Chetty','Telugupatty Chetty','Thottia Naicker ','Thondaman','Thoraiyar ','Thoraiyar ','Valaiyar ','Vannar ','Vettaikarar','Vettuva Gounder','Yogeeswarar','Arayar','Panisaivan panisivan')
+    var MBC_id =  new Array('145','146','147','148','149','151','152','153','154','155','156','157','158','159','160','161','162','163','165','166','167','168','169','170','171','172','173','174','175','176','177','178','179','180','181','182','183','184','185','186','187','188','189','190','191','305','306')
+
+    var ST = new Array('Adiyan','Aranadan','Eravallan','Irular','Kadar','Kammara ','Kanikaran, Kanikkar ','Kaniyan, Kanyan','Kattunayakan','Kochu Velan','Konda Kapus','Kondareddis','Koraga','Kota ','Kudiya, Melakudi','Kurichchan','Kurumbas ','Kurumans','Maha Malasar','Malai Arayan','Malai Pandaram','Malai Vedan','Malakkuravan','Malasar','Malayali ','Malayakandi','Mannan','Mudugar, Muduvan','Muthuvan','Pallayan','Palliyan','Palliyar','Paniyan','Sholaga','Toda ','Uraly')
+    var ST_id = new Array('192','193','194','195','196','197','198','199','200','201','202','203','204','205','206','207','208','209','210','211','212','213','214','215','216','217','218','219','220','221','222','223','224','225','226','227')
+
+
+    var SC_Others = new Array('Adi Dravida','Adi Karnataka','Ajila','Ayyanavar ','Baira','Bakuda','Bandi','Bellara','Bharatar ','Chalavadi','Chamar, Muchi','Chandala','Cheruman','Devendrakulathan','Dom, Dombara, Paidi, Pano','Domban','Godagali','Godda','Gosangi','Holeya','Jaggali','Jambuvulu','Kadaiyan','Kakkalan ','Kalladi','Kanakkan, Padanna ','Karimpalan','Kavara ','Koliyan','Koosa','Kootan, Koodan ','Kudumban','Kuravan, Sidhanar','Maila','Mala','Mannan ','Mavilan','Moger','Mundala','Nalakeyava','Nayadi','Padannan ','Pallan','Palluvan','Pambada','Panan ','Panchama','Pannadi','Panniandi','Paraiyan, Parayan, Sambavar','Paravan ','Pathiyan ','Pulayan, Cheramar','Puthirai Vannan','Raneyar','Samagara','Samban','Sapari','Semman','Thandan ','Tiruvalluvar','Vallon','Valluvan','Vannan ','Vathiriyan','Velan','Vetan ','Vettiyan','Vettuvan ')
+    var SC_Others_id = new Array('228','229','230','231','232','233','234','235','236','237','238','239','240','241','242','243','244','245','246','247','248','249','250','251','252','253','254','255','256','257','258','259','260','261','262','263','264','265','266','267','268','269','270','271','272','273','274','275','276','277','278','279','280','281','282','283','284','285','286','287','288','289','290','291','292','293','294','295','296')
+
+
+    var SC_Ar = new Array('Adi Andhra','Arunthathiyar','Chakkiliyan','Madari','Madiga','Pagadai','Thoti')
+    var SC_Ar_id =  new Array('297','298','299','300','301','302','303')
+
+    switch (ddl1.value) {
+
+        case '1':
+            ddl2.options.length = 0;
+            for (i = 0; i < BC.length; i++) {
+                createOption(ddl2, BC[i], BC_id[i]);
+            }
+            break;
+
+        case '2':
+            ddl2.options.length = 0;
+            for (i = 0; i < BC_Muslim.length; i++) {
+                createOption(ddl2, BC_Muslim[i], BC_Muslim_id[i]);
+            }
+            break;
+
+        case '3':
+            ddl2.options.length = 0;
+            for (i = 0; i < MBC.length; i++) {
+                createOption(ddl2, MBC[i], MBC_id[i]);
+            }
+            break;
+
+        case '4':
+            ddl2.options.length = 0;
+            for (i = 0; i < ST.length; i++) {
+                createOption(ddl2, ST[i], ST_id[i]);
+            }
+            break;
+
+        case '5':
+            ddl2.options.length = 0;
+            for (i = 0; i < SC_Others.length; i++) {
+                createOption(ddl2, SC_Others[i], SC_Others_id[i]);
+            }
+            break;
+
+        case '6':
+            ddl2.options.length = 0;
+            for (i = 0; i < SC_Ar.length; i++) {
+                createOption(ddl2, SC_Ar[i], SC_Ar_id[i]);
+            }
+            break;
+     
+            default:
+                ddl2.options.length = 0;
+            break;
+    }
+
+}
+
+    function createOption(ddl, text, value) {
+        var opt = document.createElement('option');
+        opt.value = value;
+        opt.text = text;
+        ddl.options.add(opt);
+    }
+</script>
+
+<form action='{% url "report_detail_list" %}' method='post' enctype="multipart/form-data" >
+  {% csrf_token %}
+{% if user.account.user_category.user_category == 'block' %}
+&nbsp;&nbsp;School : <select name="school_list" id="school_list" >
+{% for sch in school_list %}
+<option value="{{sch.id}}">{{sch.school_name}}</option>
+{% endfor %}
+</select>
+<br><br>
+&nbsp;&nbsp;Class Studying : <select name="class_studying" id="class_studying" >
+<option value="all">All</option>
+<option value="1">I</option>
+<option value="2">II</option>
+<option value="3">III</option>
+<option value="4">IV</option>
+<option value="5">V</option>
+<option value="6">VI</option>
+<option value="7">VII</option>
+<option value="8">VIII</option>
+<option value="9">IX</option>
+<option value="10">X</option>
+<option value="11">XI</option>
+<option value="12">XII</option>
+</select>
+&nbsp;&nbsp;Academic Year: <select name="academic_year" id="academic_year" >
+<option value="all">All</option>
+<option value="1">2012-13</option>
+<option value="2">2013-14</option>
+<option value="3">2014-15</option>
+<option value="4">2015-16</option>
+</select>
+<br>
+<br>
+{% endif %}
+{% if user.account.user_category.user_category == 'district' or user.account.user_category.user_category == 'dee_district' or user.account.user_category.user_category == 'dse_district' or user.account.user_category.user_category == 'dms_district' or user.account.user_category.user_category == 'cbse_district' or user.account.user_category.user_category == 'icse_district' or user.account.user_category.user_category == 'othr_district' %}
+&nbsp;&nbsp;Block : <select name="block_list" id="block_list" >
+{% for blk in block_list %}
+<option value="{{blk.id}}">{{blk.block_name}}</option>
+{% endfor %}
+</select>
+&nbsp;&nbsp;School : <select name="school_list" id="school_list" >
+{% for sch in school_list %}
+<option value="{{sch.id}}">{{sch.school_name}}</option>
+{% endfor %}
+</select>
+<br><br>
+&nbsp;&nbsp;Class Studying : <select name="class_studying" id="class_studying" >
+<option value="all">All</option>
+<option value="1">I</option>
+<option value="2">II</option>
+<option value="3">III</option>
+<option value="4">IV</option>
+<option value="5">V</option>
+<option value="6">VI</option>
+<option value="7">VII</option>
+<option value="8">VIII</option>
+<option value="9">IX</option>
+<option value="10">X</option>
+<option value="11">XI</option>
+<option value="12">XII</option>
+</select>
+&nbsp;&nbsp;Academic Year: <select name="academic_year" id="academic_year" >
+<option value="all">All</option>
+<option value="1">2012-13</option>
+<option value="2">2013-14</option>
+<option value="3">2014-15</option>
+<option value="4">2015-16</option>
+</select>
+<br>
+<br>
+{% endif %}
+{% if user.account.user_category.user_category == 'state' or user.account.user_category.user_category == 'dee_state' or user.account.user_category.user_category == 'dse_state' or user.account.user_category.user_category == 'dms_state' or user.account.user_category.user_category == 'cbse_state' or user.account.user_category.user_category == 'icse_state' or user.account.user_category.user_category == 'othr_state' %}
+&nbsp;&nbsp;District : <select name="district_list" id="district_list" >
+{% for dist in district_list %}
+<option value="{{dist.id}}">{{dist.district_name}}</option>
+{% endfor %}
+</select>
+&nbsp;&nbsp;Block : <select name="block_list" id="block_list" >
+{% for blk in block_list %}
+<option value="{{blk.id}}">{{blk.block_name}}</option>
+{% endfor %}
+</select>
+&nbsp;&nbsp;School : <select name="school_list" id="school_list" >
+{% for sch in school_list %}
+<option value="{{sch.id}}">{{sch.school_name}}</option>
+{% endfor %}
+</select>
+<br><br>
+&nbsp;&nbsp;Class Studying : <select name="class_studying" id="class_studying" >
+<option value="all">All</option>
+<option value="1">I</option>
+<option value="2">II</option>
+<option value="3">III</option>
+<option value="4">IV</option>
+<option value="5">V</option>
+<option value="6">VI</option>
+<option value="7">VII</option>
+<option value="8">VIII</option>
+<option value="9">IX</option>
+<option value="10">X</option>
+<option value="11">XI</option>
+<option value="12">XII</option>
+</select>
+&nbsp;&nbsp;Academic Year: <select name="academic_year" id="academic_year" >
+<option value="all">All</option>
+<option value="1">2012-13</option>
+<option value="2">2013-14</option>
+<option value="3">2014-15</option>
+<option value="4">2015-16</option>
+</select>
+<br>
+<br>
+{% endif %}
+
+{% if user.account.user_category.user_category == 'school' %}
+
+<br><br>
+{% if clss_stud %}
+&nbsp;&nbsp;Class Studying : 
+<input type="text" name="class_studying_id" value="{{clss_stud}}" readonly style="border: none; width:30px;">
+{% endif %}
+{% if clss_sect %}
+&nbsp;&nbsp;Class Section : 
+<input type="text" name="class_section" value="{{clss_sect}}" readonly style="border: none; width:20px;">
+{% endif %}
+{% if acad_year %}
+&nbsp;&nbsp;Academic Year : 
+<input type="text" name="academic_year_id" value="{{acad_year}}" readonly style="border: none; width:60px;">
+{% endif %}
+{% if gendr %}
+&nbsp;&nbsp;Gender : 
+<input type="text" name="gender" value="{{gendr}}" readonly style="border: none; width:50px;">
+{% endif %}
+{% if nation %}
+&nbsp;&nbsp;Nationality : 
+<input type="text" name="nationality_id" value="{{nation}}" readonly style="border: none; width:70px;">
+{% endif %}
+{% if relign %}
+&nbsp;&nbsp;Religion : 
+<input type="text" name="religion_id" value="{{relign}}" readonly style="border: none; width:70px;">
+{% endif %}
+<br><br>
+&nbsp;&nbsp;Search By : <select name="search_by" id="search_by" onchange="filterDropDownList(this,document.getElementById('ddl1'),document.getElementById('ddl3'),document.getElementById('ddl2'),document.getElementById('ddl4'),document.getElementById('ddl5'),document.getElementById('ddl6'),document.getElementById('ddl7'),document.getElementById('ddl8'))">
+<option value="all" >-----------</option>
+<option value="community_id" >Community </option>
+<option value="differently_abled" >Differently Abled</option>
+<option value="disadvantaged_group" >Disadvantaged Group</option>
+<option value="family_income" >Family Income</option>
+<option value="attendance_status" >Attendance Status</option>
+<option value="child_status" >Child Status</option>
+<option value="education_medium_id" >Education Medium</option>
+</select>
+
+&nbsp;&nbsp;Community : <select name="community_id" id="ddl1" onchange="configureDropDownLists(this,document.getElementById('ddl2'))">
+<option value="all" >-----------</option>
+</select>
+&nbsp;&nbsp;Sub Caste : <select name="subcaste_id" id="ddl2" multiple>
+<option value="all" >-----------</option>
+</select>
+
+
+&nbsp;&nbsp;Differently Abled : <select name="differently_abled_id" id="ddl3" multiple>
+<option value="all" >-----------</option>
+</select>
+
+&nbsp;&nbsp;Distadvantaged Group : <select name="disadvantaged_group_id" id="ddl4" multiple>
+<option value="all" >-----------</option>
+</select>
+
+&nbsp;&nbsp;Family Income : <select name="family_income_id" id="ddl5">
+<option value="all" >-----------</option>
+</select>
+
+&nbsp;&nbsp;Attendance Status : <select name="attendance_status_id" id="ddl6">
+<option value="all" >-----------</option>
+</select>
+
+&nbsp;&nbsp;Child Status : <select name="child_status_id" id="ddl7">
+<option value="all" >-----------</option>
+</select>
+
+&nbsp;&nbsp;Education Medium : <select name="education_medium_id" id="ddl8">
+<option value="all" >-----------</option>
+</select>
+
+{% endif %}
+</br></br> 
+<center><input type="submit" value="Submit">&nbsp;&nbsp;&nbsp;
+<a href='{% url "report_list" %}'><input type="button" value="Back" /></a></center>
+</form>
+
+
+<h4><b>Total Count = {{final_count|default:0}}</b></h4>
+<br><br>
+<div style="border:1px solid black;overflow-y:hidden;overflow-x:scroll;">
+
+<table style="width:70%" border ="1">
+
+<tr>
+
+<th>S.No</th>
+<th>Name</th>
+<th>Unique Id</th>
+<th>Class Studying</th>
+<th>Class Section</th>
+<th>Academic Year</th>
+<th>Gender</th>
+<th>Community</th>
+<th>Subcaste</th>
+<th>Religion</th>
+<th>Child Status</th>
+<th>Child Differently Abled</th>
+<th>Child Disadvantaged Group</th>
+<th>Nationality</th>
+<th>Blood Group</th>
+<th>Mother's Occupation</th>
+<th>Father's Occupation</th>
+<th>Attendance Status</th>
+<th>Education Medium</th>
+</tr>
+
+
+{% for i in final_list %}
+<tr>
+<td>{{ forloop.counter }}</td>
+<td >{{i.name}}</td>
+<td>{{i.unique_id_no}}</td>
+<td>{{i.clss_studying}}</td>
+<td>{{i.class_section}}</td>
+<td>{{i.academic_year}}</td>
+<td>{{i.gender}}</td>
+<td>{{i.comminuty_id.}}</td>
+<td>{{i.subcaste_id}}</td>
+<td>{{i.religion_id}}</td>
+<td>{{i.child_status}}</td>
+<td>{{i.differently_abled}}</td>
+<td>{{i.disadvantaged_group}}</td>
+<td>{{i.nationality_id}}</td>
+<td>{{i.blood_group}}</td>
+<td>{{i.mother_occupation}}</td>
+<td>{{i.father_occupation}}</td>
+<td>{{i.attendance_status}}</td>
+<td>{{i.education_medium_id}}</td>
+</tr>
+{% endfor %}
+<!--  <ul class="pagination pagination-centered">
+            {% if page_obj.has_previous %}
+                <li><a href="?page=1"><<</a></li>
+                <li><a href="?page={{ page_obj.previous_page_number }}"><</a></li>
+            {% endif %}
+
+            {% for i in page_obj.paginator.page_range %}
+                {% if page_obj.number == i %}
+                {% if page_obj.has_previous %}
+                    <li><a href="?page={{i|add:-1}}">{{i|add:-1}}</a></li>
+                {% endif %}
+                <li  class="active">
+
+                <a href="?page={{i}}">{{i}}</a></li>
+                {% if page_obj.has_next %}
+                <li><a href="?page={{i|add:1}}">{{i|add:1}}</a></li>
+                {% endif %}
+                {% endif %}
+
+            {% endfor %}
+
+
+            {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}">></a></li>
+                <li><a href="?page={{ page_obj.paginator.num_pages }}">>></a></li>
+            {% endif %}
+        </ul> -->
+</table>
+
+</div>
+{% endblock %}

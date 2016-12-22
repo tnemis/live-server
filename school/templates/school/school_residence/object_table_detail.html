@@ -1,0 +1,61 @@
+
+
+{% load i18n %}
+
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        {% trans "Field" %}
+      </th>
+      <th>
+        {% trans "Value" %}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        School Key
+      </td>
+      <td>{{ object.school_key }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Residential
+      </td>
+      <td>{{ object.residential }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Primary
+      </td>
+      <td>{{ object.primary }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Up
+      </td>
+      <td>{{ object.up }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Secondary
+      </td>
+      <td>{{ object.secondary }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Hs
+      </td>
+      <td>{{ object.hs }}</td>
+    </tr>
+
+  </tbody>
+</table>

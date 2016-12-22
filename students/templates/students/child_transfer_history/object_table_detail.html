@@ -1,0 +1,64 @@
+
+
+{% load i18n %}
+
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        {% trans "Field" %}
+      </th>
+      <th>
+        {% trans "Value" %}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        Id
+      </td>
+      <td>
+        <a href='{{ object.get_absolute_url }}'>
+          {{ object.id|stringformat:".3d" }}
+        </a>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        Child key
+      </td>
+      <td>{{ object.child_key }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Old school
+      </td>
+      <td>{{ object.old_school }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Tc issue date
+      </td>
+      <td>{{ object.tc_issue_date }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Created date
+      </td>
+      <td>{{ object.created_date }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Modified date
+      </td>
+      <td>{{ object.modified_date }}</td>
+    </tr>
+    
+  </tbody>
+</table>

@@ -1,0 +1,88 @@
+
+
+{% load i18n %}
+
+<p>
+  {% trans "Click on the primary key value to access the individual Teacher_leave_credit's page." %}
+</p>
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        id
+      </th>
+      
+        <th>
+          Teacher key
+        </th>
+      
+        <th>
+          Earned effective
+        </th>
+      
+        <th>
+          Earned credit
+        </th>
+      
+        <th>
+          Earned prebalance
+        </th>
+      
+        <th>
+          Earned curbalance
+        </th>
+      
+        <th>
+          Earned orderno
+        </th>
+      
+        <th>
+          Earned orderdate
+        </th>
+      
+        <th>
+          Half effective
+        </th>
+      
+        <th>
+          Half credit
+        </th>
+      
+        
+        
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+      <tr>
+        <td>
+          <a href='{% url "teacher_teacher_leave_credit_detail" pk=object.pk %}'>
+            {{ object.id|stringformat:".3d" }}
+          </a>
+        </td>
+        
+          <td>{{ object.teacher_key }}</td>
+        
+          <td>{{ object.earned_effective }}</td>
+        
+          <td>{{ object.earned_credit }}</td>
+        
+          <td>{{ object.earned_prebalance }}</td>
+        
+          <td>{{ object.earned_curbalance }}</td>
+        
+          <td>{{ object.earned_orderno }}</td>
+        
+          <td>{{ object.earned_orderdate }}</td>
+        
+          <td>{{ object.half_effective }}</td>
+        
+          <td>{{ object.half_credit }}</td>
+        
+          
+          
+        
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

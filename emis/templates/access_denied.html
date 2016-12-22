@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Welcome" %}{% endblock %}
+
+{% block content_class %}home{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %} <p style="color:red">Sorry! You do not have the permission to access this section. ,</p>{{user.accounts.}} {% endif %}
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "baseapp/master_base.html"|pjax:request %}
+
+{% load i18n %}
+{% block contentmenu %}
+
+    {% if request.user.account.user_category.user_category == 'school' %}
+        <ul id="nav">
+                  
+                  <li >
+                    <a  href='{% url "students_child_detail_list" %}'>
+                      {% trans "Child Detail List" %}
+                    </a>
+                  </li>
+                  <li>
+                    <a href='{% url "students_child_detail_create" %}'>
+                      {% trans "Create Child Detail" %}
+                    </a>
+                  </li>
+                  <li>
+                    <a href='{% url "students_child_detail_pool_detail" %}'>
+                      {% trans "Student Pool" %}
+                    </a>
+                  </li>
+
+                  <li >
+                      <a  href='/students/school_bus_pass_report'><img src="{{STATIC_URL}}img/new.gif"/>
+                        {% trans "Bus Pass Report" %}
+                      </a>
+                    </li>
+                  {% if object %}
+                  {% if object.school.id == request.user.account.associated_with|add:"0" %}
+                    <li >
+                      <a  href='{{ object.get_absolute_url }}'>
+                        {% trans "Child Detail Detail" %}
+                      </a>
+                    </li>
+                    <li >
+                      <a  href='{% url "students_child_detail_update" pk=object.pk %}'>
+                        {% trans "Update Child Detail" %}
+                      </a>
+                    </li>
+
+
+                    
+                   
+                  {% endif %}
+                  {% endif %}
+                  
+                </ul>
+        </a>
+      {% endif %}
+      {% if request.user.account.user_category.user_category == 'block' %}
+      <table><tr>
+        <td><h4><a href='{% url "block_detail" %}'>Home</a></h4></td></tr></table>
+      {% endif %}
+      {% if request.user.account.user_category.user_category == 'district' %}
+      <table><tr>
+        <td><h4><a href='{% url "district_detail" %}'>Home</a></h4></td></tr></table>
+      {% endif %}
+      {% if request.user.account.user_category.user_category == 'state' %}
+      <table><tr>
+        <td><h4><a href='{% url "state_detail" %}'>Home</a></h4></td></tr></table>
+      {% endif %}
+   
+   
+{% endblock %}
+

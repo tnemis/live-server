@@ -1,0 +1,87 @@
+
+
+{% load i18n %}
+
+<p>
+  {% trans "Click on the primary key value to access the individual Teacher_professional's page." %}
+</p>
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        Id
+      </th>
+      
+        <th>
+          Teacher key
+        </th>
+      
+        <th>
+          Doj govt
+        </th>
+      
+        <th>
+          Doj dept
+        </th>
+      
+        <th>
+          Designation onjoining
+        </th>
+      
+        <th>
+          Typewriting english
+        </th>
+      
+        <th>
+          Typewriting tamil
+        </th>
+      
+        <th>
+          Shorthand english
+        </th>
+      
+        <th>
+          Shorthand tamil
+        </th>
+      
+       
+      
+        
+      
+       
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+      <tr>
+        <td>
+          <a href='{% url "teacher_teacher_professional_detail" pk=object.pk %}'>
+            {{ object.id|stringformat:".3d" }}
+          </a>
+        </td>
+        
+          <td>{{ object.teacher_key }}</td>
+        
+          <td>{{ object.doj_govt }}</td>
+        
+          <td>{{ object.doj_dept }}</td>
+        
+          <td>{{ object.desig_onjoining }}</td>
+        
+          <td>{{ object.typewriting_english }}</td>
+        
+          <td>{{ object.typewriting_tamil }}</td>
+        
+          <td>{{ object.shorthand_english }}</td>
+        
+          <td>{{ object.shorthand_tamil }}</td>
+        
+         
+          
+          
+          
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

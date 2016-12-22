@@ -1,0 +1,43 @@
+{% extends "baseapp/master_base.html"|pjax:request %}
+
+{% load i18n %}
+{% block contentmenu %}
+    
+        <ul id="nav">
+                  
+                  <li >
+                    <a  href='{% url "baseapp_class_studying_list" %}'>
+                      {% trans "Class Studying List " %}
+                    </a>
+                  </li>
+                  <li >
+                    <a href='{% url "baseapp_class_studying_create" %}'>
+                      {% trans "Create Class Studying" %}
+                    </a>
+                  </li>
+                  {% if object %}
+                    <li >
+                      <a  href='{{ object.get_absolute_url }}'>
+                        {% trans "Class Studying Detail" %}
+                      </a>
+                    </li>
+                    <li >
+                      <a  href='{% url "baseapp_class_studying_update" pk=object.pk %}'>
+                        {% trans "Update Class Studying" %}
+                      </a>
+                    </li>
+                    <li >
+                      <a  href='{% url "baseapp_class_studying_delete" pk=object.pk %}'>
+                        {% trans "Delete" %}
+                      </a>
+                    </li>
+                  
+                  {% endif %}
+                  
+                </ul>
+        </a>
+      
+   
+   
+{% endblock %}
+

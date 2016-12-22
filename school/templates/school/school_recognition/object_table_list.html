@@ -1,0 +1,61 @@
+
+
+{% load i18n %}
+
+<p>
+  {% trans "Click on the primary key value to access the individual School_recognition's page." %}
+</p>
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        Id
+      </th>
+      
+        <th>
+          School Name
+        </th>
+      
+        <th>
+          Initial Primary
+        </th>
+      
+        <th>
+          Initial Up
+        </th>
+      
+        <th>
+          Initial Secondary
+        </th>
+      
+        <th>
+          Initial Hs
+        </th>       
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+      <tr>
+        <td>
+          <a href='{% url "school_school_recognition_detail" pk=object.pk %}'>
+            {{ object.id|stringformat:".3d" }}
+          </a>
+        </td>
+        
+          <td>{{ object.school_key.school.school_name }}</td>
+        
+          <td>{{ object.initial_primary }}</td>
+        
+          <td>{{ object.initial_up }}</td>
+        
+          <td>{{ object.initial_secondary }}</td>
+        
+          <td>{{ object.initial_hs }}</td>
+        
+          
+        
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

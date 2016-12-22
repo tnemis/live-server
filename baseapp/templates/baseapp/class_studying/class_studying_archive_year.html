@@ -1,0 +1,57 @@
+
+
+{% extends 'baseapp/class_studying/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /home/murad/testing/baseapp/templates/baseapp/class_studying/class_studying_archive_year.html
+{% endblock %}
+
+{% block breadcrumbs %}
+  <ul class='breadcrumb'>
+    <li>
+      <a href='{% url "baseapp_class_studying_archive_index" %}'>
+        {% trans "Archive Index" %}
+      </a>
+      <span class='divider'>
+        /
+      </span>
+    </li>
+    <li>
+      <a href='{% url "baseapp_class_studying_year_archive" year=year %}'>
+        {% trans "Year Archive" %}
+      </a>
+    </li>
+  </ul>
+{% endblock %}
+
+{% block header-link %}
+  <a href='{% url "baseapp_class_studying_year_archive" year=year %}'>
+    {% trans "Class_Studying Year Archive" %}
+  </a>
+{% endblock %}
+{% block header-description %}
+  {% trans "A yearly archive page showing all available months in a given year." %}
+{% endblock %}
+{% block content %}
+  <h2>
+    {% trans "By Month" %}
+  </h2>
+  <ul class='nav nav-tabs nav-stacked'>
+    {% for date in date_list %}
+      <li>
+        <a href='{% url "baseapp_class_studying_month_archive" year=date.year month=date.month %}'>
+          {{ date|date:"M Y" }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  <h2>
+    {% blocktrans %}
+      Class_Studyings created in the year {{ year }}
+    {% endblocktrans %}
+  </h2>
+  {% include 'baseapp/class_studying/object_table_list.html' %}
+  {% include 'baseapp/class_studying/pagination.html' %}
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "baseapp/master_base.html"|pjax:request %}
+
+{% load i18n %}
+{% block contentmenu %}
+    
+        <ul id="nav">
+                  
+                  <li >
+                    <a  href='{% url "teacher_teacher_previous_employment_list" %}'>
+                      {% trans "Teacher previous employment List " %}
+                    </a>
+                  </li>
+                  <li >
+                    <a href='{% url "teacher_teacher_previous_employment_create" %}'>
+                      {% trans "Create teacher previous employment" %}
+                    </a>
+                  </li>
+                  {% if object %}
+                    <li >
+                      <a  href='{{ object.get_absolute_url }}'>
+                        {% trans "Teacher previous employment" %}
+                      </a>
+                    </li>
+                    <li >
+                      <a  href='{% url "teacher_teacher_previous_employment_update" pk=object.pk %}'>
+                        {% trans "Update teacher previous employment" %}
+                      </a>
+                    </li>
+                    <li >
+                      <a  href='{% url "teacher_teacher_previous_employment_delete" pk=object.pk %}'>
+                        {% trans "Delete" %}
+                      </a>
+                    </li>
+                  
+                  {% endif %}
+                  
+                </ul>
+        </a>
+      
+   
+   
+{% endblock %}
+

@@ -1,0 +1,40 @@
+
+
+{% load i18n %}
+
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        {% trans "Field" %}
+      </th>
+      <th>
+        {% trans "Value" %}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        Code
+      </td>
+      <td>{{ object.code }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Brc
+      </td>
+      <td>{{ object.brc }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Block
+      </td>
+      <td>{{ object.block }}</td>
+    </tr>
+    
+  </tbody>
+</table>

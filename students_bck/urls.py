@@ -1,0 +1,292 @@
+from django.conf.urls import patterns, url
+
+
+from students.base_views import barcode_generator
+from students.views.child_detail_views import *
+urlpatterns = patterns('',
+    url(
+        regex=r'^id_card/?(?P<uid>\d+?)?/$',
+        view=barcode_generator,
+        name='students_barcode_generator'
+    ),
+    url(
+        regex=r'^child_admit/(?P<pk>\d+?)/$',
+        view=Child_admit.as_view(),
+        name='students_child_admit'
+    ),
+    url(
+        regex=r'^child_detail/archive/$',
+        view=Child_detailArchiveIndexView.as_view(),
+        name='students_child_detail_archive_index'
+    ),
+    url(
+        regex=r'^child_detail/create/$',
+        view=Child_detailCreateView.as_view(),
+        name='students_child_detail_create'
+    ),
+    url(
+        regex=r'^child_detail/(?P<year>\d{4})/'
+               '(?P<month>\d{1,2})/'
+               '(?P<day>\d{1,2})/'
+               '(?P<pk>\d+?)/$',
+        view=Child_detailDateDetailView.as_view(),
+        name='students_child_detail_date_detail'
+    ),
+    url(
+        regex=r'^child_detail/archive/(?P<year>\d{4})/'
+               '(?P<month>\d{1,2})/'
+               '(?P<day>\d{1,2})/$',
+        view=Child_detailDayArchiveView.as_view(),
+        name='students_child_detail_day_archive'
+    ),
+    url(
+        regex=r'^child_detail/(?P<pk>\d+?)/delete/$',
+        view=Child_detailDeleteView.as_view(),
+        name='students_child_detail_delete'
+    ),
+    url(
+        regex=r'^child_detail/(?P<pk>\d+?)/$',
+        view=Child_detailDetailView.as_view(),
+        name='students_child_detail_detail'
+    ),
+    url(
+        regex=r'^child_detail_classwise/(?P<cl_id>\d+?)/$',
+        view=Child_detailClasswiseView.as_view(),
+        name='students_child_classwise_detail'
+    ),
+
+    url(
+        regex=r'^child_detail_classwiselist/(?P<cl_id>\d+?)/(?P<school_code>\d+?)/$',
+        view=Child_detailClasswiseListView.as_view(),
+        name='students_child_classwiselist_detail'
+    ),
+    url(
+        regex=r'^child_detail/$',
+        view=Child_detailListView.as_view(),
+        name='students_child_detail_list'
+    ),
+    url(
+        regex=r'^child_detail/archive/(?P<year>\d{4})/'
+               '(?P<month>\d{1,2})/$',
+        view=Child_detailMonthArchiveView.as_view(),
+        name='students_child_detail_month_archive'
+    ),
+    url(
+        regex=r'^child_detail/today/$',
+        view=Child_detailTodayArchiveView.as_view(),
+        name='students_child_detail_today_archive'
+    ),
+    url(
+        regex=r'^child_detail/(?P<pk>\d+?)/update/$',
+        view=Child_detailUpdateView.as_view(),
+        name='students_child_detail_update'
+    ),
+    url(
+        regex=r'^child_detail/archive/(?P<year>\d{4})/'
+               '(?P<month>\d{1,2})/'
+               'week/(?P<week>\d{1,2})/$',
+        view=Child_detailWeekArchiveView.as_view(),
+        name='students_child_detail_week_archive'
+    ),
+    url(
+        regex=r'^child_detail/archive/(?P<year>\d{4})/$',
+        view=Child_detailYearArchiveView.as_view(),
+        name='students_child_detail_year_archive'
+    ),
+    url(
+        regex=r'^child_detail/transfer_detail/(?P<pk>\d+?)/$',
+        view=Child_detailTransferView.as_view(),
+        name='students_child_detail_transfer_detail'
+    ),
+    url(
+        regex=r'^child_detail/pool_detail$',
+        view=Child_detailPoolView.as_view(),
+        name='students_child_detail_pool_detail'
+    ),
+    url(
+        regex=r'^child_detail/pool_update/(?P<pk>\d+?)/$',
+        view=Child_detailPoolUpdateView.as_view(),
+        name='students_child_detail_pool_update'
+    ),
+    url(
+        regex=r'^child_detail/download_child_profile/(?P<pk>\d+?)/$',
+        view=Child_detailDownloadProfileView.as_view(),
+        name='students_child_detail_download_profile'
+    ),
+)
+
+
+from students.views.child_family_detail_views import *
+urlpatterns += patterns('',
+    url(
+        regex=r'^child_family_detail/archive/$',
+        view=Child_family_detailArchiveIndexView.as_view(),
+        name='students_child_family_detail_archive_index'
+    ),
+    url(
+        regex=r'^child_family_detail/create/$',
+        view=Child_family_detailCreateView.as_view(),
+        name='students_child_family_detail_create'
+    ),
+    url(
+        regex=r'^child_family_detail/(?P<year>\d{4})/'
+               '(?P<month>\d{1,2})/'
+               '(?P<day>\d{1,2})/'
+               '(?P<pk>\d+?)/$',
+        view=Child_family_detailDateDetailView.as_view(),
+        name='students_child_family_detail_date_detail'
+    ),
+    url(
+        regex=r'^child_family_detail/archive/(?P<year>\d{4})/'
+               '(?P<month>\d{1,2})/'
+               '(?P<day>\d{1,2})/$',
+        view=Child_family_detailDayArchiveView.as_view(),
+        name='students_child_family_detail_day_archive'
+    ),
+    url(
+        regex=r'^child_family_detail/(?P<pk>\d+?)/delete/$',
+        view=Child_family_detailDeleteView.as_view(),
+        name='students_child_family_detail_delete'
+    ),
+    url(
+        regex=r'^child_family_detail/(?P<pk>\d+?)/$',
+        view=Child_family_detailDetailView.as_view(),
+        name='students_child_family_detail_detail'
+    ),
+    url(
+        regex=r'^child_family_detail/$',
+        view=Child_family_detailListView.as_view(),
+        name='students_child_family_detail_list'
+    ),
+    url(
+        regex=r'^child_family_detail/archive/(?P<year>\d{4})/'
+               '(?P<month>\d{1,2})/$',
+        view=Child_family_detailMonthArchiveView.as_view(),
+        name='students_child_family_detail_month_archive'
+    ),
+    url(
+        regex=r'^child_family_detail/today/$',
+        view=Child_family_detailTodayArchiveView.as_view(),
+        name='students_child_family_detail_today_archive'
+    ),
+    url(
+        regex=r'^child_family_detail/(?P<pk>\d+?)/update/$',
+        view=Child_family_detailUpdateView.as_view(),
+        name='students_child_family_detail_update'
+    ),
+    url(
+        regex=r'^child_family_detail/archive/(?P<year>\d{4})/'
+               '(?P<month>\d{1,2})/'
+               'week/(?P<week>\d{1,2})/$',
+        view=Child_family_detailWeekArchiveView.as_view(),
+        name='students_child_family_detail_week_archive'
+    ),
+    url(
+        regex=r'^child_family_detail/archive/(?P<year>\d{4})/$',
+        view=Child_family_detailYearArchiveView.as_view(),
+        name='students_child_family_detail_year_archive'
+    ),
+
+)
+
+
+from students.views.child_transfer_history_views import *
+urlpatterns += patterns('',
+    url(
+        regex=r'^child_transfer_history/archive/$',
+        view=Child_Transfer_HistoryArchiveIndexView.as_view(),
+        name='students_child_transfer_history_archive_index'
+    ),
+    url(
+        regex=r'^child_transfer_history/create/$',
+        view=Child_Transfer_HistoryCreateView.as_view(),
+        name='students_child_transfer_history_create'
+    ),
+    url(
+        regex=r'^child_transfer_history/(?P<year>\d{4})/'
+               '(?P<month>\d{1,2})/'
+               '(?P<day>\d{1,2})/'
+               '(?P<pk>\d+?)/$',
+        view=Child_Transfer_HistoryDateDetailView.as_view(),
+        name='students_child_transfer_history_date_detail'
+    ),
+    url(
+        regex=r'^child_transfer_history/archive/(?P<year>\d{4})/'
+               '(?P<month>\d{1,2})/'
+               '(?P<day>\d{1,2})/$',
+        view=Child_Transfer_HistoryDayArchiveView.as_view(),
+        name='students_child_transfer_history_day_archive'
+    ),
+    url(
+        regex=r'^child_transfer_history/(?P<pk>\d+?)/delete/$',
+        view=Child_Transfer_HistoryDeleteView.as_view(),
+        name='students_child_transfer_history_delete'
+    ),
+    url(
+        regex=r'^child_transfer_history/(?P<pk>\d+?)/$',
+        view=Child_Transfer_HistoryDetailView.as_view(),
+        name='students_child_transfer_history_detail'
+    ),
+    url(
+        regex=r'^child_transfer_history/$',
+        view=Child_Transfer_HistoryListView.as_view(),
+        name='students_child_transfer_history_list'
+    ),
+    url(
+        regex=r'^child_transfer_history/archive/(?P<year>\d{4})/'
+               '(?P<month>\d{1,2})/$',
+        view=Child_Transfer_HistoryMonthArchiveView.as_view(),
+        name='students_child_transfer_history_month_archive'
+    ),
+    url(
+        regex=r'^child_transfer_history/today/$',
+        view=Child_Transfer_HistoryTodayArchiveView.as_view(),
+        name='students_child_transfer_history_today_archive'
+    ),
+    url(
+        regex=r'^child_transfer_history/(?P<pk>\d+?)/update/$',
+        view=Child_Transfer_HistoryUpdateView.as_view(),
+        name='students_child_transfer_history_update'
+    ),
+    url(
+        regex=r'^child_transfer_history/archive/(?P<year>\d{4})/'
+               '(?P<month>\d{1,2})/'
+               'week/(?P<week>\d{1,2})/$',
+        view=Child_Transfer_HistoryWeekArchiveView.as_view(),
+        name='students_child_transfer_history_week_archive'
+    ),
+    url(
+        regex=r'^child_transfer_history/archive/(?P<year>\d{4})/$',
+        view=Child_Transfer_HistoryYearArchiveView.as_view(),
+        name='students_child_transfer_history_year_archive'
+    ),
+)
+
+
+from students.views.block_views import *
+urlpatterns += patterns('',
+    url(
+        regex=r'^block/$',
+        view=BlockView.as_view(),
+        name='block_detail'
+    ),
+)
+
+
+from students.views.district_views import *
+urlpatterns += patterns('',
+    url(
+        regex=r'^district/$',
+        view=DistrictView.as_view(),
+        name='district_detail'
+    ),
+)
+
+from students.views.state_views import *
+urlpatterns += patterns('',
+    url(
+        regex=r'^state/$',
+        view=StateView.as_view(),
+        name='state_detail'
+    ),
+)

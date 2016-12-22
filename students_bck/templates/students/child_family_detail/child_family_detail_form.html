@@ -1,0 +1,45 @@
+{% extends 'students/child_family_detail/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="row">
+        <div class="col-md-8">
+  <form action='{% if object %}{% url "students_child_family_detail_update" pk=object.pk %}{% else %}{% url "students_child_family_detail_create" %}{% endif %}' method='post' encoding='utf-8'>
+     <fieldset>
+      {% csrf_token %}
+      
+      <div class="form-group"> <b>{% trans "Child key" %}</b>{{ form.child_key|add_class:"form-control" }}</div><span class="error_message">{{form.child_key.errors}}</span>
+
+      <div class="form-group"> <b>{% trans "Block" %}</b>{{ form.block|add_class:"form-control" }}</div><span class="error_message">{{form.block.errors}}</span>
+
+      <div class="form-group"> <b>{% trans "Sibling Name" %}</b>{{ form.sibling_name|add_class:"form-control" }}</div><span class="error_message">{{form.sibling_name.errors}}</span>
+
+      <div class="form-group"> <b>{% trans "Sibling Relationship" %}</b>{{ form.sibling_relationship|add_class:"form-control" }}</div><span class="error_message">{{form.sibling_relationship.errors}}</span>
+
+      <div class="form-group"> <b>{% trans "Sibling Age" %}</b>{{ form.sibling_age|add_class:"form-control" }}</div><span class="error_message">{{form.sibling_age.errors}}</span>
+
+      <div class="form-group"> <b>{% trans "Sibling Status" %}</b>{{ form.sibling_status|add_class:"form-control" }}</div><span class="error_message">{{form.sibling_status.errors}}</span>
+
+      <div class="form-group"> <b>{% trans "Sibling Studying" %}</b>{{ form.sibling_studying|add_class:"form-control" }}</div><span class="error_message">{{form.sibling_studying.errors}}</span>
+
+      <div class="form-group"> <b>{% trans "Sibling studying in same school" %}</b>{{ form.sibling_studying_same_school|add_class:"form-control" }}</div><span class="error_message">{{form.sibling_studying_same_school.errors}}</span>
+
+      <div class="form-group"> <b>{% trans "Staff id" %}</b>{{ form.staff_id|add_class:"form-control" }}</div><span class="error_message">{{form.staff_id.errors}}</span>
+     
+          
+        <button class='btn btn-large btn-success' type='submit'>
+          {% if object %}
+            {% trans "Update" %}
+          {% else %}
+            {% trans "Create" %}
+          {% endif %}
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+</div>
+{% endblock %}

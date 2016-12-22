@@ -1,0 +1,141 @@
+
+
+{% load i18n %}
+
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        {% trans "Field" %}
+      </th>
+      <th>
+        {% trans "Value" %}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        id
+      </td>
+      <td>
+        <a href='{{ object.get_absolute_url }}'>
+          {{ object.id|stringformat:".3d" }}
+        </a>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        teacher_key
+      </td>
+      <td>{{ object.teacher_key }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        prop_description
+      </td>
+      <td>{{ object.prop_description }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        no_installment
+      </td>
+      <td>{{ object.no_installment }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        doc_number
+      </td>
+      <td>{{ object.doc_number }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        doc_date
+      </td>
+      <td>{{ object.doc_date }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        place
+      </td>
+      <td>{{ object.place }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        acquired
+      </td>
+      <td>{{ object.acquired }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        purchase_value
+      </td>
+      <td>{{ object.purchase_value }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        present_value
+      </td>
+      <td>{{ object.present_value }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        order_no
+      </td>
+      <td>{{ object.order_no }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        order_date
+      </td>
+      <td>{{ object.order_date }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        complete_flag
+      </td>
+      <td>{{ object.complete_flag }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        modification_flag
+      </td>
+      <td>{{ object.modification_flag }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        verification_flag
+      </td>
+      <td>{{ object.verification_flag }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        staff_id
+      </td>
+      <td>{{ object.staff_id }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        timestamp
+      </td>
+      <td>{{ object.timestamp }}</td>
+    </tr>
+    
+  </tbody>
+</table>

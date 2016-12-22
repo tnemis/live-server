@@ -1,0 +1,49 @@
+
+
+{% extends 'school/school_upgradation/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+
+{% block filename %}
+  /home/mur/testing/emis_d15/scafold/school/templates/school/school_upgradation/school_upgradation_archive.html
+{% endblock %}
+{% block title %}
+  {% trans "School_upgradation Archive Index" %}
+{% endblock %}
+{% block breadcrumbs %}
+  <ul class='breadcrumb'>
+    <li>
+      <a href='{% url "school_school_upgradation_archive_index" %}'>
+        {% trans "Archive Index" %}
+      </a>
+    </li>
+  </ul>
+{% endblock %}
+{% block header-link %}
+  <a href='{% url "school_school_upgradation_archive_index" %}'>
+    {% trans "School_upgradation Archive Index" %}
+  </a>
+{% endblock %}
+{% block header-description %}
+  {% trans "A top-level index page showing the latest objects, by date." %}
+{% endblock %}
+{% block content %}
+  <h2>
+    By Year
+  </h2>
+  <ul class='nav nav-tabs nav-stacked'>
+    {% for date in date_list %}
+      <li>
+        <a href='{% url "school_school_upgradation_year_archive" year=date.year %}'>
+          {{ date.year }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  <h2>
+    {% trans "Recent School_upgradations" %}
+  </h2>
+  {% include 'school/school_upgradation/object_table_list.html' %}
+  {% include 'school/school_upgradation/pagination.html' %}
+{% endblock %}

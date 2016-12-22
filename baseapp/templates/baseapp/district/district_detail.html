@@ -1,0 +1,46 @@
+
+
+{% extends 'baseapp/district/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /home/murad/testing/baseapp/templates/baseapp/district/district_detail.html
+{% endblock %}
+
+{% block title %}
+  {% trans "District Detail" %}
+{% endblock %}
+
+
+
+{% block header-link %}
+  <a href='{{ object.get_absolute_url }}'>
+    {% trans "District Detail" %}
+  </a>
+{% endblock %}
+
+{% block header-description %}
+  {% trans "A page representing an individual object." %}
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+        <div class="col-md-8">
+  {% include 'baseapp/district/object_table_detail.html' %}
+  <form action='{% url "baseapp_district_delete" pk=object.pk %}' charset='utf-8' method='post'>
+    <fieldset>
+      {% csrf_token %}
+      <div class='form-actions'>
+        <a class='btn btn-success' href='{% url "baseapp_district_update" pk=object.pk %}'>
+          {% trans "Update" %}
+        </a>
+        <button class='btn btn-danger' type='submit'>
+          {% trans "Delete" %}
+        </button>
+      </div>
+    </fieldset>
+  </form>
+  </div>
+  </div>
+{% endblock %}

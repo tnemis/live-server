@@ -1,0 +1,90 @@
+
+
+{% load i18n %}
+
+<p>
+  {% trans "Click on the primary key value to access the individual School_detail's page." %}
+</p>
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        Id
+      </th>
+      
+        <th>
+          School Name
+        </th>
+      
+        <th>
+          Village Ward
+        </th>
+      
+        <th>
+          Pincode
+        </th>
+      
+        <th>
+          Panchayat Name
+        </th>
+      
+        <th>
+          Municipality
+        </th>
+      
+        <th>
+          City
+        </th>
+      
+        <th>
+          Lowest Class
+        </th>
+      
+        <th>
+          Highest Class
+        </th>
+      
+        <th>
+          Road
+        </th>
+      
+        <th>
+          Year
+        </th>
+           
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+      <tr>
+        <td>
+          <a href='{% url "school_school_detail_detail" pk=object.pk %}'>
+            {{ object.id|stringformat:".3d" }}
+          </a>
+        </td>
+        
+          <td>{{ object.school_key.school.school_name }}</td>
+        
+          <td>{{ object.village_ward }}</td>
+        
+          <td>{{ object.pincode }}</td>
+        
+          <td>{{ object.panchayat_name }}</td>
+        
+          <td>{{ object.municipality }}</td>
+        
+          <td>{{ object.city }}</td>
+        
+          <td>{{ object.lowest_class }}</td>
+        
+          <td>{{ object.highest_class }}</td>
+        
+          <td>{{ object.road }}</td>
+        
+          <td>{{ object.year }}</td>
+        
+       
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

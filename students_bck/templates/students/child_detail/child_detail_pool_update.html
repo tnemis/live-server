@@ -1,0 +1,116 @@
+{% load i18n %}
+{% load url from future %}
+{% load widget_tweaks %}
+<br>
+<br>
+{% block content %}
+{% if form %}
+<div class="col">
+        <div class="col-md-8">
+  <form action='{% url "students_child_detail_pool_update" pk=unique_id_no %}' method='post' encoding='utf-8'>
+     <fieldset>
+      {% csrf_token %}
+    <input type="hidden" name="district" id="district" value="{{dist_id}}">
+    <input type="hidden" name="block" id="block" value="{{blk_id}}">
+    <input type="hidden" name="school" id="school" value="{{schl_id}}">
+      <div class="form-group"> <b>{% trans "Unique id no : " %}</b> {{ unique_id_no }} </div></br>
+      
+      <div class="form-group"> <b>{% trans "Class Studying : " %}</b> 
+
+      {% if class_studying == 1 %}
+      <select id='class_studying' name="class_studying" >
+      {% for cls in class_studying_list|slice:"0:5" %}
+          <option value="{{cls}}" >{{cls}}</option>
+      {% endfor %}
+      </select>
+      {% endif %}
+      {% if class_studying == 2 %}
+      <select id='class_studying' name="class_studying" >
+      {% for cls in class_studying_list|slice:"0:6" %}
+          <option value="{{cls}}" >{{cls}}</option>
+      {% endfor %}
+      </select>
+      {% endif %}
+      {% if class_studying == 3 %}
+      <select id='class_studying' name="class_studying" >
+      {% for cls in class_studying_list|slice:"1:7" %}
+          <option value="{{cls}}" >{{cls}}</option>
+      {% endfor %}
+      </select>
+      {% endif %}
+      {% if class_studying == 4 %}
+      <select id='class_studying' name="class_studying" >
+      {% for cls in class_studying_list|slice:"2:8" %}
+          <option value="{{cls}}" >{{cls}}</option>
+      {% endfor %}
+      </select>
+      {% endif %}
+      {% if class_studying == 5 %}
+      <select id='class_studying' name="class_studying" >
+      {% for cls in class_studying_list|slice:"3:9" %}
+          <option value="{{cls}}" >{{cls}}</option>
+      {% endfor %}
+      </select>
+      {% endif %}
+      {% if class_studying == 6 %}
+      <select id='class_studying' name="class_studying" >
+      {% for cls in class_studying_list|slice:"4:10" %}
+          <option value="{{cls}}" >{{cls}}</option>
+      {% endfor %}
+      </select>
+      {% endif %}
+      {% if class_studying == 7 %}
+      <select id='class_studying' name="class_studying" >
+      {% for cls in class_studying_list|slice:"5:11" %}
+          <option value="{{cls}}" >{{cls}}</option>
+      {% endfor %}
+      </select>
+      {% endif %}
+      {% if class_studying == 8 %}
+      <select id='class_studying' name="class_studying" >
+      {% for cls in class_studying_list|slice:"6:12" %}
+          <option value="{{cls}}" >{{cls}}</option>
+      {% endfor %}
+      </select>
+      {% endif %}
+      {% if class_studying == 9 %}
+      <select id='class_studying' name="class_studying" >
+      {% for cls in class_studying_list|slice:"7:12" %}
+          <option value="{{cls}}" >{{cls}}</option>
+      {% endfor %}
+      </select>
+      {% endif %}
+      {% if class_studying == 10 %}
+      <select id='class_studying' name="class_studying" >
+      {% for cls in class_studying_list|slice:"8:12" %}
+          <option value="{{cls}}" >{{cls}}</option>
+      {% endfor %}
+      </select>
+      {% endif %}
+      {% if class_studying == 11 %}
+      <select id='class_studying' name="class_studying" >
+      {% for cls in class_studying_list|slice:"9:12" %}
+          <option value="{{cls}}" >{{cls}}</option>
+      {% endfor %}
+      </select>
+      {% endif %}
+      {% if class_studying == 12 %}
+      <select id='class_studying' name="class_studying" >
+      {% for cls in class_studying_list|slice:"10:12" %}
+          <option value="{{cls}}" >{{cls}}</option>
+      {% endfor %}
+      </select>
+      {% endif %}
+
+      </div></span></br>
+
+      <center><button class='btn btn-large btn-success' type='submit'>{% trans "Admit" %}</button></center>
+    </fieldset>
+  </form>
+</div>
+</div>
+{% else %}
+Student has successfully transfered !!
+<br><br><center><input type="button" value="Close" onclick="self.close()"></center>
+{% endif %}
+{% endblock %}
