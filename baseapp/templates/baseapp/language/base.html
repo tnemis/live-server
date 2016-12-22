@@ -1,0 +1,43 @@
+{% extends "baseapp/master_base.html"|pjax:request %}
+
+{% load i18n %}
+{% block contentmenu %}
+    
+        <ul id="nav">
+                  
+                  <li >
+                    <a  href='{% url "baseapp_language_list" %}'>
+                      {% trans "Language List " %}
+                    </a>
+                  </li>
+                  <li >
+                    <a href='{% url "baseapp_language_create" %}'>
+                      {% trans "Create Language" %}
+                    </a>
+                  </li>
+                  {% if object %}
+                    <li >
+                      <a  href='{{ object.get_absolute_url }}'>
+                        {% trans "Language Detail" %}
+                      </a>
+                    </li>
+                    <li >
+                      <a  href='{% url "baseapp_language_update" pk=object.pk %}'>
+                        {% trans "Update Language" %}
+                      </a>
+                    </li>
+                    <li >
+                      <a  href='{% url "baseapp_language_delete" pk=object.pk %}'>
+                        {% trans "Delete" %}
+                      </a>
+                    </li>
+                  
+                  {% endif %}
+                  
+                </ul>
+        </a>
+      
+   
+   
+{% endblock %}
+

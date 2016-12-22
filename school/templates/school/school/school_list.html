@@ -1,0 +1,18 @@
+{% extends 'school/school/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+
+
+
+{% block content %}
+<div class="row">
+<div class="col-md-8" >
+  <h2>
+    {% trans "Schools" %}
+  </h2>
+  {% include 'school/school/object_table_list.html' %}
+  {% include 'school/school/pagination.html' %}
+</div>
+</div>
+{% endblock %}

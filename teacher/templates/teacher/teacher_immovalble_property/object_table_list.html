@@ -1,0 +1,98 @@
+
+
+{% load i18n %}
+
+<p>
+  {% trans "Click on the primary key value to access the individual Teacher_immovalble_property's page." %}
+</p>
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        Id
+      </th>
+      
+        <th>
+          Teacher key
+        </th>
+      
+        <th>
+          Prop description
+        </th>
+      
+        <th>
+          No installment
+        </th>
+      
+        <th>
+          Doc number
+        </th>
+      
+        <th>
+          Doc date
+        </th>
+      
+        <th>
+          Place
+        </th>
+      
+        <th>
+          Acquired
+        </th>
+      
+        <th>
+          Purchase value
+        </th>
+      
+        <th>
+          Present value
+        </th>
+      
+        <th>
+          Order no
+        </th>
+      
+        <th>
+          Order date
+        </th>
+      
+        
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+      <tr>
+        <td>
+          <a href='{% url "teacher_teacher_immovalble_property_detail" pk=object.pk %}'>
+            {{ object.id|stringformat:".3d" }}
+          </a>
+        </td>
+        
+          <td>{{ object.teacher_key }}</td>
+        
+          <td>{{ object.prop_description }}</td>
+        
+          <td>{{ object.no_installment }}</td>
+        
+          <td>{{ object.doc_number }}</td>
+        
+          <td>{{ object.doc_date }}</td>
+        
+          <td>{{ object.place }}</td>
+        
+          <td>{{ object.acquired }}</td>
+        
+          <td>{{ object.purchase_value }}</td>
+        
+          <td>{{ object.present_value }}</td>
+        
+          <td>{{ object.order_no }}</td>
+        
+          <td>{{ object.order_date }}</td>
+        
+                 
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

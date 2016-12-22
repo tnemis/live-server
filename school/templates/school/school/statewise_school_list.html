@@ -1,0 +1,85 @@
+{% extends 'school/school/base.html' %}
+  
+{% load i18n %}
+{% block content %}
+<form action="{% url 'school_school_list' %}" method="post" >
+    {% csrf_token %}
+      <center><button class='btn btn-large btn-success' name="state_id" type='submit' value="1">DEE State</button>
+      <button class='btn btn-large btn-success' name="state_id" type='submit' value="2">DSE State</button>
+      <button class='btn btn-large btn-success' name="state_id" type='submit' value="3">IMS State</button>
+      <button class='btn btn-large btn-success' name="state_id" type='submit' value="4">CBSE State</button>
+      <button class='btn btn-large btn-success' name="state_id" type='submit' value="5">ICSE State</button>
+      <button class='btn btn-large btn-success' name="state_id" type='submit' value="6">Other Management State</button></center>
+</form>
+{% if page_objs %}
+<p>
+  {% trans "Click on the primary key value to access the individual School's page." %}
+</p>
+<table class='table table-bordered table-striped3' border="2">
+  <thead>
+    <tr>
+      <th>
+        Id
+      </th>
+      
+        <th>
+        School Code
+        </th>
+      
+        <th>
+         School Name
+        </th>
+      
+        <th>
+         School Total Count
+        </th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for sch in page_objs %}
+      <tr>
+        <td>
+          <a href='{% url "school_school_detail" pk=sch.id %}'>
+            {{ sch.id|stringformat:".3d" }}
+          </a>
+        </td>
+            
+          <td>{{ sch.school_code }}</td>
+        
+          <td>{{ sch.school_name }}</td>
+
+          <td>{{ sch.student_id_count }}</td>
+        
+      </tr>
+    {% endfor %}
+    <ul class="pagination pagination-centered">
+            {% if page_objs.has_previous %}
+                <li><a href="?page=1"><<</a></li>
+                <li><a href="?page={{ page_objs.previous_page_number }}"><</a></li>
+            {% endif %}
+
+            {% for i in page_objs.paginator.page_range %}
+                {% if page_objs.number == i %}
+                {% if page_objs.has_previous %}
+                    <li><a href="?page={{i|add:-1}}">{{i|add:-1}}</a></li>
+                {% endif %}
+                <li  class="active">
+
+                <a href="?page={{i}}">{{i}}</a></li>
+                {% if page_objs.has_next %}
+                <li><a href="?page={{i|add:1}}">{{i|add:1}}</a></li>
+                {% endif %}
+                {% endif %}
+
+            {% endfor %}
+
+
+            {% if page_objs.has_next %}
+                <li><a href="?page={{ page_objs.next_page_number }}">></a></li>
+                <li><a href="?page={{ page_objs.paginator.num_pages }}">>></a></li>
+            {% endif %}
+        </ul>
+  </tbody>
+</table>
+{% endif %}{% endblock %}

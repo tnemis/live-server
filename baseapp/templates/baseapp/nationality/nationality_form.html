@@ -1,0 +1,28 @@
+{% extends 'baseapp/nationality/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="row">
+        <div class="col-md-8">
+  <form action='{% if object %}{% url "baseapp_nationality_update" pk=object.pk %}{% else %}{% url "baseapp_nationality_create" %}{% endif %}' method='post' encoding='utf-8'>
+     <fieldset>
+      {% csrf_token %}
+      
+      <div class="form-group"> <b>{% trans "Nationality" %}</b>{{ form.nationality|add_class:"form-control" }}</div><span class="error_message">{{form.nationality.errors}}</span>
+      
+        <button class='btn btn-large btn-success' type='submit'>
+          {% if object %}
+            {% trans "Update" %}
+          {% else %}
+            {% trans "Create" %}
+          {% endif %}
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+</div>
+{% endblock %}

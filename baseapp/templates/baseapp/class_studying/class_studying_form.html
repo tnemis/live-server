@@ -1,0 +1,29 @@
+{% extends 'baseapp/class_studying/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="row">
+        <div class="col-md-8">
+  <form action='{% if object %}{% url "baseapp_class_studying_update" pk=object.pk %}{% else %}{% url "baseapp_class_studying_create" %}{% endif %}' method='post' encoding='utf-8'>
+     <fieldset>
+      {% csrf_token %}
+      
+      <div class="form-group"> <b>{% trans "Class Studying" %}</b>{{ form.class_studying|add_class:"form-control" }}</div><span class="error_message">{{form.class_studying.errors}}</span>
+      
+
+        <button class='btn btn-large btn-success' type='submit'>
+          {% if object %}
+            {% trans "Update" %}
+          {% else %}
+            {% trans "Create" %}
+          {% endif %}
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+</div>
+{% endblock %}

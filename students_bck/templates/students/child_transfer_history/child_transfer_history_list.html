@@ -1,0 +1,15 @@
+{% extends 'students/child_transfer_history/base.html' %}
+
+{% load i18n %}
+
+{% load url from future %}
+{% block head_title %}Child transfer history{% endblock %}
+
+{% block content %}
+  <div class="row">
+        <div class="col-md-8">
+  {% include 'students/child_transfer_history/object_table_list.html' %}
+  {% include 'students/child_transfer_history/pagination.html' %}
+</div>
+    </div>
+{% endblock %}

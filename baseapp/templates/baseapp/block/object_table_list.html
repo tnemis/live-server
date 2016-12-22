@@ -1,0 +1,45 @@
+{% load i18n %}
+
+<p>
+  {% trans "Click on the primary key value to access the individual Block's page." %}
+</p>
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        Id
+      </th>
+      
+        <th>
+          Block Code
+        </th>
+      
+        <th>
+          Block Name
+        </th>
+      
+        <th>
+          District
+        </th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+      <tr>
+        <td>
+          <a href='{% url "baseapp_block_detail" pk=object.pk %}'>
+            {{ object.id|stringformat:".3d" }}
+          </a>
+        </td>
+        
+          <td>{{ object.block_code }}</td>
+        
+          <td>{{ object.block_name }}</td>
+        
+          <td>{{ object.district }}</td>
+        
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

@@ -1,0 +1,36 @@
+{% load i18n %}
+
+<p>
+  {% trans "Click on the primary key value to access the individual Category's page." %}
+</p>
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        Id
+      </th>
+      
+        <th>
+          Category Code
+        </th>
+      <th>
+          Category Name
+        </th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+      <tr>
+        <td>
+          <a href='{% url "baseapp_category_detail" pk=object.pk %}'>
+            {{ object.id|stringformat:".3d" }}
+          </a>
+        </td>
+        
+          <td>{{ object.category_code }}</td>
+          <td>{{ object.category_name }}</td>
+        
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

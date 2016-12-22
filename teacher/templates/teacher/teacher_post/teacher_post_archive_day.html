@@ -1,0 +1,63 @@
+
+
+{% extends 'teacher/teacher_post/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+
+{% block filename %}
+  /home/mur/testing/emis_d15/scafold/teacher/templates/teacher/teacher_post/teacher_post_archive_day.html
+{% endblock %}
+{% block title %}
+  {% trans "Teacher_post Day Archive" %}
+{% endblock %}
+{% block breadcrumbs %}
+  <ul class='breadcrumb'>
+    <li>
+      <a href='{% url "teacher_teacher_post_archive_index" %}'>
+        {% trans "Archive Index" %}
+      </a>
+      <span class='divider'>
+        /
+      </span>
+    </li>
+    <li>
+      <a href='{% url "teacher_teacher_post_year_archive" year=day.year %}'>
+        {% trans "Year Archive" %}
+      </a>
+      <span class='divider'>
+        /
+      </span>
+    </li>
+    <li>
+      <a href='{% url "teacher_teacher_post_month_archive" year=day.year month=day.month %}'>
+        {% trans "Month Archive" %}
+      </a>
+      <span class='divider'>
+        /
+      </span>
+    </li>
+    <li>
+      <a href='{% url "teacher_teacher_post_day_archive" year=day.year month=day.month day=day.day %}'>
+        {% trans "Day Archive" %}
+      </a>
+    </li>
+  </ul>
+{% endblock %}
+{% block header-link %}
+  <a href='{% url "teacher_teacher_post_day_archive" year=day.year month=day.month day=day.day %}'>
+    {% trans "Teacher_post Day Archive" %}
+  </a>
+{% endblock %}
+{% block header-description %}
+  {% trans "A day archive page showing all objects in a given day." {%
+{% endblock %}
+{% block content %}
+  <h2>
+    {% blocktrans %}
+      Teacher_posts created on {{ day }}
+    {% endblocktrans %}
+  </h2>
+  {% include 'teacher/teacher_post/object_table_list.html' %}
+  {% include 'teacher/teacher_post/pagination.html' %}
+{% endblock %}

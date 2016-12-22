@@ -1,0 +1,844 @@
+{% extends 'block/base.html' %}
+{% load i18n %}
+{% block content %}
+
+
+
+<P id='demo'></P>
+<script>
+document.getElementById("demo").innerHTML = Date();
+</script>
+
+<style type="text/css">
+  th{
+    text-align: center;
+  }
+  a:link {text-decoration: none}
+</style>
+
+<style type="text/css">
+@media print {
+  a[href]:after {
+    content: none !important;
+  }
+}
+ * { margin:0 padding:0 }
+   
+  input {
+    border: none;
+    background: transparent;
+}
+
+th tr td {
+text-align: center;
+}
+</style>
+
+
+<style type="text/css">
+  th{
+    text-align: center;
+  }
+  .nav-tabs > li, .nav-pills > li {
+    float:none;
+    display:inline-block;
+    *display:inline; /* ie7 fix */
+     /* hasLayout ie7 trigger */
+}
+
+.nav-tabs, .nav-pills {
+    text-align:center;
+}
+</style>
+
+{% if user.account.user_category.user_category == 'state' %}
+<center>
+<!-- <h4 style="color:#3C8DBC;">State level data entry progress report</h4></center> -->
+<script>
+document.getElementById("demo").innerHTML = Date();
+</script>
+<center>
+
+
+<center>
+<div class="container" id="myTab" >
+ <ul class="nav nav-tabs">
+    <li class="active" ><a data-toggle="tab" href="#menu0">DEE-ALL</a></li> 
+    <li  ><a data-toggle="tab" href="#menu1">Panchayath union</a></li>
+    <li><a data-toggle="tab" href="#menu2">Municipal</a></li>
+    <li><a data-toggle="tab" href="#menu3">Adided</a></li>
+    <li><a data-toggle="tab" href="#menu4">N&P</a></li>
+    <li><a data-toggle="tab" href="#menu7">ADW</a></li>
+    <li><a data-toggle="tab" href="#menu8">Corporation</a></li>
+    <li><a data-toggle="tab" href="#menu5">Pvt Unaided</a></li>
+    <li><a data-toggle="tab" href="#menu9">Govt</a></li>
+    <li><a data-toggle="tab" href="#menu6">Abstract</a></li>
+    </ul></center>
+
+<div class="tab-content">
+<br>
+
+<!-- DEE-->
+<div id="menu0" class="tab-pane fade  in active">
+
+<table style="width:800px;" class='table table-bordered table-striped2' border="2">
+  <tr>
+    <th colspan="15">DEE State Level Progress Report</th>
+  </tr>
+    <tr>
+    <th style="width:10px;" >S.no</th>
+    <th >District</th>
+     <th>I</th>
+      <th>II</th>
+      <th>III</th>
+      <th>IV</th>
+      <th>V</th>
+      <th>VI</th>
+      <th>VII</th>
+      <th>VIII</th>
+      <th>IX</th>
+      <th>X</th>
+      <th>XI</th>
+      <th>XII</th>
+      <th>TOTAL</th>
+    </tr>
+
+{% for a,b,c,d,e,f,g,h,x,j,k,l,m,n,o in dee_mylist %}
+    <tr>
+    <td>{{ forloop.counter }}</td>
+          <td>{{ b }}</a></td>
+          <td>{{ c }}</td>
+          <td>{{ d }}</td>
+          <td>{{ e }}</td>
+          <td>{{ f }}</td>
+          <td>{{ g }}</td>
+          <td>{{ h }}</td>
+          <td>{{ x }}</td>
+          <td>{{ j }}</td>
+          <td>{{ k }}</td>
+          <td>{{ l }}</td>
+          <td>{{ m }}</td>
+          <td>{{ n }}</td>
+          <td>{{ o }}</td>
+      </tr>
+
+{% endfor %}
+<tr>
+  <th colspan="2">Total</th>
+  <th>{{ dee_state_emis_one }}</th>
+  <th>{{ dee_state_emis_two }}</th>
+  <th>{{ dee_state_emis_three }}</th>
+  <th>{{ dee_state_emis_four }}</th>
+  <th>{{ dee_state_emis_five }}</th>
+  <th>{{ dee_state_emis_six }}</th>
+  <th>{{ dee_state_emis_seven }}</th>
+  <th>{{ dee_state_emis_eight }}</th>
+  <th>{{ dee_state_emis_nine }}</th>
+  <th>{{ dee_state_emis_ten }}</th>
+  <th>{{ dee_state_emis_eleven }}</th>
+  <th>{{ dee_state_emis_twelve }}</th>
+  <th>{{ dee_state_emis_total_count }}</th>
+</tr>
+</table>
+</div>
+<!-- DEE -->
+ 
+
+
+
+<!-- PANCHAYATH -->
+<div id="menu1" class="tab-pane fade ">
+
+<table style="width:800px;" class='table table-bordered table-striped2' border="2">
+  <tr>
+    <th colspan="15">DEE-PANCHAYATH UNION State Level Progress Report</th>
+  </tr>
+    <tr>
+    <th style="width:10px;" >S.no</th>
+    <th >District</th>
+     <th>I</th>
+      <th>II</th>
+      <th>III</th>
+      <th>IV</th>
+      <th>V</th>
+      <th>VI</th>
+      <th>VII</th>
+      <th>VIII</th>
+      <th>IX</th>
+      <th>X</th>
+      <th>XI</th>
+      <th>XII</th>
+      <th>TOTAL</th>
+    </tr>
+
+{% for a,b,c,d,e,f,g,h,x,j,k,l,m,n,o in dee_pan_mylist %}
+    <tr>
+    <td>{{ forloop.counter }}</td>
+          <td>{{ b }}</a></td>
+          <td>{{ c }}</td>
+          <td>{{ d }}</td>
+          <td>{{ e }}</td>
+          <td>{{ f }}</td>
+          <td>{{ g }}</td>
+          <td>{{ h }}</td>
+          <td>{{ x }}</td>
+          <td>{{ j }}</td>
+          <td>{{ k }}</td>
+          <td>{{ l }}</td>
+          <td>{{ m }}</td>
+          <td>{{ n }}</td>
+          <td>{{ o }}</td>
+      </tr>
+
+{% endfor %}
+<tr>
+  <th colspan="2">Total</th>
+  <th>{{ dee_pan_state_emis_one }}</th>
+  <th>{{ dee_pan_state_emis_two }}</th>
+  <th>{{ dee_pan_state_emis_three }}</th>
+  <th>{{ dee_pan_state_emis_four }}</th>
+  <th>{{ dee_pan_state_emis_five }}</th>
+  <th>{{ dee_pan_state_emis_six }}</th>
+  <th>{{ dee_pan_state_emis_seven }}</th>
+  <th>{{ dee_pan_state_emis_eight }}</th>
+  <th>{{ dee_pan_state_emis_nine }}</th>
+  <th>{{ dee_pan_state_emis_ten }}</th>
+  <th>{{ dee_pan_state_emis_eleven }}</th>
+  <th>{{ dee_pan_state_emis_twelve }}</th>
+  <th>{{ dee_pan_state_emis_total_count }}</th>
+</tr>
+</table>
+</div><!-- panchayath -->
+
+
+<!-- MUNICIPAL -->
+<div id="menu2" class="tab-pane fade ">
+<table style="width:800px;" class='table table-bordered table-striped2' border="2">
+  <tr>
+    <th colspan="15">DEE-Municipal State Level Progress Report</th>
+  </tr>
+    <tr>
+    <th style="width:10px;" >S.no</th>
+    <th >District</th>
+     <th>I</th>
+      <th>II</th>
+      <th>III</th>
+      <th>IV</th>
+      <th>V</th>
+      <th>VI</th>
+      <th>VII</th>
+      <th>VIII</th>
+      <th>IX</th>
+      <th>X</th>
+      <th>XI</th>
+      <th>XII</th>
+      <th>TOTAL</th>
+    </tr>
+
+{% for a,b,c,d,e,f,g,h,x,j,k,l,m,n,o in dee_mpl_mylist %}
+    <tr>
+    <td>{{ forloop.counter }}</td>
+          <td>{{ b }}</a></td>
+          <td>{{ c }}</td>
+          <td>{{ d }}</td>
+          <td>{{ e }}</td>
+          <td>{{ f }}</td>
+          <td>{{ g }}</td>
+          <td>{{ h }}</td>
+          <td>{{ x }}</td>
+          <td>{{ j }}</td>
+          <td>{{ k }}</td>
+          <td>{{ l }}</td>
+          <td>{{ m }}</td>
+          <td>{{ n }}</td>
+          <td>{{ o }}</td>
+      </tr>
+
+{% endfor %}
+<tr>
+  <th colspan="2">Total</th>
+  <th>{{ dee_mpl_state_emis_one }}</th>
+  <th>{{ dee_mpl_state_emis_two }}</th>
+  <th>{{ dee_mpl_state_emis_three }}</th>
+  <th>{{ dee_mpl_state_emis_four }}</th>
+  <th>{{ dee_mpl_state_emis_five }}</th>
+  <th>{{ dee_mpl_state_emis_six }}</th>
+  <th>{{ dee_mpl_state_emis_seven }}</th>
+  <th>{{ dee_mpl_state_emis_eight }}</th>
+  <th>{{ dee_mpl_state_emis_nine }}</th>
+  <th>{{ dee_mpl_state_emis_ten }}</th>
+  <th>{{ dee_mpl_state_emis_eleven }}</th>
+  <th>{{ dee_mpl_state_emis_twelve }}</th>
+  <th>{{ dee_mpl_state_emis_total_count }}</th>
+</tr>
+</table>
+</div><!-- MUNICIPAL -->
+
+
+<!-- AIDED -->
+<div id="menu3" class="tab-pane fade "> 
+<table style="width:800px;" class='table table-bordered table-striped2' border="2">
+  <tr>
+    <th colspan="15">DEE-Aided State Level Progress Report</th>
+  </tr>
+    <tr>
+    <th style="width:10px;" >S.no</th>
+    <th >District</th>
+     <th>I</th>
+      <th>II</th>
+      <th>III</th>
+      <th>IV</th>
+      <th>V</th>
+      <th>VI</th>
+      <th>VII</th>
+      <th>VIII</th>
+      <th>IX</th>
+      <th>X</th>
+      <th>XI</th>
+      <th>XII</th>
+      <th>TOTAL</th>
+    </tr>
+
+{% for a,b,c,d,e,f,g,h,x,j,k,l,m,n,o in dee_aid_mylist %}
+    <tr>
+    <td>{{ forloop.counter }}</td>
+          <td>{{ b }}</a></td>
+          <td>{{ c }}</td>
+          <td>{{ d }}</td>
+          <td>{{ e }}</td>
+          <td>{{ f }}</td>
+          <td>{{ g }}</td>
+          <td>{{ h }}</td>
+          <td>{{ x }}</td>
+          <td>{{ j }}</td>
+          <td>{{ k }}</td>
+          <td>{{ l }}</td>
+          <td>{{ m }}</td>
+          <td>{{ n }}</td>
+          <td>{{ o }}</td>
+      </tr>
+
+{% endfor %}
+<tr>
+  <th colspan="2">Total</th>
+  <th>{{ dee_aid_state_emis_one }}</th>
+  <th>{{ dee_aid_state_emis_two }}</th>
+  <th>{{ dee_aid_state_emis_three }}</th>
+  <th>{{ dee_aid_state_emis_four }}</th>
+  <th>{{ dee_aid_state_emis_five }}</th>
+  <th>{{ dee_aid_state_emis_six }}</th>
+  <th>{{ dee_aid_state_emis_seven }}</th>
+  <th>{{ dee_aid_state_emis_eight }}</th>
+  <th>{{ dee_aid_state_emis_nine }}</th>
+  <th>{{ dee_aid_state_emis_ten }}</th>
+  <th>{{ dee_aid_state_emis_eleven }}</th>
+  <th>{{ dee_aid_state_emis_twelve }}</th>
+  <th>{{ dee_aid_state_emis_total_count }}</th>
+</tr>
+</table>
+</div><!-- ADIDE -->
+
+<!-- N&P -->
+<div id="menu4" class="tab-pane fade ">
+
+<table style="width:800px;" class='table table-bordered table-striped2' border="2">
+  <tr>
+    <th colspan="15">DEE-Nursery & Primary State Level Progress Report</th>
+  </tr>
+    <tr>
+    <th style="width:10px;" >S.no</th>
+    <th >District</th>
+     <th>I</th>
+      <th>II</th>
+      <th>III</th>
+      <th>IV</th>
+      <th>V</th>
+      <th>VI</th>
+      <th>VII</th>
+      <th>VIII</th>
+      <th>IX</th>
+      <th>X</th>
+      <th>XI</th>
+      <th>XII</th>
+      <th>TOTAL</th>
+    </tr>
+
+{% for a,b,c,d,e,f,g,h,x,j,k,l,m,n,o in dee_nur_mylist %}
+    <tr>
+    <td>{{ forloop.counter }}</td>
+          <td>{{ b }}</a></td>
+          <td>{{ c }}</td>
+          <td>{{ d }}</td>
+          <td>{{ e }}</td>
+          <td>{{ f }}</td>
+          <td>{{ g }}</td>
+          <td>{{ h }}</td>
+          <td>{{ x }}</td>
+          <td>{{ j }}</td>
+          <td>{{ k }}</td>
+          <td>{{ l }}</td>
+          <td>{{ m }}</td>
+          <td>{{ n }}</td>
+          <td>{{ o }}</td>
+      </tr>
+
+{% endfor %}
+<tr>
+  <th colspan="2">Total</th>
+  <th>{{ dee_nur_state_emis_one }}</th>
+  <th>{{ dee_nur_state_emis_two }}</th>
+  <th>{{ dee_nur_state_emis_three }}</th>
+  <th>{{ dee_nur_state_emis_four }}</th>
+  <th>{{ dee_nur_state_emis_five }}</th>
+  <th>{{ dee_nur_state_emis_six }}</th>
+  <th>{{ dee_nur_state_emis_seven }}</th>
+  <th>{{ dee_nur_state_emis_eight }}</th>
+  <th>{{ dee_nur_state_emis_nine }}</th>
+  <th>{{ dee_nur_state_emis_ten }}</th>
+  <th>{{ dee_nur_state_emis_eleven }}</th>
+  <th>{{ dee_nur_state_emis_twelve }}</th>
+  <th>{{ dee_nur_state_emis_total_count }}</th>
+</tr>
+</table>
+</div><!-- N&P -->
+
+
+<!-- COPORATION -->
+<div id="menu8" class="tab-pane fade "> 
+<table style="width:800px;" class='table table-bordered table-striped2' border="2">
+  <tr>
+    <th colspan="15">DEE-Corporation State Level Progress Report</th>
+  </tr>
+    <tr>
+    <th style="width:10px;" >S.no</th>
+    <th >District</th>
+     <th>I</th>
+      <th>II</th>
+      <th>III</th>
+      <th>IV</th>
+      <th>V</th>
+      <th>VI</th>
+      <th>VII</th>
+      <th>VIII</th>
+      <th>IX</th>
+      <th>X</th>
+      <th>XI</th>
+      <th>XII</th>
+      <th>TOTAL</th>
+    </tr>
+
+{% for a,b,c,d,e,f,g,h,x,j,k,l,m,n,o in dee_cor_mylist %}
+    <tr>
+    <td>{{ forloop.counter }}</td>
+          <td>{{ b }}</a></td>
+          <td>{{ c }}</td>
+          <td>{{ d }}</td>
+          <td>{{ e }}</td>
+          <td>{{ f }}</td>
+          <td>{{ g }}</td>
+          <td>{{ h }}</td>
+          <td>{{ x }}</td>
+          <td>{{ j }}</td>
+          <td>{{ k }}</td>
+          <td>{{ l }}</td>
+          <td>{{ m }}</td>
+          <td>{{ n }}</td>
+          <td>{{ o }}</td>
+      </tr>
+
+{% endfor %}
+<tr>
+  <th colspan="2">Total</th>
+  <th>{{ dee_cor_state_emis_one }}</th>
+  <th>{{ dee_cor_state_emis_two }}</th>
+  <th>{{ dee_cor_state_emis_three }}</th>
+  <th>{{ dee_cor_state_emis_four }}</th>
+  <th>{{ dee_cor_state_emis_five }}</th>
+  <th>{{ dee_cor_state_emis_six }}</th>
+  <th>{{ dee_cor_state_emis_seven }}</th>
+  <th>{{ dee_cor_state_emis_eight }}</th>
+  <th>{{ dee_cor_state_emis_nine }}</th>
+  <th>{{ dee_cor_state_emis_ten }}</th>
+  <th>{{ dee_cor_state_emis_eleven }}</th>
+  <th>{{ dee_cor_state_emis_twelve }}</th>
+  <th>{{ dee_cor_state_emis_total_count }}</th>
+</tr>
+</table>
+</div><!--Coporation-->
+
+
+<!-- ADW -->
+<div id="menu7" class="tab-pane fade "> 
+<table style="width:800px;" class='table table-bordered table-striped2' border="2">
+  <tr>
+    <th colspan="15">DEE-ADW State Level Progress Report</th>
+  </tr>
+    <tr>
+    <th style="width:10px;" >S.no</th>
+    <th >District</th>
+     <th>I</th>
+      <th>II</th>
+      <th>III</th>
+      <th>IV</th>
+      <th>V</th>
+      <th>VI</th>
+      <th>VII</th>
+      <th>VIII</th>
+      <th>IX</th>
+      <th>X</th>
+      <th>XI</th>
+      <th>XII</th>
+      <th>TOTAL</th>
+    </tr>
+
+{% for a,b,c,d,e,f,g,h,x,j,k,l,m,n,o in dee_adw_mylist %}
+    <tr>
+    <td>{{ forloop.counter }}</td>
+          <td>{{ b }}</a></td>
+          <td>{{ c }}</td>
+          <td>{{ d }}</td>
+          <td>{{ e }}</td>
+          <td>{{ f }}</td>
+          <td>{{ g }}</td>
+          <td>{{ h }}</td>
+          <td>{{ x }}</td>
+          <td>{{ j }}</td>
+          <td>{{ k }}</td>
+          <td>{{ l }}</td>
+          <td>{{ m }}</td>
+          <td>{{ n }}</td>
+          <td>{{ o }}</td>
+      </tr>
+
+{% endfor %}
+<tr>
+  <th colspan="2">Total</th>
+  <th>{{ dee_adw_state_emis_one }}</th>
+  <th>{{ dee_adw_state_emis_two }}</th>
+  <th>{{ dee_adw_state_emis_three }}</th>
+  <th>{{ dee_adw_state_emis_four }}</th>
+  <th>{{ dee_adw_state_emis_five }}</th>
+  <th>{{ dee_adw_state_emis_six }}</th>
+  <th>{{ dee_adw_state_emis_seven }}</th>
+  <th>{{ dee_adw_state_emis_eight }}</th>
+  <th>{{ dee_adw_state_emis_nine }}</th>
+  <th>{{ dee_adw_state_emis_ten }}</th>
+  <th>{{ dee_adw_state_emis_eleven }}</th>
+  <th>{{ dee_adw_state_emis_twelve }}</th>
+  <th>{{ dee_adw_state_emis_total_count }}</th>
+</tr>
+</table>
+</div><!--ADW-->
+
+<!-- UN AIDED -->
+<div id="menu5" class="tab-pane fade "> 
+<table style="width:800px;" class='table table-bordered table-striped2' border="2">
+  <tr>
+    <th colspan="15">DEE-Pvt Aided State Level Progress Report</th>
+  </tr>
+    <tr>
+    <th style="width:10px;" >S.no</th>
+    <th >District</th>
+     <th>I</th>
+      <th>II</th>
+      <th>III</th>
+      <th>IV</th>
+      <th>V</th>
+      <th>VI</th>
+      <th>VII</th>
+      <th>VIII</th>
+      <th>IX</th>
+      <th>X</th>
+      <th>XI</th>
+      <th>XII</th>
+      <th>TOTAL</th>
+    </tr>
+
+{% for a,b,c,d,e,f,g,h,x,j,k,l,m,n,o in dee_pvt_mylist %}
+    <tr>
+    <td>{{ forloop.counter }}</td>
+          <td>{{ b }}</a></td>
+          <td>{{ c }}</td>
+          <td>{{ d }}</td>
+          <td>{{ e }}</td>
+          <td>{{ f }}</td>
+          <td>{{ g }}</td>
+          <td>{{ h }}</td>
+          <td>{{ x }}</td>
+          <td>{{ j }}</td>
+          <td>{{ k }}</td>
+          <td>{{ l }}</td>
+          <td>{{ m }}</td>
+          <td>{{ n }}</td>
+          <td>{{ o }}</td>
+      </tr>
+
+{% endfor %}
+<tr>
+  <th colspan="2">Total</th>
+  <th>{{ dee_pvt_state_emis_one }}</th>
+  <th>{{ dee_pvt_state_emis_two }}</th>
+  <th>{{ dee_pvt_state_emis_three }}</th>
+  <th>{{ dee_pvt_state_emis_four }}</th>
+  <th>{{ dee_pvt_state_emis_five }}</th>
+  <th>{{ dee_pvt_state_emis_six }}</th>
+  <th>{{ dee_pvt_state_emis_seven }}</th>
+  <th>{{ dee_pvt_state_emis_eight }}</th>
+  <th>{{ dee_pvt_state_emis_nine }}</th>
+  <th>{{ dee_pvt_state_emis_ten }}</th>
+  <th>{{ dee_pvt_state_emis_eleven }}</th>
+  <th>{{ dee_pvt_state_emis_twelve }}</th>
+  <th>{{ dee_pvt_state_emis_total_count }}</th>
+</tr>
+</table>
+</div><!-- UNAIDED -->
+
+
+
+
+
+<!-- Govt -->
+<div id="menu9" class="tab-pane fade "> 
+<table style="width:800px;" class='table table-bordered table-striped2' border="2">
+  <tr>
+    <th colspan="15">DEE-Govt Aided State Level Progress Report</th>
+  </tr>
+    <tr>
+    <th style="width:10px;" >S.no</th>
+    <th >District</th>
+     <th>I</th>
+      <th>II</th>
+      <th>III</th>
+      <th>IV</th>
+      <th>V</th>
+      <th>VI</th>
+      <th>VII</th>
+      <th>VIII</th>
+      <th>IX</th>
+      <th>X</th>
+      <th>XI</th>
+      <th>XII</th>
+      <th>TOTAL</th>
+    </tr>
+
+{% for a,b,c,d,e,f,g,h,x,j,k,l,m,n,o in dee_gov_mylist %}
+    <tr>
+    <td>{{ forloop.counter }}</td>
+          <td>{{ b }}</a></td>
+          <td>{{ c }}</td>
+          <td>{{ d }}</td>
+          <td>{{ e }}</td>
+          <td>{{ f }}</td>
+          <td>{{ g }}</td>
+          <td>{{ h }}</td>
+          <td>{{ x }}</td>
+          <td>{{ j }}</td>
+          <td>{{ k }}</td>
+          <td>{{ l }}</td>
+          <td>{{ m }}</td>
+          <td>{{ n }}</td>
+          <td>{{ o }}</td>
+      </tr>
+
+{% endfor %}
+<tr>
+  <th colspan="2">Total</th>
+  <th>{{ dee_gov_state_emis_one }}</th>
+  <th>{{ dee_gov_state_emis_two }}</th>
+  <th>{{ dee_gov_state_emis_three }}</th>
+  <th>{{ dee_gov_state_emis_four }}</th>
+  <th>{{ dee_gov_state_emis_five }}</th>
+  <th>{{ dee_gov_state_emis_six }}</th>
+  <th>{{ dee_gov_state_emis_seven }}</th>
+  <th>{{ dee_gov_state_emis_eight }}</th>
+  <th>{{ dee_gov_state_emis_nine }}</th>
+  <th>{{ dee_gov_state_emis_ten }}</th>
+  <th>{{ dee_gov_state_emis_eleven }}</th>
+  <th>{{ dee_gov_state_emis_twelve }}</th>
+  <th>{{ dee_gov_state_emis_total_count }}</th>
+</tr>
+</table>
+</div><!-- Govt -->
+
+<div id="menu6" class="tab-pane fade "> 
+<table style="width:800px;" class='table table-bordered table-striped2' border="2">
+  <tr>
+    <th colspan="14">DEE-EMIS Data Entry Abstract</th>
+  </tr>
+    <tr>
+    <th style="width:10px;" >Management</th>
+     <th>I</th>
+      <th>II</th>
+      <th>III</th>
+      <th>IV</th>
+      <th>V</th>
+      <th>VI</th>
+      <th>VII</th>
+      <th>VIII</th>
+      <th>IX</th>
+      <th>X</th>
+      <th>XI</th>
+      <th>XII</th>
+      <th>TOTAL</th>
+    </tr>
+    <tr>
+  <td >Panchayath union</td>
+  <td>{{ dee_pan_state_emis_one }}</td>
+  <td>{{ dee_pan_state_emis_two }}</td>
+  <td>{{ dee_pan_state_emis_three }}</td>
+  <td>{{ dee_pan_state_emis_four }}</td>
+  <td>{{ dee_pan_state_emis_five }}</td>
+  <td>{{ dee_pan_state_emis_six }}</td>
+  <td>{{ dee_pan_state_emis_seven }}</td>
+  <td>{{ dee_pan_state_emis_eight }}</td>
+  <td>{{ dee_pan_state_emis_nine }}</td>
+  <td>{{ dee_pan_state_emis_ten }}</td>
+  <td>{{ dee_pan_state_emis_eleven }}</td>
+  <td>{{ dee_pan_state_emis_twelve }}</td>
+  <td>{{ dee_pan_state_emis_total_count }}</td>
+</tr>
+ <tr>
+  <td >Municipal</td>
+  <td>{{ dee_mpl_state_emis_one }}</td>
+  <td>{{ dee_mpl_state_emis_two }}</td>
+  <td>{{ dee_mpl_state_emis_three }}</td>
+  <td>{{ dee_mpl_state_emis_four }}</td>
+  <td>{{ dee_mpl_state_emis_five }}</td>
+  <td>{{ dee_mpl_state_emis_six }}</td>
+  <td>{{ dee_mpl_state_emis_seven }}</td>
+  <td>{{ dee_mpl_state_emis_eight }}</td>
+  <td>{{ dee_mpl_state_emis_nine }}</td>
+  <td>{{ dee_mpl_state_emis_ten }}</td>
+  <td>{{ dee_mpl_state_emis_eleven }}</td>
+  <td>{{ dee_mpl_state_emis_twelve }}</td>
+  <td>{{ dee_mpl_state_emis_total_count }}</td>
+</tr>
+  <tr>
+  <td >Aided</td>
+  <td>{{ dee_aid_state_emis_one }}</td>
+  <td>{{ dee_aid_state_emis_two }}</td>
+  <td>{{ dee_aid_state_emis_three }}</td>
+  <td>{{ dee_aid_state_emis_four }}</td>
+  <td>{{ dee_aid_state_emis_five }}</td>
+  <td>{{ dee_aid_state_emis_six }}</td>
+  <td>{{ dee_aid_state_emis_seven }}</td>
+  <td>{{ dee_aid_state_emis_eight }}</td>
+  <td>{{ dee_aid_state_emis_nine }}</td>
+  <td>{{ dee_aid_state_emis_ten }}</td>
+  <td>{{ dee_aid_state_emis_eleven }}</td>
+  <td>{{ dee_aid_state_emis_twelve }}</td>
+  <td>{{ dee_aid_state_emis_total_count }}</td>
+</tr>
+  <tr>
+  <td >Nusery & Primary</td>
+  <td>{{ dee_nur_state_emis_one }}</td>
+  <td>{{ dee_nur_state_emis_two }}</td>
+  <td>{{ dee_nur_state_emis_three }}</td>
+  <td>{{ dee_nur_state_emis_four }}</td>
+  <td>{{ dee_nur_state_emis_five }}</td>
+  <td>{{ dee_nur_state_emis_six }}</td>
+  <td>{{ dee_nur_state_emis_seven }}</td>
+  <td>{{ dee_nur_state_emis_eight }}</td>
+  <td>{{ dee_nur_state_emis_nine }}</td>
+  <td>{{ dee_nur_state_emis_ten }}</td>
+  <td>{{ dee_nur_state_emis_eleven }}</td>
+  <td>{{ dee_nur_state_emis_twelve }}</td>
+  <td>{{ dee_nur_state_emis_total_count }}</td>
+</tr>
+<tr>
+  <td >ADW</td>
+  <td>{{ dee_adw_state_emis_one }}</td>
+  <td>{{ dee_adw_state_emis_two }}</td>
+  <td>{{ dee_adw_state_emis_three }}</td>
+  <td>{{ dee_adw_state_emis_four }}</td>
+  <td>{{ dee_adw_state_emis_five }}</td>
+  <td>{{ dee_adw_state_emis_six }}</td>
+  <td>{{ dee_adw_state_emis_seven }}</td>
+  <td>{{ dee_adw_state_emis_eight }}</td>
+  <td>{{ dee_adw_state_emis_nine }}</td>
+  <td>{{ dee_adw_state_emis_ten }}</td>
+  <td>{{ dee_adw_state_emis_eleven }}</td>
+  <td>{{ dee_adw_state_emis_twelve }}</td>
+  <td>{{ dee_adw_state_emis_total_count }}</td>
+</tr>
+<tr>
+  <td >Corporation</td>
+  <td>{{ dee_cor_state_emis_one }}</td>
+  <td>{{ dee_cor_state_emis_two }}</td>
+  <td>{{ dee_cor_state_emis_three }}</td>
+  <td>{{ dee_cor_state_emis_four }}</td>
+  <td>{{ dee_cor_state_emis_five }}</td>
+  <td>{{ dee_cor_state_emis_six }}</td>
+  <td>{{ dee_cor_state_emis_seven }}</td>
+  <td>{{ dee_cor_state_emis_eight }}</td>
+  <td>{{ dee_cor_state_emis_nine }}</td>
+  <td>{{ dee_cor_state_emis_ten }}</td>
+  <td>{{ dee_cor_state_emis_eleven }}</td>
+  <td>{{ dee_cor_state_emis_twelve }}</td>
+  <td>{{ dee_cor_state_emis_total_count }}</td>
+</tr>
+<tr>
+  <td >Un Aided</td>
+  <td>{{ dee_pvt_state_emis_one }}</td>
+  <td>{{ dee_pvt_state_emis_two }}</td>
+  <td>{{ dee_pvt_state_emis_three }}</td>
+  <td>{{ dee_pvt_state_emis_four }}</td>
+  <td>{{ dee_pvt_state_emis_five }}</td>
+  <td>{{ dee_pvt_state_emis_six }}</td>
+  <td>{{ dee_pvt_state_emis_seven }}</td>
+  <td>{{ dee_pvt_state_emis_eight }}</td>
+  <td>{{ dee_pvt_state_emis_nine }}</td>
+  <td>{{ dee_pvt_state_emis_ten }}</td>
+  <td>{{ dee_pvt_state_emis_eleven }}</td>
+  <td>{{ dee_pvt_state_emis_twelve }}</td>
+  <td>{{ dee_pvt_state_emis_total_count }}</td>
+</tr>
+ <td >Govt</td>
+  <td>{{ dee_gov_state_emis_one }}</td>
+  <td>{{ dee_gov_state_emis_two }}</td>
+  <td>{{ dee_gov_state_emis_three }}</td>
+  <td>{{ dee_gov_state_emis_four }}</td>
+  <td>{{ dee_gov_state_emis_five }}</td>
+  <td>{{ dee_gov_state_emis_six }}</td>
+  <td>{{ dee_gov_state_emis_seven }}</td>
+  <td>{{ dee_gov_state_emis_eight }}</td>
+  <td>{{ dee_gov_state_emis_nine }}</td>
+  <td>{{ dee_gov_state_emis_ten }}</td>
+  <td>{{ dee_gov_state_emis_eleven }}</td>
+  <td>{{ dee_gov_state_emis_twelve }}</td>
+  <td>{{ dee_gov_state_emis_total_count }}</td>
+</tr>
+<tr>
+  <th >Total</th>
+  <th>{{ dee_state_emis_one }}</th>
+  <th>{{ dee_state_emis_two }}</th>
+  <th>{{ dee_state_emis_three }}</th>
+  <th>{{ dee_state_emis_four }}</th>
+  <th>{{ dee_state_emis_five }}</th>
+  <th>{{ dee_state_emis_six }}</th>
+  <th>{{ dee_state_emis_seven }}</th>
+  <th>{{ dee_state_emis_eight }}</th>
+  <th>{{ dee_state_emis_nine }}</th>
+  <th>{{ dee_state_emis_ten }}</th>
+  <th>{{ dee_state_emis_eleven }}</th>
+  <th>{{ dee_state_emis_twelve }}</th>
+  <th>{{ dee_state_emis_total_count }}</th>
+</tr>
+
+
+
+</table>
+</div>
+
+</div><!--tab-content  -->
+</div><!-- container -->
+
+
+
+
+
+{% else %}
+<center>
+<h4 style="color:#3C8DBC;">Your are not authorised person to see state level report</h4></center>
+{% endif %}
+{% endblock %}

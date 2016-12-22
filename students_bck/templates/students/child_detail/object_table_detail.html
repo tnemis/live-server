@@ -1,0 +1,190 @@
+{% extends 'students/child_detail/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+{% load widget_tweaks %}
+{% load imagekit %}
+{% block content %}
+
+<center>
+{% if user.account.user_category.user_category == 'school' %}
+ {% if object.transfer_flag == 1 %}
+ <a class="btn  btn-success" href="" onClick="MyWindow=window.open('{% url 'students_child_detail_pool_update' pk=object.unique_id_no %}','MyWindow','toolbar=no,location=no,directories=no,status=no, menubar=no,scrollbars=no,resizable=no,width=400,height=250'); return false;" >{% trans "Transfer" %}</a>
+{% else %}
+<a class="btn  btn-success" href='{% url "students_child_detail_update" pk=object.pk %}'>Update</a>
+{% if  object.class_studying_id   in transfer_enable_classes %}
+<a class="btn  btn-info" href='{% url "students_child_detail_transfer_detail" pk=object.pk %}' >{% trans "Transfer" %}</a>
+{% else %}
+<a class="btn  btn-danger" href='{% url "students_child_detail_delete" pk=object.pk %}' >{% trans "Delete" %}</a>
+{% endif %}
+{% endif %}
+{% endif %}
+</center><br>
+<table class='table table-bordered table-striped1' border="2" align="center">
+  <tr><th style="width:750px;border:0px;">Basic Information</th>
+      <th style="width:1000px;border:0px;"></th></tr>
+      <tr>
+        <td valign="TOP">
+        <table>
+          <tr>
+            <tr> <td style="width:230px">
+            <div style="margin-left:10px">
+                {% if object.photograph %}
+                <img src="{{MEDIA_URL}}{{object.photograph}}">
+                {%else%}
+                <img src="{{STATIC_URL}}img/student.png" />
+                {%endif%}
+            <span ></span>
+            </div>
+        </td></tr> </table></td>
+
+                <td valign="TOP">
+        <table style="margin-left:10px;">
+        <tr> <td style="border:0px;padding-top:10px;" > Name </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{{ object.name }} </td> </tr>
+        <tr> <td style="border:0px;padding-top:10px;" > Name (Tamil) </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.name_tamil %}  {{ object.name_tamil }}  {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>
+        <tr><td style="border:0px;padding-top:10px;" > UID </td><td style="border:0px;" > : </td> <td style="border:0px;" >{{ object.unique_id_no }} </td> </tr>
+        <tr> <td style="border:0px;padding-top:10px;" > Class</td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{{ object.class_studying }} </td> </tr>
+        <tr> <td style="border:0px;padding-top:10px;" > Section</td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" > {% if object.class_section %} {{ object.class_section }}  {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
+        <tr> <td style="border:0px;padding-top:10px;" > School Name </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{{ object.school.school_name }} </td> </tr>
+        <tr> <td style="border:0px;padding-top:10px;" > Native District </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{{ object.native_district }} </td> </tr></table></td></tr></table>
+
+            </br>
+<table class='table table-bordered table-striped1' border="2" align="center">
+  <tr><th>School Information</th>
+      <th>Personal Information</th></tr>
+      <tr>
+        <td valign="TOP">
+        <table style="margin-left:10px">
+            <tr> <td style="border:0px;padding-top:10px;" > School Code </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{{ object.school.school_code }} </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > School </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{{ object.school.school_name }} </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" >  School Admission No </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" > {% if object.school_admission_no %} {{ object.school_admission_no }}  {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > District </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{{ object.district }} </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Block </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{{ object.block.block_name }} </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Zone </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{{user.account.get_user_info.habitation.zone.zone_type}}</td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Zone Name </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{{user.account.get_user_info.habitation.zone.name}}</td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Habitation </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{{user.account.get_user_info.habitation.name}} </td> </tr> </table></td>
+
+                <td valign="TOP">
+        <table style="margin-left:10px"><tr> <td style="border:0px;" > Gender </td><td style="border:0px;" > : </td> <td style="border:0px;" >{{ object.gender }} </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Date Of Birth </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{{ object.dob }} </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Blood Group </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" > {% if object.blood_group %}  {{ object.blood_group }}  {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Height </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" > {% if object.height %} {{ object.height }} cm  {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Weight </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" > {% if object.weight %} {{ object.weight }} kg  {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>
+            
+            <tr> <td style="border:0px;padding-top:10px;" > Mother's Name </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.mother_name %} {{ object.mother_name }} {% else %}&nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Father's Name </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.father_name %} {{ object.father_name }} {% else %}&nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Mother Tongue </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" > {% if object.mothertounge.language_name %} {{ object.mothertounge.language_name }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Community </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.community %} {{ object.community }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Community Certificate obtained from Revenue Dept.</td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.community_certificate %} {{ object.community_certificate }} {% else %} &nbsp;&nbsp;&nbsp; No {% endif %} </td> </tr>
+
+            <tr> <td style="border:0px;padding-top:10px;" > Community Certificate No</td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.community_certificate_no %} {{ object.community_certificate_no }} {% else %} &nbsp;&nbsp;&nbsp; - {% endif %} </td> </tr>
+
+            <tr> <td style="border:0px;padding-top:10px;" > Community Certificate Date</td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.community_certificate_date %} {{ object.community_certificate_date }} {% else %} &nbsp;&nbsp;&nbsp; - {% endif %} </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Sub Caste </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.subcaste.caste_name %} {{ object.subcaste.caste_name }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Religion </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.religion %} {{ object.religion }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Child Differently Abled </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.child_differently_abled %} {{ object.child_differently_abled }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>
+            
+            <tr> <td style="border:0px;padding-top:10px;" > Differently Abled </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if differently_abled_list %} {{ differently_abled_list }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}</td> </tr>
+            
+            <tr> <td style="border:0px;padding-top:10px;" > Child Disadvantaged Group </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.child_disadvantaged_group %}  {{ object.child_disadvantaged_group }}  {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>
+            
+            <tr> <td style="border:0px;padding-top:10px;" > Disadvantaged Group </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if disadvantaged_group_list %} {{ disadvantaged_group_list }}  {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}</td> </tr>
+            
+            <tr> <td style="border:0px;padding-top:10px;" > Student Status </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.child_status %} {{ object.child_status }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Nationality </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.nationality %} {{ object.nationality }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > House Address </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.house_address %} {{ object.house_address }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Pin Code </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.pin_code %} {{ object.pin_code }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Phone Number </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.phone_number %} {{ object.phone_number }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr></table></td></tr></table>
+
+            </br>
+    <table class='table table-bordered table-striped1' border="2" align="center">
+      <tr><th>Enrollment Information</th>
+          <th>Additional Information</th></tr><tr>
+        <td valign="TOP">
+        <table style="margin-left:10px"><tr> <td style="border:0px;" > Academic Year </td><td style="border:0px;" > : </td> <td style="border:0px;" >{{ object.academic_year }} </td> </tr>
+
+            <tr> <td style="border:0px;padding-top:10px;" > Group Code </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.group_code.group_name %} {{ object.group_code.group_name }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Medium of Education </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.education_medium %} {{ object.education_medium }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Attendance Status </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.attendance_status %} {{ object.attendance_status }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Sports Player </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.sports_player %} {{ object.sports_player }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Sports Participation </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.sport_participation %} {{ object.sport_participation }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Sports Name </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.sports_name %} {{ object.sports_name }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Govt Schemes </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.govt_schemes_status %} {{ object.govt_schemes_status }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
+            
+            <tr> <td style="border:0px;padding-top:10px;" > Schemes </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >
+            {% if schemes %}{{schemes}} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
+          
+            <tr> <td style="border:0px;padding-top:10px;" > Transfer Date </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.transfer_date %} {{ object.transfer_date }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr></table></td>
+
+        <td valign="TOP">
+        <table style="margin-left:10px">
+            <tr> <td style="border:0px;" > Nutritious Meal Programme </td><td style="border:0px;" > : </td> <td style="border:0px;" >{% if object.nutritious_meal_programme %} {{ nutritious_meal_programme }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}   </td> </tr>
+            <tr> <td style="border:0px;" > Bank </td><td style="border:0px;" > : </td> <td style="border:0px;" >{% if object.bank %} {{ object.bank }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}   </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Bank Account No </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.bank_account_no %} {{ object.bank_account_no }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}   </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Bank IFSC Code </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.bank_ifsc_code %} {{ object.bank_ifsc_code }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}   </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Laptop Issued </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.laptop_issued %} {{ object.laptop_issued }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}   </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Laptop Sl.No. </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.laptop_slno %} {{ object.laptop_slno }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}   </td> </tr>
+          <!--   <tr> <td style="border:0px;padding-top:10px;" > Incentivebond Issued </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.incentivebond_issued %} {{ object.incentivebond_issued }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}   </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Bond No </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.bond_no %} {{ object.bond_no }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}   </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Bond Date </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.bond_date %} {{ object.bond_date }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}   </td> </tr> -->
+           <!--  <tr> <td style="border:0px;padding-top:10px;" > Aadhaar Eid Number </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{{ object.aadhaar_eid_number }} </td> </tr> -->
+            <tr> <td style="border:0px;padding-top:10px;" > Aadhaar Uid Number </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" > {% if object.aadhaar_uid_number %} {{ object.aadhaar_uid_number }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}    </td> </tr>
+            
+            <tr> <td style="border:0px;padding-top:10px;" > Bus Pass </td><td style="border:0px;padding-top:10px;" > : </td>  <td style="border:0px;padding-top:10px;" > {% if object.bus_pass %} {{ object.bus_pass }} {% else %} &nbsp;&nbsp;&nbsp; - {% endif %}</td> </tr>
+            
+            <tr> <td style="border:0px;padding-top:10px;" > Bus Pass From </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.bus_from_route %} {{ object.bus_from_route}} {% else %} &nbsp;&nbsp;&nbsp; - {% endif %}</td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Bus Pass To </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.bus_to_route %} {{ object.bus_to_route }} {% else %} &nbsp;&nbsp;&nbsp; - {% endif %}</td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Bus Pass Route No </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.bus_route_no %} {{ object.bus_route_no }} {% else %} &nbsp;&nbsp;&nbsp; - {% endif %}</td> </tr></table></tr></table></br>
+
+
+{% if fmdetail %}
+        <table class='table table-bordered table-striped1' border="2" align="center">
+  <tr><th style="width:750px;border:0px;">Siblings Information</th> 
+
+      <th style="width:1000px;border:0px;"></th></tr>
+        <td valign="TOP" style="border:0px; width:100%;">
+        <table id="fmdetailTable">
+        <tr>
+            <th></th>
+            <th style="text-align:center;">Name<br></th>
+            <th style="text-align:center;">Relationship</th>
+            <th style="text-align:center;">Age</th>
+            <th style="text-align:center;">Status</th>
+            <th style="text-align:center;">Class Studying</th>
+            <!-- <th style="text-align:center;">StudyingSameSchool</th> -->
+        </tr>
+        {% for family in fmdetail %}
+        <tr>
+
+            <td style="width:1%;">
+                <input type="hidden"  name="fmdetail_no" class="form-control">{{forloop.counter}}
+            </td>
+            <td style="width:10%;text-align:center;">
+                <input type="hidden" value="" name="sibling_name" class="form-control">{{family.sibling_name}}
+            </td>
+            <td style="width:10%;text-align:center;">
+               <input type="hidden" value="" name="sibling_relationship"  class="form-control" >{{family.sibling_relationship}}
+            </td>
+            <td style="width:10%;text-align:center;">
+                <input type="hidden" value="" name="sibling_age"  class="form-control">{{family.sibling_age}}
+            </td>
+            <td style="width:10%;text-align:center;">
+                <input type="hidden" value="" name="sibling_status"  class="form-control" >{{family.sibling_status}}
+            </td>
+            <td style="width:10%;text-align:center;">
+               <input type="hidden" value="" name="sibling_studying"  class="form-control" >{{family.sibling_studying}}
+            </td>
+            <!-- <td style="width:10%;text-align:center;">
+                <input type="hidden" value="" name="sibling_studying_same_school"  class="form-control">{{family.sibling_studying_same_school}}
+            </td> -->
+
+        </tr>
+        {% endfor %}
+    </table> 
+    {% else %}
+    {% endif %}
+
+<br>  
+
+
+{% endblock %}

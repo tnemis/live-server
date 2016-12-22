@@ -1,0 +1,19 @@
+
+
+{% extends 'school/brc/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+
+
+{% block content %}
+<div class="row">
+<div class="col-md-8" >
+  <h2>
+    {% trans "Brcs" %}
+  </h2>
+  {% include 'school/brc/object_table_list.html' %}
+  {% include 'school/brc/pagination.html' %}
+</div>
+</div>
+{% endblock %}

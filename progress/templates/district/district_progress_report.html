@@ -1,0 +1,97 @@
+{% extends 'district/base.html' %}
+{% load i18n %}
+{% block content %}
+
+<p  id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = Date();
+</script>
+
+
+<style type="text/css">
+@media print {
+  a[href]:after {
+    content: none !important;
+  }
+}
+  th{
+    text-align: center;
+  }
+  a:link {text-decoration: none}
+</style>
+
+
+
+<center>
+
+
+<table style="width:800px;" class='table table-bordered table-striped2' border="2">
+  <tr>
+    <th colspan="17">District Level Progress Report-{{district}}</th>
+  </tr>
+    <tr>
+    <th style="width:10px;" >S.no</th>
+    <th >District</th>
+    <th >Block Name</th>
+     <th>I</th>
+      <th>II</th>
+      <th>III</th>
+      <th>IV</th>
+      <th>V</th>
+      <th>VI</th>
+      <th>VII</th>
+      <th>VIII</th>
+      <th>IX</th>
+      <th>X</th>
+      <th>XI</th>
+      <th>XII</th>
+      <th>TOTAL</th>
+    </tr>
+
+{% for a,b,c,d,e,f,g,h,x,j,k,l,m,n,o in mylist %}
+    <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ district.district_name }}</td>
+          <td><a href="/progress/block_level_progress_report/{{ a }}">{{ b }}</a></td>
+          <td>{{ c }}</td>
+          <td>{{ d }}</td>
+          <td>{{ e }}</td>
+          <td>{{ f }}</td>
+          <td>{{ g }}</td>
+          <td>{{ h }}</td>
+          <td>{{ x }}</td>
+          <td>{{ j }}</td>
+          <td>{{ k }}</td>
+          <td>{{ l }}</td>
+          <td>{{ m }}</td>
+          <td>{{ n }}</td>
+          <td>{{ o }}</td>
+      </tr>
+
+{% endfor %}
+<tr>
+  <th colspan="3">Total</th>
+  <th>{{ district_emis_one }}</th>
+  <th>{{ district_emis_two }}</th>
+  <th>{{ district_emis_three }}</th>
+  <th>{{ district_emis_four }}</th>
+  <th>{{ district_emis_five }}</th>
+  <th>{{ district_emis_six }}</th>
+  <th>{{ district_emis_seven }}</th>
+  <th>{{ district_emis_eight }}</th>
+  <th>{{ district_emis_nine }}</th>
+  <th>{{ district_emis_ten }}</th>
+  <th>{{ district_emis_eleven }}</th>
+  <th>{{ district_emis_twelve }}</th>
+  <th>{{ district_emis_total_count }}</th>
+</tr>
+</table>
+
+
+
+
+{% if no_udise %}
+<h4 style="color:#3C8DBC;">{{ no_udise }}</h4></center>
+{% endif %}
+{% endblock %}

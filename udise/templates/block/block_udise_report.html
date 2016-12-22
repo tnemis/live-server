@@ -1,0 +1,249 @@
+{% extends 'block/base.html' %}
+{% load i18n %}
+{% block content %}
+
+
+<script type="text/javascript">
+
+  $(function() { 
+    // for bootstrap 3 use 'shown.bs.tab', for bootstrap 2 use 'shown' in the next line
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        // save the latest tab; use cookies if you like 'em better:
+        localStorage.setItem('lastTab', $(this).attr('href'));
+    });
+
+    // go to the latest tab, if it exists:
+    var lastTab = localStorage.getItem('lastTab');
+    if (lastTab) {
+        $('[href="' + lastTab + '"]').tab('show');
+    }
+});
+</script>
+
+
+
+<style type="text/css">
+@media print {
+  a[href]:after {
+    content: none !important;
+  }
+}
+  th{
+    text-align: center;
+  }
+  a:link {text-decoration: none}
+</style>
+
+<style type="text/css">
+ * { margin:0 padding:0 }
+   
+  input {
+    border: none;
+    background: transparent;
+}
+.nav-tabs > li, .nav-pills > li {
+    float:none;
+    display:inline-block;
+    *display:inline; /* ie7 fix */
+     /* hasLayout ie7 trigger */
+}
+
+.nav-tabs, .nav-pills {
+    text-align:center;
+}
+.tag.example{
+	text-align: center;
+	color:#3C8DBC;
+}
+
+.example{
+	color:#3C8DBC;
+}
+
+</style>
+
+
+
+<center>
+<!-- <h4 style="color:#3C8DBC;">State level data entry progress report</h4></center> -->
+
+
+
+<center>
+<div class="container" id="myTab" >
+ <ul class="nav nav-tabs">
+    <li class="active" ><a data-toggle="tab" href="#menu0">Block level school wise report</a></li>
+    <li><a data-toggle="tab" href="#menu1">Block level consolidated report</a></li>
+    </ul></center>
+<div class="tab-content">
+<br>
+<!-- school wise -->
+<div id="menu0" class="tab-pane fade  in active">     
+
+
+
+{% if no_school %}
+<h5 style="color:red" >{{ no_school }}</h5>
+{% endif %}
+<table style="width:1100px;" class='table table-bordered table-striped2' border="2">
+  <tr>
+    <th colspan="9">Block level School wise data entry report-  
+    {% if selected_dept %} {% for d in selected_dept %} {{ d }}{% endfor %}  {% endif %}
+    {% if selected_man %} {% for m in selected_man %} {{ m }} {% endfor %}  {% endif %}
+    {% if selected_cat %} {% for c in selected_cat %} {{ c }} {% endfor %}  {% endif %}</th>
+  </tr>
+    <tr>
+    <th style="width:10px;" >S.no</th>
+    <th style="width:50px;">District</th>
+    <th style="width:50px;">Block</th>
+      <th style="width:60px;">School code</th>
+      <th>School name</th>
+      <th>Department</th>
+      <th>Udise total</th>
+      <th>Emis total</th>
+      <th>difference</th>
+    </tr>
+
+{% for i in udise_count %}
+    <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{i.district_name}}</td>
+    <td>{{i.block_name}}</td>
+          <td><a href="/udise/school_level_udise_report/{{i.school_code}}">{{ i.school_code }}</a></td>
+          <td><a href="/udise/school_level_udise_report/{{i.school_code}}">{{ i.school_name }}</a></td>
+          <td>{{ i.department }}</td>
+          <td><input type ='text' id='udise_count_{{forloop.counter}}' size="5" readonly value="{{ i.school_total }}"  ></td>
+          <td><input type ='text' id='emis_count_{{forloop.counter}}' size="5" readonly 
+            {% for j in  emis_count %}  {% if j.school_id == i.school_id %}   value="{{ j.total_count }}" {%  endif %}  {% endfor %} value="0"></td>
+          <td><input type ='text' id='diff_count_{{forloop.counter}}' size="5" readonly   ></td>
+      </tr>
+<script type="text/javascript">
+$(document).ready(function() { 
+  var udise_count = document.getElementById('udise_count_{{forloop.counter}}').value;
+  var emis_count = document.getElementById('emis_count_{{forloop.counter}}').value;
+  var result = parseInt(udise_count) - parseInt(emis_count);
+  document.getElementById('diff_count_{{forloop.counter}}').value = result;
+});
+</script>
+{% endfor %}
+<tr>
+  <th colspan="6">Total</th>
+  <th>{{ udise_block_total }}</th>
+  <th>{{ emis_block_total }}</th>
+  <th>{{diff_block_total}}</th>
+</tr>
+</table>
+
+</div><!-- menu0 -->
+<!-- school wise End-->
+
+
+
+
+
+
+
+
+
+
+
+<!-- consolidated -->
+<div id="menu1" class="tab-pane fade ">
+
+
+{% if no_school %}
+<h5 style="color:red" >{{ no_school }}</h5>
+{% endif %}
+<table style="width:1100px;" class='table table-bordered table-striped2' border="2">
+  
+  <tr>
+    <th colspan="15">{{block_name}} </th>
+  </tr>
+    <tr>
+    <th></th>
+      <th>I</th>
+      <th>II</th>
+      <th>III</th>
+      <th>IV</th>
+      <th>V</th>
+      <th>VI</th>
+      <th>VII</th>
+      <th>VIII</th>
+      <th>IX</th>
+      <th>X</th>
+      <th>XI</th>
+      <th>XII</th>
+      <th>Total</th>
+    </tr>
+
+
+    <tr>
+    <th>Udise</th>
+          <td>{{ block_udise_c1|default:"0" }}</td>
+          <td>{{ block_udise_c2|default:"0" }}</td>
+          <td>{{ block_udise_c3|default:"0" }}</td>
+          <td>{{ block_udise_c4|default:"0" }}</td>
+          <td>{{ block_udise_c5|default:"0" }}</td>
+          <td>{{ block_udise_c6|default:"0" }}</td>
+          <td>{{ block_udise_c7|default:"0" }}</td>
+          <td>{{ block_udise_c8|default:"0" }}</td>
+          <td>{{ block_udise_c9|default:"0" }}</td>
+          <td>{{ block_udise_c10|default:"0" }}</td>
+          <td>{{ block_udise_c11|default:"0" }}</td>
+          <td>{{ block_udise_c12|default:"0" }}</td>
+          <td>{{ block_udise_school_total|default:"0" }}</td>
+      </tr>
+
+      <tr>
+      <th>Emis</th>
+          <td>{{ block_emis_one|default:"0" }}</td>
+          <td>{{ block_emis_two|default:"0" }}</td>
+          <td>{{ block_emis_three|default:"0" }}</td>
+          <td>{{ block_emis_four|default:"0" }}</td>
+          <td>{{ block_emis_five|default:"0" }}</td>
+          <td>{{ block_emis_six|default:"0" }}</td>
+          <td>{{ block_emis_seven|default:"0" }}</td>
+          <td>{{ block_emis_eight|default:"0" }}</td>
+          <td>{{ block_emis_nine|default:"0" }}</td>
+          <td>{{ block_emis_ten|default:"0" }}</td>
+          <td>{{ block_emis_eleven|default:"0" }}</td>
+          <td>{{ block_emis_twelve|default:"0" }}</td>
+          <td>{{ block_emis_total_count|default:"0" }}</td>
+      </tr>
+
+
+<tr>
+      <th>Difference</th>
+          <td>{{ block_diff_1|default:"0" }}</td>
+          <td>{{ block_diff_2|default:"0" }}</td>
+          <td>{{ block_diff_3|default:"0" }}</td>
+          <td>{{ block_diff_4|default:"0" }}</td>
+          <td>{{ block_diff_5|default:"0" }}</td>
+          <td>{{ block_diff_6|default:"0" }}</td>
+          <td>{{ block_diff_7|default:"0" }}</td>
+          <td>{{ block_diff_8|default:"0" }}</td>
+          <td>{{ block_diff_9|default:"0" }}</td>
+          <td>{{ block_diff_10|default:"0" }}</td>
+          <td>{{ block_diff_11|default:"0" }}</td>
+          <td>{{ block_diff_12|default:"0" }}</td>
+          <td>{{ block_diff_total|default:"0" }}</td>
+      </tr>
+</table>
+
+
+
+</div><!-- menu1 -->
+<!-- consolidated end -->
+
+
+
+
+
+
+
+
+
+{% if no_udise %}
+<h4 style="color:#3C8DBC;">{{ no_udise }}</h4></center>
+{% endif %}
+{% endblock %}

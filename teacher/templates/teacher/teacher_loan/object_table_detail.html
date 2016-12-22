@@ -1,0 +1,127 @@
+
+
+{% load i18n %}
+
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        {% trans "Field" %}
+      </th>
+      <th>
+        {% trans "Value" %}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        id
+      </td>
+      <td>
+        <a href='{{ object.get_absolute_url }}'>
+          {{ object.id|stringformat:".3d" }}
+        </a>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        teacher_key
+      </td>
+      <td>{{ object.teacher_key }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        loan_category
+      </td>
+      <td>{{ object.loan_category }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        loan_details
+      </td>
+      <td>{{ object.loan_details }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        sanctioned_amt
+      </td>
+      <td>{{ object.sanctioned_amt }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        monthly_installment
+      </td>
+      <td>{{ object.monthly_installment }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        installments
+      </td>
+      <td>{{ object.installments }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        first_insta_date
+      </td>
+      <td>{{ object.first_insta_date }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        sanctioned_order
+      </td>
+      <td>{{ object.sanctioned_order }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        sanctioned_date
+      </td>
+      <td>{{ object.sanctioned_date }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        complete_flag
+      </td>
+      <td>{{ object.complete_flag }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        modification_flag
+      </td>
+      <td>{{ object.modification_flag }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        verification_flag
+      </td>
+      <td>{{ object.verification_flag }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        staff_id
+      </td>
+      <td>{{ object.staff_id }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        timestamp
+      </td>
+      <td>{{ object.timestamp }}</td>
+    </tr>
+    
+  </tbody>
+</table>

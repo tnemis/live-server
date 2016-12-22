@@ -1,0 +1,59 @@
+
+
+{% extends 'teacher/teacher_nomini/base.html' %}
+{% load widget_tweaks %}
+
+{% load i18n %}
+{% load url from future %}
+
+
+
+
+
+{% block content %}
+<div class="row">
+<div class="col-md-8" >
+  <form action='{% if object %}{% url "teacher_teacher_nomini_update" pk=object.pk %}{% else %}{% url "teacher_teacher_nomini_create" %}{% endif %}' method='post' encoding='utf-8'>
+    <fieldset>
+      {% csrf_token %}
+<!--       {{ form }}
+ -->    
+       <div class="form-group"> <b>{% trans "Teacher key" %}</b>{{ form.teacher_key|add_class:"form-control" }}</div><span class="error_message">{{form.teacher_key.errors}}</span>
+
+      <div class="form-group"> <b>{% trans "Fund name" %}</b>{{ form.fund_name|add_class:"form-control" }}</div><span class="error_message">{{form.fund_name.errors}}</span>
+
+      <div class="form-group"> <b>{% trans "Nominee name" %}</b>{{ form.nominee_name|add_class:"form-control" }}</div><span class="error_message">{{form.nominee_name.errors}}</span>
+
+      <div class="form-group"> <b>{% trans "relationship" %}</b>{{ form.relationship|add_class:"form-control" }}</div><span class="error_message">{{form.relationship.errors}}</span>
+
+      <div class="form-group"> <b>{% trans "Age" %}</b>{{ form.age|add_class:"form-control" }}</div><span class="error_message">{{form.age.errors}}</span>
+
+
+      <div class="form-group"> <b>{% trans "Percentage" %}</b>{{ form.percentage|add_class:"form-control" }}</div><span class="error_message">{{form.percentage.errors}}</span>
+
+      <div class="form-group"> <b>{% trans "Complete flag" %}</b>{{ form.complete_flag|add_class:"form-control" }}</div><span class="error_message">{{form.complete_flag.errors}}</span>
+
+  <div class="form-group"> <b>{% trans "Modification flag" %}</b>{{ form.modification_flag|add_class:"form-control" }}</div><span class="error_message">{{form.modification_flag.errors}}</span>
+
+  <div class="form-group"> <b>{% trans "Verification flag" %}</b>{{ form.verification_flag|add_class:"form-control" }}</div><span class="error_message">{{form.verification_flag.errors}}</span>
+
+
+  <div class="form-group"> <b>{% trans "Staff id" %}</b>{{ form.staff_id|add_class:"form-control" }}</div><span class="error_message">{{form.staff_id.errors}}</span>
+
+
+
+
+   <div class='form-actions'>
+        <button class='btn btn-large btn-success' type='submit'>
+          {% if object %}
+            {% trans "Update" %}
+          {% else %}
+            {% trans "Create" %}
+          {% endif %}
+        </button>
+      </div>
+    </fieldset>
+  </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends 'school/school/base.html' %}
+
+{% load i18n %}
+{% if object %}
+
+<table class='table table-bordered table-striped3' border="2">
+  <thead>
+    <tr>
+      <th>
+        {% trans "Field" %}
+      </th>
+      <th>
+        {% trans "Value" %}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        School Code
+      </td>
+      <td>{{ object.school.school_code }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        School Name
+      </td>
+      <td>{{ object.school.school_name }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Medium1
+      </td>
+      <td>{{ object.medium1 }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Medium2
+      </td>
+      <td>{{ object.medium2 }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Medium3
+      </td>
+      <td>{{ object.medium3 }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Medium4
+      </td>
+      <td>{{ object.medium4 }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Area
+      </td>
+      <td>{{ object.area }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Educational Block
+      </td>
+      <td>{{ object.edu_block }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        School Category
+      </td>
+      <td>{{ object.school_category }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        School Type
+      </td>
+      <td>{{ object.school_type }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        School Managed
+      </td>
+      <td>{{ object.school_managed }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        School Total Count
+      </td>
+      <td>{{ object.school_total_count }}</td>
+    </tr>
+
+    
+  </tbody>
+</table>
+{% else %}
+{{message}}
+
+{% endif %}

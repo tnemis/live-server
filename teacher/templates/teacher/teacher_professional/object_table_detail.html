@@ -1,0 +1,218 @@
+
+
+{% load i18n %}
+
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        {% trans "Field" %}
+      </th>
+      <th>
+        {% trans "Value" %}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        id
+      </td>
+      <td>
+        <a href='{{ object.get_absolute_url }}'>
+          {{ object.id|stringformat:".3d" }}
+        </a>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        teacher_key
+      </td>
+      <td>{{ object.teacher_key }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        doj_govt
+      </td>
+      <td>{{ object.doj_govt }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        doj_dept
+      </td>
+      <td>{{ object.doj_dept }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        desig_onjoining
+      </td>
+      <td>{{ object.desig_onjoining }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        typewriting_english
+      </td>
+      <td>{{ object.typewriting_english }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        typewriting_tamil
+      </td>
+      <td>{{ object.typewriting_tamil }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        shorthand_english
+      </td>
+      <td>{{ object.shorthand_english }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        shorthand_tamil
+      </td>
+      <td>{{ object.shorthand_tamil }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        emply_status
+      </td>
+      <td>{{ object.emply_status }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        char_verification
+      </td>
+      <td>{{ object.char_verification }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        physical_certi
+      </td>
+      <td>{{ object.physical_certi }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        doj_presentpost
+      </td>
+      <td>{{ object.doj_presentpost }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        present_desig
+      </td>
+      <td>{{ object.present_desig }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        subject
+      </td>
+      <td>{{ object.subject }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        working_dist
+      </td>
+      <td>{{ object.working_dist }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        working_blk
+      </td>
+      <td>{{ object.working_blk }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        working_place
+      </td>
+      <td>{{ object.working_place }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        controlling_officer
+      </td>
+      <td>{{ object.controlling_officer }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        pay_scale
+      </td>
+      <td>{{ object.pay_scale }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        incr_month
+      </td>
+      <td>{{ object.incr_month }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        seniority_no
+      </td>
+      <td>{{ object.seniority_no }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        computer_training
+      </td>
+      <td>{{ object.computer_training }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        complete_flag
+      </td>
+      <td>{{ object.complete_flag }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        modification_flag
+      </td>
+      <td>{{ object.modification_flag }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        verification_flag
+      </td>
+      <td>{{ object.verification_flag }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        staff_id
+      </td>
+      <td>{{ object.staff_id }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        timestamp
+      </td>
+      <td>{{ object.timestamp }}</td>
+    </tr>
+    
+  </tbody>
+</table>

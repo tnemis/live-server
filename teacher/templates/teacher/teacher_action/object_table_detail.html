@@ -1,0 +1,120 @@
+
+
+{% load i18n %}
+
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        {% trans "Field" %}
+      </th>
+      <th>
+        {% trans "Value" %}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        Id
+      </td>
+      <td>
+        <a href='{{ object.get_absolute_url }}'>
+          {{ object.id|stringformat:".3d" }}
+        </a>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        Teacher Key
+      </td>
+      <td>{{ object.teacher_key }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        File Number
+      </td>
+      <td>{{ object.file_number }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Rule
+      </td>
+      <td>{{ object.rule }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Gist
+      </td>
+      <td>{{ object.gist }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Present Stage
+      </td>
+      <td>{{ object.present_stage }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Order No
+      </td>
+      <td>{{ object.order_no }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Order Date
+      </td>
+      <td>{{ object.order_date }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Gist Final
+      </td>
+      <td>{{ object.gist_final }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Complete Flag
+      </td>
+      <td>{{ object.complete_flag }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Modification Flag
+      </td>
+      <td>{{ object.modification_flag }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Verification Flag
+      </td>
+      <td>{{ object.verification_flag }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Staff Id
+      </td>
+      <td>{{ object.staff_id }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Timestamp
+      </td>
+      <td>{{ object.timestamp }}</td>
+    </tr>
+    
+  </tbody>
+</table>

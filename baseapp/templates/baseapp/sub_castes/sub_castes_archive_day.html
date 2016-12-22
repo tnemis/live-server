@@ -1,0 +1,62 @@
+
+
+{% extends 'baseapp/sub_castes/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /home/murad/testing/baseapp/templates/baseapp/sub_castes/sub_castes_archive_day.html
+{% endblock %}
+{% block title %}
+  {% trans "Sub_Castes Day Archive" %}
+{% endblock %}
+{% block breadcrumbs %}
+  <ul class='breadcrumb'>
+    <li>
+      <a href='{% url "baseapp_sub_castes_archive_index" %}'>
+        {% trans "Archive Index" %}
+      </a>
+      <span class='divider'>
+        /
+      </span>
+    </li>
+    <li>
+      <a href='{% url "baseapp_sub_castes_year_archive" year=day.year %}'>
+        {% trans "Year Archive" %}
+      </a>
+      <span class='divider'>
+        /
+      </span>
+    </li>
+    <li>
+      <a href='{% url "baseapp_sub_castes_month_archive" year=day.year month=day.month %}'>
+        {% trans "Month Archive" %}
+      </a>
+      <span class='divider'>
+        /
+      </span>
+    </li>
+    <li>
+      <a href='{% url "baseapp_sub_castes_day_archive" year=day.year month=day.month day=day.day %}'>
+        {% trans "Day Archive" %}
+      </a>
+    </li>
+  </ul>
+{% endblock %}
+{% block header-link %}
+  <a href='{% url "baseapp_sub_castes_day_archive" year=day.year month=day.month day=day.day %}'>
+    {% trans "Sub_Castes Day Archive" %}
+  </a>
+{% endblock %}
+{% block header-description %}
+  {% trans "A day archive page showing all objects in a given day." {%
+{% endblock %}
+{% block content %}
+  <h2>
+    {% blocktrans %}
+      Sub_Castess created on {{ day }}
+    {% endblocktrans %}
+  </h2>
+  {% include 'baseapp/sub_castes/object_table_list.html' %}
+  {% include 'baseapp/sub_castes/pagination.html' %}
+{% endblock %}

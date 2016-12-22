@@ -1,0 +1,87 @@
+{% extends 'students/child_detail/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+{% load widget_tweaks %}
+{% load imagekit %}
+{% block content %}
+
+{% if classwise_detail %}
+<p><center>{% trans "Click on the primary key value to access the individual Child_detail's page." %}</center></p>
+{% if user.account.user_category.user_category == 'school' %}
+<p ><a href='{% url "students_child_detail_download_profile" pk=class_id %}' style="color:#00A65A;font-size:15;">Download Child Profile</a></p>
+{% endif %}
+<br>
+<table class='table table-bordered table-striped3' border="2">
+  <thead>
+    <tr>
+      <th>S.No</th>
+      <th>Name</th>
+      <th>Unique id no</th>
+      <th>Class Studying</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for detail in page_objs %}
+      <tr>
+        <td>{{forloop.counter0|add:page_objs.start_index}}</td>
+         <td><a href='{% url "students_child_detail_detail" pk=detail.id %}'>{{ detail.name }}</a></td>
+          <td>{{ detail.unique_id_no }}</td>
+          <td>{{ detail.class_studying }}</td>
+      </tr>
+    {% endfor %}
+    <ul class="pagination pagination-centered">
+            {% if page_objs.has_previous %}
+                <li><a href="?page=1"><<</a></li>
+                <li><a href="?page={{ page_objs.previous_page_number }}"><</a></li>
+            {% endif %}
+
+            {% for i in page_objs.paginator.page_range %}
+                {% if page_objs.number == i %}
+                {% if page_objs.has_previous %}
+                    <li><a href="?page={{i|add:-1}}">{{i|add:-1}}</a></li>
+                {% endif %}
+                <li  class="active">
+
+                <a href="?page={{i}}">{{i}}</a></li>
+                {% if page_objs.has_next %}
+                <li><a href="?page={{i|add:1}}">{{i|add:1}}</a></li>
+                {% endif %}
+                {% endif %}
+
+            {% endfor %}
+
+
+            {% if page_objs.has_next %}
+                <li><a href="?page={{ page_objs.next_page_number }}">></a></li>
+                <li><a href="?page={{ page_objs.paginator.num_pages }}">>></a></li>
+            {% endif %}
+        </ul>
+  </tbody>
+</table>
+{% endif %}
+{% if child_search %}
+<table class='table table-bordered table-striped3' border="2" align="center">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Unique id no</th>
+      <th>Class Studying</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for child in child_search %}
+      <tr>
+        <td><a href='{% url "students_child_detail_detail" pk=child.id %}'>{{ child.id|stringformat:".3d" }}</a></td>
+          <td>{{ child.name }}</td>
+          <td>{{ child.unique_id_no }}</td>
+          <td>{{ child.class_studying }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endif %}
+
+{% endblock %}

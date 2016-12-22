@@ -1,0 +1,55 @@
+{% load i18n %}
+
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        {% trans "Field" %}
+      </th>
+      <th>
+        {% trans "Value" %}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        Id
+      </td>
+      <td>
+        <a href='{{ object.get_absolute_url }}'>
+          {{ object.id|stringformat:".3d" }}
+        </a>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        Zone Code
+      </td>
+      <td>{{ object.code }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Zone Name
+      </td>
+      <td>{{ object.name }}</td>
+    </tr> 
+      <tr>
+      <td>
+        Zone Type
+      </td>
+      <td>{{ object.zone_type }}</td>
+    </tr> 
+
+     <tr>
+      <td>
+        Block
+      </td>
+      <td>{{ object.block }}</td>
+    </tr> 
+
+    
+  </tbody>
+</table>

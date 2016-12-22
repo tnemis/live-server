@@ -1,0 +1,430 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 16:42+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: templates/students/child_detail/base.html:10
+msgid "Child Detail List"
+msgstr "மாணவர்கள் பட்டியல்"
+
+#: templates/students/child_detail/base.html:15
+msgid "Create Child Detail"
+msgstr "புதிய மாணவர் விவரங்களை உருவாக்க"
+
+#: templates/students/child_detail/base.html:21
+msgid "Child Detail Detail"
+msgstr ""
+
+#: templates/students/child_detail/base.html:26
+msgid "Update Child Detail"
+msgstr ""
+
+#: templates/students/child_detail/base.html:31
+#: templates/students/child_detail/child_detail_confirm_delete.html:17
+#: templates/students/child_detail/child_detail_detail.html:17
+#: templates/students/child_family_detail/base.html:31
+#: templates/students/child_family_detail/child_family_detail_confirm_delete.html:18
+#: templates/students/child_family_detail/child_family_detail_detail.html:17
+#: templates/students/child_transfer_history/base.html:31
+#: templates/students/child_transfer_history/child_transfer_history_confirm_delete.html:18
+#: templates/students/child_transfer_history/child_transfer_history_detail.html:17
+msgid "Delete"
+msgstr ""
+
+#: templates/students/child_detail/child_detail_archive.html:23
+msgid "Recent Child_details"
+msgstr ""
+
+#: templates/students/child_detail/child_detail_archive_day.html:10
+#, python-format
+msgid ""
+"\n"
+"      Child_details created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/students/child_detail/child_detail_archive_month.html:23
+#, python-format
+msgid ""
+"\n"
+"      Child_details created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/students/child_detail/child_detail_archive_week.html:11
+#, python-format
+msgid ""
+"\n"
+"      Child_details created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/students/child_detail/child_detail_archive_year.html:10
+#: templates/students/child_family_detail/child_family_detail_archive_year.html:11
+#: templates/students/child_transfer_history/child_transfer_history_archive_year.html:11
+msgid "By Month"
+msgstr ""
+
+#: templates/students/child_detail/child_detail_archive_year.html:22
+#, python-format
+msgid ""
+"\n"
+"      Child_details created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/students/child_detail/child_detail_classwise_list.html:10
+msgid ""
+"Click on the primary key value to access the individual Child_detail's page."
+msgstr ""
+
+#: templates/students/child_detail/child_detail_detail.html:14
+#: templates/students/child_detail/child_detail_form.html:339
+#: templates/students/child_family_detail/child_family_detail_detail.html:14
+#: templates/students/child_family_detail/child_family_detail_form.html:35
+#: templates/students/child_transfer_history/child_transfer_history_detail.html:14
+#: templates/students/child_transfer_history/child_transfer_history_form.html:22
+msgid "Update"
+msgstr ""
+
+#: templates/students/child_detail/child_detail_form.html:103
+msgid "Student Name"
+msgstr "மாணவர் பெயர்"
+
+#: templates/students/child_detail/child_detail_form.html:107
+msgid "Photograph"
+msgstr "புகைப்படம்"
+
+#: templates/students/child_detail/child_detail_form.html:109
+msgid "Gender"
+msgstr "பாலினம்"
+
+#: templates/students/child_detail/child_detail_form.html:118
+msgid "Date of Birth"
+msgstr "பிறந்த தேதி"
+
+#: templates/students/child_detail/child_detail_form.html:130
+msgid "Religion"
+msgstr "மதம்"
+
+#: templates/students/child_detail/child_detail_form.html:131
+msgid "Community"
+msgstr "சாதி"
+
+#: templates/students/child_detail/child_detail_form.html:132
+msgid "Sub Caste"
+msgstr "சாதியின் பிரிவு"
+
+#: templates/students/child_detail/child_detail_form.html:135
+msgid "Mother tongue"
+msgstr "தாய்மொழி"
+
+#: templates/students/child_detail/child_detail_form.html:137
+msgid "Phone Number"
+msgstr "அலைபேசி எண்"
+
+#: templates/students/child_detail/child_detail_form.html:139
+msgid "Child Differently Abled"
+msgstr "உடற்குறை உள்ளவர்"
+
+#: templates/students/child_detail/child_detail_form.html:153
+msgid "Child Disadvantaged Group"
+msgstr ""
+
+#: templates/students/child_detail/child_detail_form.html:167
+msgid "Nationality"
+msgstr "தேசியம்"
+
+#: templates/students/child_detail/child_detail_form.html:169
+msgid "House Address"
+msgstr "வீடு முகவரி"
+
+#: templates/students/child_detail/child_detail_form.html:171
+msgid "Mother's name"
+msgstr "தாய் பெயர்"
+
+#: templates/students/child_detail/child_detail_form.html:173
+msgid "Mother's Occupation"
+msgstr "தாயின் தொழில்"
+
+#: templates/students/child_detail/child_detail_form.html:175
+msgid "Mother's Income"
+msgstr "தாயின் வருமானம்"
+
+#: templates/students/child_detail/child_detail_form.html:177
+msgid "Father's name"
+msgstr "தந்தை பெயர்"
+
+#: templates/students/child_detail/child_detail_form.html:179
+msgid "Father's Occupation"
+msgstr "தந்தையின் தொழில்"
+
+#: templates/students/child_detail/child_detail_form.html:181
+msgid "Father's Income"
+msgstr "தந்தையின் வருமானம்"
+
+#: templates/students/child_detail/child_detail_form.html:184
+msgid "Native District"
+msgstr "பிறந்த மாவட்டம்"
+
+#: templates/students/child_detail/child_detail_form.html:196
+msgid "Pincode"
+msgstr ""
+
+#: templates/students/child_detail/child_detail_form.html:198
+msgid "Blood Group"
+msgstr "இரத்தப் பிரிவு"
+
+#: templates/students/child_detail/child_detail_form.html:219
+msgid "Class Studying"
+msgstr ""
+
+#: templates/students/child_detail/child_detail_form.html:221
+msgid "Group Code"
+msgstr ""
+
+#: templates/students/child_detail/child_detail_form.html:223
+msgid "Attendance Status"
+msgstr ""
+
+#: templates/students/child_detail/child_detail_form.html:232
+msgid "Sport Participation"
+msgstr "விளையாட்டு பங்களிப்பு"
+
+#: templates/students/child_detail/child_detail_form.html:244
+msgid "Education Medium"
+msgstr ""
+
+#: templates/students/child_detail/child_detail_form.html:257
+msgid "Bank"
+msgstr "வங்கி"
+
+#: templates/students/child_detail/child_detail_form.html:260
+msgid "Bank Account No"
+msgstr "வங்கிக் கணக்கு எண்"
+
+#: templates/students/child_detail/child_detail_form.html:263
+msgid "Govt Schemes Status"
+msgstr ""
+
+#: templates/students/child_detail/child_detail_form.html:279
+msgid "Academic Year"
+msgstr "கல்வி ஆண்டு"
+
+#: templates/students/child_detail/child_detail_form.html:280
+msgid "Aadhaar Eid Number"
+msgstr ""
+
+#: templates/students/child_detail/child_detail_form.html:282
+msgid "Aadhaar Uid Number"
+msgstr ""
+
+#: templates/students/child_detail/child_detail_form.html:341
+#: templates/students/child_family_detail/child_family_detail_form.html:37
+#: templates/students/child_transfer_history/child_transfer_history_form.html:24
+msgid "Create"
+msgstr ""
+
+#: templates/students/child_detail/object_table_list.html:12
+msgid "Total Students"
+msgstr "மொத்த மாணவர்கள்"
+
+#: templates/students/child_detail/object_table_list.html:67
+msgid ""
+"Note: Click on the respective number to get the class-wise student list."
+msgstr "கவனிக்க : வகுப்பு வரியான மாணவர் பட்டியலை பெற சம்பத்தப்பட்ட வகுப்பின் மீது  சொடுக்கவும்"
+
+#: templates/students/child_family_detail/base.html:10
+msgid "Child family detail List "
+msgstr ""
+
+#: templates/students/child_family_detail/base.html:15
+msgid "Create child family detail"
+msgstr ""
+
+#: templates/students/child_family_detail/base.html:21
+msgid "child family detail Detail"
+msgstr ""
+
+#: templates/students/child_family_detail/base.html:26
+msgid "Update child family detail"
+msgstr ""
+
+#: templates/students/child_family_detail/child_family_detail_archive.html:22
+msgid "Recent Child_family_details"
+msgstr ""
+
+#: templates/students/child_family_detail/child_family_detail_archive_day.html:11
+#, python-format
+msgid ""
+"\n"
+"      Child_family_details created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/students/child_family_detail/child_family_detail_archive_month.html:22
+#, python-format
+msgid ""
+"\n"
+"      Child_family_details created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/students/child_family_detail/child_family_detail_archive_week.html:10
+#, python-format
+msgid ""
+"\n"
+"      Child_family_details created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/students/child_family_detail/child_family_detail_archive_year.html:23
+#, python-format
+msgid ""
+"\n"
+"      Child_family_details created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/students/child_family_detail/child_family_detail_confirm_delete.html:7
+msgid "Delete this child family detail?"
+msgstr ""
+
+#: templates/students/child_family_detail/child_family_detail_form.html:14
+#: templates/students/child_transfer_history/child_transfer_history_form.html:14
+msgid "Child key"
+msgstr ""
+
+#: templates/students/child_family_detail/child_family_detail_form.html:16
+msgid "Block"
+msgstr "தொகுதி ஒன்றியம்"
+
+#: templates/students/child_family_detail/child_family_detail_form.html:18
+msgid "Name"
+msgstr "பெயர்"
+
+#: templates/students/child_family_detail/child_family_detail_form.html:20
+msgid "Relationship"
+msgstr "உறவுகள்"
+
+#: templates/students/child_family_detail/child_family_detail_form.html:22
+msgid "Age"
+msgstr "வயது"
+
+#: templates/students/child_family_detail/child_family_detail_form.html:24
+msgid "Qualification"
+msgstr "தகுதி"
+
+#: templates/students/child_family_detail/child_family_detail_form.html:26
+msgid "Employed"
+msgstr "பணியில் உள்ளாரா"
+
+#: templates/students/child_family_detail/child_family_detail_form.html:28
+msgid "Income"
+msgstr "வருமானம்"
+
+#: templates/students/child_family_detail/child_family_detail_form.html:30
+msgid "Staff id"
+msgstr ""
+
+#: templates/students/child_family_detail/object_table_detail.html:9
+#: templates/students/child_transfer_history/object_table_detail.html:9
+msgid "Field"
+msgstr ""
+
+#: templates/students/child_family_detail/object_table_detail.html:12
+#: templates/students/child_transfer_history/object_table_detail.html:12
+msgid "Value"
+msgstr ""
+
+#: templates/students/child_family_detail/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual "
+"Child_family_detail's page."
+msgstr ""
+
+#: templates/students/child_transfer_history/base.html:10
+msgid "Child transfer history List "
+msgstr ""
+
+#: templates/students/child_transfer_history/base.html:15
+msgid "Create Child transfer history"
+msgstr ""
+
+#: templates/students/child_transfer_history/base.html:21
+msgid "Child transfer history Detail"
+msgstr ""
+
+#: templates/students/child_transfer_history/base.html:26
+msgid "Update Child transfer history"
+msgstr ""
+
+#: templates/students/child_transfer_history/child_transfer_history_archive.html:21
+msgid "Recent Child_Transfer_Historys"
+msgstr ""
+
+#: templates/students/child_transfer_history/child_transfer_history_archive_day.html:12
+#, python-format
+msgid ""
+"\n"
+"      Child_Transfer_Historys created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/students/child_transfer_history/child_transfer_history_archive_month.html:22
+#, python-format
+msgid ""
+"\n"
+"      Child_Transfer_Historys created in the month of "
+"%(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/students/child_transfer_history/child_transfer_history_archive_week.html:11
+#, python-format
+msgid ""
+"\n"
+"      Child_Transfer_Historys created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/students/child_transfer_history/child_transfer_history_archive_year.html:23
+#, python-format
+msgid ""
+"\n"
+"      Child_Transfer_Historys created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/students/child_transfer_history/child_transfer_history_confirm_delete.html:7
+msgid "Delete this Child transfer history?"
+msgstr ""
+
+#: templates/students/child_transfer_history/child_transfer_history_form.html:16
+msgid "Old school"
+msgstr ""
+
+#: templates/students/child_transfer_history/child_transfer_history_form.html:18
+msgid "Tc issue date"
+msgstr ""
+
+#: templates/students/child_transfer_history/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual "
+"Child_Transfer_History's page."
+msgstr ""

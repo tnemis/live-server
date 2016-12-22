@@ -1,0 +1,58 @@
+
+
+{% extends 'school/school_recognition/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+
+{% block filename %}
+  /home/mur/testing/emis_d15/scafold/school/templates/school/school_recognition/school_recognition_archive_year.html
+{% endblock %}
+
+{% block breadcrumbs %}
+  <ul class='breadcrumb'>
+    <li>
+      <a href='{% url "school_school_recognition_archive_index" %}'>
+        {% trans "Archive Index" %}
+      </a>
+      <span class='divider'>
+        /
+      </span>
+    </li>
+    <li>
+      <a href='{% url "school_school_recognition_year_archive" year=year.year %}'>
+        {% trans "Year Archive" %}
+      </a>
+    </li>
+  </ul>
+{% endblock %}
+
+{% block header-link %}
+  <a href='{% url "school_school_recognition_year_archive" year=year.year %}'>
+    {% trans "School_recognition Year Archive" %}
+  </a>
+{% endblock %}
+{% block header-description %}
+  {% trans "A yearly archive page showing all available months in a given year." %}
+{% endblock %}
+{% block content %}
+  <h2>
+    {% trans "By Month" %}
+  </h2>
+  <ul class='nav nav-tabs nav-stacked'>
+    {% for date in date_list %}
+      <li>
+        <a href='{% url "school_school_recognition_month_archive" year=date.year month=date.month %}'>
+          {{ date|date:"M Y" }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  <h2>
+    {% blocktrans %}
+      School_recognitions created in the year {{ year }}
+    {% endblocktrans %}
+  </h2>
+  {% include 'school/school_recognition/object_table_list.html' %}
+  {% include 'school/school_recognition/pagination.html' %}
+{% endblock %}

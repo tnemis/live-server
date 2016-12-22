@@ -1,0 +1,95 @@
+
+
+{% load i18n %}
+
+<p>
+  {% trans "Click on the primary key value to access the individual Child_family_detail's page." %}
+</p>
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        Id
+      </th>
+      
+        <th>
+          Child key
+        </th>
+      
+        <th>
+          Block
+        </th>
+      
+        <th>
+          Sibling Name
+        </th>
+      
+        <th>
+          Sibling Relationship
+        </th>
+      
+        <th>
+          Sibling Age
+        </th>
+      
+        <th>
+          Sibling Status
+        </th>
+      
+        <th>
+          Sibling Studying
+        </th>
+      
+        <th>
+          Sibling studying in same school
+        </th>
+      
+        <th>
+          Staff id
+        </th>
+      
+        <th>
+          Created date
+        </th>
+      
+        <th>
+          Modified date
+        </th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+      <tr>
+        <td>
+          <a href='{% url "students_child_family_detail_detail" pk=object.pk %}'>
+            {{ object.id|stringformat:".3d" }}
+          </a>
+        </td>
+        
+          <td>{{ object.child_key }}</td>
+        
+          <td>{{ object.block }}</td>
+        
+          <td>{{ object.sibling_name }}</td>
+        
+          <td>{{ object.sibling_relationship }}</td>
+        
+          <td>{{ object.sibling_age }}</td>
+        
+          <td>{{ object.sibling_status }}</td>
+        
+          <td>{{ object.sibling_studying }}</td>
+        
+          <td>{{ object.sibling_studying_same_school }}</td>
+        
+          <td>{{ object.staff_id }}</td>
+        
+          <td>{{ object.created_date }}</td>
+        
+          <td>{{ object.modified_date }}</td>
+        
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   <title>Login Page</title>
+     <link rel="stylesheet" href="/site_media/static/css/style.css">
+
+<style type="text/css">
+.test{
+    background-color: #006FA0;
+}
+
+
+</style>
+
+
+</head>
+<body>
+  <div class="main_body">
+<center>
+        <div class="test" id="image" style="overflow: hidden; width:100%;">
+<img src="/site_media/static/img/SED_logo.png" alt="SED_Logo"> <h1 style="color:MidnightBlue; height:28px;"> </h1>
+<h1 style="color:white; font-size: 26px; height: 70px;" > Educational Management Information System </h1>
+
+</div>
+
+<!--<div style="height:100px; display: table-cell; vertical-align: middle;">
+<strong style="color:black; font-size:22px;"> Site will be kept under maintenance till 14-July-2016 for migration from 2015-16 to 2016-17 academic year </strong>
+</div>-->
+<br>
+<div style="height:100px; display: table-cell; vertical-align: top;">
+<strong style="color:red; font-size:20px;"> <p><align='center'>
+  Students in Class 10 and Class 12 who are NOT enrolled in your school should be transferred to Common pool IMMEDIATELY.</p><br>
+ <p>Data entry is open for Class 1 for Academic Year 2016-17.</p><br>
+<p>Update the details of students in other classes</p> <br>
+</strong> </div>
+<br>
+<a style="color:#006FA0; font-size:25px"; href="/site_media/static/img/dseproceedings.pdf"> <b><u>பள்ளிக் கல்வி இயக்குநரின் செயல்முறைகள் </b></u></a>
+<img src="/site_media/static/img/New.gif">
+
+<!--<div style="height:100px; display: table-cell; vertical-align: middle;">
+<strong style="color:red; font-size:25px;">  Data entry and updation should be carried out for the academic year 2015-16 only</strong>
+<p>-->
+
+<!--<div style="height:100px; display: table-cell; vertical-align: right;">
+<strong style="color:red; font-size:15px;"> Before 2:00 PM ( Chennai, Coimbatore, Cuddalore, Dharmapuri, Dindigul, Erode, kanchipuram, Kanyakumari, karur, krishnagiri, Madurai, Nagapattinam, Namakkal, Perambalur, Pudukottai)</strong>
+</div>-->
+
+<!--<div style="height:100px; display: table-cell; vertical-align: left;">
+<strong style="color:green; font-size:15px;"> After 2:00 PM (Ramnadu, Salem, Sivaganagai, Tanjore, Nilgiris, Theni,  Tiruvallur, Thiruvarur, Thoothukkudi, Trichy, Tirunelveli, Tiruvannamalai,  Vellore, Villupuram, virudhunagar, Tirupur, Ariyalur) </strong>
+</div>-->
+
+<div class="login_box">
+ <form method="POST" action="{% url "account_login" %}" autocomplete="off" autocapitalize="off" {% if form.is_multipart %} enctype="multipart/form-data"{% endif %} class='login'>
+
+  {% csrf_token %}
+
+  <p>
+      <label for="login">Username:</label>
+      <input id="id_username" type="text" name="username" maxlength="30">
+
+    </p>
+
+    <p>
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="id_password">
+    </p>
+    {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+    <p class="login-submit">
+      <button type="submit" class="login-button">Login</button><center><span class="error_message">{% if form.errors %} <p style = "color:red"> Sorry! Invalid Username/Password </p>{% endif %}</span>  </center>
+    </p>
+<!--<p class="forgot-password"><a href="{% url "account_password_reset" %}" class="btn btn-default">Forgot your 
+password?</a></p>-->
+<br>
+ <strong style="color:#006fa0; font-size: 16px;"> EMIS support mail id <br><strong style="color:black; font-size: 16px;">tnemiscel@gmail.com || tnemisteam@gmail.com support-emis@tnschools.gov.in </strong></strong>
+
+ </form> 
+ <!--<p> <a href="/helpdesk/tickets/submit/">Create Ticket</a> |  <a href="">Ticket Status</a> </p>-->
+  <div>
+  <div style="height:50px;"></div>
+    <div align="center">
+| © Educational Management Information System
+ | <br>
+| Project Designed & Developed by <a href="http://au-kbc.org" target="_blank" title="AU_KBC Home"> AU-KBC Research Centre</a>, Anna University Chennai | Maintained by EMIS cell DPI campus |
+
+  </div>
+</div>
+</body>
+</html>
