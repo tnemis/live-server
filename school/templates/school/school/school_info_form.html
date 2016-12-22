@@ -1,0 +1,49 @@
+{% extends 'school/school/base.html' %}
+{% load widget_tweaks %}
+
+{% load i18n %}
+{% load url from future %}
+
+{% block content %}
+<div class="row">
+<div class="col-md-8" >
+  <form action='{% if object %}{% url "school_school_update" pk=object.pk %}{% else %}{% url "school_school_create" %}{% endif %}' method='post' encoding='utf-8'>
+    <fieldset>
+      {% csrf_token %}
+         <input type="hidden" name="school" id="school" value="{{user.account.get_user_info.id}}">
+
+         <div class="form-group"> <b>{% trans "Medium1" %}</b>{{ form.medium1|add_class:"form-control" }}</div><span class="error_message">{{form.medium1.errors}}</span>
+
+         <div class="form-group"> <b>{% trans "Medium2" %}</b>{{ form.medium2|add_class:"form-control" }}</div><span class="error_message">{{form.medium2.errors}}</span>
+
+         <div class="form-group"> <b>{% trans "Medium3" %}</b>{{ form.medium3|add_class:"form-control" }}</div><span class="error_message">{{form.medium3.errors}}</span>
+
+         <div class="form-group"> <b>{% trans "Medium4" %}</b>{{ form.medium4|add_class:"form-control" }}</div><span class="error_message">{{form.medium4.errors}}</span>
+
+         <div class="form-group"> <b>{% trans "Area" %}</b>{{ form.area|add_class:"form-control" }}</div><span class="error_message">{{form.area.errors}}</span>
+
+         <div class="form-group"> <b>{% trans "Education block" %}</b>{{ form.edu_block|add_class:"form-control" }}</div><span class="error_message">{{form.edu_block.errors}}</span>
+
+         <div class="form-group"> <b>{% trans "School category" %}</b>{{ form.school_category|add_class:"form-control" }}</div><span class="error_message">{{form.school_category.errors}}</span>
+
+         <div class="form-group"> <b>{% trans "School type" %}</b>{{ form.school_type|add_class:"form-control" }}</div><span class="error_message">{{form.school_type.errors}}</span>
+
+         <div class="form-group"> <b>{% trans "School managed" %}</b>{{ form.school_managed|add_class:"form-control" }}</div><span class="error_message">{{form.school_managed.errors}}</span>
+
+         <div class="form-group"> <b>{% trans "School total count" %}</b>{{ form.school_total_count|add_class:"form-control" }}</div><span class="error_message">{{form.school_total_count.errors}}</span>
+                     
+
+     <div class='form-actions'>
+        <button class='btn btn-large btn-success' type='submit'>
+          {% if object %}
+            {% trans "Update" %}
+          {% else %}
+            {% trans "Create" %}
+          {% endif %}
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+</div>
+{% endblock %}

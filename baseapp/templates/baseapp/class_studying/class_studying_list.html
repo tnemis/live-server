@@ -1,0 +1,19 @@
+{% extends 'baseapp/class_studying/base.html' %}
+
+{% load i18n %}
+
+{% load url from future %}
+{% block head_title %}class_studying{% endblock %}
+
+{% block content %}
+  <div class="row">
+        <div class="col-md-8">
+  {% include 'baseapp/class_studying/object_table_list.html' %}
+  {% include 'baseapp/pagination.html' %}
+</div>
+    </div>
+{% endblock %}
+
+
+
+

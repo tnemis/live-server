@@ -1,0 +1,43 @@
+{% extends "baseapp/master_base.html"|pjax:request %}
+
+{% load i18n %}
+{% block contentmenu %}
+    
+        <ul id="nav">
+                  
+                  <li >
+                    <a  href='{% url "baseapp_district_list" %}'>
+                      {% trans "District List" %}
+                    </a>
+                  </li>
+                  <li >
+                    <a href='{% url "baseapp_district_create" %}'>
+                      {% trans "Create District" %}
+                    </a>
+                  </li>
+                  {% if object %}
+                    <li >
+                      <a  href='{{ object.get_absolute_url }}'>
+                        {% trans "District Detail" %}
+                      </a>
+                    </li>
+                    <li >
+                      <a  href='{% url "baseapp_district_update" pk=object.pk %}'>
+                        {% trans "Update District" %}
+                      </a>
+                    </li>
+                    <li >
+                      <a  href='{% url "baseapp_district_delete" pk=object.pk %}'>
+                        {% trans "Delete" %}
+                      </a>
+                    </li>
+                  
+                  {% endif %}
+                  
+                </ul>
+        </a>
+      
+   
+   
+{% endblock %}
+

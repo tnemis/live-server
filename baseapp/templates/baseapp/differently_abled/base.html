@@ -1,0 +1,43 @@
+{% extends "baseapp/master_base.html"|pjax:request %}
+
+{% load i18n %}
+{% block contentmenu %}
+    
+        <ul id="nav">
+                  
+                  <li >
+                    <a  href='{% url "baseapp_differently_abled_list" %}'>
+                      {% trans "Differently Abled List " %}
+                    </a>
+                  </li>
+                  <li >
+                    <a href='{% url "baseapp_differently_abled_create" %}'>
+                      {% trans "Create Differently Abled" %}
+                    </a>
+                  </li>
+                  {% if object %}
+                    <li >
+                      <a  href='{{ object.get_absolute_url }}'>
+                        {% trans "Differently Abled Detail" %}
+                      </a>
+                    </li>
+                    <li >
+                      <a  href='{% url "baseapp_differently_abled_update" pk=object.pk %}'>
+                        {% trans "Update Differently Abled" %}
+                      </a>
+                    </li>
+                    <li >
+                      <a  href='{% url "baseapp_differently_abled_delete" pk=object.pk %}'>
+                        {% trans "Delete" %}
+                      </a>
+                    </li>
+                  
+                  {% endif %}
+                  
+                </ul>
+        </a>
+      
+   
+   
+{% endblock %}
+

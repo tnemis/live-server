@@ -1,0 +1,155 @@
+
+
+{% load i18n %}
+
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        {% trans "Field" %}
+      </th>
+      <th>
+        {% trans "Value" %}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        id
+      </td>
+      <td>
+        <a href='{{ object.get_absolute_url }}'>
+          {{ object.id|stringformat:".3d" }}
+        </a>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        teacher_key
+      </td>
+      <td>{{ object.teacher_key }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        earned_effective
+      </td>
+      <td>{{ object.earned_effective }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        earned_credit
+      </td>
+      <td>{{ object.earned_credit }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        earned_prebalance
+      </td>
+      <td>{{ object.earned_prebalance }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        earned_curbalance
+      </td>
+      <td>{{ object.earned_curbalance }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        earned_orderno
+      </td>
+      <td>{{ object.earned_orderno }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        earned_orderdate
+      </td>
+      <td>{{ object.earned_orderdate }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        half_effective
+      </td>
+      <td>{{ object.half_effective }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        half_credit
+      </td>
+      <td>{{ object.half_credit }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        half_prebalance
+      </td>
+      <td>{{ object.half_prebalance }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        half_curbalance
+      </td>
+      <td>{{ object.half_curbalance }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        half_orderno
+      </td>
+      <td>{{ object.half_orderno }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        half_orderdate
+      </td>
+      <td>{{ object.half_orderdate }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        complete_flag
+      </td>
+      <td>{{ object.complete_flag }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        modification_flag
+      </td>
+      <td>{{ object.modification_flag }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        verification_flag
+      </td>
+      <td>{{ object.verification_flag }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        staff_id
+      </td>
+      <td>{{ object.staff_id }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        timestamp
+      </td>
+      <td>{{ object.timestamp }}</td>
+    </tr>
+    
+  </tbody>
+</table>

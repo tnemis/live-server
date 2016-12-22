@@ -1,0 +1,31 @@
+
+
+{% extends 'baseapp/nationality/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /home/murad/testing/baseapp/templates/baseapp/nationality/nationality_archive_week.html
+{% endblock %}
+
+{% block title %}
+  {% trans "Nationality Week Archive" %}
+{% endblock %}
+
+{% block header-link %}
+  {% trans "Nationality Week Archive" %}
+{% endblock %}
+
+{% block header-description %}
+  {% trans "A weekly archive page showing all objects in a given week." %}
+{% endblock %}
+
+{% block content %}
+  <h2>
+    {% blocktrans %}
+      Nationalitys created during the week beginning on {{ week }}
+    {% endblocktrans %}
+  </h2>
+  {% include 'baseapp/nationality/object_table_list.html' %}
+  {% include 'baseapp/nationality/pagination.html' %}
+{% endblock %}

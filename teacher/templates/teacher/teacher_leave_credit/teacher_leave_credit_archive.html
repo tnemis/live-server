@@ -1,0 +1,49 @@
+
+
+{% extends 'teacher/teacher_leave_credit/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+
+{% block filename %}
+  /home/mur/testing/emis_d15/scafold/teacher/templates/teacher/teacher_leave_credit/teacher_leave_credit_archive.html
+{% endblock %}
+{% block title %}
+  {% trans "Teacher_leave_credit Archive Index" %}
+{% endblock %}
+{% block breadcrumbs %}
+  <ul class='breadcrumb'>
+    <li>
+      <a href='{% url "teacher_teacher_leave_credit_archive_index" %}'>
+        {% trans "Archive Index" %}
+      </a>
+    </li>
+  </ul>
+{% endblock %}
+{% block header-link %}
+  <a href='{% url "teacher_teacher_leave_credit_archive_index" %}'>
+    {% trans "Teacher_leave_credit Archive Index" %}
+  </a>
+{% endblock %}
+{% block header-description %}
+  {% trans "A top-level index page showing the latest objects, by date." %}
+{% endblock %}
+{% block content %}
+  <h2>
+    By Year
+  </h2>
+  <ul class='nav nav-tabs nav-stacked'>
+    {% for date in date_list %}
+      <li>
+        <a href='{% url "teacher_teacher_leave_credit_year_archive" year=date.year %}'>
+          {{ date.year }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  <h2>
+    {% trans "Recent Teacher_leave_credits" %}
+  </h2>
+  {% include 'teacher/teacher_leave_credit/object_table_list.html' %}
+  {% include 'teacher/teacher_leave_credit/pagination.html' %}
+{% endblock %}

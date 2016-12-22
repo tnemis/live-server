@@ -1,0 +1,92 @@
+
+
+{% load i18n %}
+
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        {% trans "Field" %}
+      </th>
+      <th>
+        {% trans "Value" %}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        Id
+      </td>
+      <td>
+        <a href='{{ object.get_absolute_url }}'>
+          {{ object.id|stringformat:".3d" }}
+        </a>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        School Key
+      </td>
+      <td>{{ object.school_key }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Initial Primary
+      </td>
+      <td>{{ object.initial_primary }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Initial Up
+      </td>
+      <td>{{ object.initial_up }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Initial Secondary
+      </td>
+      <td>{{ object.initial_secondary }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Initial Hs
+      </td>
+      <td>{{ object.initial_hs }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Renewal Primary
+      </td>
+      <td>{{ object.renewal_primary }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Renewal Up
+      </td>
+      <td>{{ object.renewal_up }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Renewal Secondary
+      </td>
+      <td>{{ object.renewal_secondary }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Renewal Hs
+      </td>
+      <td>{{ object.renewal_hs }}</td>
+    </tr>
+    
+  </tbody>
+</table>

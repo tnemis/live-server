@@ -1,0 +1,1703 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-20 10:52+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: templates/school/area_classification/area_classification_confirm_delete.html:14
+msgid "Delete this Area_classification?"
+msgstr ""
+
+#: templates/school/area_classification/area_classification_confirm_delete.html:23
+#: templates/school/area_classification/area_classification_detail.html:21
+#: templates/school/area_classification/base.html:31
+#: templates/school/brc/base.html:31
+#: templates/school/brc/brc_confirm_delete.html:23
+#: templates/school/brc/brc_detail.html:24 templates/school/crc/base.html:31
+#: templates/school/crc/crc_confirm_delete.html:23
+#: templates/school/crc/crc_detail.html:22
+#: templates/school/school/base.html:31
+#: templates/school/school/school_confirm_delete.html:22
+#: templates/school/school/school_detail.html:23
+#: templates/school/school_anganwadi/base.html:31
+#: templates/school/school_anganwadi/school_anganwadi_confirm_delete.html:22
+#: templates/school/school_anganwadi/school_anganwadi_detail.html:23
+#: templates/school/school_brc/base.html:31
+#: templates/school/school_brc/school_brc_confirm_delete.html:23
+#: templates/school/school_brc/school_brc_detail.html:26
+#: templates/school/school_category/base.html:31
+#: templates/school/school_category/school_category_confirm_delete.html:23
+#: templates/school/school_category/school_category_detail.html:24
+#: templates/school/school_contact_detail/base.html:31
+#: templates/school/school_contact_detail/school_contact_detail_confirm_delete.html:22
+#: templates/school/school_contact_detail/school_contact_detail_detail.html:21
+#: templates/school/school_crc/base.html:31
+#: templates/school/school_crc/school_crc_confirm_delete.html:22
+#: templates/school/school_crc/school_crc_detail.html:25
+#: templates/school/school_detail/base.html:31
+#: templates/school/school_detail/school_detail_confirm_delete.html:23
+#: templates/school/school_detail/school_detail_detail.html:22
+#: templates/school/school_flag/base.html:31
+#: templates/school/school_flag/school_flag_confirm_delete.html:22
+#: templates/school/school_flag/school_flag_detail.html:22
+#: templates/school/school_managed/base.html:31
+#: templates/school/school_managed/school_managed_confirm_delete.html:23
+#: templates/school/school_managed/school_managed_detail.html:22
+#: templates/school/school_recognition/base.html:31
+#: templates/school/school_recognition/school_recognition_confirm_delete.html:23
+#: templates/school/school_recognition/school_recognition_detail.html:22
+#: templates/school/school_residence/base.html:31
+#: templates/school/school_residence/school_residence_confirm_delete.html:22
+#: templates/school/school_residence/school_residence_detail.html:22
+#: templates/school/school_type/base.html:31
+#: templates/school/school_type/school_type_confirm_delete.html:23
+#: templates/school/school_type/school_type_detail.html:21
+#: templates/school/school_upgradation/base.html:31
+#: templates/school/school_upgradation/school_upgradation_confirm_delete.html:22
+#: templates/school/school_upgradation/school_upgradation_detail.html:23
+msgid "Delete"
+msgstr ""
+
+#: templates/school/area_classification/area_classification_detail.html:18
+#: templates/school/area_classification/area_classification_form.html:26
+#: templates/school/brc/brc_detail.html:21
+#: templates/school/brc/brc_form.html:29
+#: templates/school/crc/crc_detail.html:19
+#: templates/school/crc/crc_form.html:28
+#: templates/school/school/school_detail.html:20
+#: templates/school/school/school_form.html:62
+#: templates/school/school_anganwadi/school_anganwadi_detail.html:20
+#: templates/school/school_anganwadi/school_anganwadi_form.html:34
+#: templates/school/school_brc/school_brc_detail.html:23
+#: templates/school/school_brc/school_brc_form.html:31
+#: templates/school/school_category/school_category_detail.html:21
+#: templates/school/school_category/school_category_form.html:29
+#: templates/school/school_contact_detail/school_contact_detail_detail.html:18
+#: templates/school/school_contact_detail/school_contact_detail_form.html:38
+#: templates/school/school_crc/school_crc_detail.html:22
+#: templates/school/school_crc/school_crc_form.html:32
+#: templates/school/school_detail/school_detail_detail.html:19
+#: templates/school/school_detail/school_detail_form.html:75
+#: templates/school/school_flag/school_flag_detail.html:19
+#: templates/school/school_flag/school_flag_form.html:37
+#: templates/school/school_managed/school_managed_detail.html:19
+#: templates/school/school_managed/school_managed_form.html:31
+#: templates/school/school_recognition/school_recognition_detail.html:19
+#: templates/school/school_recognition/school_recognition_form.html:43
+#: templates/school/school_residence/school_residence_detail.html:19
+#: templates/school/school_residence/school_residence_form.html:35
+#: templates/school/school_type/school_type_detail.html:18
+#: templates/school/school_type/school_type_form.html:28
+#: templates/school/school_upgradation/school_upgradation_detail.html:20
+#: templates/school/school_upgradation/school_upgradation_form.html:34
+msgid "Update"
+msgstr ""
+
+#: templates/school/area_classification/area_classification_form.html:19
+#: templates/school/school/school_form.html:41
+msgid "Area"
+msgstr ""
+
+#: templates/school/area_classification/area_classification_form.html:28
+#: templates/school/brc/brc_form.html:31 templates/school/crc/crc_form.html:30
+#: templates/school/school/school_form.html:64
+#: templates/school/school_anganwadi/school_anganwadi_form.html:36
+#: templates/school/school_brc/school_brc_form.html:33
+#: templates/school/school_category/school_category_form.html:31
+#: templates/school/school_contact_detail/school_contact_detail_form.html:40
+#: templates/school/school_crc/school_crc_form.html:34
+#: templates/school/school_detail/school_detail_form.html:77
+#: templates/school/school_flag/school_flag_form.html:39
+#: templates/school/school_managed/school_managed_form.html:33
+#: templates/school/school_recognition/school_recognition_form.html:45
+#: templates/school/school_residence/school_residence_form.html:37
+#: templates/school/school_type/school_type_form.html:30
+#: templates/school/school_upgradation/school_upgradation_form.html:36
+msgid "Create"
+msgstr ""
+
+#: templates/school/area_classification/area_classification_list.html:14
+msgid "Area classifications"
+msgstr ""
+
+#: templates/school/area_classification/base.html:10
+msgid "school area classification List "
+msgstr ""
+
+#: templates/school/area_classification/base.html:15
+msgid "Create school area classification"
+msgstr ""
+
+#: templates/school/area_classification/base.html:21
+msgid "school area classification"
+msgstr ""
+
+#: templates/school/area_classification/base.html:26
+msgid "Update school area classification detail"
+msgstr ""
+
+#: templates/school/area_classification/object_table_detail.html:9
+#: templates/school/brc/object_table_detail.html:9
+#: templates/school/crc/object_table_detail.html:9
+#: templates/school/school/object_table_detail.html:9
+#: templates/school/school_anganwadi/object_table_detail.html:9
+#: templates/school/school_brc/object_table_detail.html:9
+#: templates/school/school_category/object_table_detail.html:9
+#: templates/school/school_contact_detail/object_table_detail.html:9
+#: templates/school/school_crc/object_table_detail.html:9
+#: templates/school/school_detail/object_table_detail.html:9
+#: templates/school/school_flag/object_table_detail.html:9
+#: templates/school/school_managed/object_table_detail.html:9
+#: templates/school/school_recognition/object_table_detail.html:9
+#: templates/school/school_residence/object_table_detail.html:9
+#: templates/school/school_type/object_table_detail.html:9
+#: templates/school/school_upgradation/object_table_detail.html:9
+msgid "Field"
+msgstr ""
+
+#: templates/school/area_classification/object_table_detail.html:12
+#: templates/school/brc/object_table_detail.html:12
+#: templates/school/crc/object_table_detail.html:12
+#: templates/school/school/object_table_detail.html:12
+#: templates/school/school_anganwadi/object_table_detail.html:12
+#: templates/school/school_brc/object_table_detail.html:12
+#: templates/school/school_category/object_table_detail.html:12
+#: templates/school/school_contact_detail/object_table_detail.html:12
+#: templates/school/school_crc/object_table_detail.html:12
+#: templates/school/school_detail/object_table_detail.html:12
+#: templates/school/school_flag/object_table_detail.html:12
+#: templates/school/school_managed/object_table_detail.html:12
+#: templates/school/school_recognition/object_table_detail.html:12
+#: templates/school/school_residence/object_table_detail.html:12
+#: templates/school/school_type/object_table_detail.html:12
+#: templates/school/school_upgradation/object_table_detail.html:12
+msgid "Value"
+msgstr ""
+
+#: templates/school/area_classification/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual "
+"Area_classification's page."
+msgstr ""
+
+#: templates/school/brc/base.html:10
+msgid "School brc List "
+msgstr ""
+
+#: templates/school/brc/base.html:15
+msgid "Create school brc"
+msgstr ""
+
+#: templates/school/brc/base.html:21
+msgid "School brc"
+msgstr ""
+
+#: templates/school/brc/base.html:26 templates/school/school_brc/base.html:26
+msgid "Update school brc detail"
+msgstr ""
+
+#: templates/school/brc/brc_confirm_delete.html:12
+msgid "Delete this Brc?"
+msgstr ""
+
+#: templates/school/brc/brc_form.html:19 templates/school/crc/crc_form.html:18
+#: templates/school/school_type/school_type_form.html:20
+msgid "Code"
+msgstr ""
+
+#: templates/school/brc/brc_form.html:21
+#: templates/school/school_brc/school_brc_form.html:22
+#: templates/school/school_detail/school_detail_form.html:66
+msgid "Brc"
+msgstr ""
+
+#: templates/school/brc/brc_form.html:23 templates/school/crc/crc_form.html:22
+msgid "block"
+msgstr ""
+
+#: templates/school/brc/brc_list.html:13
+msgid "Brcs"
+msgstr ""
+
+#: templates/school/brc/object_table_list.html:6
+msgid "Click on the primary key value to access the individual Brc's page."
+msgstr ""
+
+#: templates/school/crc/base.html:10
+msgid "School crc List "
+msgstr ""
+
+#: templates/school/crc/base.html:15
+msgid "Create school crc"
+msgstr ""
+
+#: templates/school/crc/base.html:21
+msgid "School crc"
+msgstr ""
+
+#: templates/school/crc/base.html:26 templates/school/school_crc/base.html:26
+msgid "Update school crc detail"
+msgstr ""
+
+#: templates/school/crc/crc_confirm_delete.html:12
+msgid "Delete this Crc?"
+msgstr ""
+
+#: templates/school/crc/crc_form.html:20
+#: templates/school/school_crc/school_crc_form.html:23
+#: templates/school/school_detail/school_detail_form.html:64
+msgid "Crc"
+msgstr ""
+
+#: templates/school/crc/crc_list.html:14
+msgid "Crcs"
+msgstr ""
+
+#: templates/school/crc/object_table_list.html:6
+msgid "Click on the primary key value to access the individual Crc's page."
+msgstr ""
+
+#: templates/school/school/base.html:10
+msgid "School List "
+msgstr ""
+
+#: templates/school/school/base.html:15
+msgid "Create school"
+msgstr ""
+
+#: templates/school/school/base.html:21
+msgid "School"
+msgstr ""
+
+#: templates/school/school/base.html:26
+#: templates/school/school_anganwadi/base.html:26
+msgid "Update school detail"
+msgstr ""
+
+#: templates/school/school/object_table_list.html:6
+msgid "Click on the primary key value to access the individual School's page."
+msgstr ""
+
+#: templates/school/school/school_archive.html:12
+#: templates/school/school/school_archive.html:25
+msgid "School Archive Index"
+msgstr ""
+
+#: templates/school/school/school_archive.html:18
+#: templates/school/school/school_archive_day.html:18
+#: templates/school/school/school_archive_month.html:15
+#: templates/school/school/school_archive_year.html:16
+#: templates/school/school_anganwadi/school_anganwadi_archive.html:18
+#: templates/school/school_anganwadi/school_anganwadi_archive_day.html:18
+#: templates/school/school_anganwadi/school_anganwadi_archive_month.html:15
+#: templates/school/school_anganwadi/school_anganwadi_archive_year.html:16
+#: templates/school/school_brc/school_brc_archive.html:18
+#: templates/school/school_brc/school_brc_archive_day.html:18
+#: templates/school/school_brc/school_brc_archive_month.html:15
+#: templates/school/school_brc/school_brc_archive_year.html:16
+#: templates/school/school_contact_detail/school_contact_detail_archive.html:18
+#: templates/school/school_contact_detail/school_contact_detail_archive_day.html:18
+#: templates/school/school_contact_detail/school_contact_detail_archive_month.html:15
+#: templates/school/school_contact_detail/school_contact_detail_archive_year.html:16
+#: templates/school/school_crc/school_crc_archive.html:18
+#: templates/school/school_crc/school_crc_archive_day.html:18
+#: templates/school/school_crc/school_crc_archive_month.html:15
+#: templates/school/school_crc/school_crc_archive_year.html:16
+#: templates/school/school_detail/school_detail_archive.html:18
+#: templates/school/school_detail/school_detail_archive_day.html:18
+#: templates/school/school_detail/school_detail_archive_month.html:15
+#: templates/school/school_detail/school_detail_archive_year.html:16
+#: templates/school/school_flag/school_flag_archive.html:18
+#: templates/school/school_flag/school_flag_archive_day.html:18
+#: templates/school/school_flag/school_flag_archive_month.html:15
+#: templates/school/school_flag/school_flag_archive_year.html:16
+#: templates/school/school_recognition/school_recognition_archive.html:18
+#: templates/school/school_recognition/school_recognition_archive_day.html:18
+#: templates/school/school_recognition/school_recognition_archive_month.html:15
+#: templates/school/school_recognition/school_recognition_archive_year.html:16
+#: templates/school/school_residence/school_residence_archive.html:18
+#: templates/school/school_residence/school_residence_archive_day.html:18
+#: templates/school/school_residence/school_residence_archive_month.html:15
+#: templates/school/school_residence/school_residence_archive_year.html:16
+#: templates/school/school_upgradation/school_upgradation_archive.html:18
+#: templates/school/school_upgradation/school_upgradation_archive_day.html:18
+#: templates/school/school_upgradation/school_upgradation_archive_month.html:15
+#: templates/school/school_upgradation/school_upgradation_archive_year.html:16
+msgid "Archive Index"
+msgstr ""
+
+#: templates/school/school/school_archive.html:29
+#: templates/school/school_anganwadi/school_anganwadi_archive.html:29
+#: templates/school/school_brc/school_brc_archive.html:29
+#: templates/school/school_contact_detail/school_contact_detail_archive.html:29
+#: templates/school/school_crc/school_crc_archive.html:29
+#: templates/school/school_detail/school_detail_archive.html:29
+#: templates/school/school_flag/school_flag_archive.html:29
+#: templates/school/school_recognition/school_recognition_archive.html:29
+#: templates/school/school_residence/school_residence_archive.html:29
+#: templates/school/school_upgradation/school_upgradation_archive.html:29
+msgid "A top-level index page showing the latest objects, by date."
+msgstr ""
+
+#: templates/school/school/school_archive.html:45
+msgid "Recent Schools"
+msgstr ""
+
+#: templates/school/school/school_archive_day.html:12
+#: templates/school/school/school_archive_day.html:49
+msgid "School Day Archive"
+msgstr ""
+
+#: templates/school/school/school_archive_day.html:26
+#: templates/school/school/school_archive_month.html:23
+#: templates/school/school/school_archive_year.html:24
+#: templates/school/school_anganwadi/school_anganwadi_archive_day.html:26
+#: templates/school/school_anganwadi/school_anganwadi_archive_month.html:23
+#: templates/school/school_anganwadi/school_anganwadi_archive_year.html:24
+#: templates/school/school_brc/school_brc_archive_day.html:26
+#: templates/school/school_brc/school_brc_archive_month.html:23
+#: templates/school/school_brc/school_brc_archive_year.html:24
+#: templates/school/school_contact_detail/school_contact_detail_archive_day.html:26
+#: templates/school/school_contact_detail/school_contact_detail_archive_month.html:23
+#: templates/school/school_contact_detail/school_contact_detail_archive_year.html:24
+#: templates/school/school_crc/school_crc_archive_day.html:26
+#: templates/school/school_crc/school_crc_archive_month.html:23
+#: templates/school/school_crc/school_crc_archive_year.html:24
+#: templates/school/school_detail/school_detail_archive_day.html:26
+#: templates/school/school_detail/school_detail_archive_month.html:23
+#: templates/school/school_detail/school_detail_archive_year.html:24
+#: templates/school/school_flag/school_flag_archive_day.html:26
+#: templates/school/school_flag/school_flag_archive_month.html:23
+#: templates/school/school_flag/school_flag_archive_year.html:24
+#: templates/school/school_recognition/school_recognition_archive_day.html:26
+#: templates/school/school_recognition/school_recognition_archive_month.html:23
+#: templates/school/school_recognition/school_recognition_archive_year.html:24
+#: templates/school/school_residence/school_residence_archive_day.html:26
+#: templates/school/school_residence/school_residence_archive_month.html:23
+#: templates/school/school_residence/school_residence_archive_year.html:24
+#: templates/school/school_upgradation/school_upgradation_archive_day.html:26
+#: templates/school/school_upgradation/school_upgradation_archive_month.html:23
+#: templates/school/school_upgradation/school_upgradation_archive_year.html:24
+msgid "Year Archive"
+msgstr ""
+
+#: templates/school/school/school_archive_day.html:34
+#: templates/school/school/school_archive_month.html:31
+#: templates/school/school_anganwadi/school_anganwadi_archive_day.html:34
+#: templates/school/school_anganwadi/school_anganwadi_archive_month.html:31
+#: templates/school/school_brc/school_brc_archive_day.html:34
+#: templates/school/school_brc/school_brc_archive_month.html:31
+#: templates/school/school_contact_detail/school_contact_detail_archive_day.html:34
+#: templates/school/school_contact_detail/school_contact_detail_archive_month.html:31
+#: templates/school/school_crc/school_crc_archive_day.html:34
+#: templates/school/school_crc/school_crc_archive_month.html:31
+#: templates/school/school_detail/school_detail_archive_day.html:34
+#: templates/school/school_detail/school_detail_archive_month.html:31
+#: templates/school/school_flag/school_flag_archive_day.html:34
+#: templates/school/school_flag/school_flag_archive_month.html:31
+#: templates/school/school_recognition/school_recognition_archive_day.html:34
+#: templates/school/school_recognition/school_recognition_archive_month.html:31
+#: templates/school/school_residence/school_residence_archive_day.html:34
+#: templates/school/school_residence/school_residence_archive_month.html:31
+#: templates/school/school_upgradation/school_upgradation_archive_day.html:34
+#: templates/school/school_upgradation/school_upgradation_archive_month.html:31
+msgid "Month Archive"
+msgstr ""
+
+#: templates/school/school/school_archive_day.html:42
+#: templates/school/school_anganwadi/school_anganwadi_archive_day.html:42
+#: templates/school/school_brc/school_brc_archive_day.html:42
+#: templates/school/school_contact_detail/school_contact_detail_archive_day.html:42
+#: templates/school/school_crc/school_crc_archive_day.html:42
+#: templates/school/school_detail/school_detail_archive_day.html:42
+#: templates/school/school_flag/school_flag_archive_day.html:42
+#: templates/school/school_recognition/school_recognition_archive_day.html:42
+#: templates/school/school_residence/school_residence_archive_day.html:42
+#: templates/school/school_upgradation/school_upgradation_archive_day.html:42
+msgid "Day Archive"
+msgstr ""
+
+#: templates/school/school/school_archive_day.html:57
+#, python-format
+msgid ""
+"\n"
+"      Schools created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/school/school/school_archive_month.html:38
+msgid "School Month Archive"
+msgstr ""
+
+#: templates/school/school/school_archive_month.html:42
+#: templates/school/school_anganwadi/school_anganwadi_archive_month.html:42
+#: templates/school/school_brc/school_brc_archive_month.html:42
+#: templates/school/school_contact_detail/school_contact_detail_archive_month.html:42
+#: templates/school/school_crc/school_crc_archive_month.html:42
+#: templates/school/school_detail/school_detail_archive_month.html:42
+#: templates/school/school_flag/school_flag_archive_month.html:42
+#: templates/school/school_recognition/school_recognition_archive_month.html:42
+#: templates/school/school_residence/school_residence_archive_month.html:42
+#: templates/school/school_upgradation/school_upgradation_archive_month.html:42
+msgid "A monthly archive page showing all objects in a given month."
+msgstr ""
+
+#: templates/school/school/school_archive_month.html:58
+#, python-format
+msgid ""
+"\n"
+"      Schools created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/school/school/school_archive_week.html:12
+#: templates/school/school/school_archive_week.html:16
+msgid "School Week Archive"
+msgstr ""
+
+#: templates/school/school/school_archive_week.html:20
+#: templates/school/school_anganwadi/school_anganwadi_archive_week.html:20
+#: templates/school/school_brc/school_brc_archive_week.html:20
+#: templates/school/school_contact_detail/school_contact_detail_archive_week.html:20
+#: templates/school/school_crc/school_crc_archive_week.html:20
+#: templates/school/school_detail/school_detail_archive_week.html:20
+#: templates/school/school_flag/school_flag_archive_week.html:20
+#: templates/school/school_recognition/school_recognition_archive_week.html:20
+#: templates/school/school_residence/school_residence_archive_week.html:20
+#: templates/school/school_upgradation/school_upgradation_archive_week.html:20
+msgid "A weekly archive page showing all objects in a given week."
+msgstr ""
+
+#: templates/school/school/school_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      Schools created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/school/school/school_archive_year.html:32
+msgid "School Year Archive"
+msgstr ""
+
+#: templates/school/school/school_archive_year.html:36
+#: templates/school/school_anganwadi/school_anganwadi_archive_year.html:36
+#: templates/school/school_brc/school_brc_archive_year.html:36
+#: templates/school/school_contact_detail/school_contact_detail_archive_year.html:36
+#: templates/school/school_crc/school_crc_archive_year.html:36
+#: templates/school/school_detail/school_detail_archive_year.html:36
+#: templates/school/school_flag/school_flag_archive_year.html:36
+#: templates/school/school_recognition/school_recognition_archive_year.html:36
+#: templates/school/school_residence/school_residence_archive_year.html:36
+#: templates/school/school_upgradation/school_upgradation_archive_year.html:36
+msgid "A yearly archive page showing all available months in a given year."
+msgstr ""
+
+#: templates/school/school/school_archive_year.html:40
+#: templates/school/school_anganwadi/school_anganwadi_archive_year.html:40
+#: templates/school/school_brc/school_brc_archive_year.html:40
+#: templates/school/school_contact_detail/school_contact_detail_archive_year.html:40
+#: templates/school/school_crc/school_crc_archive_year.html:40
+#: templates/school/school_detail/school_detail_archive_year.html:40
+#: templates/school/school_flag/school_flag_archive_year.html:40
+#: templates/school/school_recognition/school_recognition_archive_year.html:40
+#: templates/school/school_residence/school_residence_archive_year.html:40
+#: templates/school/school_upgradation/school_upgradation_archive_year.html:40
+msgid "By Month"
+msgstr ""
+
+#: templates/school/school/school_archive_year.html:52
+#, python-format
+msgid ""
+"\n"
+"      Schools created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/school/school/school_confirm_delete.html:11
+msgid "Delete this School?"
+msgstr ""
+
+#: templates/school/school/school_form.html:21
+msgid "School id"
+msgstr ""
+
+#: templates/school/school/school_form.html:23
+msgid "School code"
+msgstr ""
+
+#: templates/school/school/school_form.html:25
+msgid "School name"
+msgstr ""
+
+#: templates/school/school/school_form.html:27
+msgid "Medium1"
+msgstr ""
+
+#: templates/school/school/school_form.html:29
+msgid "Medium2"
+msgstr ""
+
+#: templates/school/school/school_form.html:31
+msgid "Medium3"
+msgstr ""
+
+#: templates/school/school/school_form.html:33
+msgid "Medium4"
+msgstr ""
+
+#: templates/school/school/school_form.html:35
+msgid "Habitation"
+msgstr ""
+
+#: templates/school/school/school_form.html:37
+msgid "District"
+msgstr ""
+
+#: templates/school/school/school_form.html:39
+msgid "Block"
+msgstr ""
+
+#: templates/school/school/school_form.html:43
+msgid "Education block"
+msgstr ""
+
+#: templates/school/school/school_form.html:45
+msgid "School category"
+msgstr ""
+
+#: templates/school/school/school_form.html:47
+#: templates/school/school_type/school_type_form.html:22
+msgid "School type"
+msgstr ""
+
+#: templates/school/school/school_form.html:49
+#: templates/school/school_managed/school_managed_list.html:14
+msgid "School managed"
+msgstr ""
+
+#: templates/school/school/school_form.html:51
+msgid "School total count"
+msgstr ""
+
+#: templates/school/school/school_form.html:53
+msgid "Student id count"
+msgstr ""
+
+#: templates/school/school/school_list.html:14
+msgid "Schools"
+msgstr ""
+
+#: templates/school/school_anganwadi/base.html:10
+msgid "School anganwadi list "
+msgstr ""
+
+#: templates/school/school_anganwadi/base.html:15
+msgid "Create school anganwadi "
+msgstr ""
+
+#: templates/school/school_anganwadi/base.html:21
+msgid "School "
+msgstr ""
+
+#: templates/school/school_anganwadi/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual School_anganwadi's "
+"page."
+msgstr ""
+
+#: templates/school/school_anganwadi/school_anganwadi_archive.html:12
+#: templates/school/school_anganwadi/school_anganwadi_archive.html:25
+msgid "School_anganwadi Archive Index"
+msgstr ""
+
+#: templates/school/school_anganwadi/school_anganwadi_archive.html:45
+msgid "Recent School_anganwadis"
+msgstr ""
+
+#: templates/school/school_anganwadi/school_anganwadi_archive_day.html:12
+#: templates/school/school_anganwadi/school_anganwadi_archive_day.html:49
+msgid "School_anganwadi Day Archive"
+msgstr ""
+
+#: templates/school/school_anganwadi/school_anganwadi_archive_day.html:57
+#, python-format
+msgid ""
+"\n"
+"      School_anganwadis created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_anganwadi/school_anganwadi_archive_month.html:38
+msgid "School_anganwadi Month Archive"
+msgstr ""
+
+#: templates/school/school_anganwadi/school_anganwadi_archive_month.html:58
+#, python-format
+msgid ""
+"\n"
+"      School_anganwadis created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_anganwadi/school_anganwadi_archive_week.html:12
+#: templates/school/school_anganwadi/school_anganwadi_archive_week.html:16
+msgid "School_anganwadi Week Archive"
+msgstr ""
+
+#: templates/school/school_anganwadi/school_anganwadi_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      School_anganwadis created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_anganwadi/school_anganwadi_archive_year.html:32
+msgid "School_anganwadi Year Archive"
+msgstr ""
+
+#: templates/school/school_anganwadi/school_anganwadi_archive_year.html:52
+#, python-format
+msgid ""
+"\n"
+"      School_anganwadis created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_anganwadi/school_anganwadi_confirm_delete.html:11
+msgid "Delete this School_anganwadi?"
+msgstr ""
+
+#: templates/school/school_anganwadi/school_anganwadi_form.html:21
+#: templates/school/school_brc/school_brc_form.html:20
+#: templates/school/school_contact_detail/school_contact_detail_form.html:18
+#: templates/school/school_crc/school_crc_form.html:21
+#: templates/school/school_detail/school_detail_form.html:20
+#: templates/school/school_flag/school_flag_form.html:21
+#: templates/school/school_recognition/school_recognition_form.html:18
+#: templates/school/school_residence/school_residence_form.html:19
+#: templates/school/school_upgradation/school_upgradation_form.html:20
+msgid "School key"
+msgstr ""
+
+#: templates/school/school_anganwadi/school_anganwadi_form.html:23
+#: templates/school/school_detail/school_detail_form.html:69
+msgid "Anganwadi"
+msgstr ""
+
+#: templates/school/school_anganwadi/school_anganwadi_form.html:25
+msgid "Student count"
+msgstr ""
+
+#: templates/school/school_anganwadi/school_anganwadi_form.html:27
+msgid "Teacher count"
+msgstr ""
+
+#: templates/school/school_anganwadi/school_anganwadi_list.html:14
+msgid "School anganwadis"
+msgstr ""
+
+#: templates/school/school_brc/base.html:10
+msgid "School brc list "
+msgstr ""
+
+#: templates/school/school_brc/base.html:15
+msgid "Create school brc "
+msgstr ""
+
+#: templates/school/school_brc/base.html:21
+msgid "School brc "
+msgstr ""
+
+#: templates/school/school_brc/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual School_brc's page."
+msgstr ""
+
+#: templates/school/school_brc/school_brc_archive.html:12
+#: templates/school/school_brc/school_brc_archive.html:25
+msgid "School_brc Archive Index"
+msgstr ""
+
+#: templates/school/school_brc/school_brc_archive.html:45
+msgid "Recent School_brcs"
+msgstr ""
+
+#: templates/school/school_brc/school_brc_archive_day.html:12
+#: templates/school/school_brc/school_brc_archive_day.html:49
+msgid "School_brc Day Archive"
+msgstr ""
+
+#: templates/school/school_brc/school_brc_archive_day.html:57
+#, python-format
+msgid ""
+"\n"
+"      School_brcs created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_brc/school_brc_archive_month.html:38
+msgid "School_brc Month Archive"
+msgstr ""
+
+#: templates/school/school_brc/school_brc_archive_month.html:58
+#, python-format
+msgid ""
+"\n"
+"      School_brcs created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_brc/school_brc_archive_week.html:12
+#: templates/school/school_brc/school_brc_archive_week.html:16
+msgid "School_brc Week Archive"
+msgstr ""
+
+#: templates/school/school_brc/school_brc_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      School_brcs created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_brc/school_brc_archive_year.html:32
+msgid "School_brc Year Archive"
+msgstr ""
+
+#: templates/school/school_brc/school_brc_archive_year.html:52
+#, python-format
+msgid ""
+"\n"
+"      School_brcs created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_brc/school_brc_confirm_delete.html:11
+msgid "Delete this School_brc?"
+msgstr ""
+
+#: templates/school/school_brc/school_brc_form.html:25
+msgid "Distance brc"
+msgstr ""
+
+#: templates/school/school_brc/school_brc_list.html:15
+msgid "School_brcs"
+msgstr ""
+
+#: templates/school/school_category/base.html:10
+msgid "School category list "
+msgstr ""
+
+#: templates/school/school_category/base.html:15
+msgid "Create school category "
+msgstr ""
+
+#: templates/school/school_category/base.html:21
+msgid "School category "
+msgstr ""
+
+#: templates/school/school_category/base.html:26
+msgid "Update school category detail"
+msgstr ""
+
+#: templates/school/school_category/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual School_category's "
+"page."
+msgstr ""
+
+#: templates/school/school_category/school_category_confirm_delete.html:12
+msgid "Delete this School category?"
+msgstr ""
+
+#: templates/school/school_category/school_category_form.html:19
+msgid "Category code"
+msgstr ""
+
+#: templates/school/school_category/school_category_form.html:21
+msgid "Category"
+msgstr ""
+
+#: templates/school/school_category/school_category_list.html:14
+msgid "School categorys"
+msgstr ""
+
+#: templates/school/school_contact_detail/base.html:10
+msgid "School contact_detail list "
+msgstr ""
+
+#: templates/school/school_contact_detail/base.html:15
+msgid "Create school contact detail "
+msgstr ""
+
+#: templates/school/school_contact_detail/base.html:21
+msgid "School contact detail "
+msgstr ""
+
+#: templates/school/school_contact_detail/base.html:26
+msgid "Update school contact detail"
+msgstr ""
+
+#: templates/school/school_contact_detail/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual "
+"School_contact_detail's page."
+msgstr ""
+
+#: templates/school/school_contact_detail/school_contact_detail_archive.html:12
+#: templates/school/school_contact_detail/school_contact_detail_archive.html:25
+msgid "School_contact_detail Archive Index"
+msgstr ""
+
+#: templates/school/school_contact_detail/school_contact_detail_archive.html:45
+msgid "Recent School_contact_details"
+msgstr ""
+
+#: templates/school/school_contact_detail/school_contact_detail_archive_day.html:12
+#: templates/school/school_contact_detail/school_contact_detail_archive_day.html:49
+msgid "School_contact_detail Day Archive"
+msgstr ""
+
+#: templates/school/school_contact_detail/school_contact_detail_archive_day.html:57
+#, python-format
+msgid ""
+"\n"
+"      School_contact_details created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_contact_detail/school_contact_detail_archive_month.html:38
+msgid "School_contact_detail Month Archive"
+msgstr ""
+
+#: templates/school/school_contact_detail/school_contact_detail_archive_month.html:58
+#, python-format
+msgid ""
+"\n"
+"      School_contact_details created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_contact_detail/school_contact_detail_archive_week.html:12
+#: templates/school/school_contact_detail/school_contact_detail_archive_week.html:16
+msgid "School_contact_detail Week Archive"
+msgstr ""
+
+#: templates/school/school_contact_detail/school_contact_detail_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      School_contact_details created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_contact_detail/school_contact_detail_archive_year.html:32
+msgid "School_contact_detail Year Archive"
+msgstr ""
+
+#: templates/school/school_contact_detail/school_contact_detail_archive_year.html:52
+#, python-format
+msgid ""
+"\n"
+"      School_contact_details created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_contact_detail/school_contact_detail_confirm_delete.html:11
+msgid "Delete this School contact detail?"
+msgstr ""
+
+#: templates/school/school_contact_detail/school_contact_detail_form.html:20
+msgid "Office landline"
+msgstr ""
+
+#: templates/school/school_contact_detail/school_contact_detail_form.html:22
+msgid "Office mobile"
+msgstr ""
+
+#: templates/school/school_contact_detail/school_contact_detail_form.html:24
+msgid "Office email"
+msgstr ""
+
+#: templates/school/school_contact_detail/school_contact_detail_form.html:27
+msgid "Hm landline"
+msgstr ""
+
+#: templates/school/school_contact_detail/school_contact_detail_form.html:29
+msgid "Hm mobile"
+msgstr ""
+
+#: templates/school/school_contact_detail/school_contact_detail_form.html:31
+msgid "Hm email"
+msgstr ""
+
+#: templates/school/school_contact_detail/school_contact_detail_list.html:13
+msgid "School_contact_details"
+msgstr ""
+
+#: templates/school/school_crc/base.html:10
+msgid "School crc list "
+msgstr ""
+
+#: templates/school/school_crc/base.html:15
+msgid "Create school crc "
+msgstr ""
+
+#: templates/school/school_crc/base.html:21
+msgid "School crc "
+msgstr ""
+
+#: templates/school/school_crc/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual School_crc's page."
+msgstr ""
+
+#: templates/school/school_crc/school_crc_archive.html:12
+#: templates/school/school_crc/school_crc_archive.html:25
+msgid "School_crc Archive Index"
+msgstr ""
+
+#: templates/school/school_crc/school_crc_archive.html:45
+msgid "Recent School_crcs"
+msgstr ""
+
+#: templates/school/school_crc/school_crc_archive_day.html:12
+#: templates/school/school_crc/school_crc_archive_day.html:49
+msgid "School_crc Day Archive"
+msgstr ""
+
+#: templates/school/school_crc/school_crc_archive_day.html:57
+#, python-format
+msgid ""
+"\n"
+"      School_crcs created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_crc/school_crc_archive_month.html:38
+msgid "School_crc Month Archive"
+msgstr ""
+
+#: templates/school/school_crc/school_crc_archive_month.html:58
+#, python-format
+msgid ""
+"\n"
+"      School_crcs created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_crc/school_crc_archive_week.html:12
+#: templates/school/school_crc/school_crc_archive_week.html:16
+msgid "School_crc Week Archive"
+msgstr ""
+
+#: templates/school/school_crc/school_crc_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      School_crcs created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_crc/school_crc_archive_year.html:32
+msgid "School_crc Year Archive"
+msgstr ""
+
+#: templates/school/school_crc/school_crc_archive_year.html:52
+#, python-format
+msgid ""
+"\n"
+"      School_crcs created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_crc/school_crc_confirm_delete.html:11
+msgid "Delete this School crc?"
+msgstr ""
+
+#: templates/school/school_crc/school_crc_form.html:25
+msgid "Distance crc"
+msgstr ""
+
+#: templates/school/school_crc/school_crc_list.html:13
+msgid "School crcs"
+msgstr ""
+
+#: templates/school/school_detail/base.html:10
+msgid "School detail list "
+msgstr ""
+
+#: templates/school/school_detail/base.html:15
+msgid "Create school detail "
+msgstr ""
+
+#: templates/school/school_detail/base.html:21
+msgid "School detail "
+msgstr ""
+
+#: templates/school/school_detail/base.html:26
+msgid "Update school detail detail"
+msgstr ""
+
+#: templates/school/school_detail/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual School_detail's page."
+msgstr ""
+
+#: templates/school/school_detail/school_detail_archive.html:12
+#: templates/school/school_detail/school_detail_archive.html:25
+msgid "School_detail Archive Index"
+msgstr ""
+
+#: templates/school/school_detail/school_detail_archive.html:45
+msgid "Recent School_details"
+msgstr ""
+
+#: templates/school/school_detail/school_detail_archive_day.html:12
+#: templates/school/school_detail/school_detail_archive_day.html:49
+msgid "School_detail Day Archive"
+msgstr ""
+
+#: templates/school/school_detail/school_detail_archive_day.html:57
+#, python-format
+msgid ""
+"\n"
+"      School_details created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_detail/school_detail_archive_month.html:38
+msgid "School_detail Month Archive"
+msgstr ""
+
+#: templates/school/school_detail/school_detail_archive_month.html:58
+#, python-format
+msgid ""
+"\n"
+"      School_details created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_detail/school_detail_archive_week.html:12
+#: templates/school/school_detail/school_detail_archive_week.html:16
+msgid "School_detail Week Archive"
+msgstr ""
+
+#: templates/school/school_detail/school_detail_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      School_details created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_detail/school_detail_archive_year.html:32
+msgid "School_detail Year Archive"
+msgstr ""
+
+#: templates/school/school_detail/school_detail_archive_year.html:52
+#, python-format
+msgid ""
+"\n"
+"      School_details created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_detail/school_detail_confirm_delete.html:12
+msgid "Delete this School detail?"
+msgstr ""
+
+#: templates/school/school_detail/school_detail_form.html:22
+msgid "Village ward"
+msgstr ""
+
+#: templates/school/school_detail/school_detail_form.html:24
+msgid "Pincode"
+msgstr ""
+
+#: templates/school/school_detail/school_detail_form.html:26
+msgid "Panchayat name"
+msgstr ""
+
+#: templates/school/school_detail/school_detail_form.html:28
+msgid "Municipality"
+msgstr ""
+
+#: templates/school/school_detail/school_detail_form.html:30
+msgid "City"
+msgstr ""
+
+#: templates/school/school_detail/school_detail_form.html:32
+msgid "Lowest class"
+msgstr ""
+
+#: templates/school/school_detail/school_detail_form.html:34
+msgid "Highest class"
+msgstr ""
+
+#: templates/school/school_detail/school_detail_form.html:37
+msgid "Road"
+msgstr ""
+
+#: templates/school/school_detail/school_detail_form.html:39
+msgid "Year"
+msgstr ""
+
+#: templates/school/school_detail/school_detail_form.html:41
+msgid "Spl school"
+msgstr ""
+
+#: templates/school/school_detail/school_detail_form.html:43
+msgid "Shift school"
+msgstr ""
+
+#: templates/school/school_detail/school_detail_form.html:46
+msgid "Latitude"
+msgstr ""
+
+#: templates/school/school_detail/school_detail_form.html:48
+msgid "Longitude"
+msgstr ""
+
+#: templates/school/school_detail/school_detail_form.html:50
+msgid "Assembly"
+msgstr ""
+
+#: templates/school/school_detail/school_detail_form.html:52
+msgid "Parliamentary"
+msgstr ""
+
+#: templates/school/school_detail/school_detail_form.html:54
+msgid "Contact detail"
+msgstr ""
+
+#: templates/school/school_detail/school_detail_form.html:56
+msgid "Recognition"
+msgstr ""
+
+#: templates/school/school_detail/school_detail_form.html:59
+msgid "Upgradation"
+msgstr ""
+
+#: templates/school/school_detail/school_detail_form.html:61
+#: templates/school/school_residence/school_residence_form.html:21
+msgid "Residential"
+msgstr ""
+
+#: templates/school/school_detail/school_detail_list.html:13
+msgid "School details"
+msgstr ""
+
+#: templates/school/school_flag/base.html:10
+msgid "School flag list "
+msgstr ""
+
+#: templates/school/school_flag/base.html:15
+msgid "Create school flag "
+msgstr ""
+
+#: templates/school/school_flag/base.html:21
+msgid "School flag "
+msgstr ""
+
+#: templates/school/school_flag/base.html:26
+msgid "Update school flag detail"
+msgstr ""
+
+#: templates/school/school_flag/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual School_flag's page."
+msgstr ""
+
+#: templates/school/school_flag/school_flag_archive.html:12
+#: templates/school/school_flag/school_flag_archive.html:25
+msgid "School_flag Archive Index"
+msgstr ""
+
+#: templates/school/school_flag/school_flag_archive.html:45
+msgid "Recent School_flags"
+msgstr ""
+
+#: templates/school/school_flag/school_flag_archive_day.html:12
+#: templates/school/school_flag/school_flag_archive_day.html:49
+msgid "School_flag Day Archive"
+msgstr ""
+
+#: templates/school/school_flag/school_flag_archive_day.html:57
+#, python-format
+msgid ""
+"\n"
+"      School_flags created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_flag/school_flag_archive_month.html:38
+msgid "School_flag Month Archive"
+msgstr ""
+
+#: templates/school/school_flag/school_flag_archive_month.html:58
+#, python-format
+msgid ""
+"\n"
+"      School_flags created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_flag/school_flag_archive_week.html:12
+#: templates/school/school_flag/school_flag_archive_week.html:16
+msgid "School_flag Week Archive"
+msgstr ""
+
+#: templates/school/school_flag/school_flag_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      School_flags created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_flag/school_flag_archive_year.html:32
+msgid "School_flag Year Archive"
+msgstr ""
+
+#: templates/school/school_flag/school_flag_archive_year.html:52
+#, python-format
+msgid ""
+"\n"
+"      School_flags created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_flag/school_flag_confirm_delete.html:11
+msgid "Delete this School flag?"
+msgstr ""
+
+#: templates/school/school_flag/school_flag_form.html:23
+msgid "Area flag"
+msgstr ""
+
+#: templates/school/school_flag/school_flag_form.html:25
+msgid "Education block flag"
+msgstr ""
+
+#: templates/school/school_flag/school_flag_form.html:27
+msgid "School type flag"
+msgstr ""
+
+#: templates/school/school_flag/school_flag_form.html:29
+msgid "School managed flag"
+msgstr ""
+
+#: templates/school/school_flag/school_flag_form.html:31
+msgid "School category flag"
+msgstr ""
+
+#: templates/school/school_flag/school_flag_list.html:14
+msgid "School flags"
+msgstr ""
+
+#: templates/school/school_managed/base.html:10
+msgid "School managed list "
+msgstr ""
+
+#: templates/school/school_managed/base.html:15
+msgid "Create school managed "
+msgstr ""
+
+#: templates/school/school_managed/base.html:21
+msgid "School managed "
+msgstr ""
+
+#: templates/school/school_managed/base.html:26
+msgid "Update school managed detail"
+msgstr ""
+
+#: templates/school/school_managed/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual School_managed's "
+"page."
+msgstr ""
+
+#: templates/school/school_managed/school_managed_confirm_delete.html:12
+msgid "Delete this School managed?"
+msgstr ""
+
+#: templates/school/school_managed/school_managed_form.html:20
+msgid "Management code"
+msgstr ""
+
+#: templates/school/school_managed/school_managed_form.html:22
+msgid "Management"
+msgstr ""
+
+#: templates/school/school_recognition/base.html:10
+msgid "School recognition list "
+msgstr ""
+
+#: templates/school/school_recognition/base.html:15
+msgid "Create school recognition "
+msgstr ""
+
+#: templates/school/school_recognition/base.html:21
+msgid "School recognition "
+msgstr ""
+
+#: templates/school/school_recognition/base.html:26
+msgid "Update school recognition detail"
+msgstr ""
+
+#: templates/school/school_recognition/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual School_recognition's "
+"page."
+msgstr ""
+
+#: templates/school/school_recognition/school_recognition_archive.html:12
+#: templates/school/school_recognition/school_recognition_archive.html:25
+msgid "School_recognition Archive Index"
+msgstr ""
+
+#: templates/school/school_recognition/school_recognition_archive.html:45
+msgid "Recent School_recognitions"
+msgstr ""
+
+#: templates/school/school_recognition/school_recognition_archive_day.html:12
+#: templates/school/school_recognition/school_recognition_archive_day.html:49
+msgid "School_recognition Day Archive"
+msgstr ""
+
+#: templates/school/school_recognition/school_recognition_archive_day.html:57
+#, python-format
+msgid ""
+"\n"
+"      School_recognitions created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_recognition/school_recognition_archive_month.html:38
+msgid "School_recognition Month Archive"
+msgstr ""
+
+#: templates/school/school_recognition/school_recognition_archive_month.html:58
+#, python-format
+msgid ""
+"\n"
+"      School_recognitions created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_recognition/school_recognition_archive_week.html:12
+#: templates/school/school_recognition/school_recognition_archive_week.html:16
+msgid "School_recognition Week Archive"
+msgstr ""
+
+#: templates/school/school_recognition/school_recognition_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      School_recognitions created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_recognition/school_recognition_archive_year.html:32
+msgid "School_recognition Year Archive"
+msgstr ""
+
+#: templates/school/school_recognition/school_recognition_archive_year.html:52
+#, python-format
+msgid ""
+"\n"
+"      School_recognitions created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_recognition/school_recognition_confirm_delete.html:12
+msgid "Delete this School_recognition?"
+msgstr ""
+
+#: templates/school/school_recognition/school_recognition_form.html:20
+msgid "Initial primary"
+msgstr ""
+
+#: templates/school/school_recognition/school_recognition_form.html:22
+msgid "Initial up"
+msgstr ""
+
+#: templates/school/school_recognition/school_recognition_form.html:24
+msgid "Initial secondary"
+msgstr ""
+
+#: templates/school/school_recognition/school_recognition_form.html:26
+msgid "Initial hs"
+msgstr ""
+
+#: templates/school/school_recognition/school_recognition_form.html:28
+msgid "Renewal primary"
+msgstr ""
+
+#: templates/school/school_recognition/school_recognition_form.html:30
+msgid "Renewal up"
+msgstr ""
+
+#: templates/school/school_recognition/school_recognition_form.html:32
+msgid "Renewal secondary"
+msgstr ""
+
+#: templates/school/school_recognition/school_recognition_form.html:34
+msgid "Renewal hs"
+msgstr ""
+
+#: templates/school/school_recognition/school_recognition_list.html:14
+msgid "School recognitions"
+msgstr ""
+
+#: templates/school/school_residence/base.html:10
+msgid "School residence list "
+msgstr ""
+
+#: templates/school/school_residence/base.html:15
+msgid "Create school residence "
+msgstr ""
+
+#: templates/school/school_residence/base.html:21
+msgid "School residence "
+msgstr ""
+
+#: templates/school/school_residence/base.html:26
+msgid "Update school residence detail"
+msgstr ""
+
+#: templates/school/school_residence/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual School_residence's "
+"page."
+msgstr ""
+
+#: templates/school/school_residence/school_residence_archive.html:12
+#: templates/school/school_residence/school_residence_archive.html:25
+msgid "School_residence Archive Index"
+msgstr ""
+
+#: templates/school/school_residence/school_residence_archive.html:45
+msgid "Recent School_residences"
+msgstr ""
+
+#: templates/school/school_residence/school_residence_archive_day.html:12
+#: templates/school/school_residence/school_residence_archive_day.html:49
+msgid "School_residence Day Archive"
+msgstr ""
+
+#: templates/school/school_residence/school_residence_archive_day.html:57
+#, python-format
+msgid ""
+"\n"
+"      School_residences created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_residence/school_residence_archive_month.html:38
+msgid "School_residence Month Archive"
+msgstr ""
+
+#: templates/school/school_residence/school_residence_archive_month.html:58
+#, python-format
+msgid ""
+"\n"
+"      School_residences created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_residence/school_residence_archive_week.html:12
+#: templates/school/school_residence/school_residence_archive_week.html:16
+msgid "School_residence Week Archive"
+msgstr ""
+
+#: templates/school/school_residence/school_residence_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      School_residences created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_residence/school_residence_archive_year.html:32
+msgid "School_residence Year Archive"
+msgstr ""
+
+#: templates/school/school_residence/school_residence_archive_year.html:52
+#, python-format
+msgid ""
+"\n"
+"      School_residences created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_residence/school_residence_confirm_delete.html:11
+msgid "Delete this School residence?"
+msgstr ""
+
+#: templates/school/school_residence/school_residence_form.html:23
+msgid "Primary"
+msgstr ""
+
+#: templates/school/school_residence/school_residence_form.html:25
+msgid "Up"
+msgstr ""
+
+#: templates/school/school_residence/school_residence_form.html:27
+msgid "Secondary"
+msgstr ""
+
+#: templates/school/school_residence/school_residence_form.html:29
+msgid "Hs"
+msgstr ""
+
+#: templates/school/school_residence/school_residence_list.html:14
+msgid "School residences"
+msgstr ""
+
+#: templates/school/school_type/base.html:10
+msgid "School type list "
+msgstr ""
+
+#: templates/school/school_type/base.html:15
+msgid "Create school type "
+msgstr ""
+
+#: templates/school/school_type/base.html:21
+msgid "School type "
+msgstr ""
+
+#: templates/school/school_type/base.html:26
+msgid "Update school type detail"
+msgstr ""
+
+#: templates/school/school_type/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual School_type's page."
+msgstr ""
+
+#: templates/school/school_type/school_type_confirm_delete.html:12
+msgid "Delete this School type?"
+msgstr ""
+
+#: templates/school/school_type/school_type_list.html:13
+msgid "School types"
+msgstr ""
+
+#: templates/school/school_upgradation/base.html:10
+msgid "School upgradation list "
+msgstr ""
+
+#: templates/school/school_upgradation/base.html:15
+msgid "Create school upgradation "
+msgstr ""
+
+#: templates/school/school_upgradation/base.html:21
+msgid "School upgradation "
+msgstr ""
+
+#: templates/school/school_upgradation/base.html:26
+msgid "Update school upgradation detail"
+msgstr ""
+
+#: templates/school/school_upgradation/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual School_upgradation's "
+"page."
+msgstr ""
+
+#: templates/school/school_upgradation/school_upgradation_archive.html:12
+#: templates/school/school_upgradation/school_upgradation_archive.html:25
+msgid "School_upgradation Archive Index"
+msgstr ""
+
+#: templates/school/school_upgradation/school_upgradation_archive.html:45
+msgid "Recent School_upgradations"
+msgstr ""
+
+#: templates/school/school_upgradation/school_upgradation_archive_day.html:12
+#: templates/school/school_upgradation/school_upgradation_archive_day.html:49
+msgid "School_upgradation Day Archive"
+msgstr ""
+
+#: templates/school/school_upgradation/school_upgradation_archive_day.html:57
+#, python-format
+msgid ""
+"\n"
+"      School_upgradations created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_upgradation/school_upgradation_archive_month.html:38
+msgid "School_upgradation Month Archive"
+msgstr ""
+
+#: templates/school/school_upgradation/school_upgradation_archive_month.html:58
+#, python-format
+msgid ""
+"\n"
+"      School_upgradations created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_upgradation/school_upgradation_archive_week.html:12
+#: templates/school/school_upgradation/school_upgradation_archive_week.html:16
+msgid "School_upgradation Week Archive"
+msgstr ""
+
+#: templates/school/school_upgradation/school_upgradation_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      School_upgradations created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_upgradation/school_upgradation_archive_year.html:32
+msgid "School_upgradation Year Archive"
+msgstr ""
+
+#: templates/school/school_upgradation/school_upgradation_archive_year.html:52
+#, python-format
+msgid ""
+"\n"
+"      School_upgradations created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/school/school_upgradation/school_upgradation_confirm_delete.html:11
+msgid "Delete this School upgradation?"
+msgstr ""
+
+#: templates/school/school_upgradation/school_upgradation_form.html:22
+msgid "Primary to up"
+msgstr ""
+
+#: templates/school/school_upgradation/school_upgradation_form.html:24
+msgid "Elementary to secondary"
+msgstr ""
+
+#: templates/school/school_upgradation/school_upgradation_form.html:26
+msgid "Secondary to hs"
+msgstr ""
+
+#: templates/school/school_upgradation/school_upgradation_list.html:14
+msgid "School upgradations"
+msgstr ""

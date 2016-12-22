@@ -1,0 +1,70 @@
+{% load i18n %}
+
+<p>
+  {% trans "Click on the primary key value to access the individual School's page." %}
+</p>
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        Id
+      </th>
+      
+        <th>
+          School Code
+        </th>
+      
+        <th>
+          School Name
+        </th>
+      
+        <th>
+          District
+        </th>
+      
+        <th>
+          Block
+        </th>
+      
+        <th>
+          Habitation
+        </th>
+      
+        <th>
+          Management
+        </th>
+      
+        <th>
+          Student Count
+        </th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+      <tr>
+        <td>
+          <a href='{% url "baseapp_school_detail" pk=object.pk %}'>
+            {{ object.id|stringformat:".3d" }}
+          </a>
+        </td>
+        
+          <td>{{ object.school_code }}</td>
+        
+          <td>{{ object.school_name }}</td>
+        
+          <td>{{ object.district }}</td>
+        
+          <td>{{ object.block }}</td>
+        
+          <td>{{ object.habitation }}</td>
+        
+          <td>{{ object.management }}</td>
+        
+          <td>{{ object.student_id_count }}</td>
+        
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+

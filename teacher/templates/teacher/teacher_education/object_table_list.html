@@ -1,0 +1,62 @@
+
+
+{% load i18n %}
+
+<p>
+  {% trans "Click on the primary key value to access the individual Teacher_education's page." %}
+</p>
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        id
+      </th>
+      
+        <th>
+          Teacher Key
+        </th>
+      
+        <th>
+          Qualification
+        </th>
+      
+        <th>
+          Subject
+        </th>
+      
+        <th>
+          Year
+        </th>
+      
+        <th>
+          University
+        </th>
+      
+        
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+      <tr>
+        <td>
+          <a href='{% url "teacher_teacher_education_detail" pk=object.pk %}'>
+            {{ object.id|stringformat:".3d" }}
+          </a>
+        </td>
+        
+          <td>{{ object.teacher_key }}</td>
+        
+          <td>{{ object.qualification }}</td>
+        
+          <td>{{ object.subject }}</td>
+        
+          <td>{{ object.year }}</td>
+        
+          <td>{{ object.university }}</td>
+        
+        
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

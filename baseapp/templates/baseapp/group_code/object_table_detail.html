@@ -1,0 +1,51 @@
+
+
+{% load i18n %}
+
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        {% trans "Field" %}
+      </th>
+      <th>
+        {% trans "Value" %}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        id
+      </td>
+      <td>
+        <a href='{{ object.get_absolute_url }}'>
+          {{ object.id|stringformat:".3d" }}
+        </a>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        group_code
+      </td>
+      <td>{{ object.group_code }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        group_name
+      </td>
+      <td>{{ object.group_name }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        group_description
+      </td>
+      <td>{{ object.group_description }}</td>
+    </tr>
+  
+    
+  </tbody>
+</table>

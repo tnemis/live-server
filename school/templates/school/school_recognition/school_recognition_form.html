@@ -1,0 +1,53 @@
+
+
+{% extends 'school/school_recognition/base.html' %}
+{% load widget_tweaks %}
+
+{% load i18n %}
+{% load url from future %}
+
+
+{% block content %}
+<div class="row">
+<div class="col-md-8" >
+  <form action='{% if object %}{% url "school_school_recognition_update" pk=object.pk %}{% else %}{% url "school_school_recognition_create" %}{% endif %}' method='post' encoding='utf-8'>
+    <fieldset>
+      {% csrf_token %}
+<!--       {{ form }}
+ -->      
+    <div class="form-group"> <b>{% trans "School key" %}</b>{{ form.school_key|add_class:"form-control" }}</div><span class="error_message">{{form.school_key.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Initial primary" %}</b>{{ form.initial_primary|add_class:"form-control" }}</div><span class="error_message">{{form.initial_primary.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Initial up" %}</b>{{ form.initial_up|add_class:"form-control" }}</div><span class="error_message">{{form.initial_up.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Initial secondary" %}</b>{{ form.initial_secondary|add_class:"form-control" }}</div><span class="error_message">{{form.initial_secondary.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Initial hs" %}</b>{{ form.initial_hs|add_class:"form-control" }}</div><span class="error_message">{{form.initial_hs.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Renewal primary" %}</b>{{ form.renewal_primary|add_class:"form-control" }}</div><span class="error_message">{{form.renewal_primary.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Renewal up" %}</b>{{ form.renewal_up|add_class:"form-control" }}</div><span class="error_message">{{form.renewal_up.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Renewal secondary" %}</b>{{ form.renewal_secondary|add_class:"form-control" }}</div><span class="error_message">{{form.renewal_secondary.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Renewal hs" %}</b>{{ form.renewal_hs|add_class:"form-control" }}</div><span class="error_message">{{form.renewal_hs.errors}}</span>
+
+   
+
+
+
+    <div class='form-actions'>
+        <button class='btn btn-large btn-success' type='submit'>
+          {% if object %}
+            {% trans "Update" %}
+          {% else %}
+            {% trans "Create" %}
+          {% endif %}
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+</div>
+{% endblock %}

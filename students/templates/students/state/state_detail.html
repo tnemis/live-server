@@ -1,0 +1,69 @@
+{% extends 'students/block/base.html' %}
+{% load i18n %}
+{% block content %}
+<table class='table table-bordered table-striped4' border="2">
+  <thead><h4 style="color:#3C8DBC;">State Level</h4>
+    <tr>
+      <th></th>
+      <th>District</th>
+      <th>Block</th>
+      <th>School</th>
+      <th>Student</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Total Count</td>
+          <td>{{Number_of_districts_in_state|default:0 }}</td>
+          <td>{{Number_of_blocks_in_state|default:0 }}</td>
+          <td>{{Number_of_schools_in_state|default:0 }}</td>
+          <td>{{student_count|default:0 }}</td>
+      </tr>
+  </tbody>
+</table>
+<table class='table table-bordered table-striped3' border="2">
+  <thead>
+    <tr>
+      <th>District</th>
+      <th>Total Students</th>
+    </tr>
+  </thead>
+  <tbody>
+    <h4 style="color:#3C8DBC;">District Level</h4>
+{% for i in page_objs %}
+      <tr>
+          <td><a href="/students/district/?district_id={{ i.2 }}">{{ i.0 }}</a></td>
+          <td>{{ i.1|default:0 }}</td>
+      </tr>
+      {% endfor %}
+
+        <ul class="pagination pagination-centered">
+            {% if page_objs.has_previous %}
+                <li><a href="?page=1"><<</a></li>
+                <li><a href="?page={{ page_objs.previous_page_number }}"><</a></li>
+            {% endif %}
+
+            {% for i in page_objs.paginator.page_range %}
+                {% if page_objs.number == i %}
+                {% if page_objs.has_previous %}
+                    <li><a href="?page={{i|add:-1}}">{{i|add:-1}}</a></li>
+                {% endif %}
+                <li  class="active">
+
+                <a href="?page={{i}}">{{i}}</a></li>
+                {% if page_objs.has_next %}
+                <li><a href="?page={{i|add:1}}">{{i|add:1}}</a></li>
+                {% endif %}
+                {% endif %}
+
+            {% endfor %}
+
+
+            {% if page_objs.has_next %}
+                <li><a href="?page={{ page_objs.next_page_number }}">></a></li>
+                <li><a href="?page={{ page_objs.paginator.num_pages }}">>></a></li>
+            {% endif %}
+        </ul>
+</tbody>
+</table>
+{% endblock %}

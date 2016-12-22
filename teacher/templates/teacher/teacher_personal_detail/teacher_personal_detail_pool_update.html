@@ -1,0 +1,28 @@
+
+{% load i18n %}
+{% load url from future %}
+{% load widget_tweaks %}
+<br>
+<br>
+{% block content %}
+{% if teacher_detail.school.id == 0 and user.account.user_category.user_category == 'school' %}
+<div class="col">
+        <div class="col-md-8">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+
+  <form action='{% url "teacher_teacher_personal_detail_pool_update" pk=teacher_detail.id %}' method='post' encoding='utf-8'>
+     <fieldset>
+      {% csrf_token %}
+        
+
+      {% trans "School" %} <input type="text" name="school_id" value="{{user.account.get_user_info.school_code}}">
+      <center><button class='btn btn-large btn-success' type='submit'>{% trans "Update" %}</button></center>
+    </fieldset>
+  </form>
+</div>
+</div>
+{% else %}
+Teacher's School Info Updated Successfully !! 
+<br><br><center><input type="button" value="Close" onclick="self.close()"></center>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,1690 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-20 10:52+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: templates/baseapp/academic_year/academic_year_archive.html:11
+#: templates/baseapp/academic_year/academic_year_archive.html:24
+msgid "Academic_Year Archive Index"
+msgstr ""
+
+#: templates/baseapp/academic_year/academic_year_archive.html:17
+#: templates/baseapp/academic_year/academic_year_archive_day.html:17
+#: templates/baseapp/academic_year/academic_year_archive_month.html:14
+#: templates/baseapp/academic_year/academic_year_archive_year.html:15
+#: templates/baseapp/academic_year/academic_year_detail.html:20
+#: templates/baseapp/bank/bank_archive.html:17
+#: templates/baseapp/bank/bank_archive_day.html:17
+#: templates/baseapp/bank/bank_archive_month.html:14
+#: templates/baseapp/bank/bank_archive_year.html:15
+#: templates/baseapp/class_studying/class_studying_archive.html:17
+#: templates/baseapp/class_studying/class_studying_archive_day.html:17
+#: templates/baseapp/class_studying/class_studying_archive_month.html:14
+#: templates/baseapp/class_studying/class_studying_archive_year.html:15
+#: templates/baseapp/education_medium/education_medium_archive.html:17
+#: templates/baseapp/education_medium/education_medium_archive_day.html:17
+#: templates/baseapp/education_medium/education_medium_archive_month.html:14
+#: templates/baseapp/education_medium/education_medium_archive_year.html:15
+#: templates/baseapp/group_code/group_code_archive.html:17
+#: templates/baseapp/group_code/group_code_archive_day.html:17
+#: templates/baseapp/group_code/group_code_archive_month.html:14
+#: templates/baseapp/group_code/group_code_archive_year.html:15
+#: templates/baseapp/nationality/nationality_archive.html:17
+#: templates/baseapp/nationality/nationality_archive_day.html:17
+#: templates/baseapp/nationality/nationality_archive_month.html:14
+#: templates/baseapp/nationality/nationality_archive_year.html:15
+#: templates/baseapp/sub_castes/sub_castes_archive.html:17
+#: templates/baseapp/sub_castes/sub_castes_archive_day.html:17
+#: templates/baseapp/sub_castes/sub_castes_archive_month.html:14
+#: templates/baseapp/sub_castes/sub_castes_archive_year.html:15
+#: templates/baseapp/zone/zone_archive.html:17
+#: templates/baseapp/zone/zone_archive_day.html:17
+#: templates/baseapp/zone/zone_archive_month.html:14
+#: templates/baseapp/zone/zone_archive_year.html:15
+msgid "Archive Index"
+msgstr ""
+
+#: templates/baseapp/academic_year/academic_year_archive.html:28
+#: templates/baseapp/bank/bank_archive.html:28
+#: templates/baseapp/class_studying/class_studying_archive.html:28
+#: templates/baseapp/education_medium/education_medium_archive.html:28
+#: templates/baseapp/group_code/group_code_archive.html:28
+#: templates/baseapp/nationality/nationality_archive.html:28
+#: templates/baseapp/sub_castes/sub_castes_archive.html:28
+#: templates/baseapp/zone/zone_archive.html:28
+msgid "A top-level index page showing the latest objects, by date."
+msgstr ""
+
+#: templates/baseapp/academic_year/academic_year_archive.html:44
+msgid "Recent Academic_Years"
+msgstr ""
+
+#: templates/baseapp/academic_year/academic_year_archive_day.html:11
+#: templates/baseapp/academic_year/academic_year_archive_day.html:48
+msgid "Academic_Year Day Archive"
+msgstr ""
+
+#: templates/baseapp/academic_year/academic_year_archive_day.html:25
+#: templates/baseapp/academic_year/academic_year_archive_month.html:22
+#: templates/baseapp/academic_year/academic_year_archive_year.html:23
+#: templates/baseapp/academic_year/academic_year_detail.html:28
+#: templates/baseapp/bank/bank_archive_day.html:25
+#: templates/baseapp/bank/bank_archive_month.html:22
+#: templates/baseapp/bank/bank_archive_year.html:23
+#: templates/baseapp/class_studying/class_studying_archive_day.html:25
+#: templates/baseapp/class_studying/class_studying_archive_month.html:22
+#: templates/baseapp/class_studying/class_studying_archive_year.html:23
+#: templates/baseapp/education_medium/education_medium_archive_day.html:25
+#: templates/baseapp/education_medium/education_medium_archive_month.html:22
+#: templates/baseapp/education_medium/education_medium_archive_year.html:23
+#: templates/baseapp/group_code/group_code_archive_day.html:25
+#: templates/baseapp/group_code/group_code_archive_month.html:22
+#: templates/baseapp/group_code/group_code_archive_year.html:23
+#: templates/baseapp/nationality/nationality_archive_day.html:25
+#: templates/baseapp/nationality/nationality_archive_month.html:22
+#: templates/baseapp/nationality/nationality_archive_year.html:23
+#: templates/baseapp/sub_castes/sub_castes_archive_day.html:25
+#: templates/baseapp/sub_castes/sub_castes_archive_month.html:22
+#: templates/baseapp/sub_castes/sub_castes_archive_year.html:23
+#: templates/baseapp/zone/zone_archive_day.html:25
+#: templates/baseapp/zone/zone_archive_month.html:22
+#: templates/baseapp/zone/zone_archive_year.html:23
+msgid "Year Archive"
+msgstr ""
+
+#: templates/baseapp/academic_year/academic_year_archive_day.html:33
+#: templates/baseapp/academic_year/academic_year_archive_month.html:30
+#: templates/baseapp/academic_year/academic_year_detail.html:36
+#: templates/baseapp/bank/bank_archive_day.html:33
+#: templates/baseapp/bank/bank_archive_month.html:30
+#: templates/baseapp/class_studying/class_studying_archive_day.html:33
+#: templates/baseapp/class_studying/class_studying_archive_month.html:30
+#: templates/baseapp/education_medium/education_medium_archive_day.html:33
+#: templates/baseapp/education_medium/education_medium_archive_month.html:30
+#: templates/baseapp/group_code/group_code_archive_day.html:33
+#: templates/baseapp/group_code/group_code_archive_month.html:30
+#: templates/baseapp/nationality/nationality_archive_day.html:33
+#: templates/baseapp/nationality/nationality_archive_month.html:30
+#: templates/baseapp/sub_castes/sub_castes_archive_day.html:33
+#: templates/baseapp/sub_castes/sub_castes_archive_month.html:30
+#: templates/baseapp/zone/zone_archive_day.html:33
+#: templates/baseapp/zone/zone_archive_month.html:30
+msgid "Month Archive"
+msgstr ""
+
+#: templates/baseapp/academic_year/academic_year_archive_day.html:41
+#: templates/baseapp/academic_year/academic_year_detail.html:44
+#: templates/baseapp/bank/bank_archive_day.html:41
+#: templates/baseapp/class_studying/class_studying_archive_day.html:41
+#: templates/baseapp/education_medium/education_medium_archive_day.html:41
+#: templates/baseapp/group_code/group_code_archive_day.html:41
+#: templates/baseapp/nationality/nationality_archive_day.html:41
+#: templates/baseapp/sub_castes/sub_castes_archive_day.html:41
+#: templates/baseapp/zone/zone_archive_day.html:41
+msgid "Day Archive"
+msgstr ""
+
+#: templates/baseapp/academic_year/academic_year_archive_day.html:56
+#, python-format
+msgid ""
+"\n"
+"      Academic_Years created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/academic_year/academic_year_archive_month.html:37
+msgid "Academic_Year Month Archive"
+msgstr ""
+
+#: templates/baseapp/academic_year/academic_year_archive_month.html:41
+#: templates/baseapp/bank/bank_archive_month.html:41
+#: templates/baseapp/class_studying/class_studying_archive_month.html:41
+#: templates/baseapp/education_medium/education_medium_archive_month.html:41
+#: templates/baseapp/group_code/group_code_archive_month.html:41
+#: templates/baseapp/nationality/nationality_archive_month.html:41
+#: templates/baseapp/sub_castes/sub_castes_archive_month.html:41
+#: templates/baseapp/zone/zone_archive_month.html:41
+msgid "A monthly archive page showing all objects in a given month."
+msgstr ""
+
+#: templates/baseapp/academic_year/academic_year_archive_month.html:57
+#, python-format
+msgid ""
+"\n"
+"      Academic_Years created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/academic_year/academic_year_archive_week.html:12
+#: templates/baseapp/academic_year/academic_year_archive_week.html:16
+msgid "Academic_Year Week Archive"
+msgstr ""
+
+#: templates/baseapp/academic_year/academic_year_archive_week.html:20
+#: templates/baseapp/bank/bank_archive_week.html:20
+#: templates/baseapp/class_studying/class_studying_archive_week.html:20
+#: templates/baseapp/education_medium/education_medium_archive_week.html:20
+#: templates/baseapp/group_code/group_code_archive_week.html:20
+#: templates/baseapp/nationality/nationality_archive_week.html:20
+#: templates/baseapp/sub_castes/sub_castes_archive_week.html:20
+#: templates/baseapp/zone/zone_archive_week.html:20
+msgid "A weekly archive page showing all objects in a given week."
+msgstr ""
+
+#: templates/baseapp/academic_year/academic_year_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      Academic_Years created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/academic_year/academic_year_archive_year.html:31
+msgid "Academic_Year Year Archive"
+msgstr ""
+
+#: templates/baseapp/academic_year/academic_year_archive_year.html:35
+#: templates/baseapp/bank/bank_archive_year.html:35
+#: templates/baseapp/class_studying/class_studying_archive_year.html:35
+#: templates/baseapp/education_medium/education_medium_archive_year.html:35
+#: templates/baseapp/group_code/group_code_archive_year.html:35
+#: templates/baseapp/nationality/nationality_archive_year.html:35
+#: templates/baseapp/sub_castes/sub_castes_archive_year.html:35
+#: templates/baseapp/zone/zone_archive_year.html:35
+msgid "A yearly archive page showing all available months in a given year."
+msgstr ""
+
+#: templates/baseapp/academic_year/academic_year_archive_year.html:39
+#: templates/baseapp/bank/bank_archive_year.html:39
+#: templates/baseapp/class_studying/class_studying_archive_year.html:39
+#: templates/baseapp/education_medium/education_medium_archive_year.html:39
+#: templates/baseapp/group_code/group_code_archive_year.html:39
+#: templates/baseapp/nationality/nationality_archive_year.html:39
+#: templates/baseapp/sub_castes/sub_castes_archive_year.html:39
+#: templates/baseapp/zone/zone_archive_year.html:39
+msgid "By Month"
+msgstr ""
+
+#: templates/baseapp/academic_year/academic_year_archive_year.html:51
+#, python-format
+msgid ""
+"\n"
+"      Academic_Years created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/academic_year/academic_year_confirm_delete.html:7
+msgid "Delete this Academic Year?"
+msgstr ""
+
+#: templates/baseapp/academic_year/academic_year_confirm_delete.html:18
+#: templates/baseapp/academic_year/academic_year_detail.html:79
+#: templates/baseapp/academic_year/base.html:31
+#: templates/baseapp/assembly/assembly_confirm_delete.html:18
+#: templates/baseapp/assembly/assembly_detail.html:17
+#: templates/baseapp/assembly/base.html:31
+#: templates/baseapp/bank/bank_confirm_delete.html:18
+#: templates/baseapp/bank/bank_detail.html:17
+#: templates/baseapp/bank/base.html:31 templates/baseapp/block/base.html:31
+#: templates/baseapp/block/block_confirm_delete.html:18
+#: templates/baseapp/block/block_detail.html:18
+#: templates/baseapp/class_studying/base.html:31
+#: templates/baseapp/class_studying/class_studying_confirm_delete.html:18
+#: templates/baseapp/class_studying/class_studying_detail.html:17
+#: templates/baseapp/community/base.html:31
+#: templates/baseapp/community/community_confirm_delete.html:18
+#: templates/baseapp/community/community_detail.html:17
+#: templates/baseapp/differently_abled/base.html:31
+#: templates/baseapp/differently_abled/differently_abled_confirm_delete.html:18
+#: templates/baseapp/differently_abled/differently_abled_detail.html:17
+#: templates/baseapp/disadvantaged_group/base.html:31
+#: templates/baseapp/disadvantaged_group/disadvantaged_group_confirm_delete.html:18
+#: templates/baseapp/disadvantaged_group/disadvantaged_group_detail.html:17
+#: templates/baseapp/district/base.html:31
+#: templates/baseapp/district/district_confirm_delete.html:18
+#: templates/baseapp/district/district_detail.html:39
+#: templates/baseapp/education_medium/base.html:31
+#: templates/baseapp/education_medium/education_medium_confirm_delete.html:18
+#: templates/baseapp/education_medium/education_medium_detail.html:17
+#: templates/baseapp/educational_block/base.html:31
+#: templates/baseapp/educational_block/educational_block_confirm_delete.html:18
+#: templates/baseapp/educational_block/educational_block_detail.html:17
+#: templates/baseapp/educational_district/base.html:31
+#: templates/baseapp/educational_district/educational_district_confirm_delete.html:18
+#: templates/baseapp/educational_district/educational_district_detail.html:17
+#: templates/baseapp/group_code/base.html:31
+#: templates/baseapp/group_code/group_code_confirm_delete.html:18
+#: templates/baseapp/group_code/group_code_detail.html:17
+#: templates/baseapp/habitation/base.html:31
+#: templates/baseapp/habitation/habitation_confirm_delete.html:18
+#: templates/baseapp/habitation/habitation_detail.html:17
+#: templates/baseapp/language/base.html:31
+#: templates/baseapp/language/language_confirm_delete.html:18
+#: templates/baseapp/language/language_detail.html:17
+#: templates/baseapp/management/base.html:31
+#: templates/baseapp/management/management_confirm_delete.html:18
+#: templates/baseapp/management/management_detail.html:17
+#: templates/baseapp/nationality/base.html:31
+#: templates/baseapp/nationality/nationality_confirm_delete.html:18
+#: templates/baseapp/nationality/nationality_detail.html:17
+#: templates/baseapp/parliamentary/base.html:31
+#: templates/baseapp/parliamentary/parliamentary_confirm_delete.html:18
+#: templates/baseapp/parliamentary/parliamentary_detail.html:17
+#: templates/baseapp/religion/base.html:31
+#: templates/baseapp/religion/religion_confirm_delete.html:18
+#: templates/baseapp/religion/religion_detail.html:17
+#: templates/baseapp/revenue_block/base.html:31
+#: templates/baseapp/revenue_block/revenue_block_confirm_delete.html:18
+#: templates/baseapp/revenue_block/revenue_block_detail.html:17
+#: templates/baseapp/schemes/base.html:31
+#: templates/baseapp/schemes/schemes_confirm_delete.html:18
+#: templates/baseapp/schemes/schemes_detail.html:18
+#: templates/baseapp/school/base.html:31
+#: templates/baseapp/school/school_confirm_delete.html:18
+#: templates/baseapp/school/school_detail.html:17
+#: templates/baseapp/sub_castes/base.html:31
+#: templates/baseapp/sub_castes/sub_castes_confirm_delete.html:18
+#: templates/baseapp/sub_castes/sub_castes_detail.html:17
+#: templates/baseapp/taluk/base.html:31
+#: templates/baseapp/taluk/taluk_confirm_delete.html:18
+#: templates/baseapp/taluk/taluk_detail.html:18
+#: templates/baseapp/zone/base.html:31
+#: templates/baseapp/zone/zone_confirm_delete.html:18
+#: templates/baseapp/zone/zone_detail.html:17
+msgid "Delete"
+msgstr ""
+
+#: templates/baseapp/academic_year/academic_year_detail.html:12
+#: templates/baseapp/academic_year/academic_year_detail.html:61
+msgid "Academic_Year Detail"
+msgstr ""
+
+#: templates/baseapp/academic_year/academic_year_detail.html:52
+msgid "Date Detail"
+msgstr ""
+
+#: templates/baseapp/academic_year/academic_year_detail.html:66
+#: templates/baseapp/district/district_detail.html:24
+msgid "A page representing an individual object."
+msgstr ""
+
+#: templates/baseapp/academic_year/academic_year_detail.html:76
+#: templates/baseapp/academic_year/academic_year_form.html:19
+#: templates/baseapp/assembly/assembly_detail.html:14
+#: templates/baseapp/assembly/assembly_form.html:19
+#: templates/baseapp/bank/bank_detail.html:14
+#: templates/baseapp/bank/bank_form.html:19
+#: templates/baseapp/block/block_detail.html:15
+#: templates/baseapp/block/block_form.html:20
+#: templates/baseapp/class_studying/class_studying_detail.html:14
+#: templates/baseapp/class_studying/class_studying_form.html:19
+#: templates/baseapp/community/community_detail.html:14
+#: templates/baseapp/community/community_form.html:20
+#: templates/baseapp/differently_abled/differently_abled_detail.html:14
+#: templates/baseapp/differently_abled/differently_abled_form.html:18
+#: templates/baseapp/disadvantaged_group/disadvantaged_group_detail.html:14
+#: templates/baseapp/disadvantaged_group/disadvantaged_group_form.html:18
+#: templates/baseapp/district/district_detail.html:36
+#: templates/baseapp/district/district_form.html:25
+#: templates/baseapp/education_medium/education_medium_detail.html:14
+#: templates/baseapp/education_medium/education_medium_form.html:19
+#: templates/baseapp/educational_block/educational_block_detail.html:14
+#: templates/baseapp/educational_block/educational_block_form.html:19
+#: templates/baseapp/educational_district/educational_district_detail.html:14
+#: templates/baseapp/educational_district/educational_district_form.html:17
+#: templates/baseapp/group_code/group_code_detail.html:14
+#: templates/baseapp/group_code/group_code_form.html:23
+#: templates/baseapp/habitation/habitation_detail.html:14
+#: templates/baseapp/habitation/habitation_form.html:23
+#: templates/baseapp/language/language_detail.html:14
+#: templates/baseapp/language/language_form.html:19
+#: templates/baseapp/management/management_detail.html:14
+#: templates/baseapp/management/management_form.html:18
+#: templates/baseapp/nationality/nationality_detail.html:14
+#: templates/baseapp/nationality/nationality_form.html:18
+#: templates/baseapp/parliamentary/parliamentary_detail.html:14
+#: templates/baseapp/parliamentary/parliamentary_form.html:18
+#: templates/baseapp/religion/religion_detail.html:14
+#: templates/baseapp/religion/religion_form.html:18
+#: templates/baseapp/revenue_block/revenue_block_detail.html:14
+#: templates/baseapp/revenue_block/revenue_block_form.html:19
+#: templates/baseapp/schemes/schemes_detail.html:15
+#: templates/baseapp/schemes/schemes_form.html:20
+#: templates/baseapp/school/school_detail.html:14
+#: templates/baseapp/school/school_form.html:26
+#: templates/baseapp/sub_castes/sub_castes_detail.html:14
+#: templates/baseapp/sub_castes/sub_castes_form.html:20
+#: templates/baseapp/taluk/taluk_detail.html:15
+#: templates/baseapp/taluk/taluk_form.html:23
+#: templates/baseapp/zone/zone_detail.html:14
+#: templates/baseapp/zone/zone_form.html:21
+msgid "Update"
+msgstr ""
+
+#: templates/baseapp/academic_year/academic_year_form.html:14
+msgid "academic_year"
+msgstr ""
+
+#: templates/baseapp/academic_year/academic_year_form.html:21
+#: templates/baseapp/assembly/assembly_form.html:21
+#: templates/baseapp/bank/bank_form.html:21
+#: templates/baseapp/block/block_form.html:22
+#: templates/baseapp/class_studying/class_studying_form.html:21
+#: templates/baseapp/community/community_form.html:22
+#: templates/baseapp/differently_abled/differently_abled_form.html:20
+#: templates/baseapp/disadvantaged_group/disadvantaged_group_form.html:20
+#: templates/baseapp/district/district_form.html:27
+#: templates/baseapp/education_medium/education_medium_form.html:21
+#: templates/baseapp/educational_block/educational_block_form.html:21
+#: templates/baseapp/educational_district/educational_district_form.html:19
+#: templates/baseapp/group_code/group_code_form.html:25
+#: templates/baseapp/habitation/habitation_form.html:25
+#: templates/baseapp/language/language_form.html:21
+#: templates/baseapp/management/management_form.html:20
+#: templates/baseapp/nationality/nationality_form.html:20
+#: templates/baseapp/parliamentary/parliamentary_form.html:20
+#: templates/baseapp/religion/religion_form.html:20
+#: templates/baseapp/revenue_block/revenue_block_form.html:21
+#: templates/baseapp/schemes/schemes_form.html:22
+#: templates/baseapp/school/school_form.html:28
+#: templates/baseapp/sub_castes/sub_castes_form.html:22
+#: templates/baseapp/taluk/taluk_form.html:25
+#: templates/baseapp/zone/zone_form.html:23
+msgid "Create"
+msgstr ""
+
+#: templates/baseapp/academic_year/base.html:10
+msgid "academic_year List "
+msgstr ""
+
+#: templates/baseapp/academic_year/base.html:15
+msgid "Create academic_year"
+msgstr ""
+
+#: templates/baseapp/academic_year/base.html:21
+msgid "academic_year Detail"
+msgstr ""
+
+#: templates/baseapp/academic_year/base.html:26
+msgid "Update academic_year"
+msgstr ""
+
+#: templates/baseapp/academic_year/object_table_detail.html:9
+#: templates/baseapp/assembly/object_table_detail.html:9
+#: templates/baseapp/bank/object_table_detail.html:9
+#: templates/baseapp/block/object_table_detail.html:9
+#: templates/baseapp/class_studying/object_table_detail.html:9
+#: templates/baseapp/community/object_table_detail.html:9
+#: templates/baseapp/differently_abled/object_table_detail.html:9
+#: templates/baseapp/disadvantaged_group/object_table_detail.html:9
+#: templates/baseapp/district/object_table_detail.html:9
+#: templates/baseapp/education_medium/object_table_detail.html:9
+#: templates/baseapp/educational_block/object_table_detail.html:9
+#: templates/baseapp/educational_district/object_table_detail.html:9
+#: templates/baseapp/group_code/object_table_detail.html:9
+#: templates/baseapp/habitation/object_table_detail.html:9
+#: templates/baseapp/language/object_table_detail.html:9
+#: templates/baseapp/management/object_table_detail.html:9
+#: templates/baseapp/nationality/object_table_detail.html:9
+#: templates/baseapp/parliamentary/object_table_detail.html:9
+#: templates/baseapp/religion/object_table_detail.html:9
+#: templates/baseapp/revenue_block/object_table_detail.html:9
+#: templates/baseapp/schemes/object_table_detail.html:9
+#: templates/baseapp/school/object_table_detail.html:9
+#: templates/baseapp/sub_castes/object_table_detail.html:9
+#: templates/baseapp/taluk/object_table_detail.html:9
+#: templates/baseapp/zone/object_table_detail.html:7
+msgid "Field"
+msgstr ""
+
+#: templates/baseapp/academic_year/object_table_detail.html:12
+#: templates/baseapp/assembly/object_table_detail.html:12
+#: templates/baseapp/bank/object_table_detail.html:12
+#: templates/baseapp/block/object_table_detail.html:12
+#: templates/baseapp/class_studying/object_table_detail.html:12
+#: templates/baseapp/community/object_table_detail.html:12
+#: templates/baseapp/differently_abled/object_table_detail.html:12
+#: templates/baseapp/disadvantaged_group/object_table_detail.html:12
+#: templates/baseapp/district/object_table_detail.html:12
+#: templates/baseapp/education_medium/object_table_detail.html:12
+#: templates/baseapp/educational_block/object_table_detail.html:12
+#: templates/baseapp/educational_district/object_table_detail.html:12
+#: templates/baseapp/group_code/object_table_detail.html:12
+#: templates/baseapp/habitation/object_table_detail.html:12
+#: templates/baseapp/language/object_table_detail.html:12
+#: templates/baseapp/management/object_table_detail.html:12
+#: templates/baseapp/nationality/object_table_detail.html:12
+#: templates/baseapp/parliamentary/object_table_detail.html:12
+#: templates/baseapp/religion/object_table_detail.html:12
+#: templates/baseapp/revenue_block/object_table_detail.html:12
+#: templates/baseapp/schemes/object_table_detail.html:12
+#: templates/baseapp/school/object_table_detail.html:12
+#: templates/baseapp/sub_castes/object_table_detail.html:12
+#: templates/baseapp/taluk/object_table_detail.html:12
+#: templates/baseapp/zone/object_table_detail.html:10
+msgid "Value"
+msgstr ""
+
+#: templates/baseapp/academic_year/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual Academic_Year's page."
+msgstr ""
+
+#: templates/baseapp/assembly/assembly_confirm_delete.html:7
+msgid "Delete this Assembly?"
+msgstr ""
+
+#: templates/baseapp/assembly/assembly_form.html:14
+msgid "Assembly Name"
+msgstr ""
+
+#: templates/baseapp/assembly/assembly_form.html:15
+#: templates/baseapp/block/block_form.html:16
+#: templates/baseapp/educational_block/educational_block_form.html:15
+#: templates/baseapp/revenue_block/revenue_block_form.html:15
+#: templates/baseapp/school/school_form.html:16
+#: templates/baseapp/taluk/taluk_form.html:19
+msgid "District"
+msgstr ""
+
+#: templates/baseapp/assembly/base.html:10
+msgid "Assembly List "
+msgstr ""
+
+#: templates/baseapp/assembly/base.html:15
+msgid "Create Assembly"
+msgstr ""
+
+#: templates/baseapp/assembly/base.html:21
+msgid "Assembly Detail"
+msgstr ""
+
+#: templates/baseapp/assembly/base.html:26
+msgid "Update Assembly"
+msgstr ""
+
+#: templates/baseapp/assembly/object_table_list.html:4
+msgid ""
+"Click on the primary key value to access the individual Assembly's page."
+msgstr ""
+
+#: templates/baseapp/bank/bank_archive.html:11
+#: templates/baseapp/bank/bank_archive.html:24
+msgid "Bank Archive Index"
+msgstr ""
+
+#: templates/baseapp/bank/bank_archive.html:44
+msgid "Recent Banks"
+msgstr ""
+
+#: templates/baseapp/bank/bank_archive_day.html:11
+#: templates/baseapp/bank/bank_archive_day.html:48
+msgid "Bank Day Archive"
+msgstr ""
+
+#: templates/baseapp/bank/bank_archive_day.html:56
+#, python-format
+msgid ""
+"\n"
+"      Banks created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/bank/bank_archive_month.html:37
+msgid "Bank Month Archive"
+msgstr ""
+
+#: templates/baseapp/bank/bank_archive_month.html:57
+#, python-format
+msgid ""
+"\n"
+"      Banks created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/bank/bank_archive_week.html:12
+#: templates/baseapp/bank/bank_archive_week.html:16
+msgid "Bank Week Archive"
+msgstr ""
+
+#: templates/baseapp/bank/bank_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      Banks created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/bank/bank_archive_year.html:31
+msgid "Bank Year Archive"
+msgstr ""
+
+#: templates/baseapp/bank/bank_archive_year.html:51
+#, python-format
+msgid ""
+"\n"
+"      Banks created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/bank/bank_confirm_delete.html:7
+msgid "Delete this Bank?"
+msgstr ""
+
+#: templates/baseapp/bank/bank_form.html:14
+msgid "bank"
+msgstr ""
+
+#: templates/baseapp/bank/base.html:10
+msgid "Bank List "
+msgstr ""
+
+#: templates/baseapp/bank/base.html:15
+msgid "Create Bank"
+msgstr ""
+
+#: templates/baseapp/bank/base.html:21
+msgid "Bank Detail"
+msgstr ""
+
+#: templates/baseapp/bank/base.html:26
+msgid "Update Bank"
+msgstr ""
+
+#: templates/baseapp/bank/object_table_list.html:6
+msgid "Click on the primary key value to access the individual Bank's page."
+msgstr ""
+
+#: templates/baseapp/block/base.html:10
+msgid "Block List "
+msgstr ""
+
+#: templates/baseapp/block/base.html:15
+msgid "Create Block"
+msgstr ""
+
+#: templates/baseapp/block/base.html:21
+msgid "Block Detail"
+msgstr ""
+
+#: templates/baseapp/block/base.html:26
+msgid "Update Block"
+msgstr ""
+
+#: templates/baseapp/block/block_confirm_delete.html:7
+msgid "Delete this Block?"
+msgstr ""
+
+#: templates/baseapp/block/block_form.html:14
+msgid "Block Code"
+msgstr ""
+
+#: templates/baseapp/block/block_form.html:15
+msgid "Block Name"
+msgstr ""
+
+#: templates/baseapp/block/object_table_list.html:4
+msgid "Click on the primary key value to access the individual Block's page."
+msgstr ""
+
+#: templates/baseapp/class_studying/base.html:10
+msgid "Class Studying List "
+msgstr ""
+
+#: templates/baseapp/class_studying/base.html:15
+msgid "Create Class Studying"
+msgstr ""
+
+#: templates/baseapp/class_studying/base.html:21
+msgid "Class Studying Detail"
+msgstr ""
+
+#: templates/baseapp/class_studying/base.html:26
+msgid "Update Class Studying"
+msgstr ""
+
+#: templates/baseapp/class_studying/class_studying_archive.html:11
+#: templates/baseapp/class_studying/class_studying_archive.html:24
+msgid "Class_Studying Archive Index"
+msgstr ""
+
+#: templates/baseapp/class_studying/class_studying_archive.html:44
+msgid "Recent Class_Studyings"
+msgstr ""
+
+#: templates/baseapp/class_studying/class_studying_archive_day.html:11
+#: templates/baseapp/class_studying/class_studying_archive_day.html:48
+msgid "Class_Studying Day Archive"
+msgstr ""
+
+#: templates/baseapp/class_studying/class_studying_archive_day.html:56
+#, python-format
+msgid ""
+"\n"
+"      Class_Studyings created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/class_studying/class_studying_archive_month.html:37
+msgid "Class_Studying Month Archive"
+msgstr ""
+
+#: templates/baseapp/class_studying/class_studying_archive_month.html:57
+#, python-format
+msgid ""
+"\n"
+"      Class_Studyings created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/class_studying/class_studying_archive_week.html:12
+#: templates/baseapp/class_studying/class_studying_archive_week.html:16
+msgid "Class_Studying Week Archive"
+msgstr ""
+
+#: templates/baseapp/class_studying/class_studying_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      Class_Studyings created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/class_studying/class_studying_archive_year.html:31
+msgid "Class_Studying Year Archive"
+msgstr ""
+
+#: templates/baseapp/class_studying/class_studying_archive_year.html:51
+#, python-format
+msgid ""
+"\n"
+"      Class_Studyings created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/class_studying/class_studying_confirm_delete.html:7
+msgid "Delete this class_studying?"
+msgstr ""
+
+#: templates/baseapp/class_studying/class_studying_form.html:14
+msgid "Class Studying"
+msgstr ""
+
+#: templates/baseapp/class_studying/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual Class_Studying's "
+"page."
+msgstr ""
+
+#: templates/baseapp/community/base.html:10
+msgid "Community List "
+msgstr ""
+
+#: templates/baseapp/community/base.html:15
+msgid "Create Community"
+msgstr ""
+
+#: templates/baseapp/community/base.html:21
+msgid "Community Detail"
+msgstr ""
+
+#: templates/baseapp/community/base.html:26
+msgid "Update Community"
+msgstr ""
+
+#: templates/baseapp/community/community_confirm_delete.html:7
+msgid "Delete this Community?"
+msgstr ""
+
+#: templates/baseapp/community/community_form.html:14
+msgid "Community Code"
+msgstr ""
+
+#: templates/baseapp/community/community_form.html:15
+msgid "Community Name"
+msgstr ""
+
+#: templates/baseapp/community/object_table_list.html:4
+msgid ""
+"Click on the primary key value to access the individual Community's page."
+msgstr ""
+
+#: templates/baseapp/differently_abled/base.html:10
+msgid "Differently Abled List "
+msgstr ""
+
+#: templates/baseapp/differently_abled/base.html:15
+msgid "Create Differently Abled"
+msgstr ""
+
+#: templates/baseapp/differently_abled/base.html:21
+msgid "Differently Abled Detail"
+msgstr ""
+
+#: templates/baseapp/differently_abled/base.html:26
+msgid "Update Differently Abled"
+msgstr ""
+
+#: templates/baseapp/differently_abled/differently_abled_confirm_delete.html:7
+msgid "Delete this Differently Abled?"
+msgstr ""
+
+#: templates/baseapp/differently_abled/differently_abled_form.html:13
+msgid "Differently Abled Code"
+msgstr ""
+
+#: templates/baseapp/differently_abled/differently_abled_form.html:14
+msgid "Differently Abled Name"
+msgstr ""
+
+#: templates/baseapp/differently_abled/object_table_list.html:4
+msgid ""
+"Click on the primary key value to access the individual Differently Abled's "
+"page."
+msgstr ""
+
+#: templates/baseapp/disadvantaged_group/base.html:10
+msgid "Disadvantaged Group List "
+msgstr ""
+
+#: templates/baseapp/disadvantaged_group/base.html:15
+msgid "Create Disadvantaged Group"
+msgstr ""
+
+#: templates/baseapp/disadvantaged_group/base.html:21
+msgid "Disadvantaged Group Detail"
+msgstr ""
+
+#: templates/baseapp/disadvantaged_group/base.html:26
+msgid "Update Disadvantaged Group"
+msgstr ""
+
+#: templates/baseapp/disadvantaged_group/disadvantaged_group_confirm_delete.html:7
+msgid "Delete this Disadvantaged Group?"
+msgstr ""
+
+#: templates/baseapp/disadvantaged_group/disadvantaged_group_form.html:14
+msgid "Disadvantaged Group Name"
+msgstr ""
+
+#: templates/baseapp/disadvantaged_group/object_table_list.html:4
+msgid ""
+"Click on the primary key value to access the individual Disadvantaged "
+"Group's page."
+msgstr ""
+
+#: templates/baseapp/district/base.html:10
+msgid "District List"
+msgstr ""
+
+#: templates/baseapp/district/base.html:15
+msgid "Create District"
+msgstr ""
+
+#: templates/baseapp/district/base.html:21
+#: templates/baseapp/district/district_detail.html:12
+#: templates/baseapp/district/district_detail.html:19
+msgid "District Detail"
+msgstr ""
+
+#: templates/baseapp/district/base.html:26
+msgid "Update District"
+msgstr ""
+
+#: templates/baseapp/district/district_confirm_delete.html:7
+msgid "Delete this District?"
+msgstr ""
+
+#: templates/baseapp/district/district_form.html:13
+msgid "This field is mandatory."
+msgstr ""
+
+#: templates/baseapp/district/district_form.html:20
+#: templates/baseapp/district/object_table_list.html:18
+msgid "District Code"
+msgstr ""
+
+#: templates/baseapp/district/district_form.html:21
+#: templates/baseapp/district/object_table_list.html:22
+msgid "District Name"
+msgstr ""
+
+#: templates/baseapp/district/object_table_list.html:8
+msgid "Click on the ID to access the individual District's page."
+msgstr ""
+
+#: templates/baseapp/district/object_table_list.html:14
+msgid "ID"
+msgstr ""
+
+#: templates/baseapp/education_medium/base.html:10
+msgid "Education medium List "
+msgstr ""
+
+#: templates/baseapp/education_medium/base.html:15
+msgid "Create Education medium"
+msgstr ""
+
+#: templates/baseapp/education_medium/base.html:21
+msgid "Education medium Detail"
+msgstr ""
+
+#: templates/baseapp/education_medium/base.html:26
+msgid "Update  Education medium"
+msgstr ""
+
+#: templates/baseapp/education_medium/education_medium_archive.html:11
+#: templates/baseapp/education_medium/education_medium_archive.html:24
+msgid "Education_medium Archive Index"
+msgstr ""
+
+#: templates/baseapp/education_medium/education_medium_archive.html:44
+msgid "Recent Education_mediums"
+msgstr ""
+
+#: templates/baseapp/education_medium/education_medium_archive_day.html:11
+#: templates/baseapp/education_medium/education_medium_archive_day.html:48
+msgid "Education_medium Day Archive"
+msgstr ""
+
+#: templates/baseapp/education_medium/education_medium_archive_day.html:56
+#, python-format
+msgid ""
+"\n"
+"      Education_mediums created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/education_medium/education_medium_archive_month.html:37
+msgid "Education_medium Month Archive"
+msgstr ""
+
+#: templates/baseapp/education_medium/education_medium_archive_month.html:57
+#, python-format
+msgid ""
+"\n"
+"      Education_mediums created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/education_medium/education_medium_archive_week.html:12
+#: templates/baseapp/education_medium/education_medium_archive_week.html:16
+msgid "Education_medium Week Archive"
+msgstr ""
+
+#: templates/baseapp/education_medium/education_medium_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      Education_mediums created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/education_medium/education_medium_archive_year.html:31
+msgid "Education_medium Year Archive"
+msgstr ""
+
+#: templates/baseapp/education_medium/education_medium_archive_year.html:51
+#, python-format
+msgid ""
+"\n"
+"      Education_mediums created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/education_medium/education_medium_confirm_delete.html:7
+msgid "Delete this Education Medium?"
+msgstr ""
+
+#: templates/baseapp/education_medium/education_medium_form.html:14
+msgid "Education Medium"
+msgstr ""
+
+#: templates/baseapp/education_medium/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual Education_medium's "
+"page."
+msgstr ""
+
+#: templates/baseapp/educational_block/base.html:10
+msgid "Educational Block List "
+msgstr ""
+
+#: templates/baseapp/educational_block/base.html:15
+msgid "Create Educational Block"
+msgstr ""
+
+#: templates/baseapp/educational_block/base.html:21
+msgid "Educational Block Detail"
+msgstr ""
+
+#: templates/baseapp/educational_block/base.html:26
+msgid "Update Educational Block"
+msgstr ""
+
+#: templates/baseapp/educational_block/educational_block_confirm_delete.html:7
+msgid "Delete this Educational Block?"
+msgstr ""
+
+#: templates/baseapp/educational_block/educational_block_form.html:14
+msgid "Educational Block"
+msgstr ""
+
+#: templates/baseapp/educational_block/object_table_list.html:4
+msgid ""
+"Click on the primary key value to access the individual Educational Block's "
+"page."
+msgstr ""
+
+#: templates/baseapp/educational_district/base.html:10
+msgid "Educational District List "
+msgstr ""
+
+#: templates/baseapp/educational_district/base.html:15
+msgid "Create Educational District"
+msgstr ""
+
+#: templates/baseapp/educational_district/base.html:21
+msgid "Educational District Detail"
+msgstr ""
+
+#: templates/baseapp/educational_district/base.html:26
+msgid "Update Educational District"
+msgstr ""
+
+#: templates/baseapp/educational_district/educational_district_confirm_delete.html:7
+msgid "Delete this Educational District?"
+msgstr ""
+
+#: templates/baseapp/educational_district/educational_district_form.html:13
+msgid "Educational District"
+msgstr ""
+
+#: templates/baseapp/educational_district/object_table_list.html:4
+msgid ""
+"Click on the primary key value to access the individual Educational "
+"District's page."
+msgstr ""
+
+#: templates/baseapp/group_code/base.html:10
+msgid "Group Code List "
+msgstr ""
+
+#: templates/baseapp/group_code/base.html:15
+msgid "Create Group Code"
+msgstr ""
+
+#: templates/baseapp/group_code/base.html:21
+msgid "Group Code Detail"
+msgstr ""
+
+#: templates/baseapp/group_code/base.html:26
+msgid "Update Group Code"
+msgstr ""
+
+#: templates/baseapp/group_code/group_code_archive.html:11
+#: templates/baseapp/group_code/group_code_archive.html:24
+msgid "Group_code Archive Index"
+msgstr ""
+
+#: templates/baseapp/group_code/group_code_archive.html:44
+msgid "Recent Group_codes"
+msgstr ""
+
+#: templates/baseapp/group_code/group_code_archive_day.html:11
+#: templates/baseapp/group_code/group_code_archive_day.html:48
+msgid "Group_code Day Archive"
+msgstr ""
+
+#: templates/baseapp/group_code/group_code_archive_day.html:56
+#, python-format
+msgid ""
+"\n"
+"      Group_codes created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/group_code/group_code_archive_month.html:37
+msgid "Group_code Month Archive"
+msgstr ""
+
+#: templates/baseapp/group_code/group_code_archive_month.html:57
+#, python-format
+msgid ""
+"\n"
+"      Group_codes created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/group_code/group_code_archive_week.html:12
+#: templates/baseapp/group_code/group_code_archive_week.html:16
+msgid "Group_code Week Archive"
+msgstr ""
+
+#: templates/baseapp/group_code/group_code_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      Group_codes created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/group_code/group_code_archive_year.html:31
+msgid "Group_code Year Archive"
+msgstr ""
+
+#: templates/baseapp/group_code/group_code_archive_year.html:51
+#, python-format
+msgid ""
+"\n"
+"      Group_codes created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/group_code/group_code_confirm_delete.html:7
+msgid "Delete this Group Code?"
+msgstr ""
+
+#: templates/baseapp/group_code/group_code_form.html:14
+msgid "Group Code"
+msgstr ""
+
+#: templates/baseapp/group_code/group_code_form.html:16
+msgid "Group Name"
+msgstr ""
+
+#: templates/baseapp/group_code/group_code_form.html:18
+msgid "Group Description"
+msgstr ""
+
+#: templates/baseapp/group_code/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual Group_code's page."
+msgstr ""
+
+#: templates/baseapp/habitation/base.html:10
+msgid "Habitation List "
+msgstr ""
+
+#: templates/baseapp/habitation/base.html:15
+msgid "Create Habitation"
+msgstr ""
+
+#: templates/baseapp/habitation/base.html:21
+msgid "Habitation Detail"
+msgstr ""
+
+#: templates/baseapp/habitation/base.html:26
+msgid "Update Habitation"
+msgstr ""
+
+#: templates/baseapp/habitation/habitation_confirm_delete.html:7
+msgid "Delete this Habitation?"
+msgstr ""
+
+#: templates/baseapp/habitation/habitation_form.html:14
+msgid "Habitation Code"
+msgstr ""
+
+#: templates/baseapp/habitation/habitation_form.html:15
+msgid "Habitation Name"
+msgstr ""
+
+#: templates/baseapp/habitation/habitation_form.html:16
+#: templates/baseapp/school/school_form.html:17
+#: templates/baseapp/zone/zone_form.html:17
+msgid "Block"
+msgstr ""
+
+#: templates/baseapp/habitation/habitation_form.html:17
+msgid "Zone"
+msgstr ""
+
+#: templates/baseapp/habitation/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual Habitation's page."
+msgstr ""
+
+#: templates/baseapp/language/base.html:10
+msgid "Language List "
+msgstr ""
+
+#: templates/baseapp/language/base.html:15
+msgid "Create Language"
+msgstr ""
+
+#: templates/baseapp/language/base.html:21
+msgid "Language Detail"
+msgstr ""
+
+#: templates/baseapp/language/base.html:26
+msgid "Update Language"
+msgstr ""
+
+#: templates/baseapp/language/language_confirm_delete.html:7
+msgid "Delete this Language?"
+msgstr ""
+
+#: templates/baseapp/language/language_form.html:14
+msgid "Language Code"
+msgstr ""
+
+#: templates/baseapp/language/language_form.html:15
+msgid "Language Name"
+msgstr ""
+
+#: templates/baseapp/language/object_table_list.html:6
+msgid ""
+"Click on the primary key value to access the individual Language's page."
+msgstr ""
+
+#: templates/baseapp/management/base.html:10
+msgid "Management List "
+msgstr ""
+
+#: templates/baseapp/management/base.html:15
+msgid "Create Management"
+msgstr ""
+
+#: templates/baseapp/management/base.html:21
+msgid "Management Detail"
+msgstr ""
+
+#: templates/baseapp/management/base.html:26
+msgid "Update Management"
+msgstr ""
+
+#: templates/baseapp/management/management_confirm_delete.html:7
+msgid "Delete this Management?"
+msgstr ""
+
+#: templates/baseapp/management/management_form.html:14
+#: templates/baseapp/school/school_form.html:20
+msgid "Management"
+msgstr ""
+
+#: templates/baseapp/management/object_table_list.html:4
+msgid ""
+"Click on the primary key value to access the individual Management's page."
+msgstr ""
+
+#: templates/baseapp/nationality/base.html:10
+msgid "Nationality List "
+msgstr ""
+
+#: templates/baseapp/nationality/base.html:15
+msgid "Create Nationality"
+msgstr ""
+
+#: templates/baseapp/nationality/base.html:21
+msgid "Nationality Detail"
+msgstr ""
+
+#: templates/baseapp/nationality/base.html:26
+msgid "Update Nationality"
+msgstr ""
+
+#: templates/baseapp/nationality/nationality_archive.html:11
+#: templates/baseapp/nationality/nationality_archive.html:24
+msgid "Nationality Archive Index"
+msgstr ""
+
+#: templates/baseapp/nationality/nationality_archive.html:44
+msgid "Recent Nationalitys"
+msgstr ""
+
+#: templates/baseapp/nationality/nationality_archive_day.html:11
+#: templates/baseapp/nationality/nationality_archive_day.html:48
+msgid "Nationality Day Archive"
+msgstr ""
+
+#: templates/baseapp/nationality/nationality_archive_day.html:56
+#, python-format
+msgid ""
+"\n"
+"      Nationalitys created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/nationality/nationality_archive_month.html:37
+msgid "Nationality Month Archive"
+msgstr ""
+
+#: templates/baseapp/nationality/nationality_archive_month.html:57
+#, python-format
+msgid ""
+"\n"
+"      Nationalitys created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/nationality/nationality_archive_week.html:12
+#: templates/baseapp/nationality/nationality_archive_week.html:16
+msgid "Nationality Week Archive"
+msgstr ""
+
+#: templates/baseapp/nationality/nationality_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      Nationalitys created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/nationality/nationality_archive_year.html:31
+msgid "Nationality Year Archive"
+msgstr ""
+
+#: templates/baseapp/nationality/nationality_archive_year.html:51
+#, python-format
+msgid ""
+"\n"
+"      Nationalitys created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/nationality/nationality_confirm_delete.html:7
+msgid "Delete this Nationality?"
+msgstr ""
+
+#: templates/baseapp/nationality/nationality_form.html:14
+msgid "Nationality"
+msgstr ""
+
+#: templates/baseapp/nationality/object_table_list.html:4
+msgid ""
+"Click on the primary key value to access the individual Nationality's page."
+msgstr ""
+
+#: templates/baseapp/parliamentary/base.html:10
+msgid "Parliamentary List "
+msgstr ""
+
+#: templates/baseapp/parliamentary/base.html:15
+msgid "Create Parliamentary"
+msgstr ""
+
+#: templates/baseapp/parliamentary/base.html:21
+msgid "Parliamentary Detail"
+msgstr ""
+
+#: templates/baseapp/parliamentary/base.html:26
+msgid "Update Parliamentary"
+msgstr ""
+
+#: templates/baseapp/parliamentary/object_table_list.html:4
+msgid ""
+"Click on the primary key value to access the individual Parliamentary's page."
+msgstr ""
+
+#: templates/baseapp/parliamentary/parliamentary_confirm_delete.html:7
+msgid "Delete this Parliamentary?"
+msgstr ""
+
+#: templates/baseapp/parliamentary/parliamentary_form.html:14
+msgid "Parliamentary Name"
+msgstr ""
+
+#: templates/baseapp/religion/base.html:10
+msgid "Religion List "
+msgstr ""
+
+#: templates/baseapp/religion/base.html:15
+msgid "Create Religion"
+msgstr ""
+
+#: templates/baseapp/religion/base.html:21
+msgid "Religion Detail"
+msgstr ""
+
+#: templates/baseapp/religion/base.html:26
+msgid "Update Religion"
+msgstr ""
+
+#: templates/baseapp/religion/object_table_list.html:4
+msgid ""
+"Click on the primary key value to access the individual Religion's page."
+msgstr ""
+
+#: templates/baseapp/religion/religion_confirm_delete.html:7
+msgid "Delete this Religion?"
+msgstr ""
+
+#: templates/baseapp/religion/religion_form.html:14
+msgid "Religion Name"
+msgstr ""
+
+#: templates/baseapp/revenue_block/base.html:10
+msgid "Revenue Block List "
+msgstr ""
+
+#: templates/baseapp/revenue_block/base.html:15
+msgid "Create Revenue Block"
+msgstr ""
+
+#: templates/baseapp/revenue_block/base.html:21
+msgid "Revenue Block Detail"
+msgstr ""
+
+#: templates/baseapp/revenue_block/base.html:26
+msgid "Update Revenue Block"
+msgstr ""
+
+#: templates/baseapp/revenue_block/object_table_list.html:4
+msgid ""
+"Click on the primary key value to access the individual Revenue Block's page."
+msgstr ""
+
+#: templates/baseapp/revenue_block/revenue_block_confirm_delete.html:7
+msgid "Delete this Revenue Block?"
+msgstr ""
+
+#: templates/baseapp/revenue_block/revenue_block_form.html:14
+msgid "Revenue Block"
+msgstr ""
+
+#: templates/baseapp/schemes/base.html:10
+msgid "schemes List "
+msgstr ""
+
+#: templates/baseapp/schemes/base.html:15
+msgid "Create Schemes"
+msgstr ""
+
+#: templates/baseapp/schemes/base.html:21
+msgid "Schemes Detail"
+msgstr ""
+
+#: templates/baseapp/schemes/base.html:26
+msgid "Update Schemes"
+msgstr ""
+
+#: templates/baseapp/schemes/object_table_list.html:6
+msgid "Click on the primary key value to access the individual Schemes's page."
+msgstr ""
+
+#: templates/baseapp/schemes/schemes_confirm_delete.html:7
+msgid "Delete this Schemes?"
+msgstr ""
+
+#: templates/baseapp/schemes/schemes_form.html:14
+msgid "schemes Code"
+msgstr ""
+
+#: templates/baseapp/schemes/schemes_form.html:16
+msgid "schemes Name"
+msgstr ""
+
+#: templates/baseapp/school/base.html:10
+msgid "School List "
+msgstr ""
+
+#: templates/baseapp/school/base.html:15
+msgid "Create School"
+msgstr ""
+
+#: templates/baseapp/school/base.html:21
+msgid "School Detail"
+msgstr ""
+
+#: templates/baseapp/school/base.html:26
+msgid "Update School"
+msgstr ""
+
+#: templates/baseapp/school/object_table_list.html:4
+msgid "Click on the primary key value to access the individual School's page."
+msgstr ""
+
+#: templates/baseapp/school/school_confirm_delete.html:7
+msgid "Delete this School?"
+msgstr ""
+
+#: templates/baseapp/school/school_form.html:14
+msgid "School Code"
+msgstr ""
+
+#: templates/baseapp/school/school_form.html:15
+msgid "School Name"
+msgstr ""
+
+#: templates/baseapp/school/school_form.html:19
+msgid "Habitation"
+msgstr ""
+
+#: templates/baseapp/school/school_form.html:21
+msgid "Student Count"
+msgstr ""
+
+#: templates/baseapp/sub_castes/base.html:10
+msgid "Sub Castes List "
+msgstr ""
+
+#: templates/baseapp/sub_castes/base.html:15
+msgid "Create Sub Castes"
+msgstr ""
+
+#: templates/baseapp/sub_castes/base.html:21
+msgid "Sub Castes Detail"
+msgstr ""
+
+#: templates/baseapp/sub_castes/base.html:26
+msgid "Update Sub Castes"
+msgstr ""
+
+#: templates/baseapp/sub_castes/object_table_list.html:4
+msgid ""
+"Click on the primary key value to access the individual Sub Castes's page."
+msgstr ""
+
+#: templates/baseapp/sub_castes/sub_castes_archive.html:11
+#: templates/baseapp/sub_castes/sub_castes_archive.html:24
+msgid "Sub_Castes Archive Index"
+msgstr ""
+
+#: templates/baseapp/sub_castes/sub_castes_archive.html:44
+msgid "Recent Sub_Castess"
+msgstr ""
+
+#: templates/baseapp/sub_castes/sub_castes_archive_day.html:11
+#: templates/baseapp/sub_castes/sub_castes_archive_day.html:48
+msgid "Sub_Castes Day Archive"
+msgstr ""
+
+#: templates/baseapp/sub_castes/sub_castes_archive_day.html:56
+#, python-format
+msgid ""
+"\n"
+"      Sub_Castess created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/sub_castes/sub_castes_archive_month.html:37
+msgid "Sub_Castes Month Archive"
+msgstr ""
+
+#: templates/baseapp/sub_castes/sub_castes_archive_month.html:57
+#, python-format
+msgid ""
+"\n"
+"      Sub_Castess created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/sub_castes/sub_castes_archive_week.html:12
+#: templates/baseapp/sub_castes/sub_castes_archive_week.html:16
+msgid "Sub_Castes Week Archive"
+msgstr ""
+
+#: templates/baseapp/sub_castes/sub_castes_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      Sub_Castess created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/sub_castes/sub_castes_archive_year.html:31
+msgid "Sub_Castes Year Archive"
+msgstr ""
+
+#: templates/baseapp/sub_castes/sub_castes_archive_year.html:51
+#, python-format
+msgid ""
+"\n"
+"      Sub_Castess created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/sub_castes/sub_castes_confirm_delete.html:7
+msgid "Delete this Sub Caste?"
+msgstr ""
+
+#: templates/baseapp/sub_castes/sub_castes_form.html:14
+msgid "Caste Code"
+msgstr ""
+
+#: templates/baseapp/sub_castes/sub_castes_form.html:15
+msgid "Caste Name"
+msgstr ""
+
+#: templates/baseapp/sub_castes/sub_castes_form.html:16
+msgid "Community"
+msgstr ""
+
+#: templates/baseapp/taluk/base.html:10
+msgid "Taluk List "
+msgstr ""
+
+#: templates/baseapp/taluk/base.html:15
+msgid "Create Taluk"
+msgstr ""
+
+#: templates/baseapp/taluk/base.html:21
+msgid "Taluk Detail"
+msgstr ""
+
+#: templates/baseapp/taluk/base.html:26
+msgid "Update Taluk"
+msgstr ""
+
+#: templates/baseapp/taluk/object_table_list.html:6
+msgid "Click on the primary key value to access the individual Taluk's page."
+msgstr ""
+
+#: templates/baseapp/taluk/taluk_confirm_delete.html:7
+msgid "Delete this Taluk?"
+msgstr ""
+
+#: templates/baseapp/taluk/taluk_form.html:17
+msgid "Taluk Name"
+msgstr ""
+
+#: templates/baseapp/zone/base.html:10
+msgid "Zone List "
+msgstr ""
+
+#: templates/baseapp/zone/base.html:15
+msgid "Create Zone"
+msgstr ""
+
+#: templates/baseapp/zone/base.html:21
+msgid "Zone Detail"
+msgstr ""
+
+#: templates/baseapp/zone/base.html:26
+msgid "Update Zone"
+msgstr ""
+
+#: templates/baseapp/zone/object_table_list.html:4
+msgid "Click on the primary key value to access the individual Zone's page."
+msgstr ""
+
+#: templates/baseapp/zone/zone_archive.html:11
+#: templates/baseapp/zone/zone_archive.html:24
+msgid "Zone Archive Index"
+msgstr ""
+
+#: templates/baseapp/zone/zone_archive.html:44
+msgid "Recent Zones"
+msgstr ""
+
+#: templates/baseapp/zone/zone_archive_day.html:11
+#: templates/baseapp/zone/zone_archive_day.html:48
+msgid "Zone Day Archive"
+msgstr ""
+
+#: templates/baseapp/zone/zone_archive_day.html:56
+#, python-format
+msgid ""
+"\n"
+"      Zones created on %(day)s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/zone/zone_archive_month.html:37
+msgid "Zone Month Archive"
+msgstr ""
+
+#: templates/baseapp/zone/zone_archive_month.html:57
+#, python-format
+msgid ""
+"\n"
+"      Zones created in the month of %(month|date:\"M Y\")s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/zone/zone_archive_week.html:12
+#: templates/baseapp/zone/zone_archive_week.html:16
+msgid "Zone Week Archive"
+msgstr ""
+
+#: templates/baseapp/zone/zone_archive_week.html:25
+#, python-format
+msgid ""
+"\n"
+"      Zones created during the week beginning on %(week)s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/zone/zone_archive_year.html:31
+msgid "Zone Year Archive"
+msgstr ""
+
+#: templates/baseapp/zone/zone_archive_year.html:51
+#, python-format
+msgid ""
+"\n"
+"      Zones created in the year %(year)s\n"
+"    "
+msgstr ""
+
+#: templates/baseapp/zone/zone_confirm_delete.html:7
+msgid "Delete this Zone?"
+msgstr ""
+
+#: templates/baseapp/zone/zone_form.html:14
+msgid "Zone Type"
+msgstr ""
+
+#: templates/baseapp/zone/zone_form.html:15
+msgid "Zone Code"
+msgstr ""
+
+#: templates/baseapp/zone/zone_form.html:16
+msgid "Zone Name"
+msgstr ""

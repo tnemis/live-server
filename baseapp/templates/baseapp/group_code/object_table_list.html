@@ -1,0 +1,49 @@
+
+
+{% load i18n %}
+
+<p>
+  {% trans "Click on the primary key value to access the individual Group_code's page." %}
+</p>
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        id
+      </th>
+      
+        <th>
+          Group Code
+        </th>
+      
+        <th>
+          Group Name
+        </th>
+      
+        <th>
+          Group Description
+        </th>
+      
+      
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+      <tr>
+        <td>
+          <a href='{% url "baseapp_group_code_detail" pk=object.pk %}'>
+            {{ object.id|stringformat:".3d" }}
+          </a>
+        </td>
+        
+          <td>{{ object.group_code }}</td>
+        
+          <td>{{ object.group_name }}</td>
+        
+          <td>{{ object.group_description }}</td>
+        
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

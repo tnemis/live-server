@@ -1,0 +1,63 @@
+
+
+{% extends 'baseapp/nationality/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /home/murad/testing/baseapp/templates/baseapp/nationality/nationality_archive_month.html
+{% endblock %}
+{% block breadcrumbs %}
+  <ul class='breadcrumb'>
+    <li>
+      <a href='{% url "baseapp_nationality_archive_index" %}'>
+        {% trans "Archive Index" %}
+      </a>
+      <span class='divider'>
+        /
+      </span>
+    </li>
+    <li>
+      <a href='{% url "baseapp_nationality_year_archive" year=month.year %}'>
+        {% trans "Year Archive" %}
+      </a>
+      <span class='divider'>
+        /
+      </span>
+    </li>
+    <li>
+      <a href='{% url "baseapp_nationality_month_archive" year=month.year month=month.month %}'>
+        {% trans "Month Archive" %}
+      </a>
+    </li>
+  </ul>
+{% endblock %}
+{% block header-link %}
+  <a href='{% url "baseapp_nationality_month_archive" year=month.year month=month.month %}'>
+    {% trans "Nationality Month Archive" %}
+  </a>
+{% endblock %}
+{% block header-description %}
+  {% trans "A monthly archive page showing all objects in a given month." %}
+{% endblock %}
+{% block content %}
+  <h2>
+    By Day
+  </h2>
+  <ul class='nav nav-tabs nav-stacked'>
+    {% for date in date_list %}
+      <li>
+        <a href='{% url "baseapp_nationality_day_archive" year=date.year month=date.month day=date.day %}'>
+          {{ date|date:"M. d, Y" }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  <h2>
+    {% blocktrans %}
+      Nationalitys created in the month of {{ month|date:"M Y" }}
+    {% endblocktrans %}
+  </h2>
+  {% include 'baseapp/nationality/object_table_list.html' %}
+  {% include 'baseapp/nationality/pagination.html' %}
+{% endblock %}

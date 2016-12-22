@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% load url from future %}
+{% load i18n %}
+{% load widget_tweaks %}
+
+{% block head_title %}{% trans "Sign up" %}{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-6">
+            <form id="signup_form" method="post" action="{% url "account_signup" %}" autocapitalize="off" >
+                <legend>{% trans "Sign up" %}</legend>
+                {% csrf_token %}
+                <div class="form-group"> <b>{% trans "User Name" %}</b>{{ form.username|add_class:"form-control" }} <span class="error_message">{{form.username.errors}}</span></div>
+                <div class="form-group"> <b></b>{{ form.password|add_class:"form-control" }}</div>
+                <div class="form-group"> <b></b>{{ form.password_confirm|add_class:"form-control" }}</div>
+                <div class="form-group"> <b>{% trans "Email" %}</b>{{ form.email|add_class:"form-control" }}<span class="error_message">{{form.email.errors}}</span></div>
+                <div class="form-group"> <b>{% trans "Mobile Number" %}</b>{{ form.mobile_number|add_class:"form-control" }}<span class="error_message">{{form.mobile_number.errors}}</span></div>
+                <div class="form-group"> <b>{% trans "Category" %}</b>{{ form.category|add_class:"form-control" }}<span class="error_message">{{form.category.errors}}</span></div>
+                <div class="form-group"> <b>{% trans "Associated With" %}</b>{{ form.associated|add_class:"form-control" }}<span class="error_message">{{form.associated.errors}}</span></div>
+                
+                
+                {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+                 {{form.errors}}
+                <button type="submit" class="btn btn-primary">{% trans "Sign up" %}</button>
+            </form>
+        </div>
+        <div class="col-md-4">
+            {% include "account/_signup_sidebar.html" %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_script %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#id_username').focus();
+        });
+    </script>
+{% endblock %}

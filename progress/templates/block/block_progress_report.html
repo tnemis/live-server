@@ -1,0 +1,120 @@
+{% extends 'block/base.html' %}
+{% load i18n %}
+{% block content %}
+
+
+<p style="float:left;" id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = Date();
+</script>
+
+<style type="text/css">
+@media print {
+  a[href]:after {
+    content: none !important;
+  }
+}
+  th{
+    text-align: center;
+  }
+  a {text-decoration: none}
+</style>
+
+
+
+
+
+
+<center>
+
+
+
+
+<center>
+
+<br>
+<script>
+document.getElementById("demo").innerHTML = Date();
+</script>
+
+{% if no_school %}
+<h5 style="color:red" >{{ no_school }}</h5>
+{% endif %}
+
+<table style="width:100%;" class='table table-bordered table-striped2' border="2">
+  <tr>
+    <th colspan="18"><center> Block Level Progress Report-{{block_name}} </center>  
+    {% if selected_dept %} {% for d in selected_dept %} {{ d }}{% endfor %}  {% endif %}
+    {% if selected_man %} {% for m in selected_man %} {{ m }} {% endfor %}  {% endif %}
+    {% if selected_cat %} {% for c in selected_cat %} {{ c }} {% endfor %}  {% endif %}</th>
+  </tr>
+    <tr>
+    <th>S.no</th>
+    <th>udise code</th>
+      <th style="width:100px;" >School name</th>
+      <th>Management</th>
+      <th>Category</th>
+      <th>I</th>
+      <th>II</th>
+      <th>III</th>
+      <th>IV</th>
+      <th>V</th>
+      <th>VI</th>
+      <th>VII</th>
+      <th>VIII</th>
+      <th>IX</th>
+      <th>X</th>
+      <th>XI</th>
+      <th>XII</th>
+      <th>TOTAL</th>
+    </tr>
+
+
+{% for i in emis_count %}
+    <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ i.school.school_code }}</td>
+          <td>{{ i.school.school_name }}</td>
+          <td>{{ i.school.management.management_name }}</td>
+          <td>{{ i.school.category.category_name }}</td>
+          <td >{{i.one}}</td>
+          <td>{{i.two}}</td>
+          <td>{{i.three}}</td>
+          <td>{{i.four}}</td>
+          <td>{{i.five}}</td>
+          <td>{{i.six}}</td>
+          <td>{{i.seven}}</td>
+          <td>{{i.eight}}</td>
+          <td>{{i.nine}}</td>
+          <td>{{i.ten}}</td>
+          <td>{{i.eleven}}</td>
+          <td>{{i.twelve}}</td>
+          <td>{{i.total_count}}</td>
+      </tr>
+
+{% endfor %}
+<tr>
+  <th colspan="5">Total</th>
+  <th>{{block_emis_one}}</th>
+  <th>{{block_emis_two}}</th>
+  <th>{{block_emis_three}}</th>
+  <th>{{block_emis_four}}</th>
+  <th>{{block_emis_five}}</th>
+  <th>{{block_emis_six}}</th>
+  <th>{{block_emis_seven}}</th>
+  <th>{{block_emis_eight}}</th>
+  <th>{{block_emis_nine}}</th>
+  <th>{{block_emis_ten}}</th>
+  <th>{{block_emis_eleven}}</th>
+  <th>{{block_emis_twelve}}</th>
+  <th>{{block_emis_total_count}}</th>
+</tr>
+</table>
+
+
+
+{% if no_udise %}
+<h4 style="color:#3C8DBC;">{{ no_udise }}</h4></center>
+{% endif %}
+{% endblock %}

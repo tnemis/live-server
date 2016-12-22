@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="/site_media/static/css/style.css">
+<style type="text/css">
+.test{
+    background-color: #006FA0;
+} 
+
+.password_reset {
+  position: relative;
+  margin: 10px auto;
+  width: 510px;
+  padding-right: 32px;
+  font-weight: 300;
+  color: #006FA0;
+}
+
+
+.btn-primary {
+  
+    color: #ffffff; 
+  background-color: #006FA0; 
+  border-color: #006FA0; 
+}
+.error_message {
+  color: red;
+}
+</style>
+</head>
+<body>
+  <div class="main_body" >
+<center>
+        <div class="test" id="image" style="overflow: hidden; width:100%;">
+<img src="/site_media/static/img/SED_logo.png"> <h1 style="color:MidnightBlue; height:28px;"> </h1>
+<h1 style="color:white; font-size: 26px; height: 70px;" > Educational Management Information System </h1>
+
+</div>
+</center> 
+
+  <div style="height:20px;"></div>
+   {% block content %}
+
+  {% endblock %}
+<div style="height:90px;">
+        </div>
+    <div align="center">
+| © Educational Management Information System
+ | <br>
+| Pilot Project Designed & Developed by <a href="http://au-kbc.org" target="_blank" title="AU_KBC Home"> AU-KBC Research Centre</a>, Anna University Chennai |
+
+  </div>
+</div>
+</body>
+</html>

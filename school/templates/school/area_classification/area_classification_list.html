@@ -1,0 +1,20 @@
+
+
+{% extends 'school/area_classification/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+
+
+
+{% block content %}
+<div class="row">
+<div class="col-md-8" >
+  <h2>
+    {% trans "Area classifications" %}
+  </h2>
+  {% include 'school/area_classification/object_table_list.html' %}
+  {% include 'school/area_classification/pagination.html' %}
+</div>
+</div>
+{% endblock %}

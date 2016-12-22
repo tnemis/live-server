@@ -1,0 +1,23 @@
+{% extends 'students/child_detail/base.html' %}
+
+{% load i18n %}
+
+{% block content %}
+<h3>Delete {{object.unique_id_no}} Child detail? </h3>
+  <div class="row">
+        <div class="col-md-8">
+  <br />
+  <form action='#' charset='utf-8' method='post'>
+    <fieldset>
+      {% csrf_token %}
+      <div class='form-actions'>
+
+        <button class='btn btn-danger' type='submit'>
+
+          {% trans "Delete" %}
+        </button>
+      </div>
+    </fieldset>
+  </form>
+{% endblock %}
+

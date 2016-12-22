@@ -1,0 +1,43 @@
+
+
+{% extends 'school/school_anganwadi/base.html' %}
+{% load widget_tweaks %}
+
+{% load i18n %}
+{% load url from future %}
+
+
+
+
+{% block content %}
+<div class="row">
+<div class="col-md-8" >
+  <form action='{% if object %}{% url "school_school_anganwadi_update" pk=object.pk %}{% else %}{% url "school_school_anganwadi_create" %}{% endif %}' method='post' encoding='utf-8'>
+    <fieldset>
+      {% csrf_token %}
+   
+
+  <div class="form-group"> <b>{% trans "School key" %}</b>{{ form.school_key|add_class:"form-control" }}</div><span class="error_message">{{form.school_key.errors}}</span>
+
+  <div class="form-group"> <b>{% trans "Anganwadi" %}</b>{{ form.anganwadi|add_class:"form-control" }}</div><span class="error_message">{{form.anganwadi.errors}}</span>
+
+  <div class="form-group"> <b>{% trans "Student count" %}</b>{{ form.student_count|add_class:"form-control" }}</div><span class="error_message">{{form.student_count.errors}}</span>
+
+  <div class="form-group"> <b>{% trans "Teacher count" %}</b>{{ form.teacher_count|add_class:"form-control" }}</div><span class="error_message">{{form.teacher_count.errors}}</span>
+
+ 
+
+     <div class='form-actions'>
+        <button class='btn btn-large btn-success' type='submit'>
+          {% if object %}
+            {% trans "Update" %}
+          {% else %}
+            {% trans "Create" %}
+          {% endif %}
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+</div>
+{% endblock %}

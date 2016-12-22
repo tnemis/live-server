@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% load url from future %}
+{% load i18n %}
+
+
+{% block contentmenu %}
+{% for message in messages %}
+    <div class="alert fade in {% if message.tags %} alert-{{ message.tags }}{% endif %}">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+{% endfor %}
+
+<div class="panel panel-default">
+    <div class="panel-heading"><strong>{% trans "Account" %}</strong></div>
+    <div class="list-group">
+        <a class="list-group-item account-settings" href="{% url "account_settings" %}">
+            {% trans "Settings" %}
+        </a>
+        <a class="list-group-item account-password" href="{% url "account_password" %}">
+            {% trans "Change password" %}
+        </a>
+        </a>
+    </div>
+</div>
+{% endblock %}
