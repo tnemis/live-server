@@ -1,0 +1,63 @@
+
+
+{% extends 'baseapp/academic_year/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /home/murad/testing/baseapp/templates/baseapp/academic_year/academic_year_archive_month.html
+{% endblock %}
+{% block breadcrumbs %}
+  <ul class='breadcrumb'>
+    <li>
+      <a href='{% url "baseapp_academic_year_archive_index" %}'>
+        {% trans "Archive Index" %}
+      </a>
+      <span class='divider'>
+        /
+      </span>
+    </li>
+    <li>
+      <a href='{% url "baseapp_academic_year_year_archive" year=month.year %}'>
+        {% trans "Year Archive" %}
+      </a>
+      <span class='divider'>
+        /
+      </span>
+    </li>
+    <li>
+      <a href='{% url "baseapp_academic_year_month_archive" year=month.year month=month.month %}'>
+        {% trans "Month Archive" %}
+      </a>
+    </li>
+  </ul>
+{% endblock %}
+{% block header-link %}
+  <a href='{% url "baseapp_academic_year_month_archive" year=month.year month=month.month %}'>
+    {% trans "Academic_Year Month Archive" %}
+  </a>
+{% endblock %}
+{% block header-description %}
+  {% trans "A monthly archive page showing all objects in a given month." %}
+{% endblock %}
+{% block content %}
+  <h2>
+    By Day
+  </h2>
+  <ul class='nav nav-tabs nav-stacked'>
+    {% for date in date_list %}
+      <li>
+        <a href='{% url "baseapp_academic_year_day_archive" year=date.year month=date.month day=date.day %}'>
+          {{ date|date:"M. d, Y" }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  <h2>
+    {% blocktrans %}
+      Academic_Years created in the month of {{ month|date:"M Y" }}
+    {% endblocktrans %}
+  </h2>
+  {% include 'baseapp/academic_year/object_table_list.html' %}
+  {% include 'baseapp/academic_year/pagination.html' %}
+{% endblock %}

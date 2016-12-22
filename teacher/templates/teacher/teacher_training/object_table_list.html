@@ -1,0 +1,75 @@
+
+
+{% load i18n %}
+
+<p>
+  {% trans "Click on the primary key value to access the individual Teacher_training's page." %}
+</p>
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        Id
+      </th>
+      
+        <th>
+          Teacher key
+        </th>
+      
+        <th>
+          Course
+        </th>
+      
+        <th>
+          Institution
+        </th>
+      
+        <th>
+          City
+        </th>
+      
+        <th>
+          Country
+        </th>
+      
+        <th>
+          Duration from
+        </th>
+      
+        <th>
+          Duration to
+        </th>
+      
+        
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+      <tr>
+        <td>
+          <a href='{% url "teacher_teacher_training_detail" pk=object.pk %}'>
+            {{ object.id|stringformat:".3d" }}
+          </a>
+        </td>
+        
+          <td>{{ object.teacher_key }}</td>
+        
+          <td>{{ object.course }}</td>
+        
+          <td>{{ object.institution }}</td>
+        
+          <td>{{ object.city }}</td>
+        
+          <td>{{ object.country }}</td>
+        
+          <td>{{ object.duration_from }}</td>
+        
+          <td>{{ object.duration_to }}</td>
+        
+         
+        
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

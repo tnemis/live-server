@@ -1,0 +1,122 @@
+{% extends 'block/base.html' %}
+{% load i18n %}
+{% block content %}
+
+
+<p style="float:left;" id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = Date();
+</script>
+
+<style type="text/css">
+  th{
+    text-align: center;
+  }
+  a:link {text-decoration: none}
+</style>
+
+<style type="text/css">
+@media print {
+  a[href]:after {
+    content: none !important;
+  }
+}
+ * { margin:0 padding:0 }
+   
+  input {
+    border: none;
+    background: transparent;
+}
+
+th tr td {
+text-align: center;
+}
+
+</style>
+
+
+
+
+
+<style type="text/css">
+  th{
+    text-align: center;
+  }
+</style>
+
+{% if user.account.user_category.user_category == 'state' %}
+<center>
+<!-- <h4 style="color:#3C8DBC;">State level data entry progress report</h4></center> -->
+<script>
+document.getElementById("demo").innerHTML = Date();
+</script>
+<center>
+<div style="float: right;" ><p  id="demo"></p></div>
+<table style="width:800px;" class='table table-bordered table-striped2' border="2">
+  <tr>
+    <th colspan="15">State Level MATRIC Progress Report</th>
+  </tr>
+    <tr>
+    <th style="width:10px;" >S.no</th>
+    <th >District</th>
+     <th>I</th>
+      <th>II</th>
+      <th>III</th>
+      <th>IV</th>
+      <th>V</th>
+      <th>VI</th>
+      <th>VII</th>
+      <th>VIII</th>
+      <th>IX</th>
+      <th>X</th>
+      <th>XI</th>
+      <th>XII</th>
+      <th>TOTAL</th>
+    </tr>
+
+{% for a,b,c,d,e,f,g,h,x,j,k,l,m,n,o in mylist %}
+    <tr>
+    <td>{{ forloop.counter }}</td>
+          <td><a href="/progress/district_level_progress_report/{{ a }}">{{ b }}</a></td>
+          <td>{{ c }}</td>
+          <td>{{ d }}</td>
+          <td>{{ e }}</td>
+          <td>{{ f }}</td>
+          <td>{{ g }}</td>
+          <td>{{ h }}</td>
+          <td>{{ x }}</td>
+          <td>{{ j }}</td>
+          <td>{{ k }}</td>
+          <td>{{ l }}</td>
+          <td>{{ m }}</td>
+          <td>{{ n }}</td>
+          <td>{{ o }}</td>
+      </tr>
+
+{% endfor %}
+<tr>
+  <th colspan="2">Total</th>
+  <th>{{ state_emis_one }}</th>
+  <th>{{ state_emis_two }}</th>
+  <th>{{ state_emis_three }}</th>
+  <th>{{ state_emis_four }}</th>
+  <th>{{ state_emis_five }}</th>
+  <th>{{ state_emis_six }}</th>
+  <th>{{ state_emis_seven }}</th>
+  <th>{{ state_emis_eight }}</th>
+  <th>{{ state_emis_nine }}</th>
+  <th>{{ state_emis_ten }}</th>
+  <th>{{ state_emis_eleven }}</th>
+  <th>{{ state_emis_twelve }}</th>
+  <th>{{ state_emis_total_count }}</th>
+</tr>
+</table>
+
+
+
+{% else %}
+<center>
+<h4 style="color:#3C8DBC;">Your are not authorised person to see state level report</h4></center>
+{% endif %}
+{% endblock %}

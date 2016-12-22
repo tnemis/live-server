@@ -1,0 +1,69 @@
+
+
+{% load i18n %}
+
+<p>
+  {% trans "Click on the primary key value to access the individual School_flag's page." %}
+</p>
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        Id
+      </th>
+      
+        <th>
+          School key
+        </th>
+      
+        <th>
+          Area flag
+        </th>
+      
+        <th>
+          Education block flag
+        </th>
+      
+        <th>
+          School type flag
+        </th>
+      
+        <th>
+          School managed flag
+        </th>
+      
+        <th>
+          School category flag
+        </th>
+      
+       
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+      <tr>
+        <td>
+          <a href='{% url "school_school_flag_detail" pk=object.pk %}'>
+            {{ object.id|stringformat:".3d" }}
+          </a>
+        </td>
+        
+          <td>{{ object.school_key }}</td>
+        
+          <td>{{ object.area_flag }}</td>
+        
+          <td>{{ object.edu_block_flag }}</td>
+        
+          <td>{{ object.school_type_flag }}</td>
+        
+          <td>{{ object.school_managed_flag }}</td>
+        
+          <td>{{ object.school_category_flag }}</td>
+        
+        
+        
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

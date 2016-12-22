@@ -1,0 +1,62 @@
+
+
+{% extends 'baseapp/nationality/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /home/murad/testing/baseapp/templates/baseapp/nationality/nationality_archive_day.html
+{% endblock %}
+{% block title %}
+  {% trans "Nationality Day Archive" %}
+{% endblock %}
+{% block breadcrumbs %}
+  <ul class='breadcrumb'>
+    <li>
+      <a href='{% url "baseapp_nationality_archive_index" %}'>
+        {% trans "Archive Index" %}
+      </a>
+      <span class='divider'>
+        /
+      </span>
+    </li>
+    <li>
+      <a href='{% url "baseapp_nationality_year_archive" year=day.year %}'>
+        {% trans "Year Archive" %}
+      </a>
+      <span class='divider'>
+        /
+      </span>
+    </li>
+    <li>
+      <a href='{% url "baseapp_nationality_month_archive" year=day.year month=day.month %}'>
+        {% trans "Month Archive" %}
+      </a>
+      <span class='divider'>
+        /
+      </span>
+    </li>
+    <li>
+      <a href='{% url "baseapp_nationality_day_archive" year=day.year month=day.month day=day.day %}'>
+        {% trans "Day Archive" %}
+      </a>
+    </li>
+  </ul>
+{% endblock %}
+{% block header-link %}
+  <a href='{% url "baseapp_nationality_day_archive" year=day.year month=day.month day=day.day %}'>
+    {% trans "Nationality Day Archive" %}
+  </a>
+{% endblock %}
+{% block header-description %}
+  {% trans "A day archive page showing all objects in a given day." {%
+{% endblock %}
+{% block content %}
+  <h2>
+    {% blocktrans %}
+      Nationalitys created on {{ day }}
+    {% endblocktrans %}
+  </h2>
+  {% include 'baseapp/nationality/object_table_list.html' %}
+  {% include 'baseapp/nationality/pagination.html' %}
+{% endblock %}

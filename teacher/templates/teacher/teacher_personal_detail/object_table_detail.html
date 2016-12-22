@@ -1,0 +1,229 @@
+
+
+{% load i18n %}
+
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        {% trans "Field" %}
+      </th>
+      <th>
+        {% trans "Value" %}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        Id
+      </td>
+      <td>
+        <a href='{{ object.get_absolute_url }}'>
+          {{ object.id|stringformat:".3d" }}
+        </a>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        Code
+      </td>
+      <td>{{ object.code }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Gpf no
+      </td>
+      <td>{{ object.gpf_no }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        School
+      </td>
+      <td>{{ object.school }}</td>
+    </tr>
+    
+    
+    
+    <tr>
+      <td>
+        Name
+      </td>
+      <td>{{ object.name }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Pan
+      </td>
+      <td>{{ object.pan }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Date Of Birth
+      </td>
+      <td>{{ object.dob }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Blood Group
+      </td>
+      <td>{{ object.blood }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Gender
+      </td>
+      <td>{{ object.gender }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Community
+      </td>
+      <td>{{ object.community }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Religion
+      </td>
+      <td>{{ object.religion }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Mother Tongue
+      </td>
+      <td>{{ object.mother_tongue }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Native Dist
+      </td>
+      <td>{{ object.native_dist }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Native Taluk
+      </td>
+      <td>{{ object.native_taluk }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Native Village
+      </td>
+      <td>{{ object.native_village }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Languages
+      </td>
+      <td>{{ object.languages }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Identification
+      </td>
+      <td>{{ object.identification }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Railway
+      </td>
+      <td>{{ object.railway }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Permanent Address
+      </td>
+      <td>{{ object.permanent_address }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Permanent Pincode
+      </td>
+      <td>{{ object.permanent_pincode }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Permanent Phone
+      </td>
+      <td>{{ object.permanent_phone }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Present Address
+      </td>
+      <td>{{ object.present_address }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Present Pincode
+      </td>
+      <td>{{ object.present_pincode }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Present Phone
+      </td>
+      <td>{{ object.present_phone }}</td>
+    </tr>
+    
+    
+    
+    <tr>
+      <td>
+        Complete Flag
+      </td>
+      <td>{{ object.complete_flag }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Modification Flag
+      </td>
+      <td>{{ object.modification_flag }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Verification Flag
+      </td>
+      <td>{{ object.verification_flag }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Staff Id
+      </td>
+      <td>{{ object.staff_id }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Timestamp
+      </td>
+      <td>{{ object.timestamp }}</td>
+    </tr>
+    
+  </tbody>
+</table>

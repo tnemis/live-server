@@ -1,0 +1,29 @@
+{% extends "account/base.html" %}
+{% load i18n %}
+
+
+{% load url from future %}
+
+
+{% block content_class %}account account-settings{% endblock %}
+
+{% block head_title %}Account{% endblock %}
+
+{% block content %}
+
+
+    <div class="row_settings">
+        <div class="col-md-5">
+
+            <form method="POST" action={% url "account_settings" %}>
+                <legend>Account</legend>
+               
+                {% csrf_token %} <span class="error_message">{{form.errors}}</span>
+                <div class="form-group"> <b>Email-Id</b><input type="email" value="{{user.email}}" name="email" id="id_email" class="form-control"></div>
+                <div class="form-group"> <b>Mobile Number</b><input type="numbers" value="{{user.account.mobile_number}}" name="mobile_number" id="mobile_number" class="form-control"></div>
+                
+                <button class="btn btn-primary" type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'students/child_family_detail/base.html' %}
+
+{% load i18n %}
+
+{% block content %}
+<h2>
+    {% trans "Delete this child family detail?" %}
+  </h2>
+  <div class="row">
+        <div class="col-md-8">
+  <br />
+  {% include 'students/child_family_detail/object_table_detail.html' %}
+  <form action='' charset='utf-8' method='post'>
+    <fieldset>
+      {% csrf_token %}
+      <div class='form-actions'>
+        <button class='btn btn-danger' type='submit'>
+          {% trans "Delete" %}
+        </button>
+      </div>
+    </fieldset>
+  </form>
+{% endblock %}
+

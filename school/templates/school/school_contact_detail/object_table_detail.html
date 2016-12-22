@@ -1,0 +1,78 @@
+
+
+{% load i18n %}
+
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        {% trans "Field" %}
+      </th>
+      <th>
+        {% trans "Value" %}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        Id
+      </td>
+      <td>
+        <a href='{{ object.get_absolute_url }}'>
+          {{ object.id|stringformat:".3d" }}
+        </a>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        School Key
+      </td>
+      <td>{{ object.school_key }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Office Landline
+      </td>
+      <td>{{ object.office_landline }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Office Mobile
+      </td>
+      <td>{{ object.office_mobile }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Office Email
+      </td>
+      <td>{{ object.office_email }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        HM Landline
+      </td>
+      <td>{{ object.hm_landline }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        HM Mobile
+      </td>
+      <td>{{ object.hm_mobile }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        HM Email
+      </td>
+      <td>{{ object.hm_email }}</td>
+    </tr>
+    
+  </tbody>
+</table>

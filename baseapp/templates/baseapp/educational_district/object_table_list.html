@@ -1,0 +1,33 @@
+{% load i18n %}
+
+<p>
+  {% trans "Click on the primary key value to access the individual Educational District's page." %}
+</p>
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        Id
+      </th>
+      
+        <th>
+          Educational District
+        </th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+      <tr>
+        <td>
+          <a href='{% url "baseapp_educational_district_detail" pk=object.pk %}'>
+            {{ object.id|stringformat:".3d" }}
+          </a>
+        </td>
+        
+          <td>{{ object.educational_district }}</td>
+        
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

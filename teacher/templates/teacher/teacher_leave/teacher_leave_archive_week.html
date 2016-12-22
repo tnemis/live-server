@@ -1,0 +1,31 @@
+
+
+{% extends 'teacher/teacher_leave/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /home/mur/testing/emis_d15/scafold/teacher/templates/teacher/teacher_leave/teacher_leave_archive_week.html
+{% endblock %}
+
+{% block title %}
+  {% trans "Teacher_leave Week Archive" %}
+{% endblock %}
+
+{% block header-link %}
+  {% trans "Teacher_leave Week Archive" %}
+{% endblock %}
+
+{% block header-description %}
+  {% trans "A weekly archive page showing all objects in a given week." %}
+{% endblock %}
+
+{% block content %}
+  <h2>
+    {% blocktrans %}
+      Teacher_leaves created during the week beginning on {{ week }}
+    {% endblocktrans %}
+  </h2>
+  {% include 'teacher/teacher_leave/object_table_list.html' %}
+  {% include 'teacher/teacher_leave/pagination.html' %}
+{% endblock %}

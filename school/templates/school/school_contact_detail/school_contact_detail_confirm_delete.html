@@ -1,0 +1,29 @@
+
+
+{% extends 'school/school_contact_detail/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+
+
+{% block content %}
+  <h2>
+    {% trans "Delete this School contact detail?" %}
+  </h2>
+  <div class="row">
+<div class="col-md-8" >
+  <br />
+  {% include 'school/school_contact_detail/object_table_detail.html' %}
+  <form action='{% url "school_school_contact_detail_delete" pk=object.pk %}' charset='utf-8' method='post'>
+    <fieldset>
+      {% csrf_token %}
+      <div class='form-actions'>
+        <button class='btn btn-danger' type='submit'>
+          {% trans "Delete" %}
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+</div>
+{% endblock %}

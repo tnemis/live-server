@@ -1,0 +1,40 @@
+{% load i18n %}
+
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        {% trans "Field" %}
+      </th>
+      <th>
+        {% trans "Value" %}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        Id
+      </td>
+      <td>
+        <a href='{{ object.get_absolute_url }}'>
+          {{ object.id|stringformat:".3d" }}
+        </a>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        Category Code
+      </td>
+      <td>{{ object.category_code }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        Category Name
+      </td>
+      <td>{{ object.category_name }}</td>
+    </tr>
+  </tbody>
+</table>

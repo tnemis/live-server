@@ -1,0 +1,41 @@
+{% load i18n %}
+
+<p>
+  {% trans "Click on the primary key value to access the individual Community's page." %}
+</p>
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        Id
+      </th>
+      
+        <th>
+          Community Code
+        </th>
+      
+        <th>
+          Community Name
+        </th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+      <tr>
+        <td>
+          <a href='{% url "baseapp_community_detail" pk=object.pk %}'>
+            {{ object.id|stringformat:".3d" }}
+          </a>
+        </td>
+        
+          <td>{{ object.community_code }}</td>
+        
+          <td>{{ object.community_name }}</td>
+        
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
