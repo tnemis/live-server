@@ -1400,6 +1400,25 @@ function no_future(dob_id){
     
 }
 
+
+
+</script>
+
+<script type="text/javascript">
+	function MyPhoto(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#selected_image')
+                        .attr('src', e.target.result)
+                        .width(80)
+                        .height(80);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
 </script>
 <div class="row">
   <div  >
@@ -1424,19 +1443,21 @@ function no_future(dob_id){
 
     <div class="form-group"> <b><strong style="color:red;">*</strong>{% trans "Student Name" %}</b> {% trans "Initials at the end separated by a space. e.g: MAGESH S" %}<input type="text" class="mandatory" value="{{form.name.value}}" id="name" name="name" onkeyup="AllowAlphabet();" onfocus="trans('Press Spacebar after typing to get the next Entry Transliterated.');" onblur="hide();"/></div><div id="text1"></div><span class="error_message">{{form.name.errors}}</span>
 
-    <div class="form-group"><b>{% trans "Student Name (Tamil)" %}</b><input class="form-control" name="name_tamil" id="transliterateTextarea" type="text" value="{{ form.name_tamil.value }}" /></div><img src="{{MEDIA_URL}}ref.png" id="ref" onMouseOver="ins('Refresh the above two Entries')" onMouseOut="hide();" onclick="clear1();"><div id="text"></div><br>
+    <div class="form-group"><b>{% trans "Student Name (Tamil)" %}</b><input class="form-control" name="name_tamil" id="transliterateTextarea" type="text" value="{{ form.name_tamil.value }}" /></div>
 
  <!--  <div class="form-group"> <b>{% trans "Height" %} (in cm)</b><input type="text" class="form-control" value="{{form.height.value|default:0}}" id="height" name="height" onkeypress="return isNumber(event)" onblur="validate_height()" maxlength="3" /></div><span class="error_message">{{form.height.errors}}</span> -->
 
-    <div class="form-group" class="mandatory">        <b>{% trans "Photograph" %}</b>    
-<strong style="color:blue;"> [Allowed Photo Size – 200 x 200 (Upto 50 KB), Allowed File format – jpg, jpeg]</strong> 
+<div class="form-group" class="mandatory">        <b>{% trans "Photograph" %}</b>    
+<strong style="color:blue;"> [Allowed Photo Size – 200 x 200 (Upto 50 KB), Allowed File format – jpg, jpeg]</strong> <br>
 {% if photo %}
-<a href="{{MEDIA_URL}}{{ photo }}">{{ photo }}</a><br>
-<input type="checkbox" name="clear_photo" id="clear_photo" value="True" >Clear
-
+<img src="{{MEDIA_URL}}{{ photo }}" height="80"  width="80" />
+<b>Clear</b><input class="form-control" type="checkbox" name="clear_photo" id="clear_photo" value="True" >
+<input  type="file" name="photograph" value="{{form.photograph.value}}" id = "photograph" onchange="validate_photo(); MyPhoto(this);">
+<img id="selected_image" src="#"  />
+{% else %}
+<input class="mandatory" type="file" name="photograph" value="photograph" id = "photograph" onchange="validate_photo(); MyPhoto(this);"> 
+<img id="selected_image" src="#"  />
 {% endif %}
-
-<input type="file" name="photograph" value="photograph" id = "photograph" onchange="validate_photo()">
 </div>
     <span class="error_message">{{form.photograph.errors}}</span>
 
@@ -1455,7 +1476,7 @@ function no_future(dob_id){
       </select></div><span class="error_message">{{form.academic_year.errors}}</span> -->
 
     
-    <div class="form-group"> <b>{% trans "Mother's Name" %}</b><input type="text" class="form-control" value="{{form.mother_name.value}}" id="mother_name" name="mother_name" onkeyup="AllowAlphabetM()" onfocus="validate_photo()" /></div><span class="error_message">{{form.mother_name.errors}}</span>
+    <div class="form-group"> <b>{% trans "Mother's Name" %}</b><input type="text" class="form-control" value="{{form.mother_name.value}}" id="mother_name" name="mother_name" onkeyup="AllowAlphabetM()"  /></div><span class="error_message">{{form.mother_name.errors}}</span>
 
     <div class="form-group"> <b>{% trans "Father's Name" %}</b><input type="text" class="form-control" value="{{form.father_name.value}}" id="father_name" name="father_name" onkeyup="AllowAlphabetF()" /></div><span class="error_message">{{form.father_name.errors}}</span>
 
