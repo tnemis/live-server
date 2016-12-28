@@ -617,8 +617,7 @@ class Child_detailUpdateView(View):
                 dis_advntgd_grp = ''
 
             
-            check = request.POST.get('clear_photo')
-            
+            check = request.POST.get('clear_photo') 
             if check == "True":
                 # photo_file=settings.MEDIA_ROOT+'/'+ str(stud_photo)
                 # photo_file1=settings.MEDIA_ROOT+'/'+ str(photo1)
