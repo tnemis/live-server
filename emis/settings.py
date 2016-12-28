@@ -43,12 +43,12 @@ MANAGERS = ADMINS
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "emis_working",
-        "USER": "postgres",
-#	"PASSWORD": "password123",
-        "HOST": "10.236.247.134",
-        'CONN_MAX_AGE': 60,
-        "PORT": "5433",
+        "NAME": "emisdb_5nov2016",
+        "USER": "thamarai",
+		"PASSWORD": "thamarai",
+        "HOST": "",
+        # 'CONN_MAX_AGE': ,
+        "PORT": "",
     }
 }
 

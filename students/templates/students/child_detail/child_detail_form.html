@@ -1400,12 +1400,45 @@ function no_future(dob_id){
     
 }
 
+
+
 </script>
+
+<script type="text/javascript">
+	function MyPhoto_create(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#new_image')
+                        .attr('src', e.target.result)
+                        .width(80)
+                        .height(80);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    function MyPhoto_update(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#selected_image')
+                        .attr('src', e.target.result)
+                        .width(80)
+                        .height(80);
+                };
+                document.getElementById("clear_photo").checked = true;
+                document.getElementById("clear_photo").value = 'True';
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+</script>
+
 <div class="row">
   <div  >
   <div class="content">
   <form id="form-3" action='{% if pk1 %}{% url "students_child_detail_update" pk=pk1 %}{% else %}{% url "students_child_detail_create" %}{% endif %}' method='post' enctype="multipart/form-data" name="frm">
-  <h3>First Step</h3><fieldset>
+  <h3> First Step</h3>
+  <fieldset>
   {% csrf_token %}
   <input type="hidden" name="categ" id="categ" value="{{user.account.get_user_info.category_id}}">
 <input type="hidden" name="mgmt" id="mgmt" value="{{user.account.get_user_info.management_id}}">
@@ -1424,19 +1457,21 @@ function no_future(dob_id){
 
     <div class="form-group"> <b><strong style="color:red;">*</strong>{% trans "Student Name" %}</b> {% trans "Initials at the end separated by a space. e.g: MAGESH S" %}<input type="text" class="mandatory" value="{{form.name.value}}" id="name" name="name" onkeyup="AllowAlphabet();" onfocus="trans('Press Spacebar after typing to get the next Entry Transliterated.');" onblur="hide();"/></div><div id="text1"></div><span class="error_message">{{form.name.errors}}</span>
 
-    <div class="form-group"><b>{% trans "Student Name (Tamil)" %}</b><input class="form-control" name="name_tamil" id="transliterateTextarea" type="text" value="{{ form.name_tamil.value }}" /></div><img src="{{MEDIA_URL}}ref.png" id="ref" onMouseOver="ins('Refresh the above two Entries')" onMouseOut="hide();" onclick="clear1();"><div id="text"></div><br>
+    <div class="form-group"><b>{% trans "Student Name (Tamil)" %}</b><input class="form-control" name="name_tamil" id="transliterateTextarea" type="text" value="{{ form.name_tamil.value }}" /></div>
 
  <!--  <div class="form-group"> <b>{% trans "Height" %} (in cm)</b><input type="text" class="form-control" value="{{form.height.value|default:0}}" id="height" name="height" onkeypress="return isNumber(event)" onblur="validate_height()" maxlength="3" /></div><span class="error_message">{{form.height.errors}}</span> -->
 
-    <div class="form-group" class="mandatory">        <b>{% trans "Photograph" %}</b>    
-<strong style="color:blue;"> [Allowed Photo Size – 200 x 200 (Upto 50 KB), Allowed File format – jpg, jpeg]</strong> 
+<div class="form-group" class="mandatory">        <b>{% trans "Photograph" %}</b>    
+<strong style="color:blue;"> [Allowed Photo Size – 200 x 200 (Upto 50 KB), Allowed File format – jpg, jpeg]</strong> <br>
 {% if photo %}
-<a href="{{MEDIA_URL}}{{ photo }}">{{ photo }}</a><br>
-<input type="checkbox" name="clear_photo" id="clear_photo" value="True" >Clear
+Existing Photo : <img src="{{MEDIA_URL}}{{ photo }}" height="80"  width="80" /> New Photo : <img id="selected_image" src="#"  />
+<input  type="hidden" name="clear_photo" id="clear_photo" value="True" >
+<input class="form-control" type="file" name="photograph"  id = "photograph" onchange="validate_photo(); MyPhoto_update(this);">
 
+{% else %}
+New Photo : <img id="new_image" src="#"  />
+<input class="mandatory" type="file" name="photograph"  id = "photograph" onchange="validate_photo(); MyPhoto_create(this);"> 
 {% endif %}
-
-<input type="file" name="photograph" value="photograph" id = "photograph" onchange="validate_photo()">
 </div>
     <span class="error_message">{{form.photograph.errors}}</span>
 
@@ -1455,7 +1490,7 @@ function no_future(dob_id){
       </select></div><span class="error_message">{{form.academic_year.errors}}</span> -->
 
     
-    <div class="form-group"> <b>{% trans "Mother's Name" %}</b><input type="text" class="form-control" value="{{form.mother_name.value}}" id="mother_name" name="mother_name" onkeyup="AllowAlphabetM()" onfocus="validate_photo()" /></div><span class="error_message">{{form.mother_name.errors}}</span>
+    <div class="form-group"> <b>{% trans "Mother's Name" %}</b><input type="text" class="form-control" value="{{form.mother_name.value}}" id="mother_name" name="mother_name" onkeyup="AllowAlphabetM()"  /></div><span class="error_message">{{form.mother_name.errors}}</span>
 
     <div class="form-group"> <b>{% trans "Father's Name" %}</b><input type="text" class="form-control" value="{{form.father_name.value}}" id="father_name" name="father_name" onkeyup="AllowAlphabetF()" /></div><span class="error_message">{{form.father_name.errors}}</span>
 
@@ -1529,7 +1564,7 @@ function no_future(dob_id){
 
      <div class="form-group"> <b><strong style="color:red;">*</strong> {% trans "School Admission No" %}</b><input type="text" class="form-control mandatory" value="{{form.school_admission_no.value}}" id="school_admission_no" name="school_admission_no"    /></div><span class="error_message">{{form.school_admission_no.errors}}</span>
      </fieldset>
-     <h3>Second Step</h3>
+     <h3> Second Step</h3>
     
 
     <!-- <div class="form-group"> <b><strong style="color:red;">*</strong> {% trans "Class Studying" %}</b>
@@ -1836,7 +1871,7 @@ function no_future(dob_id){
     <span id="mobile_status" style="color:red;" ></span>
     <div class="form-group">  <strong style="color:red;">*</strong> <b>{% trans "Mobile Number" %}</b><input type="text" class="form-control mandatory" value="{{form.phone_number.value|default:0}}" id="phone_number" name="phone_number" onkeypress="return isNumber(event)" maxlength="10"  onkeyup="mobile_validate(this.value)" onblur="mobile_validate(this.value)" onchange="mobile_validate(this.value)"/></div><span class="error_message">{{form.phone_number.errors}}</span>
     </fieldset>
-     <h3>Third Step</h3>
+     <h3> Third Step</h3>
      <fieldset>
 
 
@@ -2120,7 +2155,7 @@ function no_future(dob_id){
 </div><span class="error_message">{{form.bank_ifsc_code.errors}}</span>
 
 </fieldset>
-     <h3>Fourth Step</h3>
+     <h3> Fourth Step</h3>
  <fieldset>
 {% if form.bus_pass.value == 'Yes' %}
 <div class="form-group" ng-init="bus_pass='Yes'"> <b>{% trans "Bus Pass" %}</b>
