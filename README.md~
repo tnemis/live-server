@@ -16,5 +16,5 @@ Getting Started:
     python manage.py runserver
 
 
-Note: Django-mailer has to be installed from source and then run syncdb
+Note: Django-mailer has to be installed from source and then run syncdb..
 

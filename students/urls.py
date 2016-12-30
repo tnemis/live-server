@@ -9,6 +9,19 @@ urlpatterns = patterns('',
         view=barcode_generator,
         name='students_barcode_generator'
     ),
+     url(
+        regex=r'^class_sectionwiseView/(?P<cl_id>\d+?)/$',
+        view=login_required(class_sectionwiseView.as_view()),
+        name='class_sectionwiseView'
+    ),
+
+    
+    url(
+        regex=r'^Child_detail_Sectionwise_ListView/(?P<cl_id>\d+?)/(?P<sec_id>\w+?)/$',
+        view=login_required(Child_detail_Sectionwise_ListView.as_view()),
+        name='Child_detail_Sectionwise_ListView'
+    ),
+
     url(
         regex=r'^child_admit/(?P<pk>\d+?)/$',
         view=login_required(Child_admit.as_view()),
@@ -66,6 +79,12 @@ urlpatterns = patterns('',
         view=login_required(Child_detailListView.as_view()),
         name='students_child_detail_list'
     ),
+    url(
+        regex=r'^Child_detailSectionListView/$',
+        view=login_required(Child_detailSectionListView.as_view()),
+        name='students_child_detail_section_list'
+    ),
+
     url(
         regex=r'^child_detail/archive/(?P<year>\d{4})/'
                '(?P<month>\d{1,2})/$',

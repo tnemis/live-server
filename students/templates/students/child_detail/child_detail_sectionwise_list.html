@@ -6,16 +6,9 @@
 {% load imagekit %}
 {% block content %}
 
-{% if classwise_detail %}
+{% if child_detail_list %}
 
-{% if user.account.user_category.user_category == 'school' %}
-<p ><a href='{% url "students_child_detail_download_profile" pk=class_id %}' style="color:#00A65A;font-size:15;">Download Child Profile</a>
-{% if class_id == '10' %} &nbsp;&nbsp;&nbsp;&nbsp;<a href='{% url "nominal_roll_list_10"  %}' style="color:#00A65A;font-size:15;">10th Std Nominal roll download xls<img src="{{STATIC_URL}}img/new.gif"/></a>{% endif %}{% if class_id == '12' %} &nbsp;&nbsp;&nbsp;&nbsp;<a href='{% url "nominal_roll_list_12" %}' style="color:#00A65A;font-size:15;">12th Std Nominal roll download xls<img src="{{STATIC_URL}}img/new.gif"/></a>{% endif %}
 
-{% if class_id == '10' %} &nbsp;&nbsp;&nbsp;&nbsp;<a onClick="MyWindow=window.open('{% url "nominal_roll_check_list" pk=class_id %}','MyWindow','toolbar=no,location=no,directories=no,status=no, menubar=no,scrollbars=no,resizable=no,width=800,height=800'); return false;"  href='' style="color:#00A65A;font-size:15;">10th Std Nominal roll check list pdf<img src="{{STATIC_URL}}img/new.gif"/></a>{% endif %}{% if class_id == '12' %} &nbsp;&nbsp;&nbsp;&nbsp;<a onClick="MyWindow=window.open('{% url "nominal_roll_check_list" pk=class_id %}','MyWindow','toolbar=no,location=no,directories=no,status=no, menubar=no,scrollbars=no,resizable=no,width=800,height=800'); return false;"  href='{% url "nominal_roll_check_list" pk=class_id %}' style="color:#00A65A;font-size:15;">12th Std Nominal roll check list pdf<img src="{{STATIC_URL}}img/new.gif"/></a>{% endif %}
-</p>
-{% endif %}
-<br>
 <table width="100%" class='table table-bordered table-striped3' border="2">
   <thead>
     <tr>
@@ -58,7 +51,6 @@
            {% if class_id == '12' %}
            <td>{{ detail.group_code }}</td>{% endif %}
       </tr>
-
     {% endfor %}
     <ul class="pagination pagination-centered">
             {% if page_objs.has_previous %}
@@ -85,7 +77,7 @@
             {% if page_objs.has_next %}
                 <li><a href="?page={{ page_objs.next_page_number }}">></a></li>
                 <li><a href="?page={{ page_objs.paginator.num_pages }}">>></a></li>
-            {% endif %}
+            {% endif %}                                                                                                   
         </ul>
   </tbody>
 </table>
@@ -113,33 +105,5 @@
 </table>
 
 {% endif %}
-<ul class="pagination pagination-centered">
-            {% if page_objs.has_previous %}
-                <li><a href="?page=1"><<</a></li>
-                <li><a href="?page={{ page_objs.previous_page_number }}"><</a></li>
-            {% endif %}
-
-            {% for i in page_objs.paginator.page_range %}
-                {% if page_objs.number == i %}
-                {% if page_objs.has_previous %}
-                    <li><a href="?page={{i|add:-1}}">{{i|add:-1}}</a></li>
-                {% endif %}
-                <li  class="active">
-
-                <a href="?page={{i}}">{{i}}</a></li>
-                {% if page_objs.has_next %}
-                <li><a href="?page={{i|add:1}}">{{i|add:1}}</a></li>
-                {% endif %}
-                {% endif %}
-
-            {% endfor %}
-
-
-            {% if page_objs.has_next %}
-                <li><a href="?page={{ page_objs.next_page_number }}">></a></li>
-                <li><a href="?page={{ page_objs.paginator.num_pages }}">>></a></li>
-            {% endif %}                                                                                                   
-        </ul>
-        <p><b><center>{% trans "Note: Click on the Student Name to access the individual Child detail's page." %}</center></b></p>
-
+<p><b>{% trans " Note: Click on the Student Name to access the individual Child detail's page." %}</b></p>
 {% endblock %}
