@@ -618,6 +618,7 @@ class Child_detailUpdateView(View):
 
             
             check = request.POST.get('clear_photo')
+
             
             if check == "True":
                 try:
