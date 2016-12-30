@@ -1441,8 +1441,9 @@ function no_future(dob_id){
 
 <div class="form-group" class="mandatory"><b>{% trans "Photograph" %}</b>    
 <strong style="color:blue;"> [Allowed Photo Size – 200 x 200 (Upto 50 KB), Allowed File format – jpg, jpeg]</strong>
+ <input type="hidden" name="clear_photo" id="clear_photo" value="False" >
 <input class="mandatory" type="file" name="photograph" value="photograph" id = "photograph" onchange="validate_photo()">
- <input type="hidden" name="clear_photo" id="clear_photo" value="True" >
+ 
 {% if photo %}
 
 <h4><img src="{{MEDIA_URL}}{{photo}}" height="100" width="100"/>
