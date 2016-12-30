@@ -8,8 +8,7 @@ Field.default_error_messages = {
 }
 
 import os
-os.environ['http_proxy']='http://10.236.245.251:9191'
-os.environ['https_proxy']='https://10.236.245.251:9191'
+
 
 DIRNAME = os.path.dirname(__file__)
 
@@ -43,12 +42,11 @@ MANAGERS = ADMINS
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "emis_working",
-        "USER": "postgres",
-#	"PASSWORD": "password123",
-        "HOST": "10.236.247.134",
-        'CONN_MAX_AGE': 60,
-        "PORT": "5433",
+        "NAME": "emisdb",
+        "USER": "emis",
+        "PASSWORD": "emis",
+        "HOST": "",
+        "PORT": "",
     }
 }
 
@@ -114,7 +112,7 @@ STATICFILES_FINDERS = [
 ]
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = "(-!jg)aqm5yys)m6h9vqg65t6wnvmnd@aywrfg#&i^269vtr5-"
+SECRET_KEY = "d@aywrfg#&itr5-"
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = [
