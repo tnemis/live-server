@@ -8,8 +8,6 @@ Field.default_error_messages = {
 }
 
 import os
-os.environ['http_proxy']='http://10.236.245.251:9191'
-os.environ['https_proxy']='https://10.236.245.251:9191'
 
 DIRNAME = os.path.dirname(__file__)
 
@@ -46,9 +44,6 @@ DATABASES = {
         "NAME": "emis_staging",
         "USER": "emisf12a",
 	"PASSWORD": "",
-   #     "HOST": "10.236.247.134",
-    #    'CONN_MAX_AGE': 60,
-     #   "PORT": "5433",
     }
 }
 
@@ -216,14 +211,6 @@ INSTALLED_APPS = [
 REPORT_BUILDER_GLOBAL_EXPORT=True
 
 CACHEOPS_DEGRADE_ON_FAILURE=True
-CACHEOPS_REDIS = {
-    'host': '10.236.247.239', # redis-server is on same machine
-    'port': 6379,        # default redis port
-    'db': 1,             # SELECT non-default redis database
-                         # using separate redis db or redis instance
-                         # is highly recommended
-    'socket_timeout': 60,
-}
 
 CACHEOPS = {
     # Automatically cache any User.objects.get() calls for 5 minutes
