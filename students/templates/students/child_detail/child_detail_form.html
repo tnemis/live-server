@@ -1291,7 +1291,7 @@ function check() {
 <script type="text/javascript">
 function validate_photo()
 {
-    
+        
     var fileUpload2 = document.getElementById("photograph");
     
     if (typeof (fileUpload2.files) != "undefined"){
@@ -1338,17 +1338,28 @@ if (typeof (fileUpload.files) != "undefined") {
         document.getElementById("photograph").focus();
         document.getElementById("photograph").value = '';
         return false;
+        }else {
+            var reader = new FileReader();
+                
+                reader.onload = function (a) {
+                    $('#blah')
+                        .attr('src', a.target.result)
+                        .width(80)
+                        .height(80);
+                };
+                 document.getElementById("clear_photo").checked = true;
+                document.getElementById("clear_photo").value = 'True';
+                reader.readAsDataURL(fileUpload.files[0]);
         }
-      
+                
 
-            return true;};}
+    };};
         } else {
        alert("This browser does not support HTML5.");
     return false;}
 }
 </script>
 
-<script type="text/javascript">
 
 
 <script type="text/javascript">
@@ -1428,34 +1439,28 @@ function no_future(dob_id){
 
  <!--  <div class="form-group"> <b>{% trans "Height" %} (in cm)</b><input type="text" class="form-control" value="{{form.height.value|default:0}}" id="height" name="height" onkeypress="return isNumber(event)" onblur="validate_height()" maxlength="3" /></div><span class="error_message">{{form.height.errors}}</span> -->
 
-    <div class="form-group" class="mandatory">        <b>{% trans "Photograph" %}</b>    
-<strong style="color:blue;"> [Allowed Photo Size – 200 x 200 (Upto 50 KB), Allowed File format – jpg, jpeg]</strong> 
+<div class="form-group" class="mandatory"><strong style="color:red;">*</strong><b>{% trans "Photograph" %}</b>    
+<strong style="color:blue;"> [Allowed Photo Size – 200 x 200 (Upto 50 KB), Allowed File format – jpg, jpeg]</strong>
+ <input type="hidden" name="clear_photo" id="clear_photo" value="False" />
+
+
 {% if photo %}
-<a href="{{MEDIA_URL}}{{ photo }}">{{ photo }}</a><br>
-<input type="checkbox" name="clear_photo" id="clear_photo" value="True" >Clear
 
-{% endif %}
+ <input type="file" name="photograph" value="photograph" id ="photograph" onchange="validate_photo()">
 
-<input type="file" name="photograph" value="photograph" id = "photograph" onchange="validate_photo()">
-</div>
-    <span class="error_message">{{form.photograph.errors}}</span>
+<h4><img src="{{MEDIA_URL}}{{photo}}" height="100" width="100"/>------------------------               
 
-<!--     <div class="form-group">        <b>{% trans "Photograph" %}</b>    
- <input type="file" name="image" value="upload" id = "Photograph">
-<strong style="color:blue;"> [Allowed Photo Size – 200 x 200 (Upto 50 KB), Allowed File format – jpg, jpeg]</strong>{{ form.photograph|add_class:"form-control" }}</div>
-    <span class="error_message">{{form.photograph.errors}}</span> -->
+ <img id="blah" src="#" alt="Image" /></h4>
+<a href="{{MEDIA_URL}}{{photo}}" >{{photo}}</a> 
+ {% else %}
+ <input class="mandatory" type="file" name="photograph" value="photograph" id = "photograph" onchange="validate_photo()">
+    <img id="blah" src="#" alt="Image" />
+ {% endif %}
+<span class="error_message">{{form.photograph.errors}}</span></div>
 
-<!--     <div class="form-group"> <b><strong style="color:red;">*</strong> {% trans "Academic Year" %}</b>
-      <select name="academic_year" id="academic_year" class="form-control">
-        {% if academic_yr %}
-        <option value="{{academic_yr.id}}">{{academic_yr}}</option>
-        {% endif %}
-         <option value="" >---------</option>
-         <option value="3" selected>2014-15</option>
-      </select></div><span class="error_message">{{form.academic_year.errors}}</span> -->
 
     
-    <div class="form-group"> <b>{% trans "Mother's Name" %}</b><input type="text" class="form-control" value="{{form.mother_name.value}}" id="mother_name" name="mother_name" onkeyup="AllowAlphabetM()" onfocus="validate_photo()" /></div><span class="error_message">{{form.mother_name.errors}}</span>
+    <div class="form-group"> <b>{% trans "Mother's Name" %}</b><input type="text" class="form-control" value="{{form.mother_name.value}}" id="mother_name" name="mother_name" onkeyup="AllowAlphabetM()" /></div><span class="error_message">{{form.mother_name.errors}}</span>
 
     <div class="form-group"> <b>{% trans "Father's Name" %}</b><input type="text" class="form-control" value="{{form.father_name.value}}" id="father_name" name="father_name" onkeyup="AllowAlphabetF()" /></div><span class="error_message">{{form.father_name.errors}}</span>
 

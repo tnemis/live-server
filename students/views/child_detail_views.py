@@ -618,12 +618,18 @@ class Child_detailUpdateView(View):
 
             
             check = request.POST.get('clear_photo')
+
             
             if check == "True":
-                # photo_file=settings.MEDIA_ROOT+'/'+ str(stud_photo)
-                # photo_file1=settings.MEDIA_ROOT+'/'+ str(photo1)
-                # os.remove(photo_file)
-                # os.remove(photo_file1)
+                try:
+                    photo_file=settings.MEDIA_ROOT+'/'+ str(stud_photo)
+                    photo_file1=settings.MEDIA_ROOT+'/'+ str(photo1)
+                    os.remove(photo_file)
+                    os.remove(photo_file1)
+                    print "photo removed"
+                except:
+                    print "ERROR"
+                    
                 student_photo=''
                 student_photo = form.cleaned_data['photograph']
             else:
