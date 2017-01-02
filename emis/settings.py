@@ -43,7 +43,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": "emis_staging",
         "USER": "emisf12a",
-	"PASSWORD": "",
+	      "PASSWORD": "",
     }
 }
 
@@ -109,7 +109,7 @@ STATICFILES_FINDERS = [
 ]
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = "(-!jg)aqm5yys)m6h9vqg65t6wnvmnd@aywrfg#&i^269vtr5-"
+SECRET_KEY = "d@aywrfg#&itr5-"
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = [
