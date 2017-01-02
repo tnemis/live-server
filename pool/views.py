@@ -35,20 +35,23 @@ class BlockPoolReport(View):
 	def get(self,request,**kwargs):
 		blk=self.kwargs['pk']
 		blck=Block.objects.get(id=blk)
-		lisst=School.objects.filter(block_id=blk).order_by('id')
-		my_students=st=Child_detail.objects.filter(transfer_flag__in=[1],block_id=blk,class_studying_id__in=[1,2,3,4,5,6,7,8,9,10,11,12])
-		a=my_students.values('class_studying','school').annotate(x=Count('school')).order_by('school')
-		st=my_students.values('school').annotate(y=Count('class_studying'))
-		bt=my_students.values('class_studying').annotate(z=Count('class_studying'))
-		total=my_students.count()
+		school_list=School.objects.filter(block_id=blk).order_by('id')
+		pool_count=Pool_child_count.objects.filter(school_id__in=school_list)
+		block_emis_one=pool_count.aggregate(Sum('one')).values()[0]
+		block_emis_two=pool_count.aggregate(Sum('two')).values()[0]
+		block_emis_three=pool_count.aggregate(Sum('three')).values()[0]
+		block_emis_four=pool_count.aggregate(Sum('four')).values()[0]
+		block_emis_five=pool_count.aggregate(Sum('five')).values()[0]
+		block_emis_six=pool_count.aggregate(Sum('six')).values()[0]
+		block_emis_seven=pool_count.aggregate(Sum('seven')).values()[0]
+		block_emis_eight=pool_count.aggregate(Sum('eight')).values()[0]
+		block_emis_nine=pool_count.aggregate(Sum('nine')).values()[0]
+		block_emis_ten=pool_count.aggregate(Sum('ten')).values()[0]
+		block_emis_eleven=pool_count.aggregate(Sum('eleven')).values()[0]
+		block_emis_twelve=pool_count.aggregate(Sum('twelve')).values()[0]
+		block_emis_total_count=pool_count.aggregate(Sum('total_count')).values()[0]
 		return render(request,'pool/moniter/block_pool_report.html',locals())
 	
-
-
-
-
-
-		
    
 class DistrictPoolReport(View):
     def get(self,request,**kwargs):
