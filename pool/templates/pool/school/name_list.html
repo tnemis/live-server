@@ -21,16 +21,21 @@ document.getElementById("demo").innerHTML = Date();
   <center>
                   <table  class='table table-bordered table-striped2' border="2">
                   <tr  >
-                    <th colspan="6"> Student pool Name List - {{ school.school_name }}</th>
+                    <th colspan="10"> Student pool Name List - {{ school.school_name }}</th>
                   </tr>
                  
                       <tr>
-                        <th style="width:15px;" >S.NO</th>
+                        <th  >S.NO</th>
                         <th  >Unique id</th>
                         <th  >Name</th>
+                        <th style="width:30%;" >Dateofbirth</th>
                         <th  >Gender</th>
-                        <th  >Class</th>
-                        <th  >Date of birth</th>
+                        <th  >Last Studied Class</th>
+                        <th  >Father Name</th>
+                        <th  >Mother Name</th>
+                        <th  >Adress</th>
+                        <th  >Mobile</th>
+                        
                         
                        
                       </tr>
@@ -41,13 +46,13 @@ document.getElementById("demo").innerHTML = Date();
                         <td>{{ forloop.counter }}</td>
                          <td>{{i.unique_id_no}}</td>
                         <td>{{i.name}}</td>
+                        <td> {{i.dob|date:"d-m-Y" }}</td>
                         <td>{{i.gender}}</td>
-
-
                         <td> {{i.class_studying}}</td>
-                         <td> {{i.dob}}</td>
-                          
-                        
+                        <td> {{i.father_name}}</td>
+                        <td> {{i.mother_name}}</td>
+                        <td> {{i.house_address}}</td>
+                        <td> {{i.phone_number}}</td>
                       </tr>
                     
                     {% endfor %}
