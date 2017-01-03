@@ -49,7 +49,7 @@
         </b></font></center><br>
 <!-- table -->
 
-{% for child in nominal_roll_list %}
+{% for x,child in nominal_roll_list %}
 
 <table  border="1" class="tableizer-table">
 <tbody>
@@ -59,7 +59,7 @@
 <tr  >
 
 <!-- part1 -->
-<td  >S.No.<b>{{forloop.counter}}</b><br>
+<td  >S.No.<b>{{x}}</b><br>
 <img src="{{MEDIA_URL}}{{child.photograph}}">              
  </td>
 <!-- part1 end --> 
@@ -146,14 +146,13 @@ Medium&nbsp;:&nbsp;<b>{{child.education_medium}}</b>
 
 
 {% if class == '10' %}
-
 <img src="{{MEDIA_URL}}images/child_pics/tn.png" alt="emis" ><br>
       <font size="5"  color="#001999"><b>  Directorate of Government Examinations,Chennai-6<br></font>
        <font size="5"  color="#ff1493;"> {{school.district.district_name}}&nbsp;-{{school.school_name}}</font><br>
         <font size="5"  color="#001999">SSLC - MARCH-2017 - SCHOOL CANDIDATE NOMINAL ROLL CHECK LIST
         </b></font></center><br>
 <!-- table -->
-{% for child in nominal_roll_list %}
+{% for x,child in nominal_roll_list %}
 
 <table border="1" class="tableizer-table">
 <tbody>
@@ -161,7 +160,7 @@ Medium&nbsp;:&nbsp;<b>{{child.education_medium}}</b>
 <tr style="width:100%" >
 
 <!-- part1 -->
-<td  >S.No.<b>{{forloop.counter}}</b><br>
+<td  >S.No.<b>{{x}}</b><br>
 <img src="{{MEDIA_URL}}{{child.photograph}}">                
 </td>
 <!-- part1 end --> 
