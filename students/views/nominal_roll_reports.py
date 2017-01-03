@@ -35,44 +35,66 @@ import cgi
         
 class Nominal_roll_checklist(View):
     def get(self,request,**kwargs):
-        pk=self.kwargs.get('pk')
+        class_id = self.kwargs.get('pk')
+        school_code = self.kwargs.get('school_code')
         school_id = request.user.account.associated_with
-        school=School.objects.get(id=school_id)
-        kwargs={}
-        kwargs['school_id']=school_id
-        kwargs['class_studying']=pk
-        nominal_roll_list=Child_detail.objects.filter(**kwargs).filter(transfer_flag__in=[0,2]).order_by('group_code')
-        return render(request,'students/child_detail/nominal_roll_print.html',locals())
+        schl_id = School.objects.get(id=school_id)
+        child_detail_list = Child_detail.objects.filter(school_id=schl_id.id,transfer_flag__in=[0,2])
+        if class_id == 10:
+            classwise_detail = child_detail_list.filter(class_studying_id=class_id).order_by('group_code','class_section','gender','name')
+            classwise_detail_count = classwise_detail.count()
+            paginator = Paginator(classwise_detail, 30)
+            page = request.GET.get('page')
+            try:
+                page_obj = paginator.page(page)
+            except PageNotAnInteger:
+                page_obj = paginator.page(1)
+            except EmptyPage:
+                page_obj = paginator.page(paginator.num_pages)
+            return render(request,'students/child_detail/nominal_list_split.html',{'page_objs':page_obj,'classwise_detail':classwise_detail,'school_code':school_code,'class_id':class_id,'classwise_detail_count':classwise_detail_count})
+        else:
+            classwise_detail = child_detail_list.filter(class_studying_id=class_id).order_by('group_code','class_section','gender','name')
+            classwise_detail_count = classwise_detail.count()
+            paginator = Paginator(classwise_detail, 30)
+            page = request.GET.get('page')
+            try:
+                page_obj = paginator.page(page)
+            except PageNotAnInteger:
+                page_obj = paginator.page(1)
+            except EmptyPage:
+                page_obj = paginator.page(paginator.num_pages)
+            return render(request,'students/child_detail/nominal_list.html',{'page_objs':page_obj,'classwise_detail':classwise_detail,'school_code':school_code,'class_id':class_id,'classwise_detail_count':classwise_detail_count})
+    def post(self,request,**kwargs):
+        class_id = self.kwargs.get('pk')
+        school_code = self.kwargs.get('school_code')
+        school_id = request.user.account.associated_with
+        schl_id = School.objects.get(id=school_id)
+        mylist=request.POST.getlist('pdf_students')
+        mynum=request.POST.getlist('s_no')
+        child_detail_list = Child_detail.objects.filter(id__in=mylist,class_studying_id=class_id,school_id=schl_id.id,transfer_flag__in=[0,2]).order_by('group_code','class_section','gender','name')
+        file_name='Nominal_roll_check_list_2017'
+        filename = str(file_name)
+        response = HttpResponse(content_type='application/pdf')
+        photo=settings.MEDIA_URL
+        static=settings.STATIC_URL
+        response['Content-Disposition'] = 'attachement; filename={0}.pdf'.format(filename)
+        mylist = zip(mynum,child_detail_list)
+        pdf=create_pdf(
+            'students/child_detail/nominal_roll_checklist.html',
+                    {   
+                        'STATIC_URL':static,
+                        'MEDIA_URL':photo,   
+                        'nominal_roll_list':mylist,
+                        'school':schl_id,
+                        'pagesize':'A4',
+                        'class':class_id,
+                       
+                    }
+                )
+        response.write(pdf)
+        return response
         
-# class Nominal_roll_checklist(View):
-#     def get(self,request,**kwargs):
-#         pk=self.kwargs.get('pk')
-#         school_id = request.user.account.associated_with
-#         school=School.objects.get(id=school_id)
-#         kwargs={}
-#         kwargs['school_id']=school_id
-#         kwargs['class_studying']=pk
-#         students=Child_detail.objects.filter(**kwargs).filter(transfer_flag__in=[0,2]).order_by('group_code')
-#         file_name='Nominal_roll_check_list_2017'
-#         filename = str(file_name)
-#         response = HttpResponse(content_type='application/pdf')
-#         photo=settings.MEDIA_URL
-#         static=settings.STATIC_URL
-#         response['Content-Disposition'] = 'attachement; filename={0}.pdf'.format(filename)
-#         pdf=create_pdf(
-#             'students/child_detail/nominal_roll_checklist.html',
-#                     {   
-#                         'STATIC_URL':static,
-#                         'MEDIA_URL':photo,   
-#                         'nominal_roll_list':chunks,
-#                         'school':school,
-#                         'pagesize':'A4',
-#                         'class':pk,
-#                     }
-#                 )
-#         response.write(pdf)
-#         return response
-        
+ 
 def fetch_resources(uri, rel):
     path = os.path.join(settings.MEDIA_ROOT, uri.replace(settings.MEDIA_URL, ""))
     return path
@@ -86,127 +108,6 @@ def create_pdf(template_src, context_dict):
     if not pdf.err:
         return HttpResponse(result.getvalue(), content_type='application/pdf')
     return HttpResponse('We had some errors<pre>%s</pre>' % escape(html))
-
-
-# class Nominal_roll_list(View):
-#     def get(self,request,**kwargs):
-#         pk=self.kwargs.get('pk')
-#         school_code = self.kwargs.get('school_code')
-#         school_id = request.user.account.associated_with
-#         schl_id = School.objects.get(id=school_id)
-#         class_students=Child_detail.objects.filter(school_id=school_id,transfer_flag__in=[0,2],class_studying=pk)
-#         child_detail_list = class_students.values("name","aadhaar_eid_number","aadhaar_uid_number","gender","dob","community__community_name","religion__religion_name","mothertounge__language_name","phone_number","child_differently_abled","differently_abled","child_disadvantaged_group","disadvantaged_group","subcaste__caste_name","nationality__nationality","house_address","native_district","pin_code","blood_group","mother_name","mother_occupation","father_name","father_occupation","parent_income","class_studying__class_studying","group_code__group_code","group_code__group_name","attendance_status","sport_participation","education_medium__education_medium","district__district_name","block__block_name","unique_id_no","school_id","staff_id","bank__bank","bank_account_no","schemes","academic_year__academic_year","transfer_flag","transfer_date","name_tamil","class_section","student_admitted_section","school_admission_no","bank_ifsc_code","sports_player","sports_name","community_certificate","child_status","height","weight","laptop_issued","laptop_slno","guardian_name",'grpcode_language1','grpcode_language2','grpcode_language3','grpcode_language4','first_language','optional_language','sci_practical','lang_exemption','lang_exemption1','first_language','da_id_no')
-#         udise=schl_id.school_code
-#         if pk == '12':
-#             data = [[udise],
-#             ['S.no',
-#             'Unique Id',
-#             'Name', 
-#             'Gender', 
-#             'DoB', 
-#             'Differently_abled',
-#             'Differently_abled_name',
-#             'Differently_abled_id',
-#             'Religion',
-#             'Community', 
-#             'Subcaste',
-#             'Class',
-#             'Section',
-#             'Aadhaar',
-#             'Father name',
-#             'Mother name',
-#             'Mobile',
-#             'First_lang',
-#             'GROUP_CODE_NO',
-#             'GROUP_CODE',
-#             'GROUP_CODE_LANG_1',
-#             'GROUP_CODE_LANG_2',
-#             'GROUP_CODE_LANG_3',
-#             'GROUP_CODE_LANG_4',
-#             'Lang_exmp',
-            
-#             ]]
-#             S_No=0
-#             for i in child_detail_list:
-#                 S_No+=1
-#                 data.append([S_No,
-#                     str(i['unique_id_no']),
-#                     i['name'], 
-#                     i['gender'],
-#                     i['dob'],
-#                     i['child_differently_abled'],
-#                     i['differently_abled'],
-#                     i['da_id_no'],
-#                     i['religion__religion_name'], 
-#                     i['community__community_name'], 
-#                     i['subcaste__caste_name'],
-#                     i['class_studying__class_studying'],
-#                     i['class_section'],
-#                     i['aadhaar_uid_number'],
-#                     i['father_name'],
-#                     i['mother_name'],
-#                     i['phone_number'],
-#                     i['first_language'],
-#                     i['group_code__group_code'],
-#                     i['group_code__group_name'],
-#                     i['grpcode_language1'],
-#                     i['grpcode_language2'],
-#                     i['grpcode_language3'],
-#                     i['grpcode_language4'],
-#                     i['lang_exemption1'],
-                    
-#                     ])
-#             return ExcelResponse(data, 'HS_Nominal_roll_list',)
-
-#         if pk == '10':
-#             data = [[udise],
-#             ['S.no',
-#             'Unique Id',
-#             'Name', 
-#             'Gender', 
-#             'DoB', 
-#             'Differently_abled',
-#             'Differently_abled_name',
-#             'Differently_abled_id',
-#             'Religion',
-#             'Community', 
-#             'Subcaste',
-#             'Class',
-#             'Section',
-#             'Aadhaar',
-#             'Father name',
-#             'Mother name',
-#             'Mobile',
-#             'Part IV optional language',
-#             'Lang_exmp',
-#             'SSLC_SCIENCE_PRAC_EXP']]
-#             S_No=0
-#             for i in child_detail_list:
-#                 S_No+=1
-#                 data.append([S_No,
-#                     str(i['unique_id_no']),
-#                     i['name'], 
-#                     i['gender'],
-#                     i['dob'],
-#                     i['child_differently_abled'],
-#                     i['differently_abled'],
-#                     i['da_id_no'],
-#                     i['religion__religion_name'], 
-#                     i['community__community_name'], 
-#                     i['subcaste__caste_name'],
-#                     i['class_studying__class_studying'],
-#                     i['class_section'],
-#                     i['aadhaar_uid_number'],
-#                     i['father_name'],
-#                     i['mother_name'],
-#                     i['phone_number'],
-#                     i['optional_language'],
-#                     i['lang_exemption'],
-#                     i['sci_practical']
-
-#                     ])
-#             return ExcelResponse(data, 'SSLC_Nominal_roll_list')
-
 
 
 class Nominal_roll_list_10(View):
