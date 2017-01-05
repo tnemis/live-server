@@ -15,24 +15,49 @@
 {% if class_id == '10' %} &nbsp;&nbsp;&nbsp;&nbsp;<a   href='{% url "nominal_roll_check_list" pk=class_id %}' style="color:#00A65A;font-size:15;">10th Std Nominal roll check list pdf<img src="{{STATIC_URL}}img/new.gif"/></a>{% endif %}{% if class_id == '12' %} &nbsp;&nbsp;&nbsp;&nbsp;<a  href='{% url "nominal_roll_check_list" pk=class_id %}' style="color:#00A65A;font-size:15;">12th Std Nominal roll check list pdf<img src="{{STATIC_URL}}img/new.gif"/></a>{% endif %}
 </p>
 {% endif %}
-<br>
-<table class='table table-bordered table-striped3' border="2">
+<br><table width="100%" class='table table-bordered table-striped3' border="2">
   <thead>
     <tr>
-      <th>S.No</th>
-      <th>Name</th>
-      <th>Unique id no</th>
-      <th>Class Studying</th>
+      <th style="text-align:center;font-size: 15px;">S.No.</th>
+      <th style="text-align:center;font-size: 15px;">Name</th>
+      <th style="text-align:center;font-size: 15px;">Unique ID No.</th>
+      <th style="text-align:center;font-size: 15px;">Class Studying</th>
+      <th style="text-align:center;font-size: 15px;">Father's Name</th>
+      <th style="text-align:center;font-size: 15px;">DOB</th>
+      <th style="text-align:center;font-size: 15px;">Aadhaar No.</th>
+      <th style="text-align:center;font-size: 15px;">Photo</th>
+      {% if class_id == '11' %}
+       <th style="text-align:center;font-size: 15px;">Group</th>
+      {% endif %}
+       {% if class_id == '12' %}
+       <th style="text-align:center;font-size: 15px;">Group</th>
+      {% endif %}
     </tr>
   </thead>
   <tbody>
     {% for detail in page_objs %}
       <tr>
         <td>{{forloop.counter0|add:page_objs.start_index}}</td>
-         <td><a href='{% url "students_child_detail_detail" pk=detail.id %}'>{{ detail.name }}</a></td>
+         <td><a href='{% url "students_child_detail_detail" pk=detail.id %}'>{{ detail.name |upper }}</a></td>
           <td>{{ detail.unique_id_no }}</td>
-          <td>{{ detail.class_studying }}</td>
+          <td>{{ detail.class_studying |upper }}</td>
+          <td>{{ detail.father_name |upper}}</td>
+          <td>{{ detail.dob | date:"d-m-Y" }}</td>
+          <td>{{ detail.aadhaar_uid_number }}</td>
+
+          <td style="width:230px">
+            <div >
+                {% if detail.photo %}
+                <img src="{{MEDIA_URL}}{{detail.photo}}" width="40" height="50">
+                {%else%}
+                <img src="{{STATIC_URL}}img/student.png" width="40" height="50"/>
+                {%endif%}</div></td>
+            {% if class_id == '11' %}
+           <td>{{ detail.group_code }}</td>{% endif %}
+           {% if class_id == '12' %}
+           <td>{{ detail.group_code }}</td>{% endif %}
       </tr>
+
     {% endfor %}
     <ul class="pagination pagination-centered">
             {% if page_objs.has_previous %}
@@ -87,5 +112,35 @@
 </table>
 
 {% endif %}
+<ul class="pagination pagination-centered">
+            {% if page_objs.has_previous %}
+                <li><a href="?page=1"><<</a></li>
+                <li><a href="?page={{ page_objs.previous_page_number }}"><</a></li>
+            {% endif %}
+
+            {% for i in page_objs.paginator.page_range %}
+                {% if page_objs.number == i %}
+                {% if page_objs.has_previous %}
+                    <li><a href="?page={{i|add:-1}}">{{i|add:-1}}</a></li>
+                {% endif %}
+                <li  class="active">
+
+                <a href="?page={{i}}">{{i}}</a></li>
+                {% if page_objs.has_next %}
+                <li><a href="?page={{i|add:1}}">{{i|add:1}}</a></li>
+                {% endif %}
+                {% endif %}
+
+            {% endfor %}
+
+
+            {% if page_objs.has_next %}
+                <li><a href="?page={{ page_objs.next_page_number }}">></a></li>
+                <li><a href="?page={{ page_objs.paginator.num_pages }}">>></a></li>
+            {% endif %}                                                                                                   
+        </ul>
+        <p><b><center>{% trans "Note: Click on the Student Name to access the individual Child detail's page." %}</center></b></p>
+
+
 
 {% endblock %}

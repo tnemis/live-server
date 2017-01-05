@@ -1,0 +1,34 @@
+{% extends 'students/child_detail/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+{% load widget_tweaks %}
+{% load imagekit %}
+{% block content %}
+
+<table align="center">
+<h3 ><center><font color="SaddleBrown">Standard - {{ cl_id }}</font></center></h3>
+  
+    </table>
+<table class='table table-bordered table-striped2' border="2" align="center">
+<tr>
+      <th align="center">Sections</th>
+      <th align="center">Strength</th></tr>
+      {%  for i in child_detail_main_list %}
+      
+            <tr>
+            <td> {{ i.class_section }}</td>
+            <td><a href='\students\Child_detail_Sectionwise_detail\{{ cl_id }}\{{i.class_section}}' style="color:#069;" >{{ i.dcount | default:0 }}</a></td>
+            </tr>
+  
+  {% endfor %}
+    
+  </table>
+<table>
+  <tr><b><center>{% trans "Note: Click on the respective number to get the Section-wise student list." %}</center></b></tr></table>
+
+
+{% endblock %}
+
+
+
