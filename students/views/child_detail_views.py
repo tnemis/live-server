@@ -555,7 +555,7 @@ class Child_detailUpdateView(View):
         academic_yr = instance.academic_year
         stud_photo = instance.photograph
         photo1=instance.photo
-        bank_name = instance.bank
+#         bank_name = instance.bank
         differently_abled_list1 = instance.differently_abled
         student_count = School_child_count.objects.get(school_id = instance.school_id)
         form = Child_detailform(request.POST,request.FILES)
@@ -932,7 +932,7 @@ class Child_detailUpdateView(View):
 
             
         else:
-            return render (request,'students/child_detail/child_detail_form.html',{'form':form,'pk1':pk,'cls_studying':cls_studying,'academic_yr':academic_yr,'bank_name':bank_name,'diff_abled':diff_abled})
+            return render (request,'students/child_detail/child_detail_form.html',{'form':form,'pk1':pk,'cls_studying':cls_studying,'academic_yr':academic_yr,'diff_abled':diff_abled})
         msg = "Child    " + form.cleaned_data['name'] + "  updated successfully"
         messages.success(request, msg )
         return HttpResponseRedirect(reverse('students_child_detail_list'))
