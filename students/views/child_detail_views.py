@@ -644,9 +644,9 @@ class Child_detailUpdateView(View):
                     photo_file1=settings.MEDIA_ROOT+'/'+ str(photo1)
                     os.remove(photo_file)
                     os.remove(photo_file1)
-                    print "photo removed"
+                    
                 except:
-                    print "ERROR"
+                    
                     
                 student_photo=''
                 student_photo = form.cleaned_data['photograph']
@@ -1093,7 +1093,7 @@ class Child_detailPoolView(View):
             try:
                 school = School.objects.get(school_name=our_school)
                 udise_code=school.school_code
-                print udise_code
+                
                 student_list = Child_detail.objects.filter(class_studying_id__in=classes,school_id = school,transfer_flag= 1).order_by('class_studying')
                 if len(student_list) > 0:
                     return render(request,'students/child_detail/child_detail_pool_detail.html',{'school_list':school_list,'udise_code':udise_code,'school':school ,'student_list':student_list})
@@ -1108,8 +1108,8 @@ class Child_detailPoolView(View):
         if request.POST.get('student_name'):
             name=self.request.POST.get('student_name')
             dob=datetime.strptime(request.POST.get('dob'), '%d/%m/%Y').strftime('%Y-%m-%d')
-            print name
-            print dob
+            
+            
             student_list_in_name_search=Child_detail.objects.filter(name__icontains=name,dob=dob)
             if len (student_list_in_name_search) > 1:
                 return render(request,'students/child_detail/child_detail_pool_detail.html',{'name':name,'dob':dob,'student_list_in_name_search':student_list_in_name_search})
@@ -1218,7 +1218,7 @@ class Child_admit(View):
             new_class=request.POST.get('new_class')
             admission_date=date.today()
             sid = self.kwargs.get('pk')
-            print sid
+            
             chld_detail = Child_detail.objects.get(id=sid)
             name=chld_detail.name
             dist_id = chld_detail.district
@@ -1231,8 +1231,8 @@ class Child_admit(View):
                 transfer_date=chld_detail.transfer_date
             else:
                 transfer_date='2014-01-01'
-            print transfer_date
-            print admission_date
+            
+            
             migrated_school = request.user.account.associated_with
             migrated_schl = School.objects.get(id=migrated_school)
             today = datetime.today().date()
@@ -1314,12 +1314,12 @@ class Child_admit(View):
                 classes=[1,2,3,4,5,6,7]
             udise_code=request.POST.get('udise_no')
             school=School.objects.get(school_code=udise_code)
-            print udise_code
+            
             student_list = Child_detail.objects.filter(class_studying_id__in=classes,school_id = school,transfer_flag= 1).order_by('class_studying')
             new_class=request.POST.get('new_class')
             admission_date=date.today()
             sid = self.kwargs.get('pk')
-            print sid
+            
             chld_detail = Child_detail.objects.get(id=sid)
             name=chld_detail.name
             dist_id = chld_detail.district
@@ -1332,8 +1332,8 @@ class Child_admit(View):
                 transfer_date=chld_detail.transfer_date
             else:
                 transfer_date='2014-01-01'
-            print transfer_date
-            print admission_date
+            
+            
             migrated_school = request.user.account.associated_with
             migrated_schl = School.objects.get(id=migrated_school)
             today = datetime.today().date()
@@ -1423,11 +1423,11 @@ class Child_detailSectionListView(View):
     @method_decorator(login_required)
     def get(self,request,**kwargs):
         try:
-            print 'Example'
-            print request.user.account.user_category
+            
+            
 
             school_code = self.request.GET.get('school_code')
-            print school_code
+            
             if request.user.account.user_category_id == 1:
                 pass
             else:
@@ -1494,7 +1494,7 @@ class Child_detail_Sectionwise_detail(View):
         class_id = self.kwargs.get('cl_id')
         section_id = self.kwargs.get('sec_id')
         schl_id = School.objects.get(id=request.user.account.associated_with)
-        print class_id,section_id,schl_id.id
+        
         if request.user.account.user_category_id == 2:
             child_detail_list = Child_detail.objects.filter(school__id=schl_id.id, block_id=request.user.account.associated_with).exclude(transfer_flag = 1)
         elif request.user.account.user_category_id == 5:
