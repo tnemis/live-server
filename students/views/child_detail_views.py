@@ -10,7 +10,7 @@ from baseapp.forms import Pool_databaseform
 from django.shortcuts import render
 from students.models import Child_detail, Child_family_detail, School_child_count, Parent_annual_income
 from django.db.models import Q
-from baseapp.models import State, District, School, Habitation, Zone, Schemes, Class_Studying, Differently_abled, Disadvantaged_group, Child_detail_pool_database, Language, Group_code, Bank, Education_medium, Nationality, Religion, Community
+from baseapp.models import *
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator, PageNotAnInteger
@@ -113,7 +113,11 @@ class Child_detailCreateView(View):
             else:
                 comm_certificate_no = ''
                 comm_certificate_date = '1111-11-11'
-
+                
+            if form.cleaned_data['branchnew']:
+                ifsc_code=form.cleaned_data['branchnew'].ifsc_code
+            else:
+                ifsc_code=''
 
             child = Child_detail(
                 name = form.cleaned_data['name'],
@@ -178,10 +182,17 @@ class Child_detailCreateView(View):
                 staff_id = form.cleaned_data['staff_id'],
                 student_admitted_section = form.cleaned_data['student_admitted_section'],
                 school_admission_no = form.cleaned_data['school_admission_no'],
-                bank = form.cleaned_data['bank'],
-                bank_branch = form.cleaned_data['bank_branch'],
+                #bank chaining
+                bank_dist = form.cleaned_data['bank_dist'],
+                banknew = form.cleaned_data['banknew'],
+                branchnew = form.cleaned_data['branchnew'],
+                bank_ifsc_codenew = ifsc_code,
+                
+                
+                #bank = form.cleaned_data['bank'],
+                #bank_branch = form.cleaned_data['bank_branch'],
                 bank_account_no = form.cleaned_data['bank_account_no'],
-                bank_ifsc_code = form.cleaned_data['bank_ifsc_code'],
+                #bank_ifsc_code = form.cleaned_data['bank_ifsc_code'],
                 sports_player = form.cleaned_data['sports_player'],
                 sports_name = form.cleaned_data['sports_name'],
                 # govt_schemes_status = form.cleaned_data['govt_schemes_status'],
@@ -265,7 +276,7 @@ class Child_detailDayArchiveView(
 
 class Child_detailDeleteView(Child_detailView, DeleteView):
 
-   def get_success_url(self):
+    def get_success_url(self):
         from django.core.urlresolvers import reverse
         return reverse('students_child_detail_list')
 
@@ -694,7 +705,12 @@ class Child_detailUpdateView(View):
             else:
                 sprt_participation = ''
                 sprts_name = ''
+                
+            if form.cleaned_data['branchnew']:
 
+                ifsc_code=form.cleaned_data['branchnew'].ifsc_code
+            else:
+                ifsc_code=''
             child_edit.name = form.cleaned_data['name']
             child_edit.name_tamil = form.cleaned_data['name_tamil']
             child_edit.aadhaar_id = form.cleaned_data['aadhaar_id']
@@ -762,10 +778,21 @@ class Child_detailUpdateView(View):
             child_edit.staff_id = form.cleaned_data['staff_id']
             child_edit.schl_cat_10 = form.cleaned_data['schl_cat_10']
             child_edit.schl_cat_12 = form.cleaned_data['schl_cat_12']
-            child_edit.bank = form.cleaned_data['bank']
-            child_edit.bank_branch = form.cleaned_data['bank_branch']
-            child_edit.bank_account_no = form.cleaned_data['bank_account_no']
-            child_edit.bank_ifsc_code = form.cleaned_data['bank_ifsc_code']
+            #bank chaining
+            if form.cleaned_data['bank_dist']:
+                child_edit.bank_dist = form.cleaned_data['bank_dist']
+            if form.cleaned_data['banknew']:
+                child_edit.banknew = form.cleaned_data['banknew']
+            if form.cleaned_data['branchnew']:
+                child_edit.branchnew = form.cleaned_data['branchnew']
+            if form.cleaned_data['bank_account_no']:
+                child_edit.bank_account_no = form.cleaned_data['bank_account_no']
+            child_edit.bank_ifsc_codenew = ifsc_code
+            
+#             child_edit.bank = form.cleaned_data['bank']
+#             child_edit.bank_branch = form.cleaned_data['bank_branch']
+#             child_edit.bank_account_no = form.cleaned_data['bank_account_no']
+#             child_edit.bank_ifsc_code = form.cleaned_data['bank_ifsc_code']
             # child_edit.govt_schemes_status = form.cleaned_data['govt_schemes_status']
             child_edit.schemes = scheme_lst
             child_edit.academic_year = form.cleaned_data['academic_year']
