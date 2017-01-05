@@ -11,6 +11,46 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from smart_selects.db_fields import ChainedForeignKey
 
 
+"""
+Model for Bank District
+"""
+
+class Bank_districtnew(models.Model):
+    district_code = models.PositiveIntegerField(
+        unique=True, validators=[MinValueValidator(3300), MaxValueValidator(3399)])
+    bank_dist = models.CharField(max_length=100)
+    def __unicode__(self):
+        return u'%s' % (self.bank_dist)
+
+"""
+Model for Bank Master
+"""
+class Banknew(caching.base.CachingMixin, models.Model):
+    bank_dist=models.ForeignKey(Bank_districtnew)
+    bankcode = models.CharField(max_length=4)
+    bank = models.CharField(max_length=200)
+    objects = caching.base.CachingManager()
+    def __unicode__(self):
+        return u'%s' % (self.bank)
+
+"""
+Model for Bank Branch Master
+"""
+
+class Branchnew(caching.base.CachingMixin, models.Model):
+    bank = models.ForeignKey(Banknew)
+    bank_name= models.CharField(max_length=200)
+    branch = models.CharField(max_length=200)
+    branch_add=models.CharField(max_length=300)
+    contact_no=models.CharField(max_length=20,blank=True,null=True)
+    city=models.CharField(max_length=50,blank=True,null=True)
+    ifsc_code= models.CharField(max_length=30)
+    micr_code=models.CharField(max_length=30)
+    objects = caching.base.CachingManager()
+    def __unicode__(self):
+        return u'%s%s%s' % (self.branch,", IFSC:",self.ifsc_code)  
+
+
 
 """
 Model for Assembly constituencies
