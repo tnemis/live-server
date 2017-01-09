@@ -1,0 +1,189 @@
+{% extends 'students/child_detail/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+{% load widget_tweaks %}
+{% load imagekit %}
+{% block content %}
+
+
+<table class='table table-bordered table-striped2' border="2" align="center">
+
+  <thead>
+    <tr>
+      <th>{% trans "Total Students" %}</th>
+      {% if schl_cat == 1 or schl_cat == 11 or schl_cat == 15 %}
+     <th>I</th>
+      <th>II</th>
+      <th>III</th>
+      <th>IV</th>
+      <th>V</th>
+      {% elif schl_cat == 2 or schl_cat == 12 %}
+      <th>I</th>
+      <th>II</th>
+      <th>III</th>
+      <th>IV</th>
+      <th>V</th>
+      <th>VI</th>
+      <th>VII</th>
+      <th>VIII</th>
+      {% elif schl_cat == 4 %}
+      <th>VI</th>
+      <th>VII</th>
+      <th>VIII</th>
+      {% elif schl_cat == 5 %}
+      <th>VI</th>
+      <th>VII</th>
+      <th>VIII</th>
+      <th>IX</th>
+      <th>X</th>
+      <th>XI</th>
+      <th>XII</th>
+      {% elif schl_cat == 6 %}
+      <th>I</th>
+      <th>II</th>
+      <th>III</th>
+      <th>IV</th>
+      <th>V</th>
+      <th>VI</th>
+      <th>VII</th>
+      <th>VIII</th>
+      <th>IX</th>
+      <th>X</th>
+      {% elif schl_cat == 7 %}
+      <th>VI</th>
+      <th>VII</th>
+      <th>VIII</th>
+      <th>IX</th>
+      <th>X</th>
+      {% elif schl_cat == 8 %}
+      <th>IX</th>
+      <th>X</th>
+      {% elif schl_cat == 9 %}
+      <th>IX</th>
+      <th>X</th>
+      <th>XI</th>
+      <th>XII</th>
+      {% elif schl_cat == 10 %}
+      <th>XI</th>
+      <th>XII</th>
+      
+      {% else %}
+      <th>I</th>
+      <th>II</th>
+      <th>III</th>
+      <th>IV</th>
+      <th>V</th>
+      <th>VI</th>
+      <th>VII</th>
+      <th>VIII</th>
+      <th>IX</th>
+      <th>X</th>
+      <th>XI</th>
+      <th>XII</th>
+{% endif %}
+    </tr>
+  </thead>
+
+<tbody>            
+   {% if request.user.account.user_category.user_category == 'school' %}       
+<tr>
+    <td>{{totalcount|default:0}}</td>
+    {% if schl_cat == 1 or schl_cat == 11 or schl_cat == 15 %}
+    
+    <td><a href= '{% url "class_sectionwiseView" cl_id=1 %}' style="color:#069;">{{I|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=2 %}' style="color:#069;" >{{II|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=3 %}' style="color:#069;" >{{III|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=4 %}' style="color:#069;" >{{IV|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=5 %}' style="color:#069;" >{{V|default:0}}</a></td>
+   
+    {% elif schl_cat == 2 or schl_cat == 12 %}
+    
+    <td><a href= '{% url "class_sectionwiseView" cl_id=1 %}' style="color:#069;">{{I|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=2 %}' style="color:#069;" >{{II|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=3 %}' style="color:#069;" >{{III|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=4 %}' style="color:#069;" >{{IV|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=5 %}' style="color:#069;" >{{V|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=6 %}' style="color:#069;" >{{VI|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=7 %}' style="color:#069;" >{{VII|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=8 %}' style="color:#069;" >{{VIII|default:0}}</a></td>
+    
+    
+    {% elif schl_cat == 4 %}
+    
+    <td><a href='{% url "class_sectionwiseView" cl_id=6  %}' style="color:#069;" >{{VI|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=7  %}' style="color:#069;" >{{VII|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=8  %}' style="color:#069;" >{{VIII|default:0}}</a></td>
+    
+    {% elif schl_cat == 5 %} 
+    <td><a href='{% url "class_sectionwiseView" cl_id=6 %}' style="color:#069;" >{{VI|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=7 %}' style="color:#069;" >{{VII|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=8 %}' style="color:#069;" >{{VIII|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=9 %}' style="color:#069;" >{{IX|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=10 %}' style="color:#069;" >{{X|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=11 %}' style="color:#069;" >{{XI|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=12 %}' style="color:#069;" >{{XII|default:0}}</a></td>  
+    {% elif schl_cat == 6 %}
+   
+    <td><a href= '{% url "class_sectionwiseView" cl_id=1 %}' style="color:#069;">{{I|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=2 %}' style="color:#069;" >{{II|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=3 %}' style="color:#069;" >{{III|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=4 %}' style="color:#069;" >{{IV|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=5 %}' style="color:#069;" >{{V|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=6 %}' style="color:#069;" >{{VI|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=7 %}' style="color:#069;" >{{VII|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=8 %}' style="color:#069;" >{{VIII|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=9 %}' style="color:#069;" >{{IX|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=10 %}' style="color:#069;" >{{X|default:0}}</a></td>   
+    {% elif schl_cat == 7 %} 
+    
+    <td><a href='{% url "class_sectionwiseView" cl_id=6 %}' style="color:#069;" >{{VI|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=7 %}' style="color:#069;" >{{VII|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=8 %}' style="color:#069;" >{{VIII|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=9 %}' style="color:#069;" >{{IX|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=10 %}' style="color:#069;" >{{X|default:0}}</a></td>
+    
+    {% elif schl_cat == 8 %}
+   
+    <td><a href='{% url "class_sectionwiseView" cl_id=9 %}' style="color:#069;" >{{IX|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=10 %}' style="color:#069;" >{{X|default:0}}</a></td>
+    {% elif schl_cat == 9 %}
+    
+    <td><a href='{% url "class_sectionwiseView" cl_id=9 %}' style="color:#069;" >{{IX|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=10 %}' style="color:#069;" >{{X|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=11 %}' style="color:#069;" >{{XI|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=12 %}' style="color:#069;" >{{XII|default:0}}</a></td>
+    {% elif schl_cat == 10 %}
+    <td><a href='{% url "class_sectionwiseView" cl_id=11 %}' style="color:#069;" >{{XI|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=12 %}' style="color:#069;" >{{XII|default:0}}</a></td>
+  
+    {% else %}
+    <td><a href= '{% url "class_sectionwiseView" cl_id=1 %}' style="color:#069;">{{I|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=2  %}' style="color:#069;" >{{II|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=3  %}' style="color:#069;" >{{III|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=4  %}' style="color:#069;" >{{IV|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=5  %}' style="color:#069;" >{{V|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=6  %}' style="color:#069;" >{{VI|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=7  %}' style="color:#069;" >{{VII|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=8  %}' style="color:#069;" >{{VIII|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=9  %}' style="color:#069;" >{{IX|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=10  %}' style="color:#069;" >{{X|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=11  %}' style="color:#069;" >{{XI|default:0}}</a></td>
+    <td><a href='{% url "class_sectionwiseView" cl_id=12  %}' style="color:#069;" >{{XII|default:0}}</a></td>        
+
+{% endif %}
+</tr>
+
+
+
+</tbody>
+      
+</table>
+{% endif %}
+<table>
+  <tr><b><center>{% trans "Note: Click on the respective number to get the Section-wise Student Strength." %}</center></b></tr></table>
+
+
+{% endblock %}
+
+
