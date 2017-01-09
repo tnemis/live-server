@@ -187,10 +187,27 @@ class Child_detail(caching.base.CachingMixin, models.Model):
     staff_id = models.CharField(max_length=30)
     student_admitted_section = models.CharField(max_length=100,blank=True, null=True)
     school_admission_no = models.CharField(max_length=100)
-    bank = models.ForeignKey(Bank, blank=True, null=True)
-    bank_branch = models.CharField(default='', max_length=200, blank=True, null=True)
+
+    bank_dist = models.ForeignKey(Bank_districtnew, blank=True, null=True)
+    banknew = ChainedForeignKey(Banknew, chained_field='bank_dist',
+                                 chained_model_field='bank_dist',
+                                 auto_choose=True,
+                                 blank=True,
+                                 null=True)
+    branchnew = ChainedForeignKey(Branchnew, chained_field='banknew',
+                                 chained_model_field='bank',
+                                 auto_choose=True,
+                                 blank=True,
+                                 null=True)
+    bank_ifsc_codenew = models.CharField(max_length=50, default='', blank=True, null=True)
+
+
+
+
+#     bank = models.ForeignKey(Bank, blank=True, null=True)
+#     bank_branch = models.CharField(default='', max_length=200, blank=True, null=True)
     bank_account_no = models.CharField(default='', max_length=30, blank=True, null=True)
-    bank_ifsc_code = models.CharField(max_length=50, default='', blank=True, null=True)
+#     bank_ifsc_code = models.CharField(max_length=50, default='', blank=True, null=True)
     sports_player = models.CharField(max_length=3)
     sports_name = models.CharField(max_length=1000,blank=True,null=True)
     # govt_schemes_status = models.CharField(max_length=5)

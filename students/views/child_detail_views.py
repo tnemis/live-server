@@ -10,7 +10,7 @@ from baseapp.forms import Pool_databaseform
 from django.shortcuts import render
 from students.models import Child_detail, Child_family_detail, School_child_count, Parent_annual_income
 from django.db.models import Q
-from baseapp.models import State, District, School, Habitation, Zone, Schemes, Class_Studying, Differently_abled, Disadvantaged_group, Child_detail_pool_database, Language, Group_code, Bank, Education_medium, Nationality, Religion, Community
+from baseapp.models import *
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator, PageNotAnInteger
@@ -123,7 +123,11 @@ class Child_detailCreateView(View):
             else:
                 comm_certificate_no = ''
                 comm_certificate_date = '1111-11-11'
-
+                
+            if form.cleaned_data['branchnew']:
+                ifsc_code=form.cleaned_data['branchnew'].ifsc_code
+            else:
+                ifsc_code=''
 
             child = Child_detail(
                 name = form.cleaned_data['name'],
@@ -188,10 +192,17 @@ class Child_detailCreateView(View):
                 staff_id = form.cleaned_data['staff_id'],
                 student_admitted_section = form.cleaned_data['student_admitted_section'],
                 school_admission_no = form.cleaned_data['school_admission_no'],
-                bank = form.cleaned_data['bank'],
-                bank_branch = form.cleaned_data['bank_branch'],
+                #bank chaining
+                bank_dist = form.cleaned_data['bank_dist'],
+                banknew = form.cleaned_data['banknew'],
+                branchnew = form.cleaned_data['branchnew'],
+                bank_ifsc_codenew = ifsc_code,
+                
+                
+                #bank = form.cleaned_data['bank'],
+                #bank_branch = form.cleaned_data['bank_branch'],
                 bank_account_no = form.cleaned_data['bank_account_no'],
-                bank_ifsc_code = form.cleaned_data['bank_ifsc_code'],
+                #bank_ifsc_code = form.cleaned_data['bank_ifsc_code'],
                 sports_player = form.cleaned_data['sports_player'],
                 sports_name = form.cleaned_data['sports_name'],
                 # govt_schemes_status = form.cleaned_data['govt_schemes_status'],
@@ -276,7 +287,7 @@ class Child_detailDayArchiveView(
 
 class Child_detailDeleteView(Child_detailView, DeleteView):
 
-   def get_success_url(self):
+    def get_success_url(self):
         from django.core.urlresolvers import reverse
         return reverse('students_child_detail_list')
 
@@ -509,7 +520,7 @@ class Child_detailUpdateView(View):
         religion_value = instance.religion
         stud_admitted_section = instance.student_admitted_section
         address = instance.house_address
-        bank_name = instance.bank
+#         bank_name = instance.bank
         attndce_status = instance.attendance_status
         scholarship_dtls = instance.scholarship_details
         diffntly_abled = instance.differently_abled
@@ -552,7 +563,7 @@ class Child_detailUpdateView(View):
         onetoten = [1,2,3,4,5,6,7,8,9,10]
         onetotwelve = [1,2,3,4,5,6,7,8,9,10,11,12]
         onetoeight = [1,2,3,4,5,6,7,8]
-        return render(request, 'students/child_detail/child_detail_form.html', {'schl_cat_10': schl_cat_10,'schl_cat_12': schl_cat_12,'grp':grp,'form': form,'fmdetail':fmdetail,'district_list':district_list,'pk1':pk,'schemes':schemes,'differently_abled_list':differently_abled_list,'dis_advantaged_list':dis_advantaged_list,'ge':ge,'cls_section':cls_section,'cls_studying':cls_studying,'academic_yr':academic_yr,'mother_ocu':mother_ocu,'father_ocu':father_ocu,'bg':bg,'st_status':st_status,'differently_abled_list1':differently_abled_list1,'disadvantaged_group1':disadvantaged_group1,'schemes1':schemes1,'sport_participation':sport_participation,'sports_name':sports_name,'mthr_name':mthr_name,'nutritious_meal_programme':nutritious_meal_programme,'state_list':state_list,'parent_income_list':parent_income_list,'parent_income':parent_income,'class_studying_list':class_studying_list,'group_code_list':group_code_list,'bank_list':bank_list,'education_medium_list':education_medium_list,'nationality_list':nationality_list,'religion_list':religion_list,'community_list':community_list,'language_list':language_list,'mothrtongue':mothrtongue,'edu_medium':edu_medium,'nationality_value':nationality_value,'religion_value':religion_value,'parent_income':parent_income,'govt_aid_school_management_list':govt_aid_school_management_list,'aid_school_management_list':aid_school_management_list,'private_school_management_list':private_school_management_list,'onetoten':onetoten,'stud_admitted_section':stud_admitted_section,'address':address,'onetotwelve':onetotwelve,'onetoeight':onetoeight,'bank_name':bank_name,'scholarship_dtls':scholarship_dtls,'attndce_status':attndce_status,'diffntly_abled':diffntly_abled,'photo':photo,'dis_advntgd_grp':dis_advntgd_grp})
+        return render(request, 'students/child_detail/child_detail_form.html', {'schl_cat_10': schl_cat_10,'schl_cat_12': schl_cat_12,'grp':grp,'form': form,'fmdetail':fmdetail,'district_list':district_list,'pk1':pk,'schemes':schemes,'differently_abled_list':differently_abled_list,'dis_advantaged_list':dis_advantaged_list,'ge':ge,'cls_section':cls_section,'cls_studying':cls_studying,'academic_yr':academic_yr,'mother_ocu':mother_ocu,'father_ocu':father_ocu,'bg':bg,'st_status':st_status,'differently_abled_list1':differently_abled_list1,'disadvantaged_group1':disadvantaged_group1,'schemes1':schemes1,'sport_participation':sport_participation,'sports_name':sports_name,'mthr_name':mthr_name,'nutritious_meal_programme':nutritious_meal_programme,'state_list':state_list,'parent_income_list':parent_income_list,'parent_income':parent_income,'class_studying_list':class_studying_list,'group_code_list':group_code_list,'bank_list':bank_list,'education_medium_list':education_medium_list,'nationality_list':nationality_list,'religion_list':religion_list,'community_list':community_list,'language_list':language_list,'mothrtongue':mothrtongue,'edu_medium':edu_medium,'nationality_value':nationality_value,'religion_value':religion_value,'parent_income':parent_income,'govt_aid_school_management_list':govt_aid_school_management_list,'aid_school_management_list':aid_school_management_list,'private_school_management_list':private_school_management_list,'onetoten':onetoten,'stud_admitted_section':stud_admitted_section,'address':address,'onetotwelve':onetotwelve,'onetoeight':onetoeight,'scholarship_dtls':scholarship_dtls,'attndce_status':attndce_status,'diffntly_abled':diffntly_abled,'photo':photo,'dis_advntgd_grp':dis_advntgd_grp})
 
     def post(self,request,**kwargs):
         pk=self.kwargs.get('pk')
@@ -562,7 +573,7 @@ class Child_detailUpdateView(View):
         academic_yr = instance.academic_year
         stud_photo = instance.photograph
         photo1=instance.photo
-        bank_name = instance.bank
+#         bank_name = instance.bank
         differently_abled_list1 = instance.differently_abled
         student_count = School_child_count.objects.get(school_id = instance.school_id)
         form = Child_detailform(request.POST,request.FILES)
@@ -712,7 +723,12 @@ class Child_detailUpdateView(View):
             else:
                 sprt_participation = ''
                 sprts_name = ''
+                
+            if form.cleaned_data['branchnew']:
 
+                ifsc_code=form.cleaned_data['branchnew'].ifsc_code
+            else:
+                ifsc_code=''
             child_edit.name = form.cleaned_data['name']
             child_edit.name_tamil = form.cleaned_data['name_tamil']
             child_edit.aadhaar_id = form.cleaned_data['aadhaar_id']
@@ -780,10 +796,21 @@ class Child_detailUpdateView(View):
             child_edit.staff_id = form.cleaned_data['staff_id']
             child_edit.schl_cat_10 = form.cleaned_data['schl_cat_10']
             child_edit.schl_cat_12 = form.cleaned_data['schl_cat_12']
-            child_edit.bank = form.cleaned_data['bank']
-            child_edit.bank_branch = form.cleaned_data['bank_branch']
-            child_edit.bank_account_no = form.cleaned_data['bank_account_no']
-            child_edit.bank_ifsc_code = form.cleaned_data['bank_ifsc_code']
+            #bank chaining
+            if form.cleaned_data['bank_dist']:
+                child_edit.bank_dist = form.cleaned_data['bank_dist']
+            if form.cleaned_data['banknew']:
+                child_edit.banknew = form.cleaned_data['banknew']
+            if form.cleaned_data['branchnew']:
+                child_edit.branchnew = form.cleaned_data['branchnew']
+            if form.cleaned_data['bank_account_no']:
+                child_edit.bank_account_no = form.cleaned_data['bank_account_no']
+            child_edit.bank_ifsc_codenew = ifsc_code
+            
+#             child_edit.bank = form.cleaned_data['bank']
+#             child_edit.bank_branch = form.cleaned_data['bank_branch']
+#             child_edit.bank_account_no = form.cleaned_data['bank_account_no']
+#             child_edit.bank_ifsc_code = form.cleaned_data['bank_ifsc_code']
             # child_edit.govt_schemes_status = form.cleaned_data['govt_schemes_status']
             child_edit.schemes = scheme_lst
             child_edit.academic_year = form.cleaned_data['academic_year']
@@ -923,8 +950,10 @@ class Child_detailUpdateView(View):
 
             
         else:
-            return render (request,'students/child_detail/child_detail_form.html',{'form':form,'pk1':pk,'cls_studying':cls_studying,'academic_yr':academic_yr,'bank_name':bank_name,'diff_abled':diff_abled})
+
+            return render (request,'students/child_detail/child_detail_form.html',{'form':form,'pk1':pk,'cls_studying':cls_studying,'academic_yr':academic_yr,'diff_abled':diff_abled})
         msg = "Child    " + str(child_edit.unique_id_no) +"    "+form.cleaned_data['name'] +"   "+form.cleaned_data['gender']+"   "+str(child_edit.dob) +"   "  + "  updated successfully"
+
         messages.success(request, msg )
         return HttpResponseRedirect(reverse('students_child_detail_list'))
 
