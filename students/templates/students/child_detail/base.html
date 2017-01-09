@@ -21,6 +21,13 @@
                       {% trans "Student Pool" %}
                     </a>
                   </li>
+                  <li >
+                    <a  href='{% url "students_child_detail_section_list" %}'>
+                      {% trans "Section Wise List" %}
+                    </a>
+                  </li>
+
+
                   {% if object %}
                   {% if object.school.id == request.user.account.associated_with|add:"0" %}
                     <li >
