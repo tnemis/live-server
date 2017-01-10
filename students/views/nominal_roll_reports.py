@@ -51,7 +51,19 @@ class Nominal_roll_checklist(View):
                 page_obj = paginator.page(1)
             except EmptyPage:
                 page_obj = paginator.page(paginator.num_pages)
-            return render(request,'students/child_detail/nominal_list_split.html',{'page_objs':page_obj,'classwise_detail':classwise_detail,'school_code':school_code,'class_id':class_id,'classwise_detail_count':classwise_detail_count})
+            return render(request,'students/child_detail/nominal_list.html',{'page_objs':page_obj,'classwise_detail':classwise_detail,'school_code':school_code,'class_id':class_id,'classwise_detail_count':classwise_detail_count})
+        if class_id == 11:
+            classwise_detail = child_detail_list.filter(class_studying_id=class_id).order_by('group_code','class_section','gender','name')
+            classwise_detail_count = classwise_detail.count()
+            paginator = Paginator(classwise_detail, 30)
+            page = request.GET.get('page')
+            try:
+                page_obj = paginator.page(page)
+            except PageNotAnInteger:
+                page_obj = paginator.page(1)
+            except EmptyPage:
+                page_obj = paginator.page(paginator.num_pages)
+            return render(request,'students/child_detail/nominal_list.html',{'page_objs':page_obj,'classwise_detail':classwise_detail,'school_code':school_code,'class_id':class_id,'classwise_detail_count':classwise_detail_count})
         else:
             classwise_detail = child_detail_list.filter(class_studying_id=class_id).order_by('group_code','class_section','gender','name')
             classwise_detail_count = classwise_detail.count()
@@ -119,7 +131,7 @@ class Nominal_roll_list_10(View):
         ws = wb.add_sheet("Child_detail")
         school_id = request.user.account.associated_with
         class_students=Child_detail.objects.filter(school_id=school_id,transfer_flag__in=[0,2],class_studying=10)
-        child_detail_list = class_students.values("name","aadhaar_eid_number","aadhaar_uid_number","gender","dob","community__community_name","religion__religion_name","mothertounge__language_name","phone_number","child_differently_abled","differently_abled","child_disadvantaged_group","disadvantaged_group","subcaste__caste_name","nationality__nationality","house_address","native_district","pin_code","blood_group","mother_name","mother_occupation","father_name","father_occupation","parent_income","class_studying__class_studying","group_code__group_code","group_code__group_name","attendance_status","sport_participation","education_medium__education_medium","district__district_name","block__block_name","unique_id_no","school_id","staff_id","bank__bank","bank_account_no","schemes","academic_year__academic_year","transfer_flag","transfer_date","name_tamil","class_section","student_admitted_section","school_admission_no","bank_ifsc_code","sports_player","sports_name","community_certificate","child_status","height","weight","laptop_issued","laptop_slno","guardian_name",'grpcode_language1','grpcode_language2','grpcode_language3','grpcode_language4','first_language','optional_language','sci_practical','lang_exemption','lang_exemption1','first_language','da_id_no')
+        child_detail_list = class_students.values("name","aadhaar_eid_number","aadhaar_uid_number","gender","dob","community__community_name","religion__religion_name","mothertounge__language_name","phone_number","child_differently_abled","differently_abled","child_disadvantaged_group","disadvantaged_group","subcaste__caste_name","nationality__nationality","house_address","native_district","pin_code","blood_group","mother_name","mother_occupation","father_name","father_occupation","parent_income","class_studying__class_studying","group_code__group_code","group_code__group_name","attendance_status","sport_participation","education_medium__education_medium","district__district_name","block__block_name","unique_id_no","school_id","staff_id","schemes","academic_year__academic_year","transfer_flag","transfer_date","name_tamil","class_section","student_admitted_section","school_admission_no","sports_player","sports_name","community_certificate","child_status","height","weight","laptop_issued","laptop_slno","guardian_name",'grpcode_language1','grpcode_language2','grpcode_language3','grpcode_language4','first_language','optional_language','sci_practical','lang_exemption','lang_exemption1','first_language','da_id_no')
         row_no = 0
         columns = [
             (u"S.NO",1000),
@@ -177,6 +189,85 @@ class Nominal_roll_list_10(View):
                 ws.write(row_no, col_num, row[col_num], font_style)           
         wb.save(response)
         return response   
+        export_xls.short_description = u"Export XLS"
+
+class Nominal_roll_list_11(View):
+    def get(self,request,**kwargs):
+        import xlwt
+        response = HttpResponse(mimetype='application/ms-excel')
+        response['Content-Disposition'] = 'attachment; filename=11_Std_Nominal_roll_list.xls'
+        wb = xlwt.Workbook(encoding='utf-8')
+        ws = wb.add_sheet("Child_detail")
+        school_id = request.user.account.associated_with
+        class_students=Child_detail.objects.filter(school_id=school_id,transfer_flag__in=[0,2],class_studying=11)
+        child_detail_list = class_students.values("name","aadhaar_eid_number","aadhaar_uid_number","gender","dob","community__community_name","religion__religion_name","mothertounge__language_name","phone_number","child_differently_abled","differently_abled","child_disadvantaged_group","disadvantaged_group","subcaste__caste_name","nationality__nationality","house_address","native_district","pin_code","blood_group","mother_name","mother_occupation","father_name","father_occupation","parent_income","class_studying__class_studying","group_code__group_code","group_code__group_name","attendance_status","sport_participation","education_medium__education_medium","district__district_name","block__block_name","unique_id_no","school_id","staff_id","schemes","academic_year__academic_year","transfer_flag","transfer_date","name_tamil","class_section","student_admitted_section","school_admission_no","sports_player","sports_name","community_certificate","child_status","height","weight","laptop_issued","laptop_slno","guardian_name",'grpcode_language1','grpcode_language2','grpcode_language3','grpcode_language4','first_language','optional_language','sci_practical','lang_exemption','lang_exemption1','first_language','da_id_no')
+        row_no = 0
+        columns = [
+            (u"S.no",1000),
+            (u"Unique Id",6000),
+            (u"Name'",6000) ,
+            (u"Gender'",3000),
+            (u"Dob",4000), 
+            (u"Differently_abled",5000),
+            (u"Differently_abled_name",5000),
+            (u"Differently_abled_id",5000),
+            (u"Religion",5000),
+            (u"Community",5000), 
+            (u"Subcaste",5000),
+            (u"Class",3000),
+            (u"Section",3000),
+            (u"Aadhaar",5000),
+            (u"Father name",5000),
+            (u"Mother name",5000),
+            (u"Mobile",5000),
+            (u"First_lang",3000),
+            (u"GROUP_CODE_NO",2000),
+            (u"GROUP_CODE",7000),
+            (u"GROUP_CODE_LANG_1",3000),
+            (u"GROUP_CODE_LANG_2",3000),
+            (u"GROUP_CODE_LANG_3",3000),
+            (u"GROUP_CODE_LANG_4",3000),
+            (u"Lang_exmp",3000)
+        ]
+        font_style = xlwt.XFStyle()
+        font_style.font.bold = True
+        for col_num in xrange(len(columns)):
+            ws.write(row_no, col_num, columns[col_num][0], font_style)
+            ws.col(col_num).width = columns[col_num][1]
+        font_style = xlwt.XFStyle()
+        font_style.alignment.wrap = 1
+        for objects in child_detail_list:
+            row_no += 1
+            row = [row_no,
+                    str(objects['unique_id_no']),
+                    objects['name'], 
+                    objects['gender'],
+                    str(objects['dob']),
+                    objects['child_differently_abled'],
+                    objects['differently_abled'],
+                    objects['da_id_no'],
+                    objects['religion__religion_name'], 
+                    objects['community__community_name'], 
+                    objects['subcaste__caste_name'],
+                    objects['class_studying__class_studying'],
+                    objects['class_section'],
+                    str(objects['aadhaar_uid_number']),
+                    objects['father_name'],
+                    objects['mother_name'],
+                    objects['phone_number'],
+                    objects['first_language'],
+                    objects['group_code__group_code'],
+                    objects['group_code__group_name'],
+                    objects['grpcode_language1'],
+                    objects['grpcode_language2'],
+                    objects['grpcode_language3'],
+                    objects['grpcode_language4'],
+                    objects['lang_exemption1']
+            ]
+            for col_num in xrange(len(row)):
+                ws.write(row_no, col_num, row[col_num], font_style)           
+        wb.save(response)
+        return response   
         export_xls.short_description = u"Export XLS"  
 
 class Nominal_roll_list_12(View):
@@ -188,7 +279,7 @@ class Nominal_roll_list_12(View):
         ws = wb.add_sheet("Child_detail")
         school_id = request.user.account.associated_with
         class_students=Child_detail.objects.filter(school_id=school_id,transfer_flag__in=[0,2],class_studying=12)
-        child_detail_list = class_students.values("name","aadhaar_eid_number","aadhaar_uid_number","gender","dob","community__community_name","religion__religion_name","mothertounge__language_name","phone_number","child_differently_abled","differently_abled","child_disadvantaged_group","disadvantaged_group","subcaste__caste_name","nationality__nationality","house_address","native_district","pin_code","blood_group","mother_name","mother_occupation","father_name","father_occupation","parent_income","class_studying__class_studying","group_code__group_code","group_code__group_name","attendance_status","sport_participation","education_medium__education_medium","district__district_name","block__block_name","unique_id_no","school_id","staff_id","bank__bank","bank_account_no","schemes","academic_year__academic_year","transfer_flag","transfer_date","name_tamil","class_section","student_admitted_section","school_admission_no","bank_ifsc_code","sports_player","sports_name","community_certificate","child_status","height","weight","laptop_issued","laptop_slno","guardian_name",'grpcode_language1','grpcode_language2','grpcode_language3','grpcode_language4','first_language','optional_language','sci_practical','lang_exemption','lang_exemption1','first_language','da_id_no')
+        child_detail_list = class_students.values("name","aadhaar_eid_number","aadhaar_uid_number","gender","dob","community__community_name","religion__religion_name","mothertounge__language_name","phone_number","child_differently_abled","differently_abled","child_disadvantaged_group","disadvantaged_group","subcaste__caste_name","nationality__nationality","house_address","native_district","pin_code","blood_group","mother_name","mother_occupation","father_name","father_occupation","parent_income","class_studying__class_studying","group_code__group_code","group_code__group_name","attendance_status","sport_participation","education_medium__education_medium","district__district_name","block__block_name","unique_id_no","school_id","staff_id","schemes","academic_year__academic_year","transfer_flag","transfer_date","name_tamil","class_section","student_admitted_section","school_admission_no","sports_player","sports_name","community_certificate","child_status","height","weight","laptop_issued","laptop_slno","guardian_name",'grpcode_language1','grpcode_language2','grpcode_language3','grpcode_language4','first_language','optional_language','sci_practical','lang_exemption','lang_exemption1','first_language','da_id_no')
         row_no = 0
         columns = [
             (u"S.no",1000),
