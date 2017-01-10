@@ -10,10 +10,17 @@
 
 {% if user.account.user_category.user_category == 'school' %}
 <p ><a href='{% url "students_child_detail_download_profile" pk=class_id %}' style="color:#00A65A;font-size:15;">Download Child Profile</a>
-{% if class_id == '10' %} &nbsp;&nbsp;&nbsp;&nbsp;<a href='{% url "nominal_roll_list_10"  %}' style="color:#00A65A;font-size:15;">10th Std Nominal roll download xls<img src="{{STATIC_URL}}img/new.gif"/></a>{% endif %}{% if class_id == '12' %} &nbsp;&nbsp;&nbsp;&nbsp;<a href='{% url "nominal_roll_list_12" %}' style="color:#00A65A;font-size:15;">12th Std Nominal roll download xls<img src="{{STATIC_URL}}img/new.gif"/></a>{% endif %}
 
-{% if class_id == '10' %} &nbsp;&nbsp;&nbsp;&nbsp;<a   href='{% url "nominal_roll_check_list" pk=class_id %}' style="color:#00A65A;font-size:15;">10th Std Nominal roll check list pdf<img src="{{STATIC_URL}}img/new.gif"/></a>{% endif %}{% if class_id == '12' %} &nbsp;&nbsp;&nbsp;&nbsp;<a  href='{% url "nominal_roll_check_list" pk=class_id %}' style="color:#00A65A;font-size:15;">12th Std Nominal roll check list pdf<img src="{{STATIC_URL}}img/new.gif"/></a>{% endif %}
+{% if class_id == '10' %} &nbsp;&nbsp;&nbsp;&nbsp;<a href='{% url "nominal_roll_list_10"  %}' style="color:#00A65A;font-size:15;">10th Std Nominal roll download xls<img src="{{STATIC_URL}}img/new.gif"/></a>{% endif %}
+{% if class_id == '11' %} &nbsp;&nbsp;&nbsp;&nbsp;<a href='{% url "nominal_roll_list_11" %}' style="color:#00A65A;font-size:15;">11th Std Nominal roll download xls<img src="{{STATIC_URL}}img/new.gif"/></a>{% endif %}
+{% if class_id == '12' %} &nbsp;&nbsp;&nbsp;&nbsp;<a href='{% url "nominal_roll_list_12" %}' style="color:#00A65A;font-size:15;">12th Std Nominal roll download xls<img src="{{STATIC_URL}}img/new.gif"/></a>{% endif %}
+
+{% if class_id == '10' %} &nbsp;&nbsp;&nbsp;&nbsp;<a   href='{% url "nominal_roll_check_list" pk=class_id %}' style="color:#00A65A;font-size:15;">10th Std Nominal roll check list pdf<img src="{{STATIC_URL}}img/new.gif"/></a>{% endif %}
+{% if class_id == '11' %} &nbsp;&nbsp;&nbsp;&nbsp;<a  href='{% url "nominal_roll_check_list" pk=class_id %}' style="color:#00A65A;font-size:15;">11th Std Nominal roll check list pdf<img src="{{STATIC_URL}}img/new.gif"/></a>{% endif %}
+{% if class_id == '12' %} &nbsp;&nbsp;&nbsp;&nbsp;<a  href='{% url "nominal_roll_check_list" pk=class_id %}' style="color:#00A65A;font-size:15;">12th Std Nominal roll check list pdf<img src="{{STATIC_URL}}img/new.gif"/></a>{% endif %}
+
 </p>
+
 {% endif %}
 
 
@@ -45,6 +52,8 @@
   }
   a:link {text-decoration: none}
 </style>
+
+
 {% if class_id == '10' %}
 <center>
 <form  name="sslc" action='{% url "nominal_roll_check_list" pk=class_id %}' method='post' enctype="multipart/form-data" >{% csrf_token %}
@@ -67,7 +76,7 @@
 Name&nbsp;:&nbsp;<b>{{detail.name}}</b><br>
 Section&nbsp;:&nbsp;<b>{{detail.class_section}}</b><br>
 Sex&nbsp;:&nbsp;<b>{{detail.gender}}</b><br>
-Dob&nbsp;:&nbsp;<b>{{detail.dob}}</b><br>
+Dob&nbsp;:&nbsp;<b>{{detail.dob|date:"d/m/Y"}}</b><br>
 Religion&nbsp;:&nbsp;<b>{{detail.religion}}</b><br>
 Community&nbsp;:&nbsp;<b>{{detail.community}}</b><br>
 Subcaste&nbsp;:&nbsp;<b>{{detail.subcaste}}</b><br>
@@ -123,6 +132,12 @@ Medium&nbsp;:&nbsp;<b>{{detail.education_medium}}</b></td>
 {% endif %}
 
 
+
+
+
+
+
+
 {% if class_id == '12' %}
 <center>
 <form name="hsc" action='{% url "nominal_roll_check_list" pk=class_id %}' method='post' enctype="multipart/form-data" >{% csrf_token %}
@@ -148,7 +163,7 @@ Medium&nbsp;:&nbsp;<b>{{detail.education_medium}}</b></td>
 Name&nbsp;:&nbsp;<b>{{detail.name}}</b><br>
 Section&nbsp;:&nbsp;<b>{{detail.class_section}}</b><br>
 Sex&nbsp;:&nbsp;<b>{{detail.gender}}</b><br>
-Dob&nbsp;:&nbsp;<b>{{detail.dob}}</b><br>
+Dob&nbsp;:&nbsp;<b>{{detail.dob|date:"d/m/Y"}}</b><br>
 Religion&nbsp;:&nbsp;<b>{{detail.religion}}</b><br>
 Community&nbsp;:&nbsp;<b>{{detail.community}}</b><br>
 Subcaste&nbsp;:&nbsp;<b>{{detail.subcaste}}</b><br>
@@ -198,6 +213,7 @@ Medium&nbsp;:&nbsp;<b>{{detail.education_medium}}</b>
           </td>
       </tr>
       <input type="hidden" name="pdf_students" value="{{ detail.id }}" >
+      <input type="hidden" name="s_no" value="{{forloop.counter0|add:page_objs.start_index}}" >
     {% endfor %}
     <br>
     <ul class="pagination pagination-centered">&nbsp;&nbsp;&nbsp;<a  class="btn btn-default"   onClick=" window.print(); ">Print this page </a>&nbsp;&nbsp;&nbsp;<button class='btn  btn-default' type='submit' onclick="this.disabled=true,this.form.submit(); type='submit'">Get pdf</button> 
@@ -235,6 +251,131 @@ Medium&nbsp;:&nbsp;<b>{{detail.education_medium}}</b>
 </center>
 {% endif %}
 
+
+
+
+
+
+
+
+
+
+{% if class_id == '11' %}
+<center>
+<form name="11" action='{% url "nominal_roll_check_list" pk=class_id %}' method='post' enctype="multipart/form-data" >{% csrf_token %}
+<table style="width:80%" class='tableizer-table table table-bordered table-striped3' border="1">
+  <thead>
+
+    <tr>
+    <th>S.No</th>
+      <th colspan="5">11 Std <br>Nominal roll checklist-2017</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for detail in page_objs %}
+   
+   <tr>
+   <td rowspan="2" ><br><br><br><center>{{forloop.counter0|add:page_objs.start_index}}</center></td>
+    
+    <td colspan="6"><center>{{detail.group_code.group_code}}-{{detail.group_code.group_name}}</center></td>
+   </tr>
+    <tr>
+    <td  width="150" ><br><img height="200" width="150" src="{{MEDIA_URL}}{{detail.photograph}}"></td>
+<td>
+Name&nbsp;:&nbsp;<b>{{detail.name}}</b><br>
+Section&nbsp;:&nbsp;<b>{{detail.class_section}}</b><br>
+Sex&nbsp;:&nbsp;<b>{{detail.gender}}</b><br>
+Dob&nbsp;:&nbsp;<b>{{detail.dob|date:"d/m/Y"}}</b><br>
+Religion&nbsp;:&nbsp;<b>{{detail.religion}}</b><br>
+Community&nbsp;:&nbsp;<b>{{detail.community}}</b><br>
+Subcaste&nbsp;:&nbsp;<b>{{detail.subcaste}}</b><br>
+Aadhaar&nbsp;:&nbsp;<b>{{detail.aadhaar_uid_number}}</b><br>
+          </td>
+          <td>
+Disability&nbsp;:&nbsp;<b>{{detail.child_differently_abled}}</b><br>
+Disability name&nbsp;:&nbsp;<b>{{detail.differently_abled}}</b><br>
+Disability Id No&nbsp;:&nbsp;<b>{{detail.da_id_no}}</b><br>
+Lang Exmp&nbsp;:&nbsp;<b>{{detail.lang_exemption1}}</b><br>
+Father Name&nbsp;:&nbsp;<b>{{detail.father_name}}</b><br>
+Mother Name&nbsp;:&nbsp;<b>{{detail.mother_name}}</b><br>
+Nationality&nbsp;:&nbsp;<b>{{detail.nationality}}</b><br>
+Mobile&nbsp;:&nbsp;<b>{{detail.phone_number}}</b><br>
+First Language&nbsp;:&nbsp;<b>{{detail.first_language}}</b><br>
+Medium&nbsp;:&nbsp;<b>{{detail.education_medium}}</b>
+          </td>
+          <td>
+            <table class='table table-bordered table-striped3' border="1" >
+        <tr>
+                <td>S.no</td>
+                <td>Subjects</td>
+                <td>Medium</td>
+            
+        </tr>
+        <tr>
+            <td>(1)</td>
+            <td>Sub-I</td>
+            <td>{{detail.grpcode_language1}}</td>
+        </tr>
+        <tr>
+            <td>(2)</td>
+            <td>Sub-II</td>
+            <td>{{detail.grpcode_language2}}</td>
+        </tr>
+        <tr>
+            <td>(3)</td>
+            <td>Sub-III</td>
+            <td>{{detail.grpcode_language3}}</td>
+        </tr>
+        <tr>
+            <td>(4)</td>
+            <td>Sub-IV</td>
+            <td>{{detail.grpcode_language4}}</td>
+        </tr>
+    </table>
+          </td>
+      </tr>
+      <input type="hidden" name="pdf_students" value="{{ detail.id }}" >
+      <input type="hidden" name="s_no" value="{{forloop.counter0|add:page_objs.start_index}}" >
+    {% endfor %}
+    <br>
+    <ul class="pagination pagination-centered">&nbsp;&nbsp;&nbsp;<a  class="btn btn-default"   onClick=" window.print(); ">Print this page </a>&nbsp;&nbsp;&nbsp;<button class='btn  btn-default' type='submit' onclick="this.disabled=true,this.form.submit(); type='submit'">Get pdf</button> 
+            {% if page_objs.has_previous %}
+                <li><a href="?page=1"><<</a></li>
+                <li><a href="?page={{ page_objs.previous_page_number }}"><</a></li>
+            {% endif %}
+
+            {% for i in page_objs.paginator.page_range %}
+                {% if page_objs.number == i %}
+                {% if page_objs.has_previous %}
+                    <li><a href="?page={{i|add:-1}}">{{i|add:-1}}</a></li>
+                {% endif %}
+                <li  class="active">
+
+                <a href="?page={{i}}">{{i}}</a></li>
+                {% if page_objs.has_next %}
+                <li><a href="?page={{i|add:1}}">{{i|add:1}}</a></li>
+                {% endif %}
+                {% endif %}
+
+            {% endfor %}
+
+
+            {% if page_objs.has_next %}
+                <li><a href="?page={{ page_objs.next_page_number }}">></a></li>
+                <li><a href="?page={{ page_objs.paginator.num_pages }}">>></a></li>
+            {% endif %}
+        </ul>
+  </tbody>
+</table>
+<!-- <input type="hidden" name="page" value="{{i}}"> -->
+<input type="hidden" name="11_form">
+</form>
+</center>
 {% endif %}
 
+
+
+
+
+{% endif %}
 {% endblock %}

@@ -657,7 +657,7 @@ class Child_detailUpdateView(View):
                     os.remove(photo_file1)
                     
                 except:
-                    
+                    pass
                     
                 student_photo=''
                 student_photo = form.cleaned_data['photograph']
