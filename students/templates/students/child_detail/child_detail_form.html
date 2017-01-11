@@ -1428,7 +1428,7 @@ function no_future(dob_id){
 
     <div class="form-group"><b>{% trans "Student Name (Tamil)" %}</b><input class="form-control" name="name_tamil" id="transliterateTextarea" type="text" value="{{ form.name_tamil.value }}" /></div><img src="{{MEDIA_URL}}ref.png" id="ref" onMouseOver="ins('Refresh the above two Entries')" onMouseOut="hide();" onclick="clear1();"><div id="text"></div><br>
 
- <!--  <div class="form-group"> <b>{% trans "Height" %} (in cm)</b><input type="text" class="form-control" value="{{form.height.value|default:0}}" id="height" name="height" onkeypress="return isNumber(event)" onblur="validate_height()" maxlength="3" /></div><span class="error_message">{{form.height.errors}}</span> -->
+ <!--  <div class="form-group"> <b>{% trans "Height" %} (in cm)</b><input type="text" class="form-control" value="{{form.height.value|default:""}}" id="height" name="height" onkeypress="return isNumber(event)" onblur="validate_height()" maxlength="3" /></div><span class="error_message">{{form.height.errors}}</span> -->
 
 <div class="form-group" class="mandatory"><strong style="color:red;">*</strong><b>{% trans "Photograph" %}</b>    
 <strong style="color:blue;"> [Allowed Photo Size – 200 x 200 (Upto 50 KB), Allowed File format – jpg, jpeg]</strong>
@@ -1508,9 +1508,9 @@ function no_future(dob_id){
       </select></div><span class="error_message">{{form.blood_group.errors}}</span>
 
 
-      <div class="form-group"> <b>{% trans "Height" %} (in cm)</b><input type="text" class="form-control mandatory" value="{{form.height.value}}" id="height" name="height" onkeypress="return isNumber(event)" onblur="validate_height()" maxlength="3" /></div><span class="error_message">{{form.height.errors}}</span>
+      <div class="form-group"> <b>{% trans "Height" %} (in cm)</b><input type="text" class="form-control mandatory" value="{{form.height.value|default:""}}" id="height" name="height" onkeypress="return isNumber(event)" onblur="validate_height()" maxlength="3" /></div><span class="error_message">{{form.height.errors}}</span>
 
-    <div class="form-group"> <b>{% trans "Weight" %} (in kg)</b><input type="text" class="form-control mandatory" value="{{form.weight.value}}" id="weight" name="weight" onkeypress="return isNumber(event)" onblur="validate_weight()" maxlength="3" /></div><span class="error_message">{{form.weight.errors}}</span>
+    <div class="form-group"> <b>{% trans "Weight" %} (in kg)</b><input type="text" class="form-control mandatory" value="{{form.weight.value|default:""}}" id="weight" name="weight" onkeypress="return isNumber(event)" onblur="validate_weight()" maxlength="3" /></div><span class="error_message">{{form.weight.errors}}</span>
 
     <div class="form-group"> <b><strong style="color:red;">*</strong> {% trans "Mother Tongue" %}</b>
     <select id='mothertounge' name="mothertounge" class="mandatory" >
@@ -1523,7 +1523,7 @@ function no_future(dob_id){
       {% endfor %}
      </select></div><span class="error_message">{{form.mothertounge.errors}}</span>
 
-     <div class="form-group"> <b><strong style="color:red;">*</strong> {% trans "School Admission No" %}</b><input type="text" class="form-control mandatory" value="{{form.school_admission_no.value}}" id="school_admission_no" name="school_admission_no"    /></div><span class="error_message">{{form.school_admission_no.errors}}</span>
+     <div class="form-group"> <b><strong style="color:red;">*</strong> {% trans "School Admission No" %}</b><input type="text" class="form-control mandatory" value="{{form.school_admission_no.value|default_if_none:""}}" id="school_admission_no" name="school_admission_no" maxlength="15"    /></div><span class="error_message">{{form.school_admission_no.errors}}</span>
      </fieldset>
      <h3>Second Step</h3>
     
@@ -1828,9 +1828,9 @@ function no_future(dob_id){
 
 
     <span id="pin_status" style="color:red;" ></span>
-    <div class="form-group">  <strong style="color:red;">*</strong> <b>{% trans "Pincode" %}</b><input type="text" class="form-control mandatory" value="{{form.pin_code.value|default:0}}" id="pin_code" name="pin_code" onkeypress="return isNumber(event)" onfocus="pincode_validate(this.value)" onblur="pincode_validate(this.value)" onkeyup="pincode_validate(this.value)"  maxlength="6"/></div><span class="error_message">{{form.pin_code.errors}}</span>
+    <div class="form-group">  <strong style="color:red;">*</strong> <b>{% trans "Pincode" %}</b><input type="text" class="form-control mandatory" value="{{form.pin_code.value|default:""}}" id="pin_code" name="pin_code" onkeypress="return isNumber(event)" onfocus="pincode_validate(this.value)" onblur="pincode_validate(this.value)" onkeyup="pincode_validate(this.value)"  maxlength="6"/></div><span class="error_message">{{form.pin_code.errors}}</span>
     <span id="mobile_status" style="color:red;" ></span>
-    <div class="form-group">  <strong style="color:red;">*</strong> <b>{% trans "Mobile Number" %}</b><input type="text" class="form-control mandatory" value="{{form.phone_number.value|default:0}}" id="phone_number" name="phone_number" onkeypress="return isNumber(event)" maxlength="10"  onkeyup="mobile_validate(this.value)" onblur="mobile_validate(this.value)" onchange="mobile_validate(this.value)"/></div><span class="error_message">{{form.phone_number.errors}}</span>
+    <div class="form-group">  <strong style="color:red;">*</strong> <b>{% trans "Mobile Number" %}</b><input type="text" class="form-control mandatory" value="{{form.phone_number.value|default:""}}" id="phone_number" name="phone_number" onkeypress="return isNumber(event)" maxlength="10"  onkeyup="mobile_validate(this.value)" onblur="mobile_validate(this.value)" onchange="mobile_validate(this.value)"/></div><span class="error_message">{{form.phone_number.errors}}</span>
     </fieldset>
      <h3>Third Step</h3>
      <fieldset>
@@ -2025,7 +2025,7 @@ function no_future(dob_id){
 
 <!-- differently abled national id card number -->
     <div class="form-group"id="national_id_div"><strong style="color:red;">*</strong> <b>{% trans "National ID card no:" %}</b>
-    <input type="text" class="form-control" value="{{form.da_id_no.value}}" id="da_id_no" name="da_id_no"  />
+    <input type="text" class="form-control" value="{{form.da_id_no.value|default:""}}" id="da_id_no" name="da_id_no"  />
    </div><span class="error_message">{{form.bank_branch.errors}}</span>
 
      <!-- exemptions list -->
@@ -2123,12 +2123,12 @@ function no_future(dob_id){
    </div><span style="display:none;" class="error_message">{{form.bank_branch.errors}}</span>
 
    <div class="form-group"><strong style="color:red;">*</strong> <b>{% trans "Bank Account No" %}</b>
-    <input type="text" class="form-control" value="{{form.bank_account_no.value|default:0}}" id="bank_account_no" name="bank_account_no"  />
+    <input type="text" class="form-control" value="{{form.bank_account_no.value|default:""}}" id="bank_account_no" name="bank_account_no"  />
 
    </div><span class="error_message">{{form.bank_account_no.errors}}</span>
 
     <div class="form-group" style="display:none;"><strong style="color:red;">*</strong> <b>{% trans "Bank IFSC Code " %}</b>
-    <input type="text" class="form-control" value="{{form.bank_ifsc_code.value|default:0}}" id="bank_ifsc_code" name="bank_ifsc_code"  />
+    <input type="text" class="form-control" value="{{form.bank_ifsc_code.value|default:""}}" id="bank_ifsc_code" name="bank_ifsc_code"  />
    
 </div><span style="display:none;" class="error_message">{{form.bank_ifsc_code.errors}}</span>
 
