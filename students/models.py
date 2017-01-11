@@ -155,7 +155,7 @@ class Child_detail(caching.base.CachingMixin, models.Model):
     area_village = models.CharField(default='', max_length=1000,blank=True, null=True)
     city_district = models.CharField(default='', max_length=1000,blank=True, null=True)
     native_district = models.CharField(max_length=50)
-    pin_code = models.PositiveIntegerField(default=6,  blank=True, null=True)
+    pin_code = models.PositiveIntegerField(blank=True, null=True)
     blood_group = models.CharField(max_length=10, blank=True, null=True)
     height = models.PositiveIntegerField(max_length=3, default=0,  blank=True, null=True)
     weight = models.PositiveIntegerField(default=0,  blank=True, null=True)
