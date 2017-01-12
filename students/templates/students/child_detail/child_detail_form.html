@@ -110,7 +110,7 @@
                 }
             } 
             else if (newIndex === 3 && $("#class_studying").val() == 12 && yarr.indexOf(check) >= 0  && $("#student_admitted_section").val() == "Govt Aid" ){
-                if ($("#id_banknew").val() === '' || $("#id_branchnew").val() === '' || $("#bank_account_no").val() === '')
+                if ($("#id_banknew").val() === '' || $("#id_branchnew").val() === '' || $("#bank_account_no").val() === '' )
                 {   
                     
                     alert("please fill up the bank details completely!!!");
@@ -209,7 +209,20 @@
 </script>
 <!-- end of testscript -->
 
-
+<script>
+$(function(){
+  
+    $('#addMore').on('click', function() {
+                 addFmdetailRow('fmdetailTable');
+     });
+     $(document).on('click', '.remove', function() {
+         var trIndex = $(this).closest("tr").index();
+           
+             $(this).closest("tr").remove();
+           
+      });
+});      
+</script>
 
 
 
@@ -431,13 +444,13 @@ frm.guardian_name.focus();
             var row = table.insertRow(rowCount);
 
             var cell1 = row.insertCell(0);
-            var element = document.createElement("input");
-            element.type = "checkbox";
-            element.className = "form-control";
+            var element = document.createElement("span");
+            
+            element.className = "remove glyphicon glyphicon-remove";
             cell1.appendChild(element);
 
             var cell2 = row.insertCell(1);
-            cell2.innerHTML = rowCount;
+            // cell2.innerHTML = rowCount;
             var element1 = document.createElement("input");
             element1.type = "hidden";
             element1.name = "fmdetail_no";
@@ -2101,10 +2114,19 @@ function no_future(dob_id){
 <!-- end of bank chaining -->
 
 
+
+
+
+   
+
+     
+
    <div class="form-group"><strong style="color:red;">*</strong> <b>{% trans "Bank Account No" %}</b>
     <input type="text" class="form-control" value="{{form.bank_account_no.value|default:""}}" id="bank_account_no" name="bank_account_no"  />
 
    </div><span class="error_message">{{form.bank_account_no.errors}}</span>
+
+   
 
 </fieldset>
      <h3>Fourth Step</h3>
@@ -2346,16 +2368,17 @@ function no_future(dob_id){
 
 {% endif %}
 
+
+
           <br>
 
      <div id="familydetails" class="form-group">
     <label for="fmdetailTable"><strong></span> Siblings Details: <br /></strong></label>
-    <input type="button" value="Add Row" class="submit" onclick="addFmdetailRow('fmdetailTable')" />
-    <input type="button" value="Delete Row" class="delete" onclick="deleteRow('fmdetailTable')" />
+    
     <table id="fmdetailTable" >
         <tr>
             <th></th>
-            <th></th>
+            <th><span style="color:red;" id="addMore" class="glyphicon glyphicon-plus"></span></th>
             <th style="text-align:center; width:30%">{% trans "Name" %}</th>
             <th style="text-align:center;">{% trans "Relationship" %}</th>
             <th style="text-align:center;">{% trans "Age" %}</th>
@@ -2364,13 +2387,19 @@ function no_future(dob_id){
             <th style="text-align:center;">{% trans "Studying in Same School" %}</th>
            
         </tr>
+
+        <!-- new fmdetail rows -->
+
+
+
         {% for fm in fmdetail %}
-        <tr>
+
+        <tr >
+            
+               <td><span class='glyphicon glyphicon-remove remove'></span></td>
+            
             <td>
-                <input type="checkbox" name="fmdetail_chk" class="form-control" >
-            </td>
-            <td>
-                <input type="hidden" value="{{forloop.counter}}" name="fmdetail_no" class="form-control">{{forloop.counter}}
+                <input type="hidden" value="{{forloop.counter}}" name="fmdetail_no" class="form-control">
             </td>
             <td width="50%">
                 <input type="text" value="{{fm.sibling_name}}" name="sibling_name"  class="form-control">
@@ -2467,6 +2496,11 @@ function no_future(dob_id){
             </td>
         </tr> 
         {% endfor %}
+        <!-- end of new fmdetail rows -->
+
+        
+        
+        
         </table>
         </div>     
  </fieldset>
