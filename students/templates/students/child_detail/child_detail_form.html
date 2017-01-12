@@ -99,7 +99,7 @@
                 // Forbid next action on BANK step if the class in 10,11,12
                 
             if(newIndex === 3 && $("#class_studying").val() == 12 && xarr.indexOf(check) >= 0 ){
-                if ($("#id_banknew").val() === '' || $("#id_branchnew").val() === '' || $("#bank_account_no").val() === '' || $("#bank_ifsc_code").val() === '' )
+                if ($("#id_banknew").val() === '' || $("#id_branchnew").val() === '' || $("#bank_account_no").val() === '' )
                 {   
                     
                     alert("please fill up the bank details completely!!!");
@@ -110,7 +110,7 @@
                 }
             } 
             else if (newIndex === 3 && $("#class_studying").val() == 12 && yarr.indexOf(check) >= 0  && $("#student_admitted_section").val() == "Govt Aid" ){
-                if ($("#id_banknew").val() === '' || $("#id_branchnew").val() === '' || $("#bank_account_no").val() === '' || $("#bank_ifsc_code").val() === '' )
+                if ($("#id_banknew").val() === '' || $("#id_branchnew").val() === '' || $("#bank_account_no").val() === '')
                 {   
                     
                     alert("please fill up the bank details completely!!!");
@@ -2101,36 +2101,10 @@ function no_future(dob_id){
 <!-- end of bank chaining -->
 
 
-<div class="form-group" style="display:none;"> <strong style="color:red;">*</strong> <strong> {% trans "Bank" %} </strong>
-     <select id='bank' name="bank" class="form-control"   >
-     {% if bank_name %}
-        <option value="{{bank_name.id}}">{{bank_name}}</option>
-    {% endif %}
-     <option value="">---------</option>
-      {% for bk in bank_list %}
-        <option value="{{bk.id}}" >{{bk.bank}}</option>
-      {% endfor %}
-     </select></div><span style="display:none;" class="error_message">{{form.bank.errors}}</span>
-
-
-
-   <!--  <div class="form-group"> <b>{% trans "Bank" %}</b>{{ form.bank|add_class:"form-control"}} <strong style="color:blue;">[Applicable only for X,XI & XII Std for ECS credit of incentive]</strong></div><span class="error_message">{{form.bank.errors}}</span> -->
-    
-   <!--  <div class="form-group"> <b>{% trans "Bank Account No" %}</b>{{ form.bank_account_no|add_class:"form-control" }}</div><span class="error_message">{{form.bank_account_no.errors}}</span> -->
-
-      <div class="form-group" style="display:none;"><strong style="color:red;">*</strong> <b>{% trans "Bank Branch Name" %}</b>
-    <input type="text" class="form-control" value="{{form.bank_branch.value}}" id="bank_branch" name="bank_branch"  />
-   </div><span style="display:none;" class="error_message">{{form.bank_branch.errors}}</span>
-
    <div class="form-group"><strong style="color:red;">*</strong> <b>{% trans "Bank Account No" %}</b>
     <input type="text" class="form-control" value="{{form.bank_account_no.value|default:""}}" id="bank_account_no" name="bank_account_no"  />
 
    </div><span class="error_message">{{form.bank_account_no.errors}}</span>
-
-    <div class="form-group" style="display:none;"><strong style="color:red;">*</strong> <b>{% trans "Bank IFSC Code " %}</b>
-    <input type="text" class="form-control" value="{{form.bank_ifsc_code.value|default:""}}" id="bank_ifsc_code" name="bank_ifsc_code"  />
-   
-</div><span style="display:none;" class="error_message">{{form.bank_ifsc_code.errors}}</span>
 
 </fieldset>
      <h3>Fourth Step</h3>
