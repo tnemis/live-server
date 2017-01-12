@@ -520,7 +520,6 @@ class Child_detailUpdateView(View):
         religion_value = instance.religion
         stud_admitted_section = instance.student_admitted_section
         address = instance.house_address
-#         bank_name = instance.bank
         attndce_status = instance.attendance_status
         scholarship_dtls = instance.scholarship_details
         diffntly_abled = instance.differently_abled
@@ -573,12 +572,12 @@ class Child_detailUpdateView(View):
         academic_yr = instance.academic_year
         stud_photo = instance.photograph
         photo1=instance.photo
-#         bank_name = instance.bank
         differently_abled_list1 = instance.differently_abled
         student_count = School_child_count.objects.get(school_id = instance.school_id)
         form = Child_detailform(request.POST,request.FILES)
         if form.is_valid():
             child_edit = Child_detail.objects.get(id=pk)
+            fmdetail = Child_family_detail.objects.filter(child_key=pk).order_by('id')
             class_studying_detail = child_edit.class_studying
 
             # if form.cleaned_data["child_differently_abled"]  == "Yes":
@@ -895,7 +894,7 @@ class Child_detailUpdateView(View):
 
 
             try:
-   
+    
                 fmdetail_no = request.POST.getlist('fmdetail_no')
                 fmdetail_name = request.POST.getlist('sibling_name')
                 fmdetail_rel = request.POST.getlist('sibling_relationship')
@@ -903,20 +902,12 @@ class Child_detailUpdateView(View):
                 fmdetail_studying = request.POST.getlist('sibling_studying')
                 fmdetail_status = request.POST.getlist('sibling_status')
                 fmdetail_school = request.POST.getlist('sibling_studying_same_school')
-                fmdetail_count = Child_family_detail.objects.filter(child_key=pk).count()
-                fmdetail_existing = Child_family_detail.objects.filter(child_key=pk)
-                si_no_in_db = list()
-                
-                if (len(fmdetail_no)) > fmdetail_count:
-                    for p in fmdetail_existing:
-                        si_no_in_db.append(p.si_no)
-                    final_si_no1 = list(set(fmdetail_no)-set(si_no_in_db))
-                    final_si_no =  final_si_no1[-1]
-                    # final_si_no = list(set(fmdetail_no)-set(si_no_in_db))
-                    # if len(final_si_no1) > 1:
+                # fmdetail_count = Child_family_detail.objects.filter(child_key=pk).count()
+                # fmdetail_existing = Child_family_detail.objects.filter(child_key=pk)
+                # si_no_in_db = list()
 
-                    # else:
-                    for entry in range(len(final_si_no)):
+                if not fmdetail:
+                    for entry in range(len(fmdetail_no)):
                         newchild_fmdetail = Child_family_detail(
                             child_key = child_edit,
                             si_no  = fmdetail_no[entry],
@@ -930,21 +921,63 @@ class Child_detailUpdateView(View):
                             staff_id = child_edit.staff_id,
                         )
                         newchild_fmdetail.save()
+                else:
+                    for i in fmdetail:
+                        i.delete()
+
+                    for entry in range(len(fmdetail_no)):
+                        newchild_fmdetail = Child_family_detail(
+                            child_key = child_edit,
+                            si_no  = fmdetail_no[entry],
+                            block = child_edit.block,
+                            sibling_name = fmdetail_name[entry],
+                            sibling_relationship = fmdetail_rel[entry],
+                            sibling_age = fmdetail_age[entry],
+                            sibling_studying = fmdetail_studying[entry],
+                            sibling_status = fmdetail_status[entry],
+                            sibling_studying_same_school = fmdetail_school[entry],
+                            staff_id = child_edit.staff_id,
+                        )
+                        newchild_fmdetail.save()
+                
+                # if (len(fmdetail_no)) > fmdetail_count:
+                #     for p in fmdetail_existing:
+                #         si_no_in_db.append(p.si_no)
+                #     final_si_no1 = list(set(fmdetail_no)-set(si_no_in_db))
+                #     final_si_no =  final_si_no1[-1]
+                #     # final_si_no = list(set(fmdetail_no)-set(si_no_in_db))
+                #     # if len(final_si_no1) > 1:
+
+                #     # else:
+                #     for entry in range(len(final_si_no)):
+                #         newchild_fmdetail = Child_family_detail(
+                #             child_key = child_edit,
+                #             si_no  = fmdetail_no[entry],
+                #             block = child_edit.block,
+                #             sibling_name = fmdetail_name[entry],
+                #             sibling_relationship = fmdetail_rel[entry],
+                #             sibling_age = fmdetail_age[entry],
+                #             sibling_studying = fmdetail_studying[entry],
+                #             sibling_status = fmdetail_status[entry],
+                #             sibling_studying_same_school = fmdetail_school[entry],
+                #             staff_id = child_edit.staff_id,
+                #         )
+                #         newchild_fmdetail.save()
 
 
-                for entry in range(len(fmdetail_no)): 
-                    newchild_fmdetail_edit = Child_family_detail.objects.get(child_key=pk,si_no=fmdetail_no[entry])
-                    newchild_fmdetail_edit.child_key = child_edit
-                    newchild_fmdetail_edit.si_no  = fmdetail_no[entry]
-                    newchild_fmdetail_edit.block = child_edit.block
-                    newchild_fmdetail_edit.sibling_name = fmdetail_name[entry]
-                    newchild_fmdetail_edit.sibling_relationship = fmdetail_rel[entry]
-                    newchild_fmdetail_edit.sibling_age = fmdetail_age[entry]
-                    newchild_fmdetail_edit.sibling_studying = fmdetail_studying[entry]
-                    newchild_fmdetail_edit.sibling_status = fmdetail_status[entry]
-                    newchild_fmdetail_edit.sibling_studying_same_school = fmdetail_school[entry]
-                    newchild_fmdetail_edit.staff_id = child_edit.staff_id
-                    newchild_fmdetail_edit.save()
+                # for entry in range(len(fmdetail_no)): 
+                #     newchild_fmdetail_edit = Child_family_detail.objects.get(child_key=pk,si_no=fmdetail_no[entry])
+                #     newchild_fmdetail_edit.child_key = child_edit
+                #     newchild_fmdetail_edit.si_no  = fmdetail_no[entry]
+                #     newchild_fmdetail_edit.block = child_edit.block
+                #     newchild_fmdetail_edit.sibling_name = fmdetail_name[entry]
+                #     newchild_fmdetail_edit.sibling_relationship = fmdetail_rel[entry]
+                #     newchild_fmdetail_edit.sibling_age = fmdetail_age[entry]
+                #     newchild_fmdetail_edit.sibling_studying = fmdetail_studying[entry]
+                #     newchild_fmdetail_edit.sibling_status = fmdetail_status[entry]
+                #     newchild_fmdetail_edit.sibling_studying_same_school = fmdetail_school[entry]
+                #     newchild_fmdetail_edit.staff_id = child_edit.staff_id
+                #     newchild_fmdetail_edit.save()
             except Child_family_detail.DoesNotExist:
                 pass
 
