@@ -328,7 +328,7 @@ setInterval(blinker, 1000);
   {% csrf_token %}
   <span id="unique_id_alert" style="color:#ff9a9a;" ></span>
   <center>
-   <input type="text" minlength=16 class="form-control" id="unique_id" name="unique_id" placeholder="Unique id number"  maxlength="16" style="width:200px;" onkeypress="return isNumber(event)"  onkeyup="validate_unique_id()" required  title="Enter unique correct id number"></center>
+   <input type="text" minlength=16 class="form-control" id="unique_id" name="unique_id" placeholder="Unique id number"  maxlength="16" style="width:200px;" onkeypress="return isNumber(event)"  onkeyup="validate_unique_id()" required  title="Enter correct unique id number"></center>
    </td>
    <td>
   <button class='btn btn-large btn-success' type='submit'>{% trans "Submit" %}</button>
@@ -544,86 +544,58 @@ setInterval(blinker, 1000);
         <option class="tab_1" value=1>I</option>
         <option class="tab_2" value=2>II</option>
         <option class="tab_3" value=3>III</option>
-        <option class="tab_4" value=4>IV</option>
-        <option class="tab_5" value=5>V</option>
         {% endif %}
         {% if i.class_studying_id == 2 %}
-        <option class="tab_1" value=1>I</option>
         <option class="tab_2" value=2>II</option>
         <option class="tab_3" value=3>III</option>
         <option class="tab_4" value=4>IV</option>
-        <option class="tab_5" value=5>V</option>
-        <option class="tab_6" value=6>VI</option>
         {% endif %}
         {% if i.class_studying_id == 3 %}
-        <option class="tab_2" value=2>II</option>
         <option class="tab_3" value=3>III</option>
         <option class="tab_4" value=4>IV</option>
         <option class="tab_5" value=5>V</option>
-        <option class="tab_6" value=6>VI</option>
-        <option class="tab_7" value=7>VII</option>
         {% endif %}
         {% if i.class_studying_id == 4 %}
-        <option class="tab_3" value=3>III</option>
         <option class="tab_4" value=4>IV</option>
         <option class="tab_5" value=5>V</option>
-         <option class="tab_6" value=6>VI</option>
-        <option class="tab_7" value=7>VII</option>
-        <option class="tab_8" value=8>VIII</option>        
+        <option class="tab_6" value=6>VI</option>
         {% endif %}
         {% if i.class_studying_id == 5 %}
-        <option class="tab_4" value=4>IV</option>
         <option class="tab_5" value=5>V</option>
-         <option class="tab_6" value=6>VI</option>
+        <option class="tab_6" value=6>VI</option>
         <option class="tab_7" value=7>VII</option>
-        <option class="tab_8" value=8>VIII</option>
-        <option class="tab_9" value=9>IX</option>        
         {% endif %}
         {% if i.class_studying_id == 6 %}
-        <option class="tab_5" value=5>V</option>
         <option class="tab_6" value=6>VI</option>
         <option class="tab_7" value=7>VII</option>
         <option class="tab_8" value=8>VIII</option>
-        <option class="tab_9" value=9>IX</option>
-        <option class="tab_10" value=10>X</option> 
         {% endif %}
         {% if i.class_studying_id == 7 %}
-        <option class="tab_6" value=6>VI</option>
         <option class="tab_7" value=7>VII</option>
         <option class="tab_8" value=8>VIII</option>
         <option class="tab_9" value=9>IX</option>
-        <option class="tab_10" value=10>X</option>
-        <option class="tab_11" value=11>XI</option> 
         {% endif %}
         {% if i.class_studying_id == 8 %}
-        <option class="tab_7" value=7>VII</option>
         <option class="tab_8" value=8>VIII</option>
         <option class="tab_9" value=9>IX</option>
         <option class="tab_10" value=10>X</option>
-        <option class="tab_11" value=11>XI</option>
-         <option class="tab_12" value=12>XII</option> 
         {% endif %}
         {% if i.class_studying_id == 9 %}
-        <option class="tab_8" value=8>VIII</option>
         <option class="tab_9" value=9>IX</option>
         <option class="tab_10" value=10>X</option>
         <option class="tab_11" value=11>XI</option>
-         <option class="tab_12" value=12>XII</option> 
         {% endif %}
         {% if i.class_studying_id == 10 %}
-         <option class="tab_9" value=9>IX</option>
         <option class="tab_10" value=10>X</option>
         <option class="tab_11" value=11>XI</option>
-         <option class="tab_12" value=12>XII</option>
+        <option class="tab_12" value=12>XII</option>
         {% endif %}
         {% if i.class_studying_id == 11 %}
-        <option class="tab_10" value=10>X</option>
         <option class="tab_11" value=11>XI</option>
-         <option class="tab_12" value=12>XII</option>
+        <option class="tab_12" value=12>XII</option>
         {% endif %}
         {% if i.class_studying_id == 12 %}
-        <option class="tab_11" value=11>XI</option>
-         <option class="tab_12" value=12>XII</option>
+        <option class="tab_12" value=12>XII</option>
         {% endif %}
 
       </select>
@@ -812,86 +784,58 @@ button[type="text"]:hover + #title {
         <option class="tab_1" value=1>I</option>
         <option class="tab_2" value=2>II</option>
         <option class="tab_3" value=3>III</option>
-        <option class="tab_4" value=4>IV</option>
-        <option class="tab_5" value=5>V</option>
         {% endif %}
         {% if i.class_studying_id == 2 %}
-        <option class="tab_1" value=1>I</option>
         <option class="tab_2" value=2>II</option>
         <option class="tab_3" value=3>III</option>
         <option class="tab_4" value=4>IV</option>
-        <option class="tab_5" value=5>V</option>
-        <option class="tab_6" value=6>VI</option>
         {% endif %}
         {% if i.class_studying_id == 3 %}
-        <option class="tab_2" value=2>II</option>
         <option class="tab_3" value=3>III</option>
         <option class="tab_4" value=4>IV</option>
         <option class="tab_5" value=5>V</option>
-        <option class="tab_6" value=6>VI</option>
-        <option class="tab_7" value=7>VII</option>
         {% endif %}
         {% if i.class_studying_id == 4 %}
-        <option class="tab_3" value=3>III</option>
         <option class="tab_4" value=4>IV</option>
         <option class="tab_5" value=5>V</option>
-         <option class="tab_6" value=6>VI</option>
-        <option class="tab_7" value=7>VII</option>
-        <option class="tab_8" value=8>VIII</option>        
+        <option class="tab_6" value=6>VI</option>
         {% endif %}
         {% if i.class_studying_id == 5 %}
-        <option class="tab_4" value=4>IV</option>
         <option class="tab_5" value=5>V</option>
-         <option class="tab_6" value=6>VI</option>
+        <option class="tab_6" value=6>VI</option>
         <option class="tab_7" value=7>VII</option>
-        <option class="tab_8" value=8>VIII</option>
-        <option class="tab_9" value=9>IX</option>        
         {% endif %}
         {% if i.class_studying_id == 6 %}
-        <option class="tab_5" value=5>V</option>
         <option class="tab_6" value=6>VI</option>
         <option class="tab_7" value=7>VII</option>
         <option class="tab_8" value=8>VIII</option>
-        <option class="tab_9" value=9>IX</option>
-        <option class="tab_10" value=10>X</option> 
         {% endif %}
         {% if i.class_studying_id == 7 %}
-        <option class="tab_6" value=6>VI</option>
         <option class="tab_7" value=7>VII</option>
         <option class="tab_8" value=8>VIII</option>
         <option class="tab_9" value=9>IX</option>
-        <option class="tab_10" value=10>X</option>
-        <option class="tab_11" value=11>XI</option> 
         {% endif %}
         {% if i.class_studying_id == 8 %}
-        <option class="tab_7" value=7>VII</option>
         <option class="tab_8" value=8>VIII</option>
         <option class="tab_9" value=9>IX</option>
         <option class="tab_10" value=10>X</option>
-        <option class="tab_11" value=11>XI</option>
-         <option class="tab_12" value=12>XII</option> 
         {% endif %}
         {% if i.class_studying_id == 9 %}
-        <option class="tab_8" value=8>VIII</option>
         <option class="tab_9" value=9>IX</option>
         <option class="tab_10" value=10>X</option>
         <option class="tab_11" value=11>XI</option>
-         <option class="tab_12" value=12>XII</option> 
         {% endif %}
         {% if i.class_studying_id == 10 %}
-         <option class="tab_9" value=9>IX</option>
         <option class="tab_10" value=10>X</option>
         <option class="tab_11" value=11>XI</option>
-         <option class="tab_12" value=12>XII</option>
+        <option class="tab_12" value=12>XII</option>
         {% endif %}
         {% if i.class_studying_id == 11 %}
-        <option class="tab_10" value=10>X</option>
         <option class="tab_11" value=11>XI</option>
-         <option class="tab_12" value=12>XII</option>
+        <option class="tab_12" value=12>XII</option>
         {% endif %}
         {% if i.class_studying_id == 12 %}
-        <option class="tab_11" value=11>XI</option>
-         <option class="tab_12" value=12>XII</option>
+        <option class="tab_12" value=12>XII</option>
         {% endif %}
 
       </select>
@@ -1059,86 +1003,58 @@ $(document).click(function (e) {
         <option class="tab_1" value=1>I</option>
         <option class="tab_2" value=2>II</option>
         <option class="tab_3" value=3>III</option>
-        <option class="tab_4" value=4>IV</option>
-        <option class="tab_5" value=5>V</option>
         {% endif %}
         {% if my_student.class_studying_id == 2 %}
-        <option class="tab_1" value=1>I</option>
         <option class="tab_2" value=2>II</option>
         <option class="tab_3" value=3>III</option>
         <option class="tab_4" value=4>IV</option>
-        <option class="tab_5" value=5>V</option>
-        <option class="tab_6" value=6>VI</option>
         {% endif %}
         {% if my_student.class_studying_id == 3 %}
-        <option class="tab_2" value=2>II</option>
         <option class="tab_3" value=3>III</option>
         <option class="tab_4" value=4>IV</option>
         <option class="tab_5" value=5>V</option>
-        <option class="tab_6" value=6>VI</option>
-        <option class="tab_7" value=7>VII</option>
         {% endif %}
         {% if my_student.class_studying_id == 4 %}
-        <option class="tab_3" value=3>III</option>
         <option class="tab_4" value=4>IV</option>
         <option class="tab_5" value=5>V</option>
-         <option class="tab_6" value=6>VI</option>
-        <option class="tab_7" value=7>VII</option>
-        <option class="tab_8" value=8>VIII</option>        
+        <option class="tab_6" value=6>VI</option>
         {% endif %}
         {% if my_student.class_studying_id == 5 %}
-        <option class="tab_4" value=4>IV</option>
         <option class="tab_5" value=5>V</option>
-         <option class="tab_6" value=6>VI</option>
+        <option class="tab_6" value=6>VI</option>
         <option class="tab_7" value=7>VII</option>
-        <option class="tab_8" value=8>VIII</option>
-        <option class="tab_9" value=9>IX</option>        
         {% endif %}
         {% if my_student.class_studying_id == 6 %}
-        <option class="tab_5" value=5>V</option>
         <option class="tab_6" value=6>VI</option>
         <option class="tab_7" value=7>VII</option>
         <option class="tab_8" value=8>VIII</option>
-        <option class="tab_9" value=9>IX</option>
-        <option class="tab_10" value=10>X</option> 
         {% endif %}
         {% if my_student.class_studying_id == 7 %}
-        <option class="tab_6" value=6>VI</option>
         <option class="tab_7" value=7>VII</option>
         <option class="tab_8" value=8>VIII</option>
         <option class="tab_9" value=9>IX</option>
-        <option class="tab_10" value=10>X</option>
-        <option class="tab_11" value=11>XI</option> 
         {% endif %}
         {% if my_student.class_studying_id == 8 %}
-        <option class="tab_7" value=7>VII</option>
         <option class="tab_8" value=8>VIII</option>
         <option class="tab_9" value=9>IX</option>
         <option class="tab_10" value=10>X</option>
-        <option class="tab_11" value=11>XI</option>
-         <option class="tab_12" value=12>XII</option> 
         {% endif %}
         {% if my_student.class_studying_id == 9 %}
-        <option class="tab_8" value=8>VIII</option>
         <option class="tab_9" value=9>IX</option>
         <option class="tab_10" value=10>X</option>
         <option class="tab_11" value=11>XI</option>
-         <option class="tab_12" value=12>XII</option> 
         {% endif %}
         {% if my_student.class_studying_id == 10 %}
-         <option class="tab_9" value=9>IX</option>
         <option class="tab_10" value=10>X</option>
         <option class="tab_11" value=11>XI</option>
-         <option class="tab_12" value=12>XII</option>
+        <option class="tab_12" value=12>XII</option>
         {% endif %}
         {% if my_student.class_studying_id == 11 %}
-        <option class="tab_10" value=10>X</option>
         <option class="tab_11" value=11>XI</option>
-         <option class="tab_12" value=12>XII</option>
+        <option class="tab_12" value=12>XII</option>
         {% endif %}
         {% if my_student.class_studying_id == 12 %}
-        <option class="tab_11" value=11>XI</option>
-         <option class="tab_12" value=12>XII</option>
+        <option class="tab_12" value=12>XII</option>
         {% endif %}
       </select>
 </td>
