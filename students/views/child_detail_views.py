@@ -31,6 +31,7 @@ from django.db.models import Count, Sum
 from django.utils import simplejson
 import os
 from django.conf import settings
+import sys
 
 class Child_detailView(object):
     model = Child_detail
@@ -548,10 +549,7 @@ class Child_detailUpdateView(View):
         nationality_list = Nationality.objects.all().exclude(nationality='Undefined').order_by('id')
         schemes = Schemes.objects.all()
         mthr_name = instance.mother_name
-        if request.user.account.user_category_id == 1 or request.user.account.user_category_id == 11 or request.user.account.user_category_id == 15  :
-            class_studying_list = Class_Studying.objects.all()[0:5]
-        else:
-            class_studying_list = Class_Studying.objects.all()
+        class_studying_list = Class_Studying.objects.all()
         first_language_value = instance.first_language
         optional_language_value = instance.optional_language
 
@@ -1608,3 +1606,91 @@ class Child_detail_Sectionwise_detail(View):
             page_obj = paginator.page(paginator.num_pages)       
         return render(request,'students/child_detail/sectionwise_details.html',{'page_objs':page_obj,'child_detail_list':child_detail_list })
 
+class child_pdfview(View):
+    #@never_cache
+    def get(self,request,**kwargs):   
+        if request.user.is_authenticated():
+            pk=self.kwargs.get('pk')
+            print pk
+            student = Child_detail.objects.get(id=pk)
+            response = HttpResponse(content_type='application/pdf')
+            a=student.unique_id_no
+            filename = str(a)
+            photo=settings.MEDIA_URL
+            root=settings.MEDIA_ROOT
+            
+            response['Content-Disposition'] = 'attachement; filename={0}.pdf'.format(filename)
+            pdf=render_to_pdf(
+                    'students/child_detail/print_child.html',
+                    {
+                        'student':student,
+                        'pagesize':'A4',
+                        'MEDIA_URL':root,
+                                                
+                    }
+                )
+            response.write(pdf)
+            return response
+        else:
+            return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
+
+
+#@never_cache
+def render_to_pdf(template_src, context_dict):
+    template = get_template(template_src)
+    context = Context(context_dict)
+    html  = template.render(context)
+    result = StringIO.StringIO()
+    pdf = pisa.pisaDocument(StringIO.StringIO(html.encode("UTF-8")),result)
+    if not pdf.err:
+        return HttpResponse(result.getvalue(), content_type='application/pdf')
+    return HttpResponse('We had some errors<pre>%s</pre>' % escape(html))
+
+class classwise_pdfview(View):
+    #@never_cache
+    def get(self,request,**kwargs):
+        class_id = self.kwargs.get('pk')
+        print class_id
+        school_code = self.kwargs.get('school_code')
+        school_id = request.user.account.associated_with
+        
+        schl_id = School.objects.get(id=school_id)
+        child_detail_main_list = Child_detail.objects.filter(district_id = schl_id.district_id , block_id = schl_id.block_id)
+                
+        if request.user.account.user_category_id == 2:
+            child_detail_list = Child_detail.objects.filter(school__id=schl_id.id, block_id=request.user.account.associated_with).exclude(transfer_flag = 1)
+        elif request.user.account.user_category_id == 5:
+            child_detail_list = Child_detail.objects.filter(school__id=schl_id.id, block_id=request.user.account.associated_with).exclude(transfer_flag = 1)
+        elif request.user.account.user_category_id == 6 or request.user.account.user_category_id == 7 or request.user.account.user_category_id == 8 or request.user.account.user_category_id == 12 or request.user.account.user_category_id == 13 or request.user.account.user_category_id == 14:
+            child_detail_list = Child_detail.objects.filter(school__id=schl_id.id, district_id= request.user.account.associated_with).exclude(transfer_flag = 1)
+        elif request.user.account.user_category_id == 9 or request.user.account.user_category_id == 10 or request.user.account.user_category_id == 11 or request.user.account.user_category_id == 15 or request.user.account.user_category_id == 16 or request.user.account.user_category_id == 17 or request.user.account.user_category_id == 4:
+            child_detail_list = Child_detail.objects.filter(school__id=schl_id.id).exclude(transfer_flag = 1)    
+        else:
+            child_detail_list = Child_detail.objects.filter(school_id=schl_id.id).exclude(transfer_flag = 1)
+        
+        classwise_detail = child_detail_list.filter(class_studying_id=class_id).order_by('name','gender')
+
+        classwise_detail_count = classwise_detail.count()
+       
+        child_detail_list = Child_detail.objects.filter(school_id=schl_id.id).exclude(transfer_flag = 1)
+        classwise_detail = child_detail_list.filter(class_studying_id=class_id)
+        response = HttpResponse(content_type='application/pdf')
+        
+        a=class_id
+        filename = str(a)
+        
+        response['Content-Disposition'] = 'attachement; filename={0}.pdf'.format(filename)
+        pdf=render_to_pdf(
+                'students/child_detail/classwise_pdf.html',
+                {
+                    'classwise_detail':classwise_detail,
+                    'pagesize':'A4',
+                    'a':a,
+                    
+                                            
+                }
+            )
+        response.write(pdf)
+        return response
+        
+        

@@ -1,0 +1,67 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Classwise List</title>
+</head>
+<style type="text/css">
+            @page {
+                size: {{ pagesize }};
+                margin: 1cm;
+                @frame footer {
+                    -pdf-frame-content: footerContent;
+                    bottom: 0cm;
+                    margin-left: 9cm;
+                    margin-right: 9cm;
+                    height: 1cm;
+                }
+            }
+        </style>
+
+<body>
+<table>
+<td style="text-align:center;font-size:15px;">STANDARD - {{ a }}</td></table>
+<br>
+
+<br><table width="100%" class='table table-bordered table-striped3' border="2" cellpadding="10px">
+  <thead>
+    <tr>
+      <th style="text-align:center;font-size: 12px;">S.No.</th>
+      <th style="text-align:center;font-size: 12px;">Name</th>
+      <th style="text-align:center;font-size: 12px;">Unique ID No.</th>
+      <th style="text-align:center;font-size: 12px;">Class Studying</th>
+      <th style="text-align:center;font-size: 12px;">Father's Name</th>
+      <th style="text-align:center;font-size: 12px;">DOB</th>
+      <th style="text-align:center;font-size: 12px;">Aadhaar No.</th>
+      
+      {% if a == '11' %}
+       <th style="text-align:center;font-size: 12px;">Group</th>
+      {% endif %}
+      {% if a == '12' %}
+       <th style="text-align:center;font-size: 12px;">Group</th>
+      {% endif %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for detail in classwise_detail %}
+      <tr>
+          <td style="text-align:center;font-size: 8px;">{{forloop.counter}}</td>
+          <td style="text-align:left;font-size: 8px;">{{ detail.name |upper }}</td>
+          <td style="text-align:center;font-size: 8px;">{{ detail.unique_id_no }}</td>
+          <td style="text-align:center;font-size: 8px;">{{ detail.class_studying |upper }}</td>
+          <td style="text-align:center;font-size: 8px;">{{ detail.father_name |upper}}</td>
+          <td style="text-align:center;font-size: 8px;">{{ detail.dob | date:"d-m-Y" }}</td>
+          <td style="text-align:center;font-size: 8px;">{{ detail.aadhaar_uid_number }}</td>
+
+           {% if a == '11' %}
+           <td style="text-align:center;font-size: 8px;">{{ detail.group_code }}</td>{% endif %}
+           {% if a == '12' %}
+           <td style="text-align:center;font-size: 8px;">{{ detail.group_code }}</td>{% endif %}
+      </tr>
+
+    {% endfor %}
+
+
+    </tbody>
+    </table>
+    </body>
+    </html>
