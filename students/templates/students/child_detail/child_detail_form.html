@@ -1606,7 +1606,7 @@ function no_future(dob_id){
 
 
 <!-- Child history of 10,11 --> 
-{% if user.account.get_user_info.management_id == 10 %}
+{% if user.account.get_user_info.management_id == 10 or user.account.get_user_info.management_id == 13 %}
 
   <div  id="stu_hist" class="form-group"><strong style="color:red;">*</strong>
      <div class="form-group"  id="tbl"> <b>{% trans "Enter the subjects for each group displayed above:" %}</b>
