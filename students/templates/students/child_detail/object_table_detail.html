@@ -14,10 +14,10 @@
 <a class="btn  btn-success" href='{% url "students_child_detail_update" pk=object.pk %}'>Update</a>
 {% if  object.class_studying_id   in transfer_enable_classes %}
 <a class="btn  btn-info" href='{% url "students_child_detail_transfer_detail" pk=object.pk %}' >{% trans "Transfer" %}</a>
-{% else %}
-<a class="btn  btn-danger" href='{% url "students_child_detail_delete" pk=object.pk %}' >{% trans "Delete" %}</a>
+
 {% endif %}
 {% endif %}
+<a class="btn  btn-info" href='{% url "students_child_detail_child_pdfview" pk=object.pk %}' >{% trans "Download Profile" %}</a>
 {% endif %}
 </center><br>
 <table class='table table-bordered table-striped1' border="2" align="center">

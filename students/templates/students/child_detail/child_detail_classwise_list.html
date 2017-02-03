@@ -6,15 +6,27 @@
 {% load imagekit %}
 {% block content %}
 
-{% if classwise_detail %}
 
+
+{% if classwise_detail %}
 {% if user.account.user_category.user_category == 'school' %}
 <p ><a href='{% url "students_child_detail_download_profile" pk=class_id %}' style="color:#00A65A;font-size:15;">Download Child Profile</a>
-{% if class_id == '10' %} &nbsp;&nbsp;&nbsp;&nbsp;<a href='{% url "nominal_roll_list_10"  %}' style="color:#00A65A;font-size:15;">10th Std Nominal roll download xls<img src="{{STATIC_URL}}img/new.gif"/></a>{% endif %}{% if class_id == '12' %} &nbsp;&nbsp;&nbsp;&nbsp;<a href='{% url "nominal_roll_list_12" %}' style="color:#00A65A;font-size:15;">12th Std Nominal roll download xls<img src="{{STATIC_URL}}img/new.gif"/></a>{% endif %}
 
-{% if class_id == '10' %} &nbsp;&nbsp;&nbsp;&nbsp;<a   href='{% url "nominal_roll_check_list" pk=class_id %}' style="color:#00A65A;font-size:15;">10th Std Nominal roll check list pdf<img src="{{STATIC_URL}}img/new.gif"/></a>{% endif %}{% if class_id == '12' %} &nbsp;&nbsp;&nbsp;&nbsp;<a  href='{% url "nominal_roll_check_list" pk=class_id %}' style="color:#00A65A;font-size:15;">12th Std Nominal roll check list pdf<img src="{{STATIC_URL}}img/new.gif"/></a>{% endif %}
+{% if class_id == '10' %} &nbsp;&nbsp;&nbsp;&nbsp;<a href='{% url "nominal_roll_list_10"  %}' style="color:#00A65A;font-size:15;">10th Std Nominal roll download xls<img src="{{STATIC_URL}}img/new.gif"/></a>{% endif %}
+{% if class_id == '11' %} &nbsp;&nbsp;&nbsp;&nbsp;<a href='{% url "nominal_roll_list_11" %}' style="color:#00A65A;font-size:15;">11th Std Nominal roll download xls<img src="{{STATIC_URL}}img/new.gif"/></a>{% endif %}
+{% if class_id == '12' %} &nbsp;&nbsp;&nbsp;&nbsp;<a href='{% url "nominal_roll_list_12" %}' style="color:#00A65A;font-size:15;">12th Std Nominal roll download xls<img src="{{STATIC_URL}}img/new.gif"/></a>{% endif %}
+
+{% if class_id == '10' %} &nbsp;&nbsp;&nbsp;&nbsp;<a   href='{% url "nominal_roll_check_list" pk=class_id %}' style="color:#00A65A;font-size:15;">10th Std Nominal roll check list pdf<img src="{{STATIC_URL}}img/new.gif"/></a>{% endif %}
+{% if class_id == '11' %} &nbsp;&nbsp;&nbsp;&nbsp;<a  href='{% url "nominal_roll_check_list" pk=class_id %}' style="color:#00A65A;font-size:15;">11th Std Nominal roll check list pdf<img src="{{STATIC_URL}}img/new.gif"/></a>{% endif %}
+{% if class_id == '12' %} &nbsp;&nbsp;&nbsp;&nbsp;<a  href='{% url "nominal_roll_check_list" pk=class_id %}' style="color:#00A65A;font-size:15;">12th Std Nominal roll check list pdf<img src="{{STATIC_URL}}img/new.gif"/></a>{% endif %}
 </p>
+
+
 {% endif %}
+<br>
+<a href="/students/classwise_pdfview/{{class_id}}" style="color:#00A65A;font-size:15;"> Download Classwise List PDF </a>
+
+
 <br><table width="100%" class='table table-bordered table-striped3' border="2">
   <thead>
     <tr>

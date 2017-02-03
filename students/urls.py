@@ -133,6 +133,17 @@ urlpatterns = patterns('',
         view=login_required(Child_detailDownloadProfileView.as_view()),
         name='students_child_detail_download_profile'
     ),
+    url(
+        regex=r'^child_detail/child_pdfview/(?P<pk>\d+?)/$',
+        view=login_required(child_pdfview.as_view()),
+        name='students_child_detail_child_pdfview'
+    ),
+    url(  
+        regex=r'^classwise_pdfview/(?P<pk>\d+?)/$',
+        view=login_required(classwise_pdfview.as_view()),
+        name='classwise_pdfview'
+    ),
+    
 )
 
 
@@ -315,7 +326,7 @@ urlpatterns += patterns('',
 from students.views.nominal_roll_reports import *
 urlpatterns += patterns('',
     url(regex=r'^child_detail/nominal_roll_list/10/$',view=Nominal_roll_list_10.as_view(),name='nominal_roll_list_10'),
+    url(regex=r'^child_detail/nominal_roll_list/11/$',view=Nominal_roll_list_11.as_view(),name='nominal_roll_list_11'),
     url(regex=r'^child_detail/nominal_roll_list/12/$',view=Nominal_roll_list_12.as_view(),name='nominal_roll_list_12'),
     url(regex=r'^child_detail/nominal_roll_checklist/(?P<pk>\d+?)/$',view=Nominal_roll_checklist.as_view(),name='nominal_roll_check_list'),
 )
-

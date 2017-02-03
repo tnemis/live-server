@@ -99,7 +99,7 @@
                 // Forbid next action on BANK step if the class in 10,11,12
                 
             if(newIndex === 3 && $("#class_studying").val() == 12 && xarr.indexOf(check) >= 0 ){
-                if ($("#id_banknew").val() === '' || $("#id_branchnew").val() === '' || $("#bank_account_no").val() === '' || $("#bank_ifsc_code").val() === '' )
+                if ($("#id_banknew").val() === '' || $("#id_branchnew").val() === '' || $("#bank_account_no").val() === '' )
                 {   
                     
                     alert("please fill up the bank details completely!!!");
@@ -110,7 +110,7 @@
                 }
             } 
             else if (newIndex === 3 && $("#class_studying").val() == 12 && yarr.indexOf(check) >= 0  && $("#student_admitted_section").val() == "Govt Aid" ){
-                if ($("#id_banknew").val() === '' || $("#id_branchnew").val() === '' || $("#bank_account_no").val() === '' || $("#bank_ifsc_code").val() === '' )
+                if ($("#id_banknew").val() === '' || $("#id_branchnew").val() === '' || $("#bank_account_no").val() === '' )
                 {   
                     
                     alert("please fill up the bank details completely!!!");
@@ -145,8 +145,17 @@
             },
             onFinishing: function (event, currentIndex)
             {   
-                $("#form-3").validate().settings.ignore = ":disabled,:hidden";
-                return $("#form-3").valid();
+                    // Restricting saving details with Invalid Aadhaar Number
+             if ($("#aadhaar_check").val() == "no")
+                     {    
+                         
+                         alert("Cant save Invalid Aadhaar Number !!!");
+                         return false;
+                     }
+                     else{
+                         $("#form-3").validate().settings.ignore = ":disabled,:hidden";
+                         return $("#form-3").valid();
+                     }
             },
             onFinished: function (event, currentIndex)
             {
@@ -157,7 +166,7 @@
                     errorPlacement: errorPlacement,
                     rules: {
                         pin_code: {
-                            min: 600000,
+                            min: 500000,
                             max:699999
                         },
                         phone_number: {
@@ -209,13 +218,54 @@
 </script>
 <!-- end of testscript -->
 
+<script>
+$(function(){
+  
+    $('#addMore').on('click', function() {
+                 addFmdetailRow('fmdetailTable');
+     });
+     $(document).on('click', '.remove', function() {
+         var trIndex = $(this).closest("tr").index();
+           
+             $(this).closest("tr").remove();
+           
+      });
+});      
+</script>
 
+<script type="text/javascript">
+function choose1() {
+    var x = document.getElementById('class_studying').value;
+    
+    if(x==11 || x==12){
+            document.getElementById('tbl1').style.display='block';
+            document.getElementById('group_code1').style.display='block';
+            document.getElementById('group_code2').style.display='block';
+            document.getElementById('group_code3').style.display='block';
+            document.getElementById('group_code4').style.display='block';
+            document.getElementById('group_code5').style.display='block';
+            
+        }
 
+        else{
+            document.getElementById('tbl1').style.display='none';
+            document.getElementById('group_code1').style.display='none';
+            document.getElementById('group_code2').style.display='none';
+            document.getElementById('group_code3').style.display='none';
+            document.getElementById('group_code4').style.display='none';
+            document.getElementById('group_code5').style.display='none';
+            
+        }
+    
+
+}
+</script>
 
 
 <script type="text/javascript">
 function choose() {
     var x = document.getElementById('class_studying').value;
+    
     if(x==11 || x==12){
             document.getElementById('fl').style.display='block';
             document.getElementById('tbl').style.display='block';
@@ -225,7 +275,8 @@ function choose() {
             document.getElementById('fl').style.display='none';
             document.getElementById('tbl').style.display='none';
         }
-    if(x==10){
+
+    if(x==10 ){
             document.getElementById('ol').style.display='block';
             document.getElementById('tbl').style.display='none';
             
@@ -431,13 +482,13 @@ frm.guardian_name.focus();
             var row = table.insertRow(rowCount);
 
             var cell1 = row.insertCell(0);
-            var element = document.createElement("input");
-            element.type = "checkbox";
-            element.className = "form-control";
+            var element = document.createElement("span");
+            
+            element.className = "remove glyphicon glyphicon-remove";
             cell1.appendChild(element);
 
             var cell2 = row.insertCell(1);
-            cell2.innerHTML = rowCount;
+            // cell2.innerHTML = rowCount;
             var element1 = document.createElement("input");
             element1.type = "hidden";
             element1.name = "fmdetail_no";
@@ -908,6 +959,7 @@ function aadhaar(flag)
         
     } else {
         document.getElementById('aadhaar_no').style.display = "none";
+      document.getElementById('aadhaar_check').value = "";
     }
 }
 
@@ -935,10 +987,12 @@ function validate_aadhaar(aadhaar)
     if ((strVal.length == 12) && (strVal.verhoeffCheck() == true))
     {
         obj.innerHTML = "Aadhaar number is valid.";
+        document.getElementById('aadhaar_check').value = 'ok';
 
     }
     else if ((strVal.length < 12) || (strVal.verhoeffCheck() == false) || strVal == '999999999999' || strVal == '000000000000'){
         obj.innerHTML = "Aadhaar number is not valid.";
+        document.getElementById('aadhaar_check').value = 'no';
         obj.value = '';
         obj.focus();
 
@@ -946,6 +1000,7 @@ function validate_aadhaar(aadhaar)
     else
     {
         obj.innerHTML = "Aadhaar number is not valid.";
+        document.getElementById('aadhaar_check').value = 'no';
         obj.value = '';
         obj.focus();
     }
@@ -1409,6 +1464,7 @@ function no_future(dob_id){
   <form id="form-3" action='{% if pk1 %}{% url "students_child_detail_update" pk=pk1 %}{% else %}{% url "students_child_detail_create" %}{% endif %}' method='post' enctype="multipart/form-data" name="frm">
   <h3>First Step</h3><fieldset>
   {% csrf_token %}
+  
   <input type="hidden" name="categ" id="categ" value="{{user.account.get_user_info.category_id}}">
 <input type="hidden" name="mgmt" id="mgmt" value="{{user.account.get_user_info.management_id}}">
 <input type="hidden" name="district" id="district" value="{{user.account.get_user_info.district.id}}">
@@ -1428,7 +1484,7 @@ function no_future(dob_id){
 
     <div class="form-group"><b>{% trans "Student Name (Tamil)" %}</b><input class="form-control" name="name_tamil" id="transliterateTextarea" type="text" value="{{ form.name_tamil.value }}" /></div><img src="{{MEDIA_URL}}ref.png" id="ref" onMouseOver="ins('Refresh the above two Entries')" onMouseOut="hide();" onclick="clear1();"><div id="text"></div><br>
 
- <!--  <div class="form-group"> <b>{% trans "Height" %} (in cm)</b><input type="text" class="form-control" value="{{form.height.value|default:0}}" id="height" name="height" onkeypress="return isNumber(event)" onblur="validate_height()" maxlength="3" /></div><span class="error_message">{{form.height.errors}}</span> -->
+ <!--  <div class="form-group"> <b>{% trans "Height" %} (in cm)</b><input type="text" class="form-control" value="{{form.height.value|default:""}}" id="height" name="height" onkeypress="return isNumber(event)" onblur="validate_height()" maxlength="3" /></div><span class="error_message">{{form.height.errors}}</span> -->
 
 <div class="form-group" class="mandatory"><strong style="color:red;">*</strong><b>{% trans "Photograph" %}</b>    
 <strong style="color:blue;"> [Allowed Photo Size – 200 x 200 (Upto 50 KB), Allowed File format – jpg, jpeg]</strong>
@@ -1451,7 +1507,7 @@ function no_future(dob_id){
 
 
     
-    <div class="form-group"> <b>{% trans "Mother's Name" %}</b><input type="text" class="form-control" value="{{form.mother_name.value}}" id="mother_name" name="mother_name" onkeyup="AllowAlphabetM()" /></div><span class="error_message">{{form.mother_name.errors}}</span>
+    <div class="form-group"> <b>{% trans "Mother's Name" %}</b><input type="text" class="form-control" value="{{form.mother_name.value}}" id="mother_name" name="mother_name" onkeyup="AllowAlphabetM()"  /></div><span class="error_message">{{form.mother_name.errors}}</span>
 
     <div class="form-group"> <b>{% trans "Father's Name" %}</b><input type="text" class="form-control" value="{{form.father_name.value}}" id="father_name" name="father_name" onkeyup="AllowAlphabetF()" /></div><span class="error_message">{{form.father_name.errors}}</span>
 
@@ -1466,7 +1522,7 @@ function no_future(dob_id){
             <i class="fa fa-calendar"></i>
         </div>
         
-        <input class="form-control mandatory" name="dob" id="dob" type="text" data-mask="" data-inputmask="'alias': 'dd/mm/yyyy'" value="{{form.dob.value|date:"d/m/Y"  }}" onblur="getAge(new Date(this.value));no_future('dob');" >
+        <input class="form-control mandatory" name="dob" id="dob" type="text" data-mask="" data-inputmask="'alias': 'dd/mm/yyyy'" value="{{form.dob.value|date:"d/m/Y"  }}" onblur="getAge(new Date(this.value));no_future('dob');" onfocus="fmg_validate()" >
       </div></div><span class="error_message">{{form.dob.errors}}</span>
       <!-- onfocus="fmg_validate()" -->
 
@@ -1508,9 +1564,9 @@ function no_future(dob_id){
       </select></div><span class="error_message">{{form.blood_group.errors}}</span>
 
 
-      <div class="form-group"> <b>{% trans "Height" %} (in cm)</b><input type="text" class="form-control mandatory" value="{{form.height.value}}" id="height" name="height" onkeypress="return isNumber(event)" onblur="validate_height()" maxlength="3" /></div><span class="error_message">{{form.height.errors}}</span>
+      <div class="form-group"> <b>{% trans "Height" %} (in cm)</b><input type="text" class="form-control mandatory" value="{{form.height.value|default:""}}" id="height" name="height" onkeypress="return isNumber(event)" onblur="validate_height()" maxlength="3" /></div><span class="error_message">{{form.height.errors}}</span>
 
-    <div class="form-group"> <b>{% trans "Weight" %} (in kg)</b><input type="text" class="form-control mandatory" value="{{form.weight.value}}" id="weight" name="weight" onkeypress="return isNumber(event)" onblur="validate_weight()" maxlength="3" /></div><span class="error_message">{{form.weight.errors}}</span>
+    <div class="form-group"> <b>{% trans "Weight" %} (in kg)</b><input type="text" class="form-control mandatory" value="{{form.weight.value|default:""}}" id="weight" name="weight" onkeypress="return isNumber(event)" onblur="validate_weight()" maxlength="3" /></div><span class="error_message">{{form.weight.errors}}</span>
 
     <div class="form-group"> <b><strong style="color:red;">*</strong> {% trans "Mother Tongue" %}</b>
     <select id='mothertounge' name="mothertounge" class="mandatory" >
@@ -1523,7 +1579,7 @@ function no_future(dob_id){
       {% endfor %}
      </select></div><span class="error_message">{{form.mothertounge.errors}}</span>
 
-     <div class="form-group"> <b><strong style="color:red;">*</strong> {% trans "School Admission No" %}</b><input type="text" class="form-control mandatory" value="{{form.school_admission_no.value}}" id="school_admission_no" name="school_admission_no"    /></div><span class="error_message">{{form.school_admission_no.errors}}</span>
+     <div class="form-group"> <b><strong style="color:red;">*</strong> {% trans "School Admission No" %}</b><input type="text" class="form-control mandatory" value="{{form.school_admission_no.value|default_if_none:""}}" id="school_admission_no" name="school_admission_no" maxlength="15" /></div><span class="error_message">{{form.school_admission_no.errors}}</span>
      </fieldset>
      <h3>Second Step</h3>
     
@@ -1541,7 +1597,7 @@ function no_future(dob_id){
       <fieldset>
 
         <div class="form-group" > <strong style="color:red;">*</strong>  <strong> {% trans "Class Studying" %} </strong></br></br>
-     <select id='class_studying' name="class_studying" class="mandatory" onchange="choose()" onblur="choose()" onfocus="choose()" >
+     <select id='class_studying' name="class_studying" class="mandatory" onchange="choose();choose1();" onblur="choose();choose1();" onclick="choose();choose1();" onfocus="choose();choose1();" >
      {% if cls_studying %}
         <option value="{{cls_studying.id}}">{{cls_studying.class_studying}}</option>
     {% endif %}
@@ -1588,7 +1644,103 @@ function no_future(dob_id){
         <option value="Z">Z</option>
       </select></div><span class="error_message">{{form.class_section.errors}}</span>
 
+<!-- CBSE GROUP CODE --> 
+{% if user.account.get_user_info.management_id == 10 or user.account.get_user_info.management_id == 13 %}
 
+  <div  id="stu_hist1" class="form-group">
+     <div class="form-group"  id="tbl1"> <b>{% trans "Enter the subjects for each group:" %}</b>
+     <table class="table">
+        
+        <tbody>
+        <tr>
+          <td><div class="form-group"  id='group_code1' >  <strong style="color:red;">*</strong> <strong> {% trans "Compulsory Subject 1" %} </strong></br></br>
+
+            <select id='cbse_subject1' name="cbse_subject1" class="form-control" >
+            {% if cbse_subject1 %}
+            <option value="{{ cbse_subject1.id }}" selected >{{ cbse_subject1.group_code}}- {{ cbse_subject1.group_name }}</option>
+            {% endif %}
+            <option value="" >---------</option>
+            {% for gpcd in group_code_cbse %}
+
+            <option value="{{gpcd.id}}" >{{gpcd.group_code}}-{{gpcd.group_name}}</option>
+            {% endfor %}
+            </select></div>
+            <span class="error_message">{{form.cbse_subject1.errors}}</span></td>
+
+          <td><div class="form-group"  id='group_code2' >  <strong style="color:red;">*</strong> <strong> {% trans "Compulsory Subject 2" %} </strong></br></br>
+
+            <select id='cbse_subject2' name="cbse_subject2" class="form-control" >
+            {% if cbse_subject2 %}
+            <option value="{{ cbse_subject2.id }}" selected >{{ cbse_subject2.group_code}}- {{ cbse_subject2.group_name }}</option>
+            {% endif %}
+            <option value="" >---------</option>
+            {% for gpcd in group_code_cbse %}
+
+            <option value="{{gpcd.id}}" >{{gpcd.group_code}}-{{gpcd.group_name}}</option>
+            {% endfor %}
+            </select></div></td>
+            <td><div class="form-group"  id='group_code3' >  <strong style="color:red;">*</strong> <strong> {% trans "Compulsory Subject 3" %} </strong></br></br>
+
+            <select id='cbse_subject3' name="cbse_subject3" class="form-control" >
+            {% if cbse_subject3 %}
+            <option value="{{ cbse_subject3.id }}" selected >{{ cbse_subject3.group_code}}- {{ cbse_subject3.group_name }}</option>
+            {% endif %}
+            <option value="" >---------</option>
+            {% for gpcd in group_code_cbse %}
+
+            <option value="{{gpcd.id}}" >{{gpcd.group_code}}-{{gpcd.group_name}}</option>
+            {% endfor %}
+            </select></div><span class="error_message">{{form.cbse_subject3.errors}}</span></td>
+
+            <td><div class="form-group"  id='group_code4' >  <strong style="color:red;">*</strong> <strong> {% trans "Compulsory Subject 4" %} </strong></br></br>
+
+            <select id='cbse_subject4' name="cbse_subject4" class="form-control" >
+            {% if cbse_subject4 %}
+            <option value="{{ gpcd.id }}" selected >{{ cbse_subject4.group_code}}- {{ cbse_subject4.group_name }}</option>
+            {% endif %}
+            <option value="" >---------</option>
+            {% for gpcd in group_code_cbse %}
+
+            <option value="{{gpcd.id}}" >{{gpcd.group_code}}-{{gpcd.group_name}}</option>
+            {% endfor %}
+            </select></div></td>
+            <td><div class="form-group"  id='group_code5' >  <strong style="color:red;">*</strong> <strong> {% trans "Optional Subject" %} </strong></br></br>
+
+            <select id='cbse_opt_subject' name="cbse_opt_subject" class="form-control" >
+            {% if cbse_opt_subject %}
+            <option value="{{ cbse_opt_subject.id }}" selected >{{ cbse_opt_subject.group_code}}- {{ cbse_opt_subject.group_name }}</option>
+            {% endif %}
+            <option value="" >---------</option>
+            {% for gpcd in group_code_cbse %}
+
+            <option value="{{gpcd.id}}" >{{gpcd.group_code}}-{{gpcd.group_name}}</option>
+            {% endfor %}
+            </select></div><span class="error_message">{{form.cbse_opt_subject.errors}}</span></td>
+
+          
+          
+        </tr>
+        
+        </tbody>
+    </table>
+    </div></div>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+    $('#class_studying').on('change', function() {
+      if ( this.value == '12' || this.value == '11')
+      {
+        $("#stu_hist1").show();
+      }
+      else
+      {
+        $("#stu_hist1").hide();
+      }
+    });
+});
+</script>
+<!-- CBSE GROUP CODE --> 
+{% else %}
 <!-- Child history of 10,11 --> 
 {% if form.class_studying.value == 12 %}
 <div  id="stu_hist" class="form-group"><strong style="color:red;">*</strong><b>{% trans "Category of School in which student studied in 10th and 11th std:" %}</b>   
@@ -1708,8 +1860,6 @@ function no_future(dob_id){
 <!-- Child history of 10,11 -->
 
 
-
-
     <div class="form-group"> <b><strong style="color:red;">*</strong> {% trans "Medium Of Instruction" %}</b>
     <select id='education_medium' name="education_medium" class="mandatory" onclick = "check()">
     {% if edu_medium %}
@@ -1724,7 +1874,7 @@ function no_future(dob_id){
 
      <div class="form-group"  id='group_code1' >  <strong style="color:red;">*</strong> <strong> {% trans "Group Code" %} </strong></br></br>
 
-     <select id='group_code' name="group_code" class="form-control"   >
+     <select id='group_code' name="group_code" class="mandatory form-control"  >
      {% if grp %}
         <option value="{{ grp.id }}" selected >{{ grp.group_code}}- {{ grp.group_name }}</option>
     {% endif %}
@@ -1740,13 +1890,13 @@ function no_future(dob_id){
         
         <tbody>
         <tr>
-          <td><div class="form-group">{{ form.grpcode_language1|add_class:'form-control' }}</div>
+          <td><div class="form-group">{{ form.grpcode_language1|add_class:'mandatory form-control' }}</div>
           <span class="error_message">{{form.grpcode_language1.errors}}</span></td>
-          <td><div class="form-group">{{ form.grpcode_language2|add_class:'form-control' }}</div>
+          <td><div class="form-group">{{ form.grpcode_language2|add_class:'mandatory form-control' }}</div>
           <span class="error_message">{{form.grpcode_language2.errors}}</span></td>
-          <td><div class="form-group">{{ form.grpcode_language3|add_class:'form-control' }}</div>
+          <td><div class="form-group">{{ form.grpcode_language3|add_class:'mandatory form-control' }}</div>
           <span class="error_message">{{form.grpcode_language3.errors}}</span></td>
-          <td><div class="form-group">{{ form.grpcode_language4|add_class:'form-control' }}</div>
+          <td><div class="form-group">{{ form.grpcode_language4|add_class:'mandatory form-control' }}</div>
           <span class="error_message">{{form.grpcode_language4.errors}}</span></td>
         </tr>
         
@@ -1763,15 +1913,17 @@ function no_future(dob_id){
     </div><span class="error_message">{{form.first_language.errors}}</span>
     
      <!-- optional language -->
-
+    
      <div class="form-group" id="ol"> <b> {% trans "Part IV Optional Language" %}</b>
     {{ form.optional_language|add_class:'form-control' }}
    </div><span class="error_message">{{form.optional_language.errors}}</span>
+
+    {% endif %}
    
  <!--    <div class="form-group"> <b>{% trans "Group Code" %}</b>{{ form.group_code|add_class:"form-control" }}</div><span class="error_message">{{form.group_code.errors}}</span> -->
  
     <div class="form-group"> <b><strong style="color:red;">*</strong> {% trans "Nationality" %}</b>
-    <select id='nationality' name="nationality" class="form-control"  onblur="nation(this.value)" onfocus="nation(this.value)" onchange="nation(this.value)">
+    <select id='nationality' name="nationality" class="form-control"  onblur="nation(this.value)" onfocus="nation(this.value)" onchange="nation(this.value)" onmouseover="choose1();">
     {% if nationality_value %}
         <option value="{{nationality_value.id}}">{{nationality_value.nationality}}</option>
     {% endif %}
@@ -1828,9 +1980,9 @@ function no_future(dob_id){
 
 
     <span id="pin_status" style="color:red;" ></span>
-    <div class="form-group">  <strong style="color:red;">*</strong> <b>{% trans "Pincode" %}</b><input type="text" class="form-control mandatory" value="{{form.pin_code.value|default:0}}" id="pin_code" name="pin_code" onkeypress="return isNumber(event)" onfocus="pincode_validate(this.value)" onblur="pincode_validate(this.value)" onkeyup="pincode_validate(this.value)"  maxlength="6"/></div><span class="error_message">{{form.pin_code.errors}}</span>
+    <div class="form-group">  <strong style="color:red;">*</strong> <b>{% trans "Pincode" %}</b><input type="text" class="form-control mandatory" value="{{form.pin_code.value|default:""}}" id="pin_code" name="pin_code" onkeypress="return isNumber(event)" onfocus="pincode_validate(this.value)" onblur="pincode_validate(this.value)" onkeyup="pincode_validate(this.value)"  maxlength="6"/></div><span class="error_message">{{form.pin_code.errors}}</span>
     <span id="mobile_status" style="color:red;" ></span>
-    <div class="form-group">  <strong style="color:red;">*</strong> <b>{% trans "Mobile Number" %}</b><input type="text" class="form-control mandatory" value="{{form.phone_number.value|default:0}}" id="phone_number" name="phone_number" onkeypress="return isNumber(event)" maxlength="10"  onkeyup="mobile_validate(this.value)" onblur="mobile_validate(this.value)" onchange="mobile_validate(this.value)"/></div><span class="error_message">{{form.phone_number.errors}}</span>
+    <div class="form-group">  <strong style="color:red;">*</strong> <b>{% trans "Mobile Number" %}</b><input type="text" class="form-control mandatory" value="{{form.phone_number.value|default:""}}" id="phone_number" name="phone_number" onkeypress="return isNumber(event)" maxlength="10"  onkeyup="mobile_validate(this.value)" onblur="mobile_validate(this.value)" onchange="mobile_validate(this.value)"/></div><span class="error_message">{{form.phone_number.errors}}</span>
     </fieldset>
      <h3>Third Step</h3>
      <fieldset>
@@ -2025,10 +2177,14 @@ function no_future(dob_id){
 
 <!-- differently abled national id card number -->
     <div class="form-group"id="national_id_div"><strong style="color:red;">*</strong> <b>{% trans "National ID card no:" %}</b>
-    <input type="text" class="form-control" value="{{form.da_id_no.value}}" id="da_id_no" name="da_id_no"  />
-   </div><span class="error_message">{{form.bank_branch.errors}}</span>
+    <input type="text" class="form-control" value="{{form.da_id_no.value|default:""}}" id="da_id_no" name="da_id_no"  />
+   </div><span class="error_message">{{form.da_id_no.errors}}</span>
 
-     <!-- exemptions list -->
+    <!-- exemptions list -->
+
+     {% if user.account.get_user_info.management_id == 10 or  user.account.get_user_info.management_id == 13 %}
+
+     {% else %}
 <div class="form-group" id="sp" > <b> {% trans "Whether exemption required for science practical" %}</b>
     {{ form.sci_practical|add_class:'form-control' }}
     </div><span class="error_message">{{form.sci_practical.errors}}</span>
@@ -2040,7 +2196,7 @@ function no_future(dob_id){
     <div class="form-group" id="le1" > <b> {% trans "Language exemption" %}</b>
     {{ form.lang_exemption1|add_class:'form-control' }}
     </div><span class="error_message">{{form.lang_exemption1.errors}}</span>
-
+      {% endif %}   
 
      {% else %}
 
@@ -2066,10 +2222,11 @@ function no_future(dob_id){
      <!-- differently abled national id card number -->
     <div class="form-group" id="national_id_div"><strong style="color:red;">*</strong> <b>{% trans "National ID card no:" %}</b>
     <input type="text" class="form-control" value="{{form.da_id_no.value}}" id="da_id_no" name="da_id_no"  />
-   </div><span class="error_message">{{form.bank_branch.errors}}</span>
+   </div><span class="error_message">{{form.da_id_no.errors}}</span>
 
-     
+{% if user.account.get_user_info.management_id == 10  or  user.account.get_user_info.management_id == 13 %}     
 <!-- exemptions list -->
+    {% else %}
 <div class="form-group" id="sp" style="display:none;"> <b> {% trans "Whether exemption required for science practical" %}</b>
     {{ form.sci_practical|add_class:'form-control' }}
     </div><span class="error_message">{{form.sci_practical.errors}}</span>
@@ -2081,6 +2238,7 @@ function no_future(dob_id){
     <div class="form-group" id="le1" style="display:none;"> <b> {% trans "Language exemption" %}</b>
     {{ form.lang_exemption1|add_class:'form-control' }}
     </div><span class="error_message">{{form.lang_exemption1.errors}}</span>
+{% endif %}   
 
 {% endif %}
       
@@ -2101,36 +2259,19 @@ function no_future(dob_id){
 <!-- end of bank chaining -->
 
 
-<div class="form-group" style="display:none;"> <strong style="color:red;">*</strong> <strong> {% trans "Bank" %} </strong>
-     <select id='bank' name="bank" class="form-control"   >
-     {% if bank_name %}
-        <option value="{{bank_name.id}}">{{bank_name}}</option>
-    {% endif %}
-     <option value="">---------</option>
-      {% for bk in bank_list %}
-        <option value="{{bk.id}}" >{{bk.bank}}</option>
-      {% endfor %}
-     </select></div><span style="display:none;" class="error_message">{{form.bank.errors}}</span>
 
 
 
-   <!--  <div class="form-group"> <b>{% trans "Bank" %}</b>{{ form.bank|add_class:"form-control"}} <strong style="color:blue;">[Applicable only for X,XI & XII Std for ECS credit of incentive]</strong></div><span class="error_message">{{form.bank.errors}}</span> -->
-    
-   <!--  <div class="form-group"> <b>{% trans "Bank Account No" %}</b>{{ form.bank_account_no|add_class:"form-control" }}</div><span class="error_message">{{form.bank_account_no.errors}}</span> -->
+   
 
-      <div class="form-group" style="display:none;"><strong style="color:red;">*</strong> <b>{% trans "Bank Branch Name" %}</b>
-    <input type="text" class="form-control" value="{{form.bank_branch.value}}" id="bank_branch" name="bank_branch"  />
-   </div><span style="display:none;" class="error_message">{{form.bank_branch.errors}}</span>
+     
 
    <div class="form-group"><strong style="color:red;">*</strong> <b>{% trans "Bank Account No" %}</b>
-    <input type="text" class="form-control" value="{{form.bank_account_no.value|default:0}}" id="bank_account_no" name="bank_account_no"  />
+    <input type="text" class="form-control" value="{{form.bank_account_no.value|default:""}}" id="bank_account_no" name="bank_account_no"  />
 
    </div><span class="error_message">{{form.bank_account_no.errors}}</span>
 
-    <div class="form-group" style="display:none;"><strong style="color:red;">*</strong> <b>{% trans "Bank IFSC Code " %}</b>
-    <input type="text" class="form-control" value="{{form.bank_ifsc_code.value|default:0}}" id="bank_ifsc_code" name="bank_ifsc_code"  />
    
-</div><span style="display:none;" class="error_message">{{form.bank_ifsc_code.errors}}</span>
 
 </fieldset>
      <h3>Fourth Step</h3>
@@ -2372,16 +2513,17 @@ function no_future(dob_id){
 
 {% endif %}
 
-          <br>
+
+ <input type="hidden" id="aadhaar_check" class="form-control" />
+           <br>
 
      <div id="familydetails" class="form-group">
     <label for="fmdetailTable"><strong></span> Siblings Details: <br /></strong></label>
-    <input type="button" value="Add Row" class="submit" onclick="addFmdetailRow('fmdetailTable')" />
-    <input type="button" value="Delete Row" class="delete" onclick="deleteRow('fmdetailTable')" />
+    
     <table id="fmdetailTable" >
         <tr>
             <th></th>
-            <th></th>
+            <th><span style="color:red;" id="addMore" class="glyphicon glyphicon-plus"></span></th>
             <th style="text-align:center; width:30%">{% trans "Name" %}</th>
             <th style="text-align:center;">{% trans "Relationship" %}</th>
             <th style="text-align:center;">{% trans "Age" %}</th>
@@ -2390,13 +2532,19 @@ function no_future(dob_id){
             <th style="text-align:center;">{% trans "Studying in Same School" %}</th>
            
         </tr>
+
+        <!-- new fmdetail rows -->
+
+
+
         {% for fm in fmdetail %}
-        <tr>
+
+        <tr >
+            
+               <td><span class='glyphicon glyphicon-remove remove'></span></td>
+            
             <td>
-                <input type="checkbox" name="fmdetail_chk" class="form-control" >
-            </td>
-            <td>
-                <input type="hidden" value="{{forloop.counter}}" name="fmdetail_no" class="form-control">{{forloop.counter}}
+                <input type="hidden" value="{{forloop.counter}}" name="fmdetail_no" class="form-control">
             </td>
             <td width="50%">
                 <input type="text" value="{{fm.sibling_name}}" name="sibling_name"  class="form-control">
@@ -2493,6 +2641,11 @@ function no_future(dob_id){
             </td>
         </tr> 
         {% endfor %}
+        <!-- end of new fmdetail rows -->
+
+        
+        
+        
         </table>
         </div>     
  </fieldset>
