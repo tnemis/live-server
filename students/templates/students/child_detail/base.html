@@ -11,11 +11,14 @@
                       {% trans "Child Detail List" %}
                     </a>
                   </li>
+                 
+                 {% if user.account.get_user_info.category_id == 2 or user.account.get_user_info.category_id == 3 or user.account.get_user_info.category_id == 4 or user.account.get_user_info.category_id == 5 or user.account.get_user_info.category_id == 6 or user.account.get_user_info.category_id == 7 or user.account.get_user_info.category_id == 8 or user.account.get_user_info.category_id == 9 or user.account.get_user_info.category_id == 10 or user.account.get_user_info.category_id == 12 or user.account.get_user_info.category_id == 13 or user.account.get_user_info.category_id == 14 %}  
                   <li>
                     <a href='{% url "students_child_detail_create" %}'>
                       {% trans "Create Child Detail" %}
                     </a>
                   </li>
+                 {% endif %}
                   <li>
                     <a href='{% url "students_child_detail_pool_detail" %}'>
                       {% trans "Student Pool" %}
@@ -26,7 +29,6 @@
                       {% trans "Section Wise List" %}
                     </a>
                   </li>
-
 
                   {% if object %}
                   {% if object.school.id == request.user.account.associated_with|add:"0" %}
