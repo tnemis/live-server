@@ -31,6 +31,7 @@ from django.db.models import Count, Sum
 from django.utils import simplejson
 import os
 from django.conf import settings
+import sys
 
 class Child_detailView(object):
     model = Child_detail
@@ -72,16 +73,18 @@ class Child_detailCreateView(View):
         religion_list = Religion.objects.all().exclude(religion_name='Undefined').order_by('id')
         community_list = Community.objects.all().exclude(community_name='undefined').order_by('id')
         schemes = Schemes.objects.all().order_by('scheme_name')
-        class_studying_list = Class_Studying.objects.all()[9:12]
+        class_studying_list = Class_Studying.objects.all()[5:12]
         nationality_list = Nationality.objects.all().exclude(nationality='Undefined').order_by('id')
         group_code_list = Group_code.objects.all()
+        group_code_cbse=Group_code_cbse.objects.all()
         bank_list = Bank.objects.all()
         state_list = State.objects.all().order_by('state_name')
         parent_income_list = Parent_annual_income.objects.all().order_by('id')
+        
         govt_aid_school_management_list = [1,2,3,4,5,6,7]
         aid_school_management_list = [6,7]
         private_school_management_list = [8,9,10,11,12,13,14,15,16,17,18]
-        return render (request,'students/child_detail/child_detail_form.html',{'form':form,'district_list':district_list,'schemes':schemes,'differently_abled_list':differently_abled_list,'dis_advantaged_list':dis_advantaged_list,'language_list':language_list,'class_studying_list':class_studying_list,'group_code_list':group_code_list,'bank_list':bank_list,'state_list':state_list,'parent_income_list':parent_income_list,'govt_aid_school_management_list':govt_aid_school_management_list,'aid_school_management_list':aid_school_management_list,'education_medium_list':education_medium_list,'nationality_list':nationality_list,'religion_list':religion_list,'community_list':community_list,'private_school_management_list':private_school_management_list})
+        return render (request,'students/child_detail/child_detail_form.html',{'form':form,'district_list':district_list,'schemes':schemes,'differently_abled_list':differently_abled_list,'dis_advantaged_list':dis_advantaged_list,'language_list':language_list,'class_studying_list':class_studying_list,'group_code_list':group_code_list,'bank_list':bank_list,'state_list':state_list,'parent_income_list':parent_income_list,'govt_aid_school_management_list':govt_aid_school_management_list,'aid_school_management_list':aid_school_management_list,'education_medium_list':education_medium_list,'nationality_list':nationality_list,'religion_list':religion_list,'community_list':community_list,'private_school_management_list':private_school_management_list,'group_code_cbse':group_code_cbse})
 
     def post(self,request,**kwargs):
         # import ipdb
@@ -128,6 +131,8 @@ class Child_detailCreateView(View):
                 ifsc_code=form.cleaned_data['branchnew'].ifsc_code
             else:
                 ifsc_code=''
+
+
 
             child = Child_detail(
                 name = form.cleaned_data['name'],
@@ -180,6 +185,12 @@ class Child_detailCreateView(View):
                 grpcode_language2 = form.cleaned_data['grpcode_language2'],
                 grpcode_language3 = form.cleaned_data['grpcode_language3'],
                 grpcode_language4 = form.cleaned_data['grpcode_language4'],
+
+                cbse_subject1 = form.cleaned_data['cbse_subject1'],
+                cbse_subject2= form.cleaned_data['cbse_subject2'],
+                cbse_subject3 = form.cleaned_data['cbse_subject3'],
+                cbse_subject4 = form.cleaned_data['cbse_subject4'],
+                cbse_opt_subject=form.cleaned_data['cbse_opt_subject'],
                 first_language = form.cleaned_data['first_language'],
                 optional_language = form.cleaned_data['optional_language'],
                 sport_participation = form.cleaned_data['sport_participation'],
@@ -258,10 +269,11 @@ class Child_detailCreateView(View):
             except Exception:
                 pass
             
-            msg = "Child    " + str(child.unique_id_no) +"    "+form.cleaned_data['name'] +"   "+form.cleaned_data['gender']+"   "+str(child.dob) +"   "  + "  added successfully"
+            msg = "Child    " + str(child.unique_id_no) +"    "+form.cleaned_data['name'] +"   "+form.cleaned_data['gender']+"   "+"Date of Birth -"+str(child.dob) +"   "  + "  added successfully"
             messages.success(request, msg )
             return HttpResponseRedirect(reverse('students_child_detail_list'))
         else:
+            print form.errors
             district_list = District.objects.all().exclude(district_name='None').order_by('district_name')
             differently_abled_list = Differently_abled.objects.all().order_by('da_name')
             dis_advantaged_list = Disadvantaged_group.objects.all().order_by('dis_group_name')
@@ -488,6 +500,7 @@ class Child_detailUpdateView(View):
     def get(self, request,**kwargs): 
         pk=self.kwargs.get('pk')
         instance = Child_detail.objects.get(id=pk)
+        schl_id = School.objects.get(id=request.user.account.associated_with)
         stud_uid=instance.unique_id_no
         differently_abled_list1 = instance.differently_abled
         disadvantaged_group1 = instance.disadvantaged_group
@@ -536,14 +549,26 @@ class Child_detailUpdateView(View):
         nationality_list = Nationality.objects.all().exclude(nationality='Undefined').order_by('id')
         schemes = Schemes.objects.all()
         mthr_name = instance.mother_name
-        class_studying_list = Class_Studying.objects.all()[9:12]
+        class_studying_list = Class_Studying.objects.all()
         first_language_value = instance.first_language
         optional_language_value = instance.optional_language
+
         group_code_list = Group_code.objects.all()
+        group_code_cbse=Group_code_cbse.objects.all()
+
         grpcode_language1 = instance.grpcode_language1
         grpcode_language2 = instance.grpcode_language2
         grpcode_language3 = instance.grpcode_language3
         grpcode_language4 = instance.grpcode_language4
+
+        cbse_subject1 = instance.cbse_subject1
+        cbse_subject2 = instance.cbse_subject2
+        cbse_subject3 = instance.cbse_subject3
+        cbse_subject4 = instance.cbse_subject4
+        cbse_opt_subject=instance.cbse_opt_subject
+            
+
+
         bank_list = Bank.objects.all()
         state_list = State.objects.all().order_by('state_name')
         photo = instance.photograph
@@ -562,7 +587,7 @@ class Child_detailUpdateView(View):
         onetoten = [1,2,3,4,5,6,7,8,9,10]
         onetotwelve = [1,2,3,4,5,6,7,8,9,10,11,12]
         onetoeight = [1,2,3,4,5,6,7,8]
-        return render(request, 'students/child_detail/child_detail_form.html', {'schl_cat_10': schl_cat_10,'schl_cat_12': schl_cat_12,'grp':grp,'form': form,'fmdetail':fmdetail,'district_list':district_list,'pk1':pk,'schemes':schemes,'differently_abled_list':differently_abled_list,'dis_advantaged_list':dis_advantaged_list,'ge':ge,'cls_section':cls_section,'cls_studying':cls_studying,'academic_yr':academic_yr,'mother_ocu':mother_ocu,'father_ocu':father_ocu,'bg':bg,'st_status':st_status,'differently_abled_list1':differently_abled_list1,'disadvantaged_group1':disadvantaged_group1,'schemes1':schemes1,'sport_participation':sport_participation,'sports_name':sports_name,'mthr_name':mthr_name,'nutritious_meal_programme':nutritious_meal_programme,'state_list':state_list,'parent_income_list':parent_income_list,'parent_income':parent_income,'class_studying_list':class_studying_list,'group_code_list':group_code_list,'bank_list':bank_list,'education_medium_list':education_medium_list,'nationality_list':nationality_list,'religion_list':religion_list,'community_list':community_list,'language_list':language_list,'mothrtongue':mothrtongue,'edu_medium':edu_medium,'nationality_value':nationality_value,'religion_value':religion_value,'parent_income':parent_income,'govt_aid_school_management_list':govt_aid_school_management_list,'aid_school_management_list':aid_school_management_list,'private_school_management_list':private_school_management_list,'onetoten':onetoten,'stud_admitted_section':stud_admitted_section,'address':address,'onetotwelve':onetotwelve,'onetoeight':onetoeight,'scholarship_dtls':scholarship_dtls,'attndce_status':attndce_status,'diffntly_abled':diffntly_abled,'photo':photo,'dis_advntgd_grp':dis_advntgd_grp})
+        return render(request, 'students/child_detail/child_detail_form.html', {'schl_cat_10': schl_cat_10,'schl_cat_12': schl_cat_12,'grp':grp,'form': form,'fmdetail':fmdetail,'district_list':district_list,'pk1':pk,'schemes':schemes,'differently_abled_list':differently_abled_list,'dis_advantaged_list':dis_advantaged_list,'ge':ge,'cls_section':cls_section,'cls_studying':cls_studying,'academic_yr':academic_yr,'mother_ocu':mother_ocu,'father_ocu':father_ocu,'bg':bg,'st_status':st_status,'differently_abled_list1':differently_abled_list1,'disadvantaged_group1':disadvantaged_group1,'schemes1':schemes1,'sport_participation':sport_participation,'sports_name':sports_name,'mthr_name':mthr_name,'nutritious_meal_programme':nutritious_meal_programme,'state_list':state_list,'parent_income_list':parent_income_list,'parent_income':parent_income,'class_studying_list':class_studying_list,'group_code_list':group_code_list,'bank_list':bank_list,'education_medium_list':education_medium_list,'nationality_list':nationality_list,'religion_list':religion_list,'community_list':community_list,'language_list':language_list,'mothrtongue':mothrtongue,'edu_medium':edu_medium,'nationality_value':nationality_value,'religion_value':religion_value,'parent_income':parent_income,'govt_aid_school_management_list':govt_aid_school_management_list,'aid_school_management_list':aid_school_management_list,'private_school_management_list':private_school_management_list,'onetoten':onetoten,'stud_admitted_section':stud_admitted_section,'address':address,'onetotwelve':onetotwelve,'onetoeight':onetoeight,'scholarship_dtls':scholarship_dtls,'attndce_status':attndce_status,'diffntly_abled':diffntly_abled,'photo':photo,'dis_advntgd_grp':dis_advntgd_grp,'group_code_cbse':group_code_cbse,'cbse_subject1':cbse_subject1,'cbse_subject2':cbse_subject2,'cbse_subject3':cbse_subject3,'cbse_subject4':cbse_subject4,'cbse_opt_subject':cbse_opt_subject})
 
     def post(self,request,**kwargs):
         pk=self.kwargs.get('pk')
@@ -778,6 +803,14 @@ class Child_detailUpdateView(View):
             child_edit.grpcode_language2 = form.cleaned_data['grpcode_language2']
             child_edit.grpcode_language3 = form.cleaned_data['grpcode_language3']
             child_edit.grpcode_language4 = form.cleaned_data['grpcode_language4']
+
+
+            child_edit.cbse_subject1 = form.cleaned_data['cbse_subject1']
+            child_edit.cbse_subject2= form.cleaned_data['cbse_subject2']
+            child_edit.cbse_subject3 = form.cleaned_data['cbse_subject3']
+            child_edit.cbse_subject4 = form.cleaned_data['cbse_subject4']
+            child_edit.cbse_opt_subject=form.cleaned_data['cbse_opt_subject']
+            
             child_edit.first_language = form.cleaned_data['first_language']
             child_edit.optional_language = form.cleaned_data['optional_language']
             child_edit.group_code = form.cleaned_data['group_code']
@@ -985,7 +1018,7 @@ class Child_detailUpdateView(View):
         else:
 
             return render (request,'students/child_detail/child_detail_form.html',{'form':form,'pk1':pk,'cls_studying':cls_studying,'academic_yr':academic_yr,'diff_abled':diff_abled})
-        msg = "Child    " + str(child_edit.unique_id_no) +"    "+form.cleaned_data['name'] +"   "+form.cleaned_data['gender']+"   "+str(child_edit.dob) +"   "  + "  updated successfully"
+        msg = "Child    " + str(child_edit.unique_id_no) +"    "+form.cleaned_data['name'] +"   "+form.cleaned_data['gender']+"   "+"Date of Birth -"+str(child_edit.dob) +"   "  + "  updated successfully"
 
         messages.success(request, msg )
         return HttpResponseRedirect(reverse('students_child_detail_list'))
@@ -1573,3 +1606,91 @@ class Child_detail_Sectionwise_detail(View):
             page_obj = paginator.page(paginator.num_pages)       
         return render(request,'students/child_detail/sectionwise_details.html',{'page_objs':page_obj,'child_detail_list':child_detail_list })
 
+class child_pdfview(View):
+    #@never_cache
+    def get(self,request,**kwargs):   
+        if request.user.is_authenticated():
+            pk=self.kwargs.get('pk')
+            print pk
+            student = Child_detail.objects.get(id=pk)
+            response = HttpResponse(content_type='application/pdf')
+            a=student.unique_id_no
+            filename = str(a)
+            photo=settings.MEDIA_URL
+            root=settings.MEDIA_ROOT
+            
+            response['Content-Disposition'] = 'attachement; filename={0}.pdf'.format(filename)
+            pdf=render_to_pdf(
+                    'students/child_detail/print_child.html',
+                    {
+                        'student':student,
+                        'pagesize':'A4',
+                        'MEDIA_URL':root,
+                                                
+                    }
+                )
+            response.write(pdf)
+            return response
+        else:
+            return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
+
+
+#@never_cache
+def render_to_pdf(template_src, context_dict):
+    template = get_template(template_src)
+    context = Context(context_dict)
+    html  = template.render(context)
+    result = StringIO.StringIO()
+    pdf = pisa.pisaDocument(StringIO.StringIO(html.encode("UTF-8")),result)
+    if not pdf.err:
+        return HttpResponse(result.getvalue(), content_type='application/pdf')
+    return HttpResponse('We had some errors<pre>%s</pre>' % escape(html))
+
+class classwise_pdfview(View):
+    #@never_cache
+    def get(self,request,**kwargs):
+        class_id = self.kwargs.get('pk')
+        print class_id
+        school_code = self.kwargs.get('school_code')
+        school_id = request.user.account.associated_with
+        
+        schl_id = School.objects.get(id=school_id)
+        child_detail_main_list = Child_detail.objects.filter(district_id = schl_id.district_id , block_id = schl_id.block_id)
+                
+        if request.user.account.user_category_id == 2:
+            child_detail_list = Child_detail.objects.filter(school__id=schl_id.id, block_id=request.user.account.associated_with).exclude(transfer_flag = 1)
+        elif request.user.account.user_category_id == 5:
+            child_detail_list = Child_detail.objects.filter(school__id=schl_id.id, block_id=request.user.account.associated_with).exclude(transfer_flag = 1)
+        elif request.user.account.user_category_id == 6 or request.user.account.user_category_id == 7 or request.user.account.user_category_id == 8 or request.user.account.user_category_id == 12 or request.user.account.user_category_id == 13 or request.user.account.user_category_id == 14:
+            child_detail_list = Child_detail.objects.filter(school__id=schl_id.id, district_id= request.user.account.associated_with).exclude(transfer_flag = 1)
+        elif request.user.account.user_category_id == 9 or request.user.account.user_category_id == 10 or request.user.account.user_category_id == 11 or request.user.account.user_category_id == 15 or request.user.account.user_category_id == 16 or request.user.account.user_category_id == 17 or request.user.account.user_category_id == 4:
+            child_detail_list = Child_detail.objects.filter(school__id=schl_id.id).exclude(transfer_flag = 1)    
+        else:
+            child_detail_list = Child_detail.objects.filter(school_id=schl_id.id).exclude(transfer_flag = 1)
+        
+        classwise_detail = child_detail_list.filter(class_studying_id=class_id).order_by('name','gender')
+
+        classwise_detail_count = classwise_detail.count()
+       
+        child_detail_list = Child_detail.objects.filter(school_id=schl_id.id).exclude(transfer_flag = 1)
+        classwise_detail = child_detail_list.filter(class_studying_id=class_id)
+        response = HttpResponse(content_type='application/pdf')
+        
+        a=class_id
+        filename = str(a)
+        
+        response['Content-Disposition'] = 'attachement; filename={0}.pdf'.format(filename)
+        pdf=render_to_pdf(
+                'students/child_detail/classwise_pdf.html',
+                {
+                    'classwise_detail':classwise_detail,
+                    'pagesize':'A4',
+                    'a':a,
+                    
+                                            
+                }
+            )
+        response.write(pdf)
+        return response
+        
+        

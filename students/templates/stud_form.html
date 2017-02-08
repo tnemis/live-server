@@ -1,0 +1,2653 @@
+{% extends 'students/child_detail/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+{% load widget_tweaks %}
+
+{% block extrahead %} 
+
+
+
+<link href="/site_media/static/css/jquery.steps.css" rel="stylesheet" type="text/css" />
+<link href="/site_media/static/css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="/site_media/static/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+<link href="/site_media/static/css/main.css" rel="stylesheet" type="text/css" />
+<link href="/site_media/static/css/normalize.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/site_media/static/js/Verhoeff.js"></script>
+<script src="/site_media/static/js/modernizr-2.6.2.min.js"></script>
+<script src="/site_media/static/js/jquery-1.9.1.min.js"></script>
+<script src="/site_media/static/js/jquery.cookie-1.3.1.js"></script>
+<script src="/site_media/static/js/jquery.steps.js"></script>
+<script src="/site_media/static/js/stepExample.js"></script>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width">
+
+<!-- for autotransliterate -->
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<link href="/site_media/static/css/autotranslate.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/site_media/static/js/autotranslate.js"></script>
+<script type="text/javascript">google.load("elements", "1", {packages: "transliteration"});</script>
+
+
+
+
+ {% endblock %}
+
+{% block content %}
+
+
+<script>
+    $.validator.addMethod('notNone', function(value, element) {
+        return (value != 'none' && value != "Please select");
+    }, 'Please select an option.');
+
+    $(function ()
+    {
+        $("#lefthand-nav").affix({
+            offset: {
+                top: function ()
+                {
+                    return $("#topbar").outerHeight() + $("#banner").outerHeight();
+                }
+            }
+        });
+
+        prettyPrint();
+
+        function errorPlacement(error, element)
+        {
+            element.before(error);
+
+            //element.popover({
+            //    content: error.text(),
+            //    placement: function ()
+            //    {
+            //        return (element.parents(".content").width() >= 550) ? "right" : "top";
+            //    },
+            //    trigger: "focus hover"
+            //});
+            //$(".popover-content", element.next(".popover")).empty().prepend(error);
+        }
+
+        // date picker
+
+
+
+
+        $("#form-3").steps({
+            headerTag: "h3",
+            bodyTag: "fieldset",
+            transitionEffect: "slideLeft",
+            onStepChanging: function (event, currentIndex, newIndex)
+            { var xarr = [1,2,3,4,5,17];
+                var yarr = [6,7];
+                // var yarr = [3,5,6,7,8,9,10]
+                var check = parseInt($("#mgmt").val());
+                // alert(check);
+                // var checkcat = parseInt($("#categ").val());
+                // alert(xarr.indexOf(check));
+                
+                // Allways allow previous action even if the current form is not valid!
+                if (currentIndex > newIndex)
+                {
+                    return true;
+                }
+                // Forbid next action on BANK step if the class in 10,11,12
+                
+            if(newIndex === 3 && $("#class_studying").val() == 12 && xarr.indexOf(check) >= 0 ){
+                if ($("#id_banknew").val() === '' || $("#id_branchnew").val() === '' || $("#bank_account_no").val() === '' )
+                {   
+                    
+                    alert("please fill up the bank details completely!!!");
+                    return false;
+                }
+                else{
+                    return true;
+                }
+            } 
+            else if (newIndex === 3 && $("#class_studying").val() == 12 && yarr.indexOf(check) >= 0  && $("#student_admitted_section").val() == "Govt Aid" ){
+                if ($("#id_banknew").val() === '' || $("#id_branchnew").val() === '' || $("#bank_account_no").val() === '' )
+                {   
+                    
+                    alert("please fill up the bank details completely!!!");
+                    return false;
+                }
+                else{
+                    return true;
+                }
+            } 
+                // Needed in some cases if the user went back (clean up)
+                if (currentIndex < newIndex)
+                {
+                    // To remove error styles
+                    $("#form-3 .body:eq(" + newIndex + ") label.error").remove();
+                    $("#form-3 .body:eq(" + newIndex + ") .error").removeClass("error");
+                }
+                $("#form-3").validate().settings.ignore = ":disabled,:hidden";
+                return $("#form-3").valid();
+            },
+            onStepChanged: function (event, currentIndex, priorIndex)
+            {
+                // Used to skip the "Warning" step if the user is old enough.
+                // if (currentIndex === 2 && Number($("#age-2").val()) >= 18)
+                // {
+                //     $("#form-3").steps("next");
+                // }
+                // Used to skip the "Warning" step if the user is old enough and wants to the previous step.
+                // if (currentIndex === 2 && priorIndex === 3)
+                // {
+                //     $("#form-3").steps("previous");
+                // }
+            },
+            onFinishing: function (event, currentIndex)
+            {   
+                $("#form-3").validate().settings.ignore = ":disabled,:hidden";
+                return $("#form-3").valid();
+            },
+            onFinished: function (event, currentIndex)
+            {
+                var form = $(this);
+                form.submit();
+            }
+        }).validate({
+                    errorPlacement: errorPlacement,
+                    rules: {
+                        pin_code: {
+                            min: 500000,
+                            max:699999
+                        },
+                        phone_number: {
+                            min: 7000000000,
+                            max: 9999999999
+                        },
+                        height:{
+                            min:30,
+                            max:200
+                        },
+                        weight:{
+                            min:7,
+                            max:150,
+                        },   
+                    }
+                });
+    
+});
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+            $(function() {
+                //Datemask dd/mm/yyyy
+                $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+                //Datemask2 mm/dd/yyyy
+
+                $("[data-mask]").inputmask();
+
+                //Date range as a button
+
+            });
+</script>
+
+
+
+<!-- testscript -->
+<script type="text/javascript">
+        $(document).ready(function(){
+            $("#test1").inputmask("9999/99999/99999");
+            $("#test2").inputmask("99/99/9999 99:99:99");
+            
+            //initialValue  => "___-___"
+});
+</script>
+<!-- end of testscript -->
+
+<script>
+$(function(){
+  
+    $('#addMore').on('click', function() {
+                 addFmdetailRow('fmdetailTable');
+     });
+     $(document).on('click', '.remove', function() {
+         var trIndex = $(this).closest("tr").index();
+           
+             $(this).closest("tr").remove();
+           
+      });
+});      
+</script>
+
+
+
+<script type="text/javascript">
+function choose() {
+    var x = document.getElementById('class_studying').value;
+    
+    if(x==11 || x==12){
+            document.getElementById('fl').style.display='block';
+            document.getElementById('tbl').style.display='block';
+        }
+
+        else{
+            document.getElementById('fl').style.display='none';
+            document.getElementById('tbl').style.display='none';
+        }
+
+    if(x==10 ){
+            document.getElementById('ol').style.display='block';
+            document.getElementById('tbl').style.display='none';
+            
+        }
+    else{
+            document.getElementById('ol').style.display='none';
+        }
+    var onetoten = [1,2,3,4,5,6,7,8,9,10,11]
+    var onetotwelve = [1,2,3,4,5,6,7,8,9,10,11,12,13]
+    var tentotwelve = [10,11,12]
+    var onetoeight = [1,2,3,4,5,6,7,8,9]
+    if ((document.getElementById('class_studying').value == 11) || (document.getElementById('class_studying').value == 12) ) {
+        document.getElementById('group_code1').style.display = 'block';
+        
+        // document.getElementById('group_code').disabled = false;
+    } else {
+        document.getElementById('group_code1').style.display = 'none';
+        
+        // document.getElementById('group_code').disabled = true;
+    }
+
+
+    var str = document.getElementById("group_code").value; 
+    document.getElementById("s1").value = str;
+
+
+
+
+    // if ((document.getElementById('class_studying').value == 10) || (document.getElementById('class_studying').value == 11) || (document.getElementById('class_studying').value == 12) ) {
+    //     document.getElementById('bank_branch').readOnly = false;
+    //     document.getElementById('bank_account_no').readOnly = false;
+    //     document.getElementById('bank_ifsc_code').readOnly = false;
+    //     document.getElementById('bank').disabled = false;
+    // } else {
+    //     document.getElementById('bank_branch').readOnly = true;   
+    //     document.getElementById('bank_account_no').readOnly = true;
+    //     document.getElementById('bank_ifsc_code').readOnly = true;
+    //     document.getElementById('bank').disabled = true;
+    // }
+
+    // if ((document.getElementById('class_studying').value == 12 ))
+    // {
+    //     document.getElementById('laptop_issued').disabled = false;
+    // } else {
+    //     document.getElementById('laptop_issued').disabled = true;
+    // }
+
+    if (document.getElementById('class_studying').value in onetoten )
+    {
+        document.getElementById('nutritious_meal_flag').disabled = false;
+    } else {
+        document.getElementById('nutritious_meal_flag').disabled = true;
+    }
+
+    var scheme_add = document.getElementById('schemes')
+
+    document.getElementById('schemes').innerHTML = ""
+    
+    // document.getElementById('schemes').style.wordSpacing = "50px";
+
+
+    if ((document.getElementById('class_studying').value in onetotwelve))
+    {
+        createCheckbox(scheme_add,"Text Books","Text Books")
+        createCheckbox(scheme_add,"School Bag","School Bag")
+        createCheckbox(scheme_add,"Financial Assistance Who Lost Bread Winner","Financial Assistance Who Lost Bread Winner")
+   
+        if ((document.getElementById('class_studying').value == 10) || (document.getElementById('class_studying').value == 11) || (document.getElementById('class_studying').value == 12))
+        {
+            createCheckbox(scheme_add,"Special Cash Incentive","Special Cash Incentive")
+
+        }
+
+
+        if (document.getElementById('class_studying').value == 11)
+        {
+            createCheckbox(scheme_add,"Bi-Cycle","Bi-Cycle")
+
+        }
+
+        if ((document.getElementById('class_studying').value == 1) || (document.getElementById('class_studying').value == 2))
+        {
+            createCheckbox(scheme_add,"Crayons","Crayons")
+
+        }
+
+        if ((document.getElementById('class_studying').value == 3) || (document.getElementById('class_studying').value == 4) || (document.getElementById('class_studying').value == 5))
+        {
+            createCheckbox(scheme_add,"Colour Pencils","Colour Pencils")
+
+        }
+
+        if ((document.getElementById('class_studying').value == 6) || (document.getElementById('class_studying').value == 7) || (document.getElementById('class_studying').value == 8) || (document.getElementById('class_studying').value == 9) || (document.getElementById('class_studying').value == 10))
+        {
+            createCheckbox(scheme_add,"Atlas","Atlas")
+            createCheckbox(scheme_add,"Geomentry Box","Geomentry Box")
+
+        }
+
+        if ((document.getElementById('class_studying').value in onetoten)){
+            createCheckbox(scheme_add,"Note Books","Note Books ")
+            createCheckbox(scheme_add,"Foot Wear","Foot Wear")
+
+        }
+
+        if ((document.getElementById('class_studying').value in onetoeight)){
+            createCheckbox(scheme_add,"Uniforms","Uniforms")
+            createCheckbox(scheme_add,"Sweater","Sweater")
+
+        }
+
+
+ 
+                
+    }
+
+    function createOption(ddl, text, value) {
+        var opt = document.createElement('option');
+        var check = document.createElement('input')
+        check.setAttribute("type", "checkbox");
+        opt.appendChild(document.createElement("TEXT"));
+        opt.value = value;
+        opt.text = text;
+        ddl.options.add(opt);
+    
+    }
+    
+    
+    function createCheckbox (ddl,text, value) {
+     var a = document.createElement("TABLE");
+     a.setAttribute("id", "myTable");
+     document.body.appendChild(a);
+
+     var b = document.createElement("TR");
+     b.setAttribute("id", "myTr");
+     document.getElementById("myTable").appendChild(b);
+     
+
+
+      var c = document.createElement("TD");
+      c.setAttribute("id", "myTd");
+      b.appendChild(c);
+      var check = document.createElement('input')
+      check.type ="checkbox"
+      check.value = value
+      check.name = "schemes"
+      check.style.width = '50px';
+      var x = document.createElement("LABEL");
+      var t = document.createTextNode(text);
+      x.appendChild(t);
+      x.appendChild(check);
+      c.appendChild(x);
+      document.getElementById("myTd").style.border = "thin solid #666666";
+      document.getElementById("myTr").appendChild(c).style.border = "thin solid #666666";
+      ddl.appendChild(c)
+    }
+
+}
+</script>
+<script type="text/javascript">
+function AllowAlphabet(){
+if (!frm.name.value.match(/^[a-zA-Z\.\ ]+$/) && frm.name.value !="")
+{
+frm.name.value="";
+frm.name.focus();
+// alert("Please Enter only alphabets in text");
+}else{
+    frm.name.value=frm.name.value.toUpperCase();
+
+}
+}
+function AllowAlphabetM(){
+if (!frm.mother_name.value.match(/^[a-zA-Z\.\ ]+$/) && frm.mother_name.value !="")
+{
+frm.mother_name.value="";
+frm.mother_name.focus();
+}
+}
+function AllowAlphabetF(){
+if (!frm.father_name.value.match(/^[a-zA-Z\.\ ]+$/) && frm.father_name.value !="")
+{
+frm.father_name.value="";
+frm.father_name.focus();
+}
+}
+function AllowAlphabetG(){
+if (!frm.guardian_name.value.match(/^[a-zA-Z\.\ ]+$/) && frm.guardian_name.value !="")
+{
+frm.guardian_name.value="";
+frm.guardian_name.focus();
+}
+}
+</script>
+
+
+
+<SCRIPT language="javascript">
+
+        function addFmdetailRow(tableID) {
+
+            var table = document.getElementById(tableID);
+            var rowCount = table.rows.length;
+            var row = table.insertRow(rowCount);
+
+            var cell1 = row.insertCell(0);
+            var element = document.createElement("span");
+            
+            element.className = "remove glyphicon glyphicon-remove";
+            cell1.appendChild(element);
+
+            var cell2 = row.insertCell(1);
+            // cell2.innerHTML = rowCount;
+            var element1 = document.createElement("input");
+            element1.type = "hidden";
+            element1.name = "fmdetail_no";
+            element1.size = "60";
+            element1.maxLength = "60";
+            // element1.style['width'] = '100px';      
+            element1.value = rowCount;
+            cell2.appendChild(element1);
+
+            var cell3 = row.insertCell(2);
+            var element2 = document.createElement("input");
+            element2.type = "text";
+            element2.className = "form-control";
+            element2.name = "sibling_name";
+            element2.size = "60";
+            element2.maxLength = "60";
+            cell3.appendChild(element2);
+            var cell4 = row.insertCell(3);
+
+
+            // var element3 = document.createElement("input");
+            // element3.type = "text";
+            // element3.className = "form-control";
+            // element3.name = "sibling_relationship";
+            // element3.size = "15";
+            var element3 = document.createElement("select")
+            element3.className = "form-control";
+            element3.name = "sibling_relationship";
+            element3.id = "sibling_relationship";
+            var option0 = document.createElement("option")
+            option0.text = "-----"
+            option0.value = "-----"
+            element3.add(option0);
+            var option1 = document.createElement("option")
+            option1.text = "Brother"
+            option1.value = "Brother"
+            element3.add(option1);
+            var option2 = document.createElement("option")
+            option2.text = "Sister"
+            option2.value = "Sister"
+            element3.add(option2);
+            var option3 = document.createElement("option")
+            option3.text = "Others"
+            option3.value = "Others"
+            element3.add(option3);
+
+
+            // var element3 = document.createElement("option"); 
+            // element3.text = 'something';
+            // element3.value = 'somethings value';
+            // element3.text = 'something1';
+            // element3.value = 'somethings value';
+
+            // dropdown.options.add(element3);
+            cell4.appendChild(element3);
+            var cell5 = row.insertCell(4);
+            var element4 = document.createElement("select");
+            // element4.type = "text";
+            element4.className = "form-control";
+            element4.name = "sibling_age";
+            element4.id = "sibling_age";
+            var option0 = document.createElement("option")
+            option0.text = "-----"
+            option0.value = "-----"
+            element4.add(option0);
+            var option1 = document.createElement("option")
+            option1.text = "1"
+            option1.value = "1"
+            element4.add(option1);
+            var option2 = document.createElement("option")
+            option2.text = "2"
+            option2.value = "2"
+            element4.add(option2);
+            var option3 = document.createElement("option")
+            option3.text = "3"
+            option3.value = "3"
+            element4.add(option3);
+            var option4 = document.createElement("option")
+            option4.text = "4"
+            option4.value = "4"
+            element4.add(option4);
+            var option5 = document.createElement("option")
+            option5.text = "5"
+            option5.value = "5"
+            element4.add(option5);
+            var option6 = document.createElement("option")
+            option6.text = "6"
+            option6.value = "6"
+            element4.add(option6);
+             var option7 = document.createElement("option")
+            option7.text = "7"
+            option7.value = "7"
+            element4.add(option7);
+            var option8 = document.createElement("option")
+            option8.text = "8"
+            option8.value = "8"
+            element4.add(option8);
+            var option9 = document.createElement("option")
+            option9.text = "9"
+            option9.value = "9"
+            element4.add(option9);
+             var option10 = document.createElement("option")
+            option10.text = "10"
+            option10.value = "10"
+            element4.add(option10);
+            var option11 = document.createElement("option")
+            option11.text = "11"
+            option11.value = "11"
+            element4.add(option11);
+            var option12 = document.createElement("option")
+            option12.text = "12"
+            option12.value = "12"
+            element4.add(option12);
+            var option13 = document.createElement("option")
+            option13.text = "13"
+            option13.value = "13"
+            element4.add(option13);
+            var option14 = document.createElement("option")
+            option14.text = "14"
+            option14.value = "14"
+            element4.add(option14);
+            var option15 = document.createElement("option")
+            option15.text = "15"
+            option15.value = "15"
+            element4.add(option15);
+            var option16 = document.createElement("option")
+            option16.text = "16"
+            option16.value = "16"
+            element4.add(option16);
+             var option17 = document.createElement("option")
+            option17.text = "17"
+            option17.value = "17"
+            element4.add(option17);
+            var option18 = document.createElement("option")
+            option18.text = "18"
+            option18.value = "18"
+            element4.add(option18);
+            var option19 = document.createElement("option")
+            option19.text = "19"
+            option19.value = "19"
+            element4.add(option19);
+            var option20 = document.createElement("option")
+            option20.text = "20"
+            option20.value = "20"
+            element4.add(option20);
+            var option21 = document.createElement("option")
+            option21.text = "21"
+            option21.value = "21"
+            element4.add(option21);
+            var option22 = document.createElement("option")
+            option22.text = "22"
+            option22.value = "22"
+            element4.add(option22);
+            var option23 = document.createElement("option")
+            option23.text = "23"
+            option23.value = "23"
+            element4.add(option23);
+            var option24 = document.createElement("option")
+            option24.text = "24"
+            option24.value = "24"
+            element4.add(option24);
+            var option25 = document.createElement("option")
+            option25.text = "25"
+            option25.value = "25"
+            element4.add(option25);
+            var option26 = document.createElement("option")
+            option26.text = "26"
+            option26.value = "26"
+            element4.add(option26);
+             var option27 = document.createElement("option")
+            option27.text = "27"
+            option27.value = "27"
+            element4.add(option27);
+            var option28 = document.createElement("option")
+            option28.text = "28"
+            option28.value = "28"
+            element4.add(option28);
+            var option29 = document.createElement("option")
+            option29.text = "29"
+            option29.value = "29"
+            element4.add(option29);
+             var option30 = document.createElement("option")
+            option30.text = "30"
+            option30.value = "30"
+            element4.add(option30);
+            var option31 = document.createElement("option")
+            option31.text = "31"
+            option31.value = "31"
+            element4.add(option31);
+            var option32 = document.createElement("option")
+            option32.text = "32"
+            option32.value = "32"
+            element4.add(option32);
+            var option33 = document.createElement("option")
+            option33.text = "33"
+            option33.value = "33"
+            element4.add(option33);
+            var option34 = document.createElement("option")
+            option34.text = "34"
+            option34.value = "34"
+            element4.add(option34);
+            var option35 = document.createElement("option")
+            option35.text = "35"
+            option35.value = "35"
+            element4.add(option35);
+            var option36 = document.createElement("option")
+            option36.text = "36"
+            option36.value = "36"
+            element4.add(option36);
+            var option37 = document.createElement("option")
+            option37.text = "37"
+            option37.value = "37"
+            element4.add(option37);
+            var option38 = document.createElement("option")
+            option38.text = "38"
+            option38.value = "38"
+            element4.add(option38);
+            var option39 = document.createElement("option")
+            option39.text = "39"
+            option39.value = "39"
+            element4.add(option39);
+            var option40 = document.createElement("option")
+            option40.text = "40"
+            option40.value = "40"
+            element4.add(option40);
+
+            cell5.appendChild(element4);
+            var cell6 = row.insertCell(5);
+
+            // var element5 = document.createElement("input");
+            // element5.type = "";
+            // element5.className = "form-control";
+            // element5.name = "sibling_status";
+            // element5.size = "10";
+
+            var element5 = document.createElement("select")
+            element5.className = "form-control";
+            element5.name = "sibling_status";
+            element5.id = "sibling_status";
+            var option0 = document.createElement("option")
+            option0.text = "-----"
+            option0.value = "-----"
+            element5.add(option0);
+            var option1 = document.createElement("option")
+            option1.text = "Student"
+            option1.value = "Student"
+            element5.add(option1);
+            var option2 = document.createElement("option")
+            option2.text = "Employed"
+            option2.value = "Employed"
+            element5.add(option2);
+            var option3 = document.createElement("option")
+            option3.text = "Un-Employed"
+            option3.value = "Un-Employed"
+            element5.add(option3);
+            var option4 = document.createElement("option")
+            option4.text = "Not going to school"
+            option4.value = "Not going to school"
+            element5.add(option4);
+            cell6.appendChild(element5);
+            
+            var cell7 = row.insertCell(6);
+            var element6 = document.createElement("select");
+            // element6.type = "text";
+            element6.className = "form-control";
+            element6.name = "sibling_studying";
+            element6.id = "sibling_studying";
+            element6.onchange = function(){
+                var current_value = this.value;
+                  
+
+                if (current_value == "CLASS-1") {
+                    element7.style.display = "block";
+                }
+                
+                else if (current_value == "CLASS-2") {
+                    element7.style.display = "block";
+                }
+                else if (current_value == "CLASS-3") {
+                    element7.style.display = "block";
+                }else if (current_value == "CLASS-4") {
+                    element7.style.display = "block";
+                }else if (current_value == "CLASS-5") {
+                    element7.style.display = "block";
+                }else if (current_value == "CLASS-6") {
+                    element7.style.display = "block";
+                }else if (current_value == "CLASS-7") {
+                    element7.style.display = "block";
+                }else if (current_value == "CLASS-8") {
+                    element7.style.display = "block";
+                }else if (current_value == "CLASS-9") {
+                    element7.style.display = "block";
+                }else if (current_value == "CLASS-10") {
+                    element7.style.display = "block";
+                }else if (current_value == "CLASS-11") {
+                    element7.style.display = "block";
+                }else if (current_value == "CLASS-12") {
+                    element7.style.display = "block";
+                }
+                else {
+                    element7.style.display = "none";
+                }
+                        }
+            var option0 = document.createElement("option")
+            option0.text = "-----"
+            option0.value = "-----"
+            element6.add(option0);
+            var option1 = document.createElement("option")
+            option1.text = "CLASS-1"
+            option1.value = "CLASS-1"
+            element6.add(option1);
+            var option2 = document.createElement("option")
+            option2.text = "CLASS-2"
+            option2.value = "CLASS-2"
+            element6.add(option2);
+            var option3 = document.createElement("option")
+            option3.text = "CLASS-3"
+            option3.value = "CLASS-3"
+            element6.add(option3);
+            var option4 = document.createElement("option")
+            option4.text = "CLASS-4"
+            option4.value = "CLASS-4"
+            element6.add(option4);
+            var option5 = document.createElement("option")
+            option5.text = "CLASS-5"
+            option5.value = "CLASS-5"
+            element6.add(option5);
+            var option6 = document.createElement("option")
+            option6.text = "CLASS-6"
+            option6.value = "CLASS-6"
+            element6.add(option6);
+            var option7 = document.createElement("option")
+            option7.text = "CLASS-7"
+            option7.value = "CLASS-7"
+            element6.add(option7);
+            var option8 = document.createElement("option")
+            option8.text = "CLASS-8"
+            option8.value = "CLASS-8"
+            element6.add(option8);
+            var option9 = document.createElement("option")
+            option9.text = "CLASS-9"
+            option9.value = "CLASS-9"
+            element6.add(option9);
+            var option10 = document.createElement("option")
+            option10.text = "CLASS-10"
+            option10.value = "CLASS-10"
+            element6.add(option10);
+            var option11 = document.createElement("option")
+            option11.text = "CLASS-11"
+            option11.value = "CLASS-11"
+            element6.add(option11);
+            var option12 = document.createElement("option")
+            option12.text = "CLASS-12"
+            option12.value = "CLASS-12"
+            element6.add(option12);
+            var option13 = document.createElement("option")
+            option13.text = "ITI/DIPLOMA"
+            option13.value = "ITI/DIPLOMA"
+            element6.add(option13);
+            var option14 = document.createElement("option")
+            option14.text = "DEGREE-UG/PG"
+            option14.value = "DEGREE-UG/PG"
+            element6.add(option14);
+            var option15 = document.createElement("option")
+            option15.text = "Ph.D"
+            option15.value = "Ph.D"
+            element6.add(option15);
+            cell7.appendChild(element6);
+
+
+            var cell8 = row.insertCell(7);
+            var element7 = document.createElement("select")
+            element7.className = "form-control";
+            element7.name = "sibling_studying_same_school";
+            element7.id = "sibling_studying_same_school";
+            element7.style.display = "none"
+            var option0 = document.createElement("option")
+            option0.text = "-----"
+            option0.value = "-----"
+            element7.add(option0);
+            var option1 = document.createElement("option")
+            option1.text = "Yes"
+            option1.value = "Yes"
+            element7.add(option1);
+            var option2 = document.createElement("option")
+            option2.text = "No"
+            option2.value = "No"
+            element7.add(option2);
+            cell8.appendChild(element7);
+        
+        }
+
+        function deleteRow(tableID) {
+            try {
+            var table = document.getElementById(tableID);
+            var rowCount = table.rows.length;
+
+            for(var i=0; i<rowCount; i++) {
+                var row = table.rows[i];
+                var chkbox = row.cells[0].childNodes[0];
+                if(null != chkbox && true == chkbox.checked) {
+                    table.deleteRow(i);
+                    rowCount--;
+                    i--;
+                }
+
+            }
+            }catch(e) {
+                alert(e);
+            }
+        }
+
+    </SCRIPT>
+
+
+
+<script type="text/javascript">
+    function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
+ }
+
+</script>
+
+
+
+<script>
+            
+
+
+function sship(flag)
+{  
+    if ((flag == "Yes" ))
+    {
+        document.getElementById('sch').style.display = "block";
+        document.getElementById('sch_others').style.display = "block";
+        
+    } else {
+        document.getElementById('sch').style.display = "none";
+        document.getElementById('sch_others').style.display = "none";
+    }
+}
+
+
+function sshipo(list)
+{ 
+
+    if ((list == "Others" ) && (document.getElementById('scho').value == "Yes" ))
+    {
+       
+        document.getElementById('sch_others').style.display = "block";
+    } else {
+        
+        document.getElementById('sch_others').style.display = "none";
+    }
+}
+
+
+function aadhaar(flag)
+{  
+    if ((flag == "Yes" ))
+    {
+        document.getElementById('aadhaar_no').style.display = "block";
+        
+    } else {
+        document.getElementById('aadhaar_no').style.display = "none";
+    }
+}
+
+
+
+function fmg_validate()
+{
+    
+    father = document.getElementById("father_name").value;
+    mother = document.getElementById("mother_name").value;
+    guardian = document.getElementById("guardian_name").value;
+    obj = document.getElementById("fmg_status");
+    if((father == "") && (mother == "") && (guardian == ""))
+    {
+       alert(" Enter atleast any one of these : Father/Mother/Guardian name");
+       document.getElementById("mother_name").focus();
+    }
+    
+}
+
+function validate_aadhaar(aadhaar)
+{
+    var strVal = aadhaar;
+    obj = document.getElementById("aadhaar_status");
+    if ((strVal.length == 12) && (strVal.verhoeffCheck() == true))
+    {
+        obj.innerHTML = "Aadhaar number is valid.";
+
+    }
+    else if ((strVal.length < 12) || (strVal.verhoeffCheck() == false) || strVal == '999999999999' || strVal == '000000000000'){
+        obj.innerHTML = "Aadhaar number is not valid.";
+        obj.value = '';
+        obj.focus();
+
+    }
+    else
+    {
+        obj.innerHTML = "Aadhaar number is not valid.";
+        obj.value = '';
+        obj.focus();
+    }
+}
+
+
+
+function nation(nation)
+{  
+    if ((nation == 1 ))
+    {
+        document.getElementById('state_div').style.display = "block";
+        document.getElementById('native_district_div').style.display = "block";
+        
+    } else {
+        document.getElementById('state_div').style.display = "none";
+        document.getElementById('native_district_div').style.display = "none";
+        
+         
+    }
+}
+
+
+function getAge(birth) {
+    var today = new Date();
+
+    var nowdate = today.getDate();
+    var nowmonth = today.getMonth();
+    var nowyear = today.getFullYear();
+
+
+    var birthyear = birth.getFullYear();
+    var age = nowyear - birthyear;
+    if(age >14){        
+        document.getElementById('transgen').disabled=false;
+    }
+    else {        
+        document.getElementById('transgen').disabled=true;
+    }
+    
+}  
+ 
+
+function stated(st)
+{ 
+
+    if ((st == 24 ) && (document.getElementById('nationality').value == 1 ))
+    {
+       
+        document.getElementById('native_district_div').style.display = "block";
+    } else {
+        
+        document.getElementById('native_district_div').style.display = "none";
+    }
+}
+
+function community_cert_avlbl(comm)
+{ 
+
+    if (comm == "No" ) 
+    {
+       
+        // document.getElementById('community_certificate_no').value=""
+        // document.getElementById('community_certificate_date').value=""
+        document.getElementById('community_cert_no_div').style.display = "none";
+        document.getElementById('community_cert_dt_div').style.display = "none";
+    } else {
+        
+        
+        document.getElementById('community_cert_no_div').style.display = "block";
+        document.getElementById('community_cert_dt_div').style.display = "block";
+    }
+}
+
+
+
+
+var sci_prtl =["Visual Impairment (Blindness)","Hearing Impairment","Speech Impairment","Mental Retardation","Learning disability/Dyslexia","Cerebral Palsy","Multiple disability","Down syndrome","Autism","Muscular dystrophy","Locomotor Impairment/Handicapped"];
+
+    var lang_exmpt = ["Hearing Impairment","Speech Impairment","Mental Retardation","Learning disability/Dyslexia","Cerebral Palsy","Down syndrome","Multiple disability","Autism"];
+
+ function exemptions(dt)
+ {  
+    var sci_prtl =["Visual Impairment (Blindness)","Hearing Impairment","Speech Impairment","Mental Retardation","Learning disability/Dyslexia","Cerebral Palsy","Multiple disability","Down syndrome","Autism","Muscular dystrophy","Locomotor Impairment/Handicapped"];
+
+
+    var lang_exmpt = ["Hearing Impairment","Speech Impairment","Mental Retardation","Learning disability/Dyslexia","Cerebral Palsy","Down syndrome","Multiple disability","Autism"];
+    var x = document.getElementById('class_studying').value;
+   
+    if( sci_prtl.indexOf(dt) >= 0 && x == 10 )  {
+        document.getElementById('sp').style.display = "block";
+    }else{
+        document.getElementById('sp').style.display = "none";
+        document.getElementById('sp').value="";
+
+    }
+    
+
+ }
+
+ function exemptions1(dt)
+ {  
+    var y = document.getElementById('class_studying').value;
+
+ if( lang_exmpt.indexOf(dt) >= 0 && y == 10){
+        document.getElementById('le').style.display = "block";
+    }else{
+        document.getElementById('le').style.display = "none";
+        document.getElementById('le').value="";
+
+    }
+    if( lang_exmpt.indexOf(dt) >= 0 && y == 12){
+        document.getElementById('le1').style.display = "block";
+    }else{
+        
+        document.getElementById('le1').value="";
+        document.getElementById('le1').style.display = "none";
+
+    }
+}
+
+
+
+
+
+function abled(dif)
+
+{ 
+
+    
+    if (dif == "Yes" ) 
+    {
+       
+        
+    document.getElementById('child_differently_abled_div').style.display = "block";
+    document.getElementById('national_id_div').style.display = "block";
+
+    
+    
+    } else {
+        
+    document.getElementById('child_differently_abled_div').style.display = "none";
+    document.getElementById('national_id_div').style.display = "none";
+    document.getElementById("da_id_no").value ="";
+    document.getElementById("id_sci_practical").value ="";
+    document.getElementById("id_lang_exemption").value ="";
+    document.getElementById("id_lang_exemption1").value ="";
+    document.getElementById("differently_abled").value ="";
+    document.getElementById('sp').style.display = "none";
+    document.getElementById('le').style.display = "none";
+    document.getElementById('le1').style.display = "none";
+    
+    
+    }
+
+    
+}
+
+function chld_admitd_undr(reservation)
+{ 
+
+    if (reservation == "Yes" ) 
+    {
+    document.getElementById('chld_admitd_undr_resrvtn_weakr_sectn_div').style.display = "block";
+    document.getElementById('chld_admitd_undr_resrvtn_disadvntge_grp_div').style.display = "block";
+    } else {
+    document.getElementById('chld_admitd_undr_resrvtn_weakr_sectn_div').style.display = "none";
+    document.getElementById('chld_admitd_undr_resrvtn_disadvntge_grp_div').style.display = "none";
+   
+    }
+}
+function weaker(sectn)
+{ 
+
+    if (sectn == "Yes" ) 
+    {
+    
+    document.getElementById('weaker_section_income_certificate_no_div').style.display = "block";
+
+    } else {
+    
+    document.getElementById('weaker_section_income_certificate_no_div').style.display = "none";
+   
+    }
+}
+function chld_disadvntgd(grp)
+{ 
+    if (grp == "Yes" ) 
+    {
+
+    document.getElementById('chld_disadvntgd_div').style.display = "block";
+
+    } else {
+
+    document.getElementById('chld_disadvntgd_div').style.display = "none";
+   
+    }
+}
+
+function bus(pass)
+{ 
+
+    if (pass == "No" ) 
+    {
+    
+    document.getElementById('bus_div1').style.display = "none";
+    document.getElementById('bus_div2').style.display = "none";
+    document.getElementById('bus_div3').style.display = "none";
+    document.getElementById('bus_div4').style.display = "none";
+    
+    
+    } else {
+        
+    document.getElementById('bus_div1').style.display = "block";
+    document.getElementById('bus_div2').style.display = "block";
+    document.getElementById('bus_div3').style.display = "block";
+    document.getElementById('bus_div4').style.display = "block";
+    
+    }
+}
+
+
+
+function meal(cla)
+{ 
+
+    if (cla in [1,2,3,4,5,6,7,8,9,10,11]  ) 
+    {
+    
+    document.getElementById('nutritious_meal_flag_div').style.display = "block";
+    
+    
+    } else {
+        
+    document.getElementById('nutritious_meal_flag_div').style.display = "none";
+    
+    }
+}
+
+
+
+function sports(sport)
+{ 
+
+    if (sport == "Yes"  ) 
+    {
+    
+    document.getElementById('sport_name_div').style.display = "block";
+    document.getElementById('sport_level_div').style.display = "block";
+    
+    
+    } else {
+        
+    document.getElementById('sport_level_div').style.display = "none";
+    document.getElementById('sport_name_div').style.display = "none";
+    
+    }
+}
+
+
+
+
+
+</script>
+
+<script type="text/javascript">
+
+function clearFileInputField(Id) {
+
+    document.getElementById(photograph) =
+
+        document.getElementById(photograph);
+
+    }
+
+function check() {
+
+    var x = document.getElementById("education_medium").value;
+    if(x == '3'){
+        document.getElementById("id_grpcode_language1").value = "HIN";
+        document.getElementById("id_grpcode_language2").value = "HIN";
+        document.getElementById("id_grpcode_language3").value = "HIN";
+        document.getElementById("id_grpcode_language4").value = "HIN";
+        
+    }
+    if(x == '2'){
+        document.getElementById("id_grpcode_language1").value = "ENG";
+        document.getElementById("id_grpcode_language2").value = "ENG";
+        document.getElementById("id_grpcode_language3").value = "ENG";
+        document.getElementById("id_grpcode_language4").value = "ENG";
+        
+    }
+    if(x == '6'){
+        document.getElementById("id_grpcode_language1").value = "KAN";
+        document.getElementById("id_grpcode_language2").value = "KAN";
+        document.getElementById("id_grpcode_language3").value = "KAN";
+        document.getElementById("id_grpcode_language4").value = "KAN";
+        
+    }
+    if(x == '5'){
+        document.getElementById("id_grpcode_language1").value = "MAL";
+        document.getElementById("id_grpcode_language2").value = "MAL";
+        document.getElementById("id_grpcode_language3").value = "MAL";
+        document.getElementById("id_grpcode_language4").value = "MAL";
+        
+    }
+    if(x == '1'){
+        document.getElementById("id_grpcode_language1").value = "TAM";
+        document.getElementById("id_grpcode_language2").value = "TAM";
+        document.getElementById("id_grpcode_language3").value = "TAM";
+        document.getElementById("id_grpcode_language4").value = "TAM";
+        
+    }
+    if(x == '7'){
+        document.getElementById("id_grpcode_language1").value = "URD";
+        document.getElementById("id_grpcode_language2").value = "URD";
+        document.getElementById("id_grpcode_language3").value = "URD";
+        document.getElementById("id_grpcode_language4").value = "URD";
+        
+    }
+    if(x == '4'){
+        document.getElementById("id_grpcode_language1").value = "TEL";
+        document.getElementById("id_grpcode_language2").value = "TEL";
+        document.getElementById("id_grpcode_language3").value = "TEL";
+        document.getElementById("id_grpcode_language4").value = "TEL";
+        
+    }
+
+       
+
+    }
+</script>
+
+<script type="text/javascript">
+function validate_photo()
+{
+        
+    var fileUpload2 = document.getElementById("photograph");
+    
+    if (typeof (fileUpload2.files) != "undefined"){
+      var fileUpload1 = document.getElementById("photograph").value;
+       var ext = fileUpload1.split('.').pop();
+       
+       if(String(ext) != "jpg" && String(ext) != "jpeg" && String(ext) != "JPG" && String(ext) != "JPEG")
+       {    
+          alert("Upload the File with JPG or JPEG format Only");
+         document.getElementById("photograph").focus();
+         document.getElementById("photograph").value = '';
+         return false;}}
+
+
+    var fileUpload = document.getElementById("photograph");
+    
+        if (typeof (fileUpload.files) != "undefined") {
+            var size = parseFloat(fileUpload.files[0].size / 1024).toFixed(2);
+            // alert(size);
+            // alert (size);
+            if (size > 50) {
+                alert("Maximum file size is 50 KB");
+                document.getElementById("photograph").focus();
+               document.getElementById("photograph").value = '';
+            }
+            
+        } else {
+            alert("This browser does not support HTML5.");
+        }
+
+
+if (typeof (fileUpload.files) != "undefined") {
+       var reader = new FileReader();
+       reader.readAsDataURL(fileUpload.files[0]);
+       reader.onload = function (e) {
+       var image = new Image();
+       image.src = e.target.result;
+       image.onload = function () {
+       var height = this.height;
+       var width = this.width;
+       if (height > 200 || width > 200 || height < 120 || width < 120) {
+
+       alert("Height and Width must not exceed 200px and less than 120px.");
+        document.getElementById("photograph").focus();
+        document.getElementById("photograph").value = '';
+        return false;
+        }else {
+            var reader = new FileReader();
+                
+                reader.onload = function (a) {
+                    $('#blah')
+                        .attr('src', a.target.result)
+                        .width(80)
+                        .height(80);
+                };
+                 document.getElementById("clear_photo").checked = true;
+                document.getElementById("clear_photo").value = 'True';
+                reader.readAsDataURL(fileUpload.files[0]);
+        }
+                
+
+    };};
+        } else {
+       alert("This browser does not support HTML5.");
+    return false;}
+}
+</script>
+
+
+
+<script type="text/javascript">
+
+
+function no_future(dob_id){
+   var bday = document.getElementById(dob_id).value;
+   
+   // alert(bday);
+   var date = bday.substring(0,2);
+   var month = bday.substring(3,5);
+   var year = bday.substring(6,10);
+
+   // alert(year);
+   var myDate = new Date(year,month-1,date);
+   var today = new Date();
+   // var curyr= today.getFullYear();
+   
+   var minyr = today.getFullYear()-5;
+   var maxyr = today.getFullYear()-25;
+
+   var minDate = new Date(minyr,5,1);
+   var maxDate = new Date(maxyr,5,1);
+
+    if(myDate > today){
+    alert("Date Error: FUTURE DATE ENTERED !!!");
+    document.getElementById('dob').value="";
+    }
+    else{
+    var chkyr=myDate.getFullYear();
+    // alert(chkyr);
+    // alert(minyr);
+    // alert(maxyr);
+
+    if(myDate <= minDate && myDate >= maxDate)
+       {           
+            return;          
+        }
+        else
+        {
+            document.getElementById('dob').value="";
+            alert("Age should be in the range 5-25");
+            document.getElementById('dob').focus();
+            
+        }
+}    
+
+    
+    
+}
+
+</script>
+
+
+
+<script type="text/javascript">
+function cbse_choose() {
+
+    {% if user.account.get_user_info.management_id == 10 %}
+    var x = document.getElementById('class_studying').value;
+   
+    if(x==11 || x==12){
+            document.getElementById('cbse_group_code').style.display='block';
+            
+        }
+
+        else{
+            document.getElementById('fl').style.display='none';
+            
+        }
+        {% endif %}
+
+</script>
+
+
+
+
+
+
+
+
+
+<div class="row">
+  <div  >
+  <div class="content">
+  <form id="form-3" action='{% if pk1 %}{% url "students_child_detail_update" pk=pk1 %}{% else %}{% url "students_child_detail_create" %}{% endif %}' method='post' enctype="multipart/form-data" name="frm">
+  <h3>First Step</h3><fieldset>
+  {% csrf_token %}
+  
+  <input type="hidden" name="categ" id="categ" value="{{user.account.get_user_info.category_id}}">
+<input type="hidden" name="mgmt" id="mgmt" value="{{user.account.get_user_info.management_id}}">
+<input type="hidden" name="district" id="district" value="{{user.account.get_user_info.district.id}}">
+    <input type="hidden" name="block" id="block" value="{{user.account.get_user_info.block.id}}">
+    <input type="hidden" name="zone" id="zone" value="{{user.account.get_user_info.habitation.zone.id}}">
+    <input type="hidden" name="habitation" id="habitation" value="{{user.account.get_user_info.habitation.id}}">
+    <input type="hidden" name="school" id="school" value="{{user.account.get_user_info.id}}">
+    <input type="hidden" name="staff_id" id="staff_id" value="{{ user }}">
+    <input type="hidden" name="academic_year" id="academic_year" readonly value="5">
+    <input type="hidden" readonly value="0" name="unique_id_no" id="unique_id_no">
+
+
+  <div class="form-group" style="color:red;"> <strong>*</strong><strong style="color:blue;"> Fields are mandatory</strong></div>
+    <div class="form-group"> <b>{% trans "School Code : " %}</b> {{ user.account.get_user_info.school_code }} &nbsp;&nbsp;&nbsp;<b>{% trans "Academic Year : " %}</b> 2016-17 </div>
+
+    <div class="form-group"> <b><strong style="color:red;">*</strong>{% trans "Student Name" %}</b> {% trans "Initials at the end separated by a space. e.g: MAGESH S" %}<input type="text" class="mandatory" value="{{form.name.value}}" id="name" name="name" onkeyup="AllowAlphabet();" onfocus="trans('Press Spacebar after typing to get the next Entry Transliterated.');" onblur="hide();"/></div><div id="text1"></div><span class="error_message">{{form.name.errors}}</span>
+
+    <div class="form-group"><b>{% trans "Student Name (Tamil)" %}</b><input class="form-control" name="name_tamil" id="transliterateTextarea" type="text" value="{{ form.name_tamil.value }}" /></div><img src="{{MEDIA_URL}}ref.png" id="ref" onMouseOver="ins('Refresh the above two Entries')" onMouseOut="hide();" onclick="clear1();"><div id="text"></div><br>
+
+ <!--  <div class="form-group"> <b>{% trans "Height" %} (in cm)</b><input type="text" class="form-control" value="{{form.height.value|default:""}}" id="height" name="height" onkeypress="return isNumber(event)" onblur="validate_height()" maxlength="3" /></div><span class="error_message">{{form.height.errors}}</span> -->
+
+<div class="form-group" class="mandatory"><strong style="color:red;">*</strong><b>{% trans "Photograph" %}</b>    
+<strong style="color:blue;"> [Allowed Photo Size – 200 x 200 (Upto 50 KB), Allowed File format – jpg, jpeg]</strong>
+ <input type="hidden" name="clear_photo" id="clear_photo" value="False" />
+
+
+{% if photo %}
+
+ <input type="file" name="photograph" value="photograph" id ="photograph" onchange="validate_photo()">
+
+<h4><img src="{{MEDIA_URL}}{{photo}}" height="100" width="100"/>------------------------               
+
+ <img id="blah" src="#" alt="Image" /></h4>
+<a href="{{MEDIA_URL}}{{photo}}" >{{photo}}</a> 
+ {% else %}
+ <input class="mandatory" type="file" name="photograph" value="photograph" id = "photograph" onchange="validate_photo()">
+    <img id="blah" src="#" alt="Image" />
+ {% endif %}
+<span class="error_message">{{form.photograph.errors}}</span></div>
+
+
+    
+    <div class="form-group"> <b>{% trans "Mother's Name" %}</b><input type="text" value="{{form.mother_name.value}}" id="mother_name" name="mother_name" onkeyup="AllowAlphabetM()" class="form-control mandatory" /></div><span class="error_message">{{form.mother_name.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Father's Name" %}</b><input type="text" class="form-control" value="{{form.father_name.value}}" id="father_name" name="father_name" onkeyup="AllowAlphabetF()" /></div><span class="error_message">{{form.father_name.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Guardian’s Name" %}</b><input type="text" class="form-control" value="{{form.guardian_name.value}}" id="guardian_name" name="guardian_name" onkeyup="AllowAlphabetG()" onblur="fmg_validate()" /></div><span class="error_message">{{form.guardian_name.errors}}</span>
+
+
+
+
+    <div class="form-group"> <b><strong style="color:red;">*</strong> {% trans "Date of Birth" %}</b>
+      <div class="input-group">
+        <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
+        </div>
+        
+        <input class="form-control mandatory" name="dob" id="dob" type="text" data-mask="" data-inputmask="'alias': 'dd/mm/yyyy'" value="{{form.dob.value|date:"d/m/Y"  }}" onblur="getAge(new Date(this.value));no_future('dob');" >
+      </div></div><span class="error_message">{{form.dob.errors}}</span>
+      <!-- onfocus="fmg_validate()" -->
+
+
+
+    <div class="form-group"> <b><strong style="color:red;">*</strong> {% trans "Gender" %}</b>
+    <select name="gender" id="gender" class="mandatory" >
+        {% if ge %}
+        <option value="{{ge}}" selected="selected">{{ge}}</option>
+        {% endif %}
+        <option value="" >---------</option>
+        <option value="Male" >Male </option>
+        <option value="Female" >Female</option>
+        <option value="Transgender" id="transgen">Transgender</option>
+      </select>
+    </div><span class="error_message">{{form.gender.errors}}</span>
+    <div class="form-group"> <b>{% trans "Blood Group" %}</b>
+      <select name="blood_group" id="blood_group" class="form-control">
+        {% if bg %}
+        <option value="{{bg}}">{{bg}}</option>
+        {% endif %}
+        <option value="" >---------</option>
+        <option value="A+">A+</option>
+        <option value="A1+">A1+</option>
+        <option value="A2+">A2+</option>
+        <option value="B+">B+</option>
+        <option value="A1B+">A1B+</option>
+        <option value="A2B+">A2B+</option>
+        <option value="AB+">AB+</option>
+        <option value="O+">O+</option>
+        <option value="A-">A-</option>
+        <option value="A1-">A1-</option>
+        <option value="A2-">A2-</option>
+        <option value="B-">B-</option>
+        <option value="A1B-">A1B-</option>
+        <option value="A2B-">A2B-</option>
+        <option value="AB-">AB-</option>
+        <option value="O-">O-</option>
+      </select></div><span class="error_message">{{form.blood_group.errors}}</span>
+
+
+      <div class="form-group"> <b>{% trans "Height" %} (in cm)</b><input type="text" class="form-control mandatory" value="{{form.height.value|default:""}}" id="height" name="height" onkeypress="return isNumber(event)" onblur="validate_height()" maxlength="3" /></div><span class="error_message">{{form.height.errors}}</span>
+
+    <div class="form-group"> <b>{% trans "Weight" %} (in kg)</b><input type="text" class="form-control mandatory" value="{{form.weight.value|default:""}}" id="weight" name="weight" onkeypress="return isNumber(event)" onblur="validate_weight()" maxlength="3" /></div><span class="error_message">{{form.weight.errors}}</span>
+
+    <div class="form-group"> <b><strong style="color:red;">*</strong> {% trans "Mother Tongue" %}</b>
+    <select id='mothertounge' name="mothertounge" class="mandatory" >
+    {% if mothrtongue %}
+        <option value="{{mothrtongue.id}}">{{mothrtongue.language_name}}</option>
+    {% endif %}
+    <option value="" >---------</option>
+      {% for lang in language_list %}
+        <option value="{{lang.id}}" >{{lang.language_name}}</option>
+      {% endfor %}
+     </select></div><span class="error_message">{{form.mothertounge.errors}}</span>
+
+     <div class="form-group"> <b><strong style="color:red;">*</strong> {% trans "School Admission No" %}</b><input type="text" class="form-control mandatory" value="{{form.school_admission_no.value|default_if_none:""}}" id="school_admission_no" name="school_admission_no" maxlength="15"   onmouseover="fmg_validate()" /></div><span class="error_message">{{form.school_admission_no.errors}}</span>
+     </fieldset>
+     <h3>Second Step</h3>
+    
+
+    <!-- <div class="form-group"> <b><strong style="color:red;">*</strong> {% trans "Class Studying" %}</b>
+      <select name="class_studying" id="class_studying" class="form-control">
+        {% if cls_studying %}
+        <option value="{{cls_studying.id}}">{{cls_studying}}</option>
+        {% endif %}
+        <option value="" >---------</option>
+        <option value="1">I</option>
+        <option value="2">II</option>
+      </select></div><span class="error_message">{{form.class_studying.errors}}</span> -->
+     <!--  <div class="form-group"> <b>{% trans "Class Studying" %}</b>{{ form.class_studying|add_class:"form-control" }}</div><span class="error_message">{{form.class_studying.errors}}</span> -->
+      <fieldset>
+
+        <div class="form-group" > <strong style="color:red;">*</strong>  <strong> {% trans "Class Studying" %} </strong></br></br>
+     <select id='class_studying' name="class_studying" class="mandatory" onchange="choose()" onblur="choose()" onfocus="choose()" >
+     {% if cls_studying %}
+        <option value="{{cls_studying.id}}">{{cls_studying.class_studying}}</option>
+    {% endif %}
+      <option value="" >---------</option>
+      {% for cls in class_studying_list %}
+        <option value="{{cls.id}}" >{{cls.class_studying}}</option>
+      {% endfor %}
+<!--       <option value="1">I</option>
+      <option value="2">II</option> -->
+     </select></div><span class="error_message">{{form.class_studying.errors}}</span>
+
+
+     <div class="form-group"> <b><strong style="color:red;">*</strong> {% trans "Section" %}</b>
+      <select name="class_section" id="class_section" class="mandatory">
+        {% if cls_section %}
+        <option value="{{cls_section}}">{{cls_section}}</option>
+        {% endif %}
+        <option value="" >---------</option>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+        <option value="E">E</option>
+        <option value="F">F</option>
+        <option value="G">G</option>
+        <option value="H">H</option>
+        <option value="I">I</option>
+        <option value="J">J</option>
+        <option value="K">K</option>
+        <option value="L">L</option>
+        <option value="M">M</option>
+        <option value="N">N</option>
+        <option value="O">O</option>
+        <option value="P">P</option>
+        <option value="Q">Q</option>
+        <option value="R">R</option>
+        <option value="S">S</option>
+        <option value="T">T</option>
+        <option value="U">U</option>
+        <option value="V">V</option>
+        <option value="W">W</option>
+        <option value="X">X</option>
+        <option value="Y">Y</option>
+        <option value="Z">Z</option>
+      </select></div><span class="error_message">{{form.class_section.errors}}</span>
+
+----------------------------------------------------------
+<!-- Child history of 10,11 --> 
+{% if user.account.get_user_info.management_id == 10 %}
+<div  id="stu_hist" class="form-group"><strong style="color:red;">*</strong>
+     <div class="form-group"  id="tbl"> <b>{% trans "Enter the subjects for each group displayed above:" %}</b>
+     <table class="table">
+        
+        <tbody>
+        <tr>
+          <td><div class="form-group"  id='cbse_group_code' onmouseover="cbse_choose();">  <strong style="color:red;">*</strong> <strong> {% trans "Compulsory Subject 1" %} </strong></br></br>
+
+            <select id='cbse_subject1' name="cbse_subject1" class="form-control" >
+            {% if cbse_subject1 %}
+            <option value="{{ cbse_subject1.id }}" selected >{{ cbse_subject1.group_code}}- {{ cbse_subject1.group_name }}</option>
+            {% endif %}
+            <option value="" >---------</option>
+            {% for gpcd in group_code_cbse %}
+
+            <option value="{{gpcd.id}}" >{{gpcd.group_code}}-{{gpcd.group_name}}</option>
+            {% endfor %}
+            </select></div><span class="error_message">{{form.group_code.errors}}</span></td>
+
+          <td><div class="form-group"  id='cbse_group_code' >  <strong style="color:red;">*</strong> <strong> {% trans "Compulsory Subject 2" %} </strong></br></br>
+
+            <select id='cbse_subject2' name="cbse_subject2" class="form-control" >
+            {% if cbse_subject2 %}
+            <option value="{{ cbse_subject2.id }}" selected >{{ cbse_subject2.group_code}}- {{ cbse_subject2.group_name }}</option>
+            {% endif %}
+            <option value="" >---------</option>
+            {% for gpcd in group_code_cbse %}
+
+            <option value="{{gpcd.id}}" >{{gpcd.group_code}}-{{gpcd.group_name}}</option>
+            {% endfor %}
+            </select></div></td>
+            <td><div class="form-group"  id='cbse_group_code' >  <strong style="color:red;">*</strong> <strong> {% trans "Compulsory Subject 3" %} </strong></br></br>
+
+            <select id='cbse_subject3' name="cbse_subject3" class="form-control" >
+            {% if cbse_subject3 %}
+            <option value="{{ cbse_subject3.id }}" selected >{{ cbse_subject3.group_code}}- {{ cbse_subject3.group_name }}</option>
+            {% endif %}
+            <option value="" >---------</option>
+            {% for gpcd in group_code_cbse %}
+
+            <option value="{{gpcd.id}}" >{{gpcd.group_code}}-{{gpcd.group_name}}</option>
+            {% endfor %}
+            </select></div><span class="error_message">{{form.group_code.errors}}</span></td>
+
+            <td><div class="form-group"  id='cbse_group_code' >  <strong style="color:red;">*</strong> <strong> {% trans "Compulsory Subject 4" %} </strong></br></br>
+
+            <select id='cbse_subject4' name="cbse_subject4" class="form-control" >
+            {% if cbse_subject4 %}
+            <option value="{{ gpcd.id }}" selected >{{ cbse_subject4.group_code}}- {{ cbse_subject4.group_name }}</option>
+            {% endif %}
+            <option value="" >---------</option>
+            {% for gpcd in group_code_cbse %}
+
+            <option value="{{gpcd.id}}" >{{gpcd.group_code}}-{{gpcd.group_name}}</option>
+            {% endfor %}
+            </select></div></td>
+            <td><div class="form-group"  id='cbse_group_code' >  <strong style="color:red;">*</strong> <strong> {% trans "Optional Subject" %} </strong></br></br>
+
+            <select id='cbse_opt_subject' name="cbse_opt_subject" class="form-control" >
+            {% if cbse_opt_subject %}
+            <option value="{{ cbse_opt_subject.id }}" selected >{{ cbse_opt_subject.group_code}}- {{ cbse_opt_subject.group_name }}</option>
+            {% endif %}
+            <option value="" >---------</option>
+            {% for gpcd in group_code_cbse %}
+
+            <option value="{{gpcd.id}}" >{{gpcd.group_code}}-{{gpcd.group_name}}</option>
+            {% endfor %}
+            </select></div><span class="error_message">{{form.group_code.errors}}</span></td>
+         
+
+        </tr>
+        
+        </tbody>
+    </table>
+    </div></div>
+
+
+
+{% else %}
+{% if form.class_studying.value == 12 %}
+<div  id="stu_hist" class="form-group"><strong style="color:red;">*</strong><b>{% trans "Category of School in which student studied in 10th and 11th std:" %}</b>   
+            
+
+                <table  class="table table-bordered table-striped2" border="2" align="center">
+                    <tr>
+                        <th style="width:10px;" >Sl. No</th>
+                        <th>Class</th>
+                        <th>Category of section</th>              
+                    </tr>
+
+                    <tr>
+                        <td>(1)</td>
+                        <td>10th Standard was studied in</td>
+                        <td>
+                        <select class="mandatory" name="schl_cat_10" id="schl_cat_10" class="form-control" >
+                        <option value=  >---------</option>
+                            <option {% if schl_cat_10 == 1  %} selected {% endif %} value=1 >Goverment</option>
+                            <option {% if schl_cat_10 == 2 %} selected {% endif %} value=2 >Aided section in Aided school</option>
+                            <option {% if schl_cat_10 == 3  %} selected {% endif %} value=3 >Unaided section in Aided school</option>
+                            <option {% if schl_cat_10 == 4  %} selected {% endif %} value=4 >Unaided School</option>
+                            </select>
+                        </td>                             
+                    </tr>
+
+                    <tr>
+                        <td>(2)</td>
+                        <td>11th Standard was studied in</td>
+                        <td>
+                            <select class="mandatory" name="schl_cat_12" id="schl_cat_12" class="form-control" >
+                            <option value=  >---------</option>
+                            <option {% if schl_cat_12 == 1  %} selected {% endif %} value=1 >Goverment</option>
+                            <option {% if schl_cat_12 == 2 %} selected {% endif %} value=2 >Aided section in Aided school</option>
+                            <option {% if schl_cat_12 == 3  %} selected {% endif %} value=3 >Unaided section in Aided school</option>
+                            <option {% if schl_cat_12 == 4  %} selected {% endif %} value=4 >Unaided School</option>
+                            </select>
+                        </td>                             
+                    </tr>
+                </table>                
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+    $('#class_studying').on('change', function() {
+
+      if ( this.value == '12' || this.value == '11')
+      {
+        $("#stu_hist").show();
+      }
+      else if (user.account.get_user_info.management_id == 10)
+      {
+        $("#stu_hist").hide();
+      }
+      else
+      {
+        $("#stu_hist").hide();
+      }
+    });
+});
+</script>
+
+{% else %}
+<div style='display:none;' id="stu_hist" class="form-group"><strong style="color:red;">*</strong><b>{% trans "Category of School in which student studied in 10th and 11th std:" %}</b>   
+            
+
+                <table  class="table table-bordered table-striped2" border="2" align="center">
+                    <tr>
+                        <th style="width:10px;" >Sl. No</th>
+                        <th>Class</th>
+                        <th>Category of section</th>              
+                    </tr>
+
+                    <tr>
+                        <td>(1)</td>
+                        <td>10th Standard was studied in  which section</td>
+                        <td>
+                        <select class="mandatory" name="schl_cat_10" id="schl_cat_10" class="form-control" >
+                            <option value= >---------</option>
+                            <option {% if schl_cat_12 == 1  %} selected {% endif %} value=1 >Goverment</option>
+                            <option {% if schl_cat_12 == 2 %} selected {% endif %} value=2 >Aided section in aided school</option>
+                            <option {% if schl_cat_12 == 1  %} selected {% endif %} value=3 >Unaided section in aided school</option>
+                            <option {% if schl_cat_12 == 4  %} selected {% endif %} value=4 >Unaided School</option>
+                            </select>
+                        </td>                             
+                    </tr>
+
+                    <tr>
+                        <td>(2)</td>
+                        <td>11th Standard was studied in  which section</td>
+                        <td>
+                            <select class="mandatory" name="schl_cat_12" id="schl_cat_12"  >
+                            <option value="" >---------</option>
+                            <option {% if schl_cat_12 == 1  %} selected {% endif %} value=1 >Goverment</option>
+                            <option {% if schl_cat_12 == 2 %} selected {% endif %} value=2 >Aided section in aided school</option>
+                            <option {% if schl_cat_12 == 3  %} selected {% endif %} value=3 >Unaided section in aided school</option>
+                            <option {% if schl_cat_12 == 4  %} selected {% endif %} value=4 >Unaided School</option>
+                            </select>
+                        </td>                             
+                    </tr>
+                </table>                
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+    $('#class_studying').on('change', function() {
+      if ( this.value == '12' || this.value == '11')
+      {
+        $("#stu_hist").show();
+      }
+      else
+      {
+        $("#stu_hist").hide();
+      }
+    });
+});
+</script>
+
+{% endif %}
+{% endif %}
+
+<!-- Child history of 10,11 -->
+
+
+
+-------------------------------------------------------------
+
+
+<!-- Child history of 10,11 -->
+
+    <div class="form-group"> <b><strong style="color:red;">*</strong> {% trans "Medium Of Instruction" %}</b>
+    <select id='education_medium' name="education_medium" class="mandatory" onclick = "check()">
+    {% if edu_medium %}
+        <option value="{{edu_medium.id}}">{{edu_medium.education_medium}}</option>
+    {% endif %}
+    <option value="" >---------</option>
+      {% for edu in education_medium_list %}
+        <option value="{{edu.id}}" >{{edu.education_medium}}</option>
+      {% endfor %}
+     </select></div><span class="error_message">{{form.education_medium.errors}}</span>
+-----------------------------------------------------------------------
+
+
+     <div class="form-group"  id='group_code1' >  <strong style="color:red;">*</strong> <strong> {% trans "Group Code" %} </strong></br></br>
+
+     <select id='group_code' name="group_code" class="form-control" >
+     {% if grp %}
+        <option value="{{ grp.id }}" selected >{{ grp.group_code}}- {{ grp.group_name }}</option>
+    {% endif %}
+    <option value="" >---------</option>
+      {% for gpcd in group_code_list %}
+
+        <option value="{{gpcd.id}}" >{{gpcd.group_code}}-{{gpcd.group_name}}</option>
+      {% endfor %}
+     </select></div><span class="error_message">{{form.group_code.errors}}</span>
+
+     <div class="form-group"  id="tbl"> <b>{% trans "Enter the medium for each group subject displayed above:" %}</b>
+     <table class="table">
+        
+        <tbody>
+        <tr>
+          <td><div class="form-group">{{ form.grpcode_language1|add_class:'form-control' }}</div>
+          <span class="error_message">{{form.grpcode_language1.errors}}</span></td>
+          <td><div class="form-group">{{ form.grpcode_language2|add_class:'form-control' }}</div>
+          <span class="error_message">{{form.grpcode_language2.errors}}</span></td>
+          <td><div class="form-group">{{ form.grpcode_language3|add_class:'form-control' }}</div>
+          <span class="error_message">{{form.grpcode_language3.errors}}</span></td>
+          <td><div class="form-group">{{ form.grpcode_language4|add_class:'form-control' }}</div>
+          <span class="error_message">{{form.grpcode_language4.errors}}</span></td>
+        </tr>
+        
+        </tbody>
+    </table>
+    </div>
+
+
+     <!-- first language option -->
+
+     
+     <div class="form-group" id="fl" onmouseover="choose();" onselect="choose();" onchange="choose();" onblur="choose()" onkeydown="choose();" onfocus="choose();"> <b><strong style="color:red;">*</strong> {% trans "First Language" %}</b>
+    <p>{{ form.first_language|add_class:'mandatory' }}</p>
+    </div><span class="error_message">{{form.first_language.errors}}</span>
+    
+     <!-- optional language -->
+    
+     <div class="form-group" id="ol"> <b> {% trans "Part IV Optional Language" %}</b>
+    {{ form.optional_language|add_class:'form-control' }}
+   </div><span class="error_message">{{form.optional_language.errors}}</span>
+
+
+   
+ <!--    <div class="form-group"> <b>{% trans "Group Code" %}</b>{{ form.group_code|add_class:"form-control" }}</div><span class="error_message">{{form.group_code.errors}}</span> -->
+ 
+    <div class="form-group"> <b><strong style="color:red;">*</strong> {% trans "Nationality" %}</b>
+    <select id='nationality' name="nationality" class="form-control"  onblur="nation(this.value)" onfocus="nation(this.value)" onchange="nation(this.value)">
+    {% if nationality_value %}
+        <option value="{{nationality_value.id}}">{{nationality_value.nationality}}</option>
+    {% endif %}
+    
+      {% for nat in nationality_list %}
+        <option value="{{nat.id}}" >{{nat.nationality}}</option>
+      {% endfor %}
+     </select></div><span class="error_message">{{form.nationality.errors}}</span>
+
+       <div class="form-group" id="state_div"> <strong style="color:red;">*</strong> <b>{% trans "State" %}</b>
+      <select name="state" id="state" class="form-control" onblur="stated(this.value)" onfocus="stated(this.value)" onchange="stated(this.value)">
+      
+      <option value="24">Tamil Nadu</option>
+       <option value="">---------</option>
+      {% for ste in state_list %}
+        <option value="{{ste.id}}">{{ste.state_name}}</option>
+        {% endfor %}
+      </select></div><span class="error_message">{{form.state.errors}}</span>
+
+      
+
+<div class="form-group" id="native_district_div"> <b>{% trans "Native District" %}</b>
+        <select name="native_district" id="native_district" class="form-control">
+              <option value="{{user.account.get_user_info.district.district_name}}">{{user.account.get_user_info.district.district_name}}</option>
+          {% for dist in district_list %}
+              <option value="{{dist.district_name}}" >{{dist.district_name}} </option>
+          {% endfor %}
+
+        </select>
+    </div><span class="error_message">{{form.native_district.errors}}</span>
+
+  
+
+<!-- 
+       <div class="form-group"> <b>{% trans "Country" %}</b>
+      <select name="country" id="country" class="form-control">
+        <option value="1">India</option>
+       <option value=""></option>
+      {% for contry in country_list %}
+        <option value="{{contry.id}}">{{contry.country_name}}</option>
+        {% endfor %}
+      </select></div><span class="error_message">{{form.country.errors}}</span> -->
+   
+    <div class="form-group"> 
+   <strong style="color:red;">*</strong>  <b>{% trans "No , Street" %}</b> <input type="text" class="mandatory" value="{{form.house_address.value}}" id="house_address" name="house_address"  />
+    <strong style="color:red;">*</strong> <b>{% trans "Area" %}</b> <input type="text" 
+    class="mandatory" value="{{form.street_name.value}}" id="street_name" name="street_name"  />
+    <strong style="color:red;">*</strong> <b>{% trans "City / Village" %}</b> <input type="text" class="mandatory" value="{{form.area_village.value}}" id="area_village" name="area_village"  />
+    <strong style="color:red;">*</strong> <b>{% trans "District" %}</b> <input type="text" class="mandatory" value="{{form.city_district.value}}" id="city_district" name="city_district"  />
+   </div>
+    
+
+
+
+
+    <span id="pin_status" style="color:red;" ></span>
+    <div class="form-group">  <strong style="color:red;">*</strong> <b>{% trans "Pincode" %}</b><input type="text" class="form-control mandatory" value="{{form.pin_code.value|default:""}}" id="pin_code" name="pin_code" onkeypress="return isNumber(event)" onfocus="pincode_validate(this.value)" onblur="pincode_validate(this.value)" onkeyup="pincode_validate(this.value)"  maxlength="6"/></div><span class="error_message">{{form.pin_code.errors}}</span>
+    <span id="mobile_status" style="color:red;" ></span>
+    <div class="form-group">  <strong style="color:red;">*</strong> <b>{% trans "Mobile Number" %}</b><input type="text" class="form-control mandatory" value="{{form.phone_number.value|default:""}}" id="phone_number" name="phone_number" onkeypress="return isNumber(event)" maxlength="10"  onkeyup="mobile_validate(this.value)" onblur="mobile_validate(this.value)" onchange="mobile_validate(this.value)"/></div><span class="error_message">{{form.phone_number.errors}}</span>
+    </fieldset>
+     <h3>Third Step</h3>
+     <fieldset>
+
+
+   <div class="form-group"> <strong style="color:red;">*</strong> <b>{% trans "Religion" %}</b>{{ form.religion|add_class:"mandatory" }}</div><span class="error_message">{{form.religion.errors}}</span>
+    
+
+  <div class="form-group"> <strong style="color:red;">*</strong> <b>{% trans "Community" %}</b>{{ form.community|add_class:"mandatory" }}</div><span class="error_message">{{form.community.errors}}</span>
+
+    
+    <div class="form-group"> <strong style="color:red;">*</strong> <b>{% trans "Sub Caste" %}</b>{{ form.subcaste|add_class:"mandatory" }}</div><span class="error_message">{{form.subcaste.errors}}</span>
+
+{% if form.community_certificate.value == "Yes" %}
+<div class="form-group" ng-init="community_certificate='No'"> <b>{% trans "Community Certificate obtained from Revenue Dept. (Not applicable for OC category and Others)" %}</b>
+    <select name="community_certificate" id="community_certificate" class="form-control" ng-model="community_certificate" onfocus="community_cert_avlbl(this.value)" onchange="community_cert_avlbl(this.value)" onblur="community_cert_avlbl(this.value)">
+      <option value="Yes" selected="selected" >Yes </option>
+      <option value="No" >No</option>
+      </select>
+ </div><span class="error_message">{{form.community_certificate.errors}}</span>
+    <div class="form-group" id="community_cert_no_div"  > <strong style="color:red;">*</strong> <b>{% trans "Community Certificate Number" %}</b>{{ form.community_certificate_no|add_class:"mandatory" }} </div><span class="error_message">{{form.community_certificate_no.errors}}</span>
+
+    <div class="form-group" id="community_cert_dt_div" > <strong style="color:red;">*</strong> <b>{% trans "Community Certificate Date" %}</b><input class="mandatory" name="community_certificate_date" id="community_certificate_date" type="text" data-mask="" data-inputmask="'alias': 'dd/mm/yyyy'" value="{{form.community_certificate_date.value|date:"d/m/Y"  }}"></div><span class="error_message">{{form.community_certificate_date.errors}}</span>
+ {% else %}
+    <div class="form-group" ng-init="community_certificate='No'"> <b>{% trans "Community Certificate obtained from Revenue Dept. (Not applicable for OC category)" %}</b>
+    <select name="community_certificate" id="community_certificate" class="form-control" ng-model="community_certificate" onfocus="community_cert_avlbl(this.value)" onchange="community_cert_avlbl(this.value)" onblur="community_cert_avlbl(this.value)">
+      <option value="Yes"  >Yes </option>
+      <option value="No" selected="selected">No</option>
+      </select>
+   </div><span class="error_message">{{form.community_certificate.errors}}</span>
+    <div class="form-group" id="community_cert_no_div" ng-show="community_certificate" > <strong style="color:red;">*</strong> <b>{% trans "Community Certificate Number" %}</b>{{ form.community_certificate_no|add_class:"mandatory" }} </div><span class="error_message">{{form.community_certificate_no.errors}}</span>
+
+    <div class="form-group" id="community_cert_dt_div" ng-show="community_certificate"> <strong style="color:red;">*</strong> <b>{% trans "Community Certificate Date" %}</b><input class="mandatory" name="community_certificate_date" id="community_certificate_date" type="text" data-mask="" data-inputmask="'alias': 'dd/mm/yyyy'" value="{{form.community_certificate_date.value|date:"d/m/Y"  }}"></div><span class="error_message">{{form.community_certificate_date.errors}}</span>
+
+{% endif %}
+
+
+
+    <div class="form-group"> <b>{% trans "Mother's Occupation" %}</b>
+      <select name="mother_occupation" id="mother_occupation" class="form-control" >
+        {% if mother_ocu %}
+        <option value="{{mother_ocu}}">{{mother_ocu}}</option>
+        {% endif %}
+        <option value="" >---------</option>
+        <option value="Govt" >Govt </option>
+        <option value="Private" >Private</option>
+        <option value="Self-employed" >Self-employed</option>
+        <option value="Daily wages" >Daily wages</option>
+        <option value="Un-employed" >Un-employed </option>
+        <option value="N/A" >N/A </option>
+      </select>
+    </div><span class="error_message">{{form.mother_occupation.errors}}</span> 
+
+    
+    <div class="form-group"> <b>{% trans "Father's Occupation" %}</b>
+      <select name="father_occupation" id="father_occupation" class="form-control" >
+         {% if father_ocu %}
+        <option value="{{father_ocu}}">{{father_ocu}}</option>
+        {% endif %}
+        <option value="" >---------</option>
+        <option value="Govt" >Govt </option>
+        <option value="Private" >Private</option>
+        <option value="Self-employed" >Self-employed</option>
+        <option value="Daily wages" >Daily wages</option>
+        <option value="Un-employed" >Un-employed </option>
+        <option value="N/A" >N/A </option>
+      </select>
+    </div><span class="error_message">{{form.father_occupation.errors}}</span> 
+    <div class="form-group" ><strong style="color:red;">*</strong> <b>{% trans "Parent's Annual Income" %}</b>
+      <select name="parent_income" id="parent_income" class="mandatory" onchange="bank_mandatory()" onblur="bank_mandatory()">
+      {% if parent_income %}
+        <option value="{{parent_income.id}}">{{parent_income.income}}</option>
+        {% endif %}
+       <option value="">---------</option>
+      {% for prt in parent_income_list %}
+        <option value="{{prt.id}}">{{prt.income}}</option>
+        {% endfor %}
+      </select></div><span class="error_message">{{form.parent_income.errors}}</span>
+
+    {% if  user.account.get_user_info.management_id  in aid_school_management_list %}   
+    <div class="form-group"> <b>{% trans "Whether student admitted in Aided Section (OR) Self-Finance Section (Applicable only for aided schools)" %}</b>
+
+      <select name="student_admitted_section" id="student_admitted_section" class="form-control mandatory" >
+      {% if stud_admitted_section %}
+        <option value="{{stud_admitted_section}}">{{stud_admitted_section}}</option>
+        {% endif %}
+        <option value="" >---------</option>
+        <option value="Govt Aid" > Govt. Aid </option>
+        <option value="Self Finance" >Self Finance</option>
+      </select>
+    </div><span class="error_message">{{form.student_admitted_section.errors}}</span> 
+    
+  {% endif %}
+
+{% if  user.account.get_user_info.management_id  in private_school_management_list %}
+{% if form.child_admitted_under_reservation.value == 'Yes' %}
+
+<div class="form-group" ng-init="child_admitted_under_reservation='No'"> <b>{% trans "Whether the child has been admitted under 25% reservation as per RTE (For non-minority un-aided schools only)" %}
+</b>
+
+<select name="child_admitted_under_reservation" id="child_admitted_under_reservation" class="form-control" ng-model="child_admitted_under_reservation" onchange="chld_admitd_undr(this.value)" onblur="chld_admitd_undr(this.value)" onfocus="chld_admitd_undr(this.value)">
+    <option value="Yes"  >Yes </option>
+    <option value="No">No</option>
+    </select>
+</div><span class="error_message">{{form.child_admitted_under_reservation.errors}}</span> 
+<strong style="color:red;"> Either Weaker Section or Disadvantaged group is Mandatory </strong>
+
+    <div class="form-group"  > <b>{% trans "Weaker Section" %}</b>
+      <select name="weaker_section" id="weaker_section" class="form-control" >
+      <option value="Yes"  >Yes </option>
+      <option value="No">No</option>
+      </select>
+    </div><span class="error_message">{{form.weaker_section.errors}}</span>
+
+    <div class="form-group" > <b>{% trans "(Income Certificate obtained from competent authority) Certificate Number" %}</b>{{ form.weaker_section_income_certificate_no|add_class:"form-control" }} </div><span class="error_message">{{form.weaker_section_income_certificate_no.errors}}</span>
+
+
+    <div class="form-group" > <b>{% trans "Disadvantaged Group" %}</b>
+      <select name="child_disadvantaged_group" id="child_disadvantaged_group" class="form-control" >
+      <option value="Yes"  >Yes </option>
+      <option value="No">No</option>
+      </select>
+    </div><span class="error_message">{{form.child_disadvantaged_group.errors}}</span>
+    <div class="form-group"  id="chld_disadvntgd_div">
+      <select id='disadvantaged_group' name="disadvantaged_group" class="form-control" >
+      {% if diffntly_abled %}
+        <option value="{{diffntly_abled}}">{{diffntly_abled}}</option>
+        {% endif %}
+      <option value="" >---------</option>
+      {% for dis in dis_advantaged_list %}
+          <option value="{{dis.dis_group_name}}" >{{dis.dis_group_name}}</option>
+      {% endfor %}
+      </select></div><span class="error_message">{{form.disadvantaged_group.errors}}</span>
+{% else %}
+<div class="form-group" ng-init="child_admitted_under_reservation='No'"> <b>{% trans "Whether the child has been admitted under 25% reservation as per RTE (For non-minority un-aided schools only)" %}
+</b>
+
+<select name="child_admitted_under_reservation" id="child_admitted_under_reservation" class="form-control" ng-model="child_admitted_under_reservation" onchange="chld_admitd_undr(this.value)" onblur="chld_admitd_undr(this.value)" onfocus="chld_admitd_undr(this.value)">
+    <option value="Yes"  >Yes </option>
+    <option value="No" selected="selected">No</option>
+    </select>
+</div><span class="error_message">{{form.child_admitted_under_reservation.errors}}</span> 
+<strong style="color:red;"> Either Weaker Section or Disadvantaged group is Mandatory </strong>
+
+    <div class="form-group" ng-show="child_admitted_under_reservation" ng-init="weaker_section='No'" id="chld_admitd_undr_resrvtn_weakr_sectn_div" > <b>{% trans "Weaker Section" %}</b>
+      <select name="weaker_section" id="weaker_section" class="form-control" ng-model="weaker_section" onchange="weaker(this.value)" onblur="weaker(this.value)" onfocus="weaker(this.value)">
+      <option value="Yes"  >Yes </option>
+      <option value="No" selected="selected">No</option>
+      </select>
+    </div><span class="error_message">{{form.weaker_section.errors}}</span>
+
+    <div class="form-group" ng-show="weaker_section" id="weaker_section_income_certificate_no_div"> <b>{% trans "(Income Certificate obtained from competent authority) Certificate Number" %}</b>{{ form.weaker_section_income_certificate_no|add_class:"form-control" }} </div><span class="error_message">{{form.weaker_section_income_certificate_no.errors}}</span>
+
+
+    <div class="form-group" ng-show="child_admitted_under_reservation" ng-init="child_disadvantaged_group='No'" id="chld_admitd_undr_resrvtn_disadvntge_grp_div" > <b>{% trans "Disadvantaged Group" %}</b>
+      <select name="child_disadvantaged_group" id="child_disadvantaged_group" class="form-control" ng-model="child_disadvantaged_group" onchange="chld_disadvntgd(this.value)" onblur="chld_disadvntgd(this.value)" onfocus="chld_disadvntgd(this.value)">
+      <option value="Yes"  >Yes </option>
+      <option value="No" selected="selected">No</option>
+      </select>
+    </div><span class="error_message">{{form.child_disadvantaged_group.errors}}</span>
+    <div class="form-group" ng-show="child_disadvantaged_group" id="chld_disadvntgd_div">
+      <select id='disadvantaged_group' name="disadvantaged_group" class="form-control" >
+      <option value="" >---------</option>
+      {% for dis in dis_advantaged_list %}
+          <option value="{{dis.dis_group_name}}" >{{dis.dis_group_name}}</option>
+      {% endfor %}
+      </select></div><span class="error_message">{{form.disadvantaged_group.errors}}</span>
+{% endif %}
+{% endif %}
+
+    {% if form.child_differently_abled.value == 'Yes' %} 
+    <div  class="form-group" ng-init="child_differently_abled='Yes'" > <strong style="color:red;">*</strong><b>{% trans "Whether Child Differently Abled" %}</b>
+      <select name="child_differently_abled"  class="form-control" ng-model="child_differently_abled" onchange="abled(this.value)" onblur="abled(this.value)" onfocus="abled(this.value)" onMouseOver="abled(this.value);">
+       <option value="No" >No</option>
+       <option value="Yes" selected="selected">Yes</option>
+       
+      </select>
+    </div><span class="error_message">{{form.child_differently_abled.errors}}</span>
+   <!--  <div class="form-group" ng-show="child_differently_abled" id="child_differently_abled_div"> <strong> Press Ctrl to select multiple values </strong></br></br> 
+           
+    <input type="text" class="form-control" value="{{differently_abled_list1}}" id="differently_abled_list1"  style="border: none;" name="differently_abled_list1" readonly />-->
+<div class="form-group" id="child_differently_abled_div"> <b>{% trans "Disablity Type" %} </b>
+     <select id='differently_abled' name="differently_abled" class="form-control" onBlur="exemptions(this.value);exemptions1(this.value);" onMouseOver="exemptions(this.value);exemptions1(this.value);" onFocus="exemptions(this.value);exemptions1(this.value);" onChange="exemptions(this.value);exemptions1(this.value);" >
+     {% if diffntly_abled %}
+        <option value="{{diffntly_abled}}">{{diffntly_abled}}</option>
+        {% endif %}
+    <option value="" >---------</option>
+      {% for diff in differently_abled_list %}
+        <option value="{{diff.da_name}}" >{{diff.da_name}}</option>
+      {% endfor %}
+     </select></div><span class="error_message">{{form.differently_abled.errors}}</span>
+
+<!-- differently abled national id card number -->
+    <div class="form-group"id="national_id_div"><strong style="color:red;">*</strong> <b>{% trans "National ID card no:" %}</b>
+    <input type="text" class="form-control" value="{{form.da_id_no.value|default:""}}" id="da_id_no" name="da_id_no"  />
+   </div><span class="error_message">{{form.bank_branch.errors}}</span>
+
+     <!-- exemptions list -->
+
+     {% if user.account.get_user_info.management_id == 10 %}
+
+     {% else %}
+<div class="form-group" id="sp" > <b> {% trans "Whether exemption required for science practical" %}</b>
+    {{ form.sci_practical|add_class:'form-control' }}
+    </div><span class="error_message">{{form.sci_practical.errors}}</span>
+
+    <div class="form-group" id="le" > <b> {% trans "Language exemption" %}</b>
+    {{ form.lang_exemption|add_class:'form-control' }}
+    </div><span class="error_message">{{form.lang_exemption.errors}}</span>
+
+    <div class="form-group" id="le1" > <b> {% trans "Language exemption" %}</b>
+    {{ form.lang_exemption1|add_class:'form-control' }}
+    </div><span class="error_message">{{form.lang_exemption1.errors}}</span>
+      {% endif %}   
+
+     {% else %}
+
+    <div  class="form-group" ng-init="child_differently_abled='No'" > <b>{% trans "Child Differently Abled" %}</b>
+      <select name="child_differently_abled"  class="form-control" ng-model="child_differently_abled" onchange="abled(this.value)" onblur="abled(this.value)" onfocus="abled(this.value)" onMouseOver="abled(this.value);">
+       
+       
+       <option value="No" selected="selected" >No</option>
+       <option value="Yes" >Yes</option>
+       
+      </select>
+    </div><span class="error_message">{{form.child_differently_abled.errors}}</span>
+
+    <div class="form-group"  id="child_differently_abled_div"> <b>{% trans "Disablity Type" %} </b>
+     <select id='differently_abled' name="differently_abled" class="form-control" onBlur="exemptions(this.value);exemptions1(this.value);" onFocus="exemptions(this.value);exemptions1(this.value);" onMouseOver="exemptions(this.value);exemptions1(this.value);" onChange="exemptions(this.value);exemptions1(this.value);" >
+    <option value="" >---------</option>
+
+      {% for diff in differently_abled_list %}
+        <option value="{{diff.da_name}}" >{{diff.da_name}}</option>
+      {% endfor %}
+     </select></div><span class="error_message">{{form.differently_abled.errors}}</span>
+
+     <!-- differently abled national id card number -->
+    <div class="form-group" id="national_id_div"><strong style="color:red;">*</strong> <b>{% trans "National ID card no:" %}</b>
+    <input type="text" class="form-control" value="{{form.da_id_no.value}}" id="da_id_no" name="da_id_no"  />
+   </div><span class="error_message">{{form.bank_branch.errors}}</span>
+
+{% if user.account.get_user_info.management_id == 10 %}     
+<!-- exemptions list -->
+    {% else %}
+<div class="form-group" id="sp" style="display:none;"> <b> {% trans "Whether exemption required for science practical" %}</b>
+    {{ form.sci_practical|add_class:'form-control' }}
+    </div><span class="error_message">{{form.sci_practical.errors}}</span>
+
+    <div class="form-group" id="le" style="display:none;"> <b> {% trans "Language exemption" %}</b>
+    {{ form.lang_exemption|add_class:'form-control' }}
+    </div><span class="error_message">{{form.lang_exemption.errors}}</span>
+
+    <div class="form-group" id="le1" style="display:none;"> <b> {% trans "Language exemption" %}</b>
+    {{ form.lang_exemption1|add_class:'form-control' }}
+    </div><span class="error_message">{{form.lang_exemption1.errors}}</span>
+{% endif %}   
+
+{% endif %}
+      
+ <!-- new bank chaining -->
+<div class="form-group" > <b> {% trans "District in which Bank is Located" %}</b>
+
+    {{ form.bank_dist|add_class:'form-control'}}
+</div><span class="error_message">{{form.bank_dist.errors}}</span>
+
+<div class="form-group" > <b> {% trans "Bank Name" %}</b>
+
+    {{ form.banknew|add_class:'form-control'|attr:'value:form.banknew.value' }}
+</div><span class="error_message">{{form.banknew.errors}}</span>
+
+<div class="form-group" > <b> {% trans "Bank Branch" %}</b>
+    {{ form.branchnew|add_class:'form-control'|attr:'value:form.branchnew.value' }}
+</div><span class="error_message">{{form.branchnew.errors}}</span>
+<!-- end of bank chaining -->
+
+
+
+
+
+   
+
+     
+
+   <div class="form-group"><strong style="color:red;">*</strong> <b>{% trans "Bank Account No" %}</b>
+    <input type="text" class="form-control" value="{{form.bank_account_no.value|default:""}}" id="bank_account_no" name="bank_account_no"  />
+
+   </div><span class="error_message">{{form.bank_account_no.errors}}</span>
+
+   
+
+</fieldset>
+     <h3>Fourth Step</h3>
+ <fieldset>
+{% if form.bus_pass.value == 'Yes' %}
+<div class="form-group" ng-init="bus_pass='Yes'"> <b>{% trans "Bus Pass" %}</b>
+    <select name="bus_pass" id="bus_pass" class="form-control" ng-model="bus_pass" onblur="bus(this.value)" onfocus="bus(this.value)" onchange="bus(this.value)">
+
+      <option value="Yes" selected="selected" >Yes </option>
+      <option value="No" >No</option>
+      </select></div><span class="error_message">{{form.bus_pass.errors}}</span>
+    <div class="form-group" ng-show="bus_pass" id="bus_div1" ><strong style="color:red;">Photo and Address are mandatory</strong> </div>
+    <div class="form-group" ng-show="bus_pass" id="bus_div2" > <b>{% trans "From" %}</b>{{ form.bus_from_route|add_class:"form-control" }} </div><span class="error_message">{{form.bus_from_route.errors}}</span>
+    <div class="form-group" ng-show="bus_pass" id="bus_div3"> <b>{% trans "To" %}</b>{{ form.bus_to_route|add_class:"form-control" }} </div><span class="error_message">{{form.bus_to_route.errors}}</span>
+    <div class="form-group" ng-show="bus_pass" id="bus_div4"> <b>{% trans "Route No" %}</b>{{ form.bus_route_no|add_class:"form-control" }} </div><span class="error_message">{{form.bus_route_no.errors}}</span>
+{% else %}
+
+
+<div class="form-group" ng-init="bus_pass='No'"> <b>{% trans "Bus Pass" %}</b>
+    <select name="bus_pass" id="bus_pass" class="form-control" ng-model="bus_pass" onblur="bus(this.value)" onfocus="bus(this.value)" onchange="bus(this.value)" >
+        
+      <option value="Yes"  >Yes </option>
+      <option value="No" selected="selected">No</option>
+      </select></div><span class="error_message">{{form.bus_pass.errors}}</span>
+    <div class="form-group" ng-show="bus_pass" id="bus_div1" ><strong style="color:red;">Photo and Address are mandatory</strong> </div>
+    <div class="form-group" ng-show="bus_pass" id="bus_div2" > <b>{% trans "From" %}</b>{{ form.bus_from_route|add_class:"form-control" }} </div><span class="error_message">{{form.bus_from_route.errors}}</span>
+    <div class="form-group" ng-show="bus_pass" id="bus_div3"> <b>{% trans "To" %}</b>{{ form.bus_to_route|add_class:"form-control" }} </div><span class="error_message">{{form.bus_to_route.errors}}</span>
+    <div class="form-group" ng-show="bus_pass" id="bus_div4"> <b>{% trans "Route No" %}</b>{{ form.bus_route_no|add_class:"form-control" }} </div><span class="error_message">{{form.bus_route_no.errors}}</span>
+    {% endif %}
+
+{% if  user.account.get_user_info.management_id  in govt_aid_school_management_list %}
+    <div  class="form-group" > <b><strong style="color:red;">*</strong> {% trans "Nutritious Meal Programme" %}</b>
+{% if cls_studying.id in onetoten and nutritious_meal_programme != "" %}
+<select name="nutritious_meal_flag" id="nutritious_meal_flag" class="form-control">
+        {% if nutritious_meal_programme %}
+        <option value="{{nutritious_meal_programme}}" >{{nutritious_meal_programme}}</option>
+        {% endif %}
+           <option value="No">No</option>
+           <option value="Yes" >Yes </option>
+           
+        </select>
+{% else %}
+        <select name="nutritious_meal_flag" id="nutritious_meal_flag" class="form-control" disabled>
+        {% if nutritious_meal_programme %}
+        <option value="{{nutritious_meal_programme}}" >{{nutritious_meal_programme}}</option>
+        {% endif %}
+           <option value="No">No</option>
+           <option value="Yes" >Yes </option>
+           
+        </select></div><span class="error_message">{{form.nutritious_meal_flag.errors}}</span>
+{% endif %}
+{% endif %} 
+<br>
+
+
+
+{% if form.sports_player.value == 'Yes'%}
+<div  class="form-group" ng-init="sports_player='Yes'" > <b>{% trans "Sports Player" %}</b>
+      <select name="sports_player" id="sports_player" class="form-control" ng-model="sports_player" onchange="sports(this.value)" onblur="sports(this.value)" onfocus="sports(this.value)">
+      <option value="No" >No</option>
+       <option value="Yes" selected="selected" >Yes </option>
+       
+      </select>
+    </div><span class="error_message">{{form.sports_player.errors}}</span>
+    {% else %}
+
+    <div  class="form-group" ng-init="sports_player='No'" > <b>{% trans "Sports Player" %}</b>
+      <select name="sports_player" id="sports_player" class="form-control" ng-model="sports_player" onchange="sports(this.value)" onblur="sports(this.value)" onfocus="sports(this.value)">
+       <option value="No" >No</option>
+       <option value="Yes" >Yes </option>
+      
+      </select>
+    </div><span class="error_message">{{form.sports_player.errors}}</span>
+{% endif %}
+    <div class="form-group" ng-show="sports_player" id="sport_level_div"> <b>{% trans "Sport Participation" %}</b>
+      <select name="sport_participation" id="sport_participation" class="form-control">
+        {% if sport_participation %}
+        <option value="{{sport_participation}}">{{sport_participation}}</option>
+        {% endif %}
+        <option value="" >---------</option>
+        <option value="Divisional Level">Divisional Level</option>
+        <option value="Block Level">Block Level</option>
+        <option value="District Level">District Level</option>
+        <option value="State Level">State Level</option>
+        <option value="National Level">National Level</option>
+        <option value="Not Applicable">International Level</option>
+      </select></div><span class="error_message">{{form.sport_participation.errors}}</span>
+    <div class="form-group" ng-show="sports_player" id="sport_name_div"> <b>{% trans "Sports Name" %}</b>
+        <select name="sports_name",id="sports_name" class="form-control">
+            {% if sports_name %}
+            <option value="{{sports_name}}">{{sports_name}}</option>
+            {% endif %}
+            <option value="" >---------</option>
+            <option value="Asana" >Asana</option>
+            <option value="Athletics" >Athletics</option>
+            <option value="Ball Badminton" >Ball Badminton</option>
+            <option value="Basket Ball" >Basket Ball</option>
+            <option value="Beach Volley Ball" >Beach Volley Ball</option>
+            <option value="Boxing" >Boxing</option>
+            <option value="Carrom" >Carrom</option>
+            <option value="Chess" >Chess</option>
+            <option value="Choik Wong Do " >Choik Wong Do </option>
+            <option value="Cricket" >Cricket</option>
+            <option value="Dodge Ball" >Dodge Ball</option>
+            <option value="Fencing" >Fencing</option>
+            <option value="Foot Ball" >Foot Ball</option>
+            <option value="Football Tennis " >Football Tennis </option>
+            <option value="Gymnastics" >Gymnastics</option>
+            <option value="Hand Ball" >Hand Ball</option>
+            <option value="Hockey" >Hockey</option>
+            <option value="Judo" >Judo</option>
+            <option value="Kabaddi" >Kabaddi</option>
+            <option value="Kho-Kho" >Kho-Kho</option>
+            <option value="Lawn Tennis" >Lawn Tennis</option>
+            <option value="Net Ball" >Net Ball</option>
+            <option value="Road Cycling" >Road Cycling</option>
+            <option value="Rope Skipping" >Rope Skipping</option>
+            <option value="Shuttle Badminton" >Shuttle Badminton</option>
+            <option value="Silambam" >Silambam</option>
+            <option value="Skating" >Skating</option>
+            <option value="Soft Tennis" >Soft Tennis</option>
+            <option value="Squash" >Squash</option>
+            <option value="Swimming" >Swimming</option>
+            <option value="Table Tennis" >Table Tennis</option>
+            <option value="Taekwondo" >Taekwondo</option>
+            <option value="Tennikoit" >Tennikoit</option>
+            <option value="Tennis Ball Cricket" >Tennis Ball Cricket</option>
+            <option value="Throw Ball" >Throw Ball</option>
+            <option value="Tug of War" >Tug of War</option>
+            <option value="Volley Ball" >Volley Ball</option>
+            <option value="Weight Lifting" >Weight Lifting</option>
+
+
+          </select></div><span class="error_message">{{form.sports_name.errors}}</span>
+
+{% if form.scholarship_from_other_source.value == 'Yes'%}
+<div class="form-group" ng-init="scholarship_from_other_source='No'"> <b>{% trans "Scholarship from other source" %}
+</b>
+<select name="scholarship_from_other_source" id="scho" class="form-control" ng-model="scholarship_from_other_source" onblur="sship(this.value)" onfocus="sship(this.value)" onchange="sship(this.value)">
+    <option value="Yes" selected="selected" >Yes </option>
+    <option value="No" >No</option>
+    </select>
+</div><span class="error_message">{{form.scholarship_from_other_source.errors}}</span>
+    <div class="form-group" id="sch" > <b>{% trans "Scholarship Details" %}</b>
+    <select name="scholarship_details" id="scholarship_details" class="form-control" >
+    {% if scholarship_dtls %}
+        <option value="{{scholarship_dtls}}">{{scholarship_dtls}}</option>
+    {% endif %}
+    <option value="" >---------</option>
+    <option value="NTSE-national talent search exam" >NTSE-national talent search exam</option>
+    <option value="RTSE- rural student talent search exam" >RTSE- rural student talent search exam</option>
+    <option value="NMMS- National means-cum merit scholarship" >NMMS- National means-cum merit scholarship</option>
+    <option value="Incentive to girls student by ADW" >Incentive to girls student by ADW</option>
+    <option value="Incentive to girls student by backward class welfare directorate" >Incentive to girls student by backward class welfare directorate</option>
+    <option value="BC/MBC and minorities welfare scholarship" >BC/MBC and minorities welfare scholarship</option>
+    <option value="Child of weaver" >Child of weaver</option>
+    <option value="Child of scavenger" >Child of scavenger</option>
+    <option value="Child of beedi worker" >Child of beedi worker</option>
+    <option value="CWSN" >CWSN</option>
+    <option value="Others" >Others</option>
+    </select>
+    </div><span class="error_message">{{form.scholarship_details.errors}}</span>
+
+    <div class="form-group" id="sch_others"> <b>{% trans "Scholarship Details (Others)" %}</b>{{ form.scholarship_other_details|add_class:"form-control" }} </div><span class="error_message">{{form.scholarship_other_details.errors}}</span>   
+{% else %}
+
+<div class="form-group" ng-init="scholarship_from_other_source='No'"> <b>{% trans "Scholarship from other source" %}
+</b>
+<select name="scholarship_from_other_source" id="scho" class="form-control" ng-model="scholarship_from_other_source" onblur="sship(this.value)" onfocus="sship(this.value)" onchange="sship(this.value)">
+    <option value="Yes"  >Yes </option>
+    <option value="No" selected="selected">No</option>
+    </select>
+</div><span class="error_message">{{form.scholarship_from_other_source.errors}}</span> 
+
+ <div class="form-group" ng-show="scholarship_from_other_source" ng-init="scholarship_details='No'" id="sch" > <b>{% trans "Scholarship Details" %}</b>
+    <select name="scholarship_details" id="scholarship_details" class="form-control" ng-model="scholarship_details" >
+    <option value="" >---------</option>
+    <option value="NTSE-national talent search exam" >NTSE-national talent search exam</option>
+    <option value="RTSE- rural student talent search exam" >RTSE- rural student talent search exam</option>
+    <option value="NMMS- National means-cum merit scholarship" >NMMS- National means-cum merit scholarship</option>
+    <option value="Incentive to girls student by ADW" >Incentive to girls student by ADW</option>
+    <option value="Incentive to girls student by backward class welfare directorate" >Incentive to girls student by backward class welfare directorate</option>
+    <option value="BC/MBC and minorities welfare scholarship" >BC/MBC and minorities welfare scholarship</option>
+    <option value="Child of weaver" >Child of weaver</option>
+    <option value="Child of scavenger" >Child of scavenger</option>
+    <option value="Child of beedi worker" >Child of beedi worker</option>
+    <option value="CWSN" >CWSN</option>
+    <option value="Others" >Others</option>
+    </select>
+    </div><span class="error_message">{{form.scholarship_details.errors}}</span>
+
+    <div class="form-group" ng-show="scholarship_details == 'Others'" id="sch_others"> <b>{% trans "Scholarship Details (Others)" %}</b>{{ form.scholarship_other_details|add_class:"form-control" }} </div><span class="error_message">{{form.scholarship_other_details.errors}}</span>
+{% endif %}
+{% if pk1 %}
+    <div class="form-group"> <b>{% trans "Student Status" %}</b>
+      <select name="child_status" id="child_status" class="form-control">
+        {% if st_status %}
+        <option value="{{st_status}}">{{st_status}}</option>
+        {% endif %}
+        <option value="">-----------</option>
+        <option value="Studying in formal school (Regular School)">Studying in formal school (Regular School)</option>
+        <option value="Enrolled under special training">Enrolled under special training</option>
+        <option value="Mainstreamed under special training">Mainstreamed under special training</option>
+      </select>
+    </div><span class="error_message">{{form.child_status.errors}}</span>
+
+
+ <div class="form-group"> <b>{% trans "Attendance Status" %}</b>
+      <select name="attendance_status" id="attendance_status" class="form-control">
+      {% if attndce_status %}
+        <option value="{{attndce_status}}">{{attndce_status}}</option>
+        {% endif %}
+      <option value="">-----------</option>
+        <option value="Regular Present">Regular Present</option>
+        <option value="Long Absent">Long Absent</option>
+        <option value="Not Applicable">Not Applicable</option>
+      </select>
+    </div><span class="error_message">{{form.attendance_status.errors}}</span>
+
+{% endif %}
+
+
+{% if form.aadhaar_id.value == "Yes" %}
+<div class="form-group" ng-init="aadhaar_id='No'"> <b>{% trans "Aadhaar ID" %}</b>
+    <select name="aadhaar_id" id="aadhaar_id" class="mandatory" ng-model="aadhaar_id" onchange="aadhaar(this.value)" onfocus="aadhaar(this.value)" onblur="aadhaar(this.value)">
+      <option value="Yes" selected="selected" >Yes </option>
+      <option value="No" >No</option>
+      </select></div><span class="error_message">{{form.aadhaar_id.errors}}</span>
+<div class="form-group" >
+      <span  style="color:red;" id="aadhaar_status"></span><br> <b>{% trans "Aadhaar Uid Number" %}</b><input type="text" value="{{form.aadhaar_uid_number.value|default:'' }}" name="aadhaar_uid_number" class="form-control mandatory" onkeyup="validate_aadhaar(this.value)" onblur="validate_aadhaar(this.value)" maxlength="12" onfocus="validate_aadhaar(this.value)" onkeypress="return isNumber(event)" /></div><span class="error_message">{{form.aadhaar_uid_number.errors}}</span>
+{% else %}
+    <div class="form-group" ng-init="aadhaar_id='No'"> <b>{% trans "Aadhaar ID" %}</b>
+    <select name="aadhaar_id" id="aadhaar_id" class="mandatory" ng-model="aadhaar_id" onchange="aadhaar(this.value)" onfocus="aadhaar(this.value)" onblur="aadhaar(this.value)">
+      <option value="Yes"  >Yes </option>
+      <option value="No" selected="selected">No</option>
+      </select></div><span class="error_message">{{form.aadhaar_id.errors}}</span>
+<div class="form-group" ng-show="aadhaar_id" id="aadhaar_no">
+      <span  style="color:red;" id="aadhaar_status"></span><br> <b>{% trans "Aadhaar Uid Number" %}</b><input type="text" value="{{form.aadhaar_uid_number.value|default:'' }}" name="aadhaar_uid_number" class="form-control mandatory" onkeyup="validate_aadhaar(this.value)" onblur="validate_aadhaar(this.value)" maxlength="12" onfocus="validate_aadhaar(this.value)" onkeypress="return isNumber(event)" /></div><span class="error_message">{{form.aadhaar_uid_number.errors}}</span>
+
+{% endif %}
+
+
+
+          <br>
+
+     <div id="familydetails" class="form-group">
+    <label for="fmdetailTable"><strong></span> Siblings Details: <br /></strong></label>
+    
+    <table id="fmdetailTable" >
+        <tr>
+            <th></th>
+            <th><span style="color:red;" id="addMore" class="glyphicon glyphicon-plus"></span></th>
+            <th style="text-align:center; width:30%">{% trans "Name" %}</th>
+            <th style="text-align:center;">{% trans "Relationship" %}</th>
+            <th style="text-align:center;">{% trans "Age" %}</th>
+            <th style="text-align:center;">{% trans "Sibling Status" %}</th>
+            <th style="text-align:center;">{% trans "Studying" %}</th>
+            <th style="text-align:center;">{% trans "Studying in Same School" %}</th>
+           
+        </tr>
+
+        <!-- new fmdetail rows -->
+
+
+
+        {% for fm in fmdetail %}
+
+        <tr >
+            
+               <td><span class='glyphicon glyphicon-remove remove'></span></td>
+            
+            <td>
+                <input type="hidden" value="{{forloop.counter}}" name="fmdetail_no" class="form-control">
+            </td>
+            <td width="50%">
+                <input type="text" value="{{fm.sibling_name}}" name="sibling_name"  class="form-control">
+            </td>
+            <td>
+                <select name="sibling_relationship" class="form-control" id="sibling_relationship">
+                  {% if fm.sibling_relationship %}
+                     <option value="{{fm.sibling_relationship}}">{{fm.sibling_relationship}}</option>
+
+                  {% endif %}
+                    <option value="Brother">Brother</option>
+                    <option value="Sister">Sister</option>
+                    <option value="Others">Others</option>
+                </select>
+                
+            </td>
+            <td>
+            <select name="sibling_age" id="sibling_age" class="form-control">
+                {% if fm.sibling_age %}
+                <option value="{{fm.sibling_age}}">{{fm.sibling_age}}</option>
+                {% endif %}
+
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+                <option value="32">32</option>
+                <option value="33">33</option>
+                <option value="34">34</option>
+                <option value="35">35</option>
+                <option value="36">36</option>
+                <option value="37">37</option>
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                
+            </select>
+
+<!--              <input type="text" value="{{fm.sibling_age}}" name="sibling_age" class="form-control">
+ -->            </td>
+            <td>
+            <select name="sibling_status" id="sibling_status" class="form-control">
+                {% if fm.sibling_status %}
+                <option value = "{{fm.sibling_status}}">{{fm.sibling_status}}</option>
+                {% endif %}
+                <option value="Student">Student</option>
+                <option value="Employed">Employed</option>
+                <option value="Un-Employed">Un-Employed</option>
+                <option value="Not going to school">Not going to school</option>
+
+            </select>
+
+
+            </td>
+            <td>
+                <input type="text" value="{{fm.sibling_studying}}" name="sibling_studying" class="form-control" >
+            </td>
+            <td>
+                <select name="sibling_studying_same_school" class="form-control" id="sibling_studying_same_school">
+
+                    
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                            
+                        </select>
+
+            </td>
+        </tr> 
+        {% endfor %}
+        <!-- end of new fmdetail rows -->
+
+        
+        
+        
+        </table>
+        </div>     
+ </fieldset>
+  </form>
+  </div>
+  </div>
+</div>
+{% endblock %}
+<!--     </table><br>
+<button class='btn btn-large btn-success' type='submit' onclick="this.disabled=true,this.form.submit(); type='submit'">  -->
+<!-- {% if pk1 %}
+            {% trans "Update" %}
+          {% else %}
+            {% trans "Submit" %}
+          {% endif %} -->
+        <!-- </button>
+ -->

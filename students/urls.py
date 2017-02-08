@@ -133,6 +133,17 @@ urlpatterns = patterns('',
         view=login_required(Child_detailDownloadProfileView.as_view()),
         name='students_child_detail_download_profile'
     ),
+    url(
+        regex=r'^child_detail/child_pdfview/(?P<pk>\d+?)/$',
+        view=login_required(child_pdfview.as_view()),
+        name='students_child_detail_child_pdfview'
+    ),
+    url(  
+        regex=r'^classwise_pdfview/(?P<pk>\d+?)/$',
+        view=login_required(classwise_pdfview.as_view()),
+        name='classwise_pdfview'
+    ),
+    
 )
 
 

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Profile</title>
+</head>
+<style type="text/css">
+            @page {
+                size: {{ pagesize }};
+                margin: 1cm;
+                @frame footer {
+                    -pdf-frame-content: footerContent;
+                    bottom: 0cm;
+                    margin-left: 9cm;
+                    margin-right: 9cm;
+                    height: 1cm;
+                }
+            }
+        </style>
+
+<body>
+
+ {% csrf_token %} 
+<h1 align="center" style="font-size:15px;">Student Profile</h1>
+<h2><font color='blue' align='left'>Name : {{student.name |upper }}</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font align='right' color='blue'>Student-ID : {{ student.unique_id_no}}</font></h2>
+<table class='table table-bordered table-striped1' border="1" align="center">
+  <tr><th style="width:750px;border:0px;padding-top:3px;padding-bottom:2px;">Basic Information</th>
+      <th style="width:1000px;border:0px;"></th></tr>
+      <tr>
+        <td valign="TOP">
+        <table>
+          <tr>
+            <tr> <td style="width:230px">
+            <div style="margin-left:100px;margin-top:30px;margin-bottom:30px">
+                {% if student.photo %}
+                <img src="{{MEDIA_URL}}/{{student.photograph}}" width="150" height="150" />
+                {%else%}
+                <img src="{{STATIC_URL}}img/student.png" width="150" height="150"/>
+                {%endif%}
+            <span ></span>
+            </div>
+        </td></tr> </table></td>
+
+                <td valign="TOP">
+<table style="margin-left:10px;">
+        <tr> <td style="border:0px;padding-top:3px;" > Name </td>
+        <td style="width:0px"> : </td> 
+        <td style="border:0px;padding-top:3px;" >{{ student.name }} </td> </tr>
+        <tr> <td style="border:0px;padding-top:3px;" > Name (Tamil) </td><td> : </td> <td style="border:0px;padding-top:3px;" >{% if student.name_tamil %}  {{ student.name_tamil }}  {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>
+        <tr><td style="border:0px;padding-top:3px;" > UID </td><td> : </td> <td style="border:0px;" >{{ student.unique_id_no }} </td> </tr>
+        <tr> <td style="border:0px;padding-top:3px;" > Class</td><td > : </td> <td style="border:0px;padding-top:3px;" >{{ student.class_studying }} </td> </tr>
+        <tr> <td style="border:0px;padding-top:3px;" > Section</td><td > : </td> <td style="border:0px;padding-top:3px;" > {% if student.class_section %} {{ student.class_section }}  {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
+        <tr> <td style="border:0px;padding-top:3px;" > School Name </td><td> : </td> <td style="border:0px;padding-top:3px;" >{{ student.school.school_name }} </td> </tr>
+        <tr> <td style="border:0px;padding-top:3px;" > Native District </td><td> : </td> <td style="border:0px;padding-top:3px;" >{{ student.native_district }} </td> </tr></table></td></tr></table>
+</br>
+
+<table class='table table-bordered table-striped1' border="1" align="center">
+  <tr><th style="width:750px;border:0px;padding-top:3px;padding-bottom:2px;">School Information</th>
+      <th style="width:750px;border:0px;padding-top:3px;padding-bottom:2px;">Personal Information</th></tr>
+      <tr>
+        <td valign="TOP">
+        <table style="margin-left:10px">
+            <tr> <td style="border:0px;padding-top:3px;" > School Code </td><td style="width:0px" > : </td> <td style="border:0px;padding-top:3px;" >{{ student.school.school_code }} </td> </tr>
+            <tr> <td style="border:0px;padding-top:3px;" > School </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{{ student.school.school_name }} </td> </tr>
+            <tr> <td style="border:0px;padding-top:3px;" >  School Admission No </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" > {% if student.school_admission_no %} {{ student.school_admission_no }}  {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>
+            <tr> <td style="border:0px;padding-top:3px;" > District </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{{ student.district }} </td> </tr>
+            <tr> <td style="border:0px;padding-top:3px;" > Block </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{{ student.block.block_name }} </td> </tr>
+            <tr> <td style="border:0px;padding-top:3px;" > Zone </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{{user.account.get_user_info.habitation.zone.zone_type}}</td> </tr>
+            <tr> <td style="border:0px;padding-top:3px;" > Zone Name </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{{user.account.get_user_info.habitation.zone.name}}</td> </tr>
+            <tr> <td style="border:0px;padding-top:3px;" > Habitation </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{{user.account.get_user_info.habitation.name}} </td> </tr> </table></td>
+
+                <td valign="TOP">
+
+
+
+<table style="margin-left:10px"><tr> <td style="border:0px;padding-top:5px;" > Gender </td><td style="width:0px" > : </td> <td style="border:0px;" >{{ student.gender }} </td> </tr>
+            <tr> <td style="border:0px;padding-top:3px;" > Date Of Birth </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{{ student.dob }} </td> </tr>
+            <tr> <td style="border:0px;padding-top:3px;" > Blood Group </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" > {% if student.blood_group %}  {{ student.blood_group }}  {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
+            <tr> <td style="border:0px;padding-top:3px;" > Height </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" > {% if student.height %} {{ student.height }} cm  {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>
+            <tr> <td style="border:0px;padding-top:3px;" > Weight </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" > {% if student.weight %} {{ student.weight }} kg  {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>
+            
+            <tr> <td style="border:0px;padding-top:3px;" > Mother's Name </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.mother_name %} {{ student.mother_name }} {% else %}&nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>
+            <tr> <td style="border:0px;padding-top:3px;" > Father's Name </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.father_name %} {{ student.father_name }} {% else %}&nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
+            <tr> <td style="border:0px;padding-top:3px;" > Mother Tongue </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" > {% if student.mothertounge.language_name %} {{ student.mothertounge.language_name }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>
+            <tr> <td style="border:0px;padding-top:3px;" > Community </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.community %} {{ student.community }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>
+            <tr> <td style="border:0px;padding-top:3px;" > Community Certificate obtained from Revenue Dept.</td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.community_certificate %} {{ student.community_certificate }} {% else %} &nbsp;&nbsp;&nbsp; No {% endif %} </td> </tr>
+            {% if student.community_certificate_no %}
+            <tr> <td style="border:0px;padding-top:3px;" > Community Certificate No</td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.community_certificate_no %} {{ student.community_certificate_no }} {% else %} &nbsp;&nbsp;&nbsp; - {% endif %} </td> </tr>
+
+            <tr> <td style="border:0px;padding-top:3px;" > Community Certificate Date</td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.community_certificate_date %} {{ student.community_certificate_date }} {% else %} &nbsp;&nbsp;&nbsp; - {% endif %} </td> </tr>{% endif %}
+            <tr> <td style="border:0px;padding-top:3px;" > Sub Caste </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.subcaste.caste_name %} {{ student.subcaste.caste_name }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>
+            <tr> <td style="border:0px;padding-top:3px;" > Religion </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.religion %} {{ student.religion }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>
+            {% if student.child_differently_abled %}
+            <tr> <td style="border:0px;padding-top:3px;" > Child Differently Abled </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.child_differently_abled %} {{ student.child_differently_abled }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>
+            {% if differently_abled_list %} 
+            <tr> <td style="border:0px;padding-top:3px;" > Differently Abled </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if differently_abled_list %} {{ differently_abled_list }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}</td> </tr>{% endif %}{% endif %}
+            
+            <tr> <td style="border:0px;padding-top:3px;" > Child Disadvantaged Group </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.child_disadvantaged_group %}  {{ student.child_disadvantaged_group }}  {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>
+            {% if disadvantaged_group_list %}
+            <tr> <td style="border:0px;padding-top:3px;" > Disadvantaged Group </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if disadvantaged_group_list %} {{ disadvantaged_group_list }}  {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}</td> </tr>{% endif %}
+            {% if student.child_status %}
+            <tr> <td style="border:0px;padding-top:3px;" > Student Status </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.child_status %} {{ student.child_status }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>{% endif %}
+            <tr> <td style="border:0px;padding-top:3px;" > Nationality </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.nationality %} {{ student.nationality }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>
+            <tr> <td style="border:0px;padding-top:3px;" > House Address </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.house_address %} {{ student.house_address }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>
+            {% if student.street_name %}
+            <tr> <td style="border:0px;padding-top:3px;" >  </td><td style="border:0px;padding-top:3px;" >  </td> <td style="border:0px;padding-top:3px;" >{% if student.street_name %} {{ student.street_name }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>{% endif %} 
+            {% if student.area_village %}
+            <tr> <td style="border:0px;padding-top:3px;" >  </td><td style="border:0px;padding-top:3px;" >  </td> <td style="border:0px;padding-top:3px;" >{% if student.area_village %} {{ student.area_village }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>{% endif %} 
+            {% if student.city_district %}
+            <tr> <td style="border:0px;padding-top:3px;" >  </td><td style="border:0px;padding-top:3px;" >  </td> <td style="border:0px;padding-top:3px;" >{% if student.city_district %} {{ student.city_district }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>{% endif %} 
+            {% if student.pin_code %}
+            <tr> <td style="border:0px;padding-top:3px;" > Pin Code </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.pin_code %} {{ student.pin_code }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>{% endif %} 
+            {% if student.phone_number %}
+            <tr> <td style="border:0px;padding-top:3px;" > Phone Number </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.phone_number %} {{ student.phone_number }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %} </td> </tr>{% endif %} 
+            </table></td></tr></table>
+<br>          
+<table class='table table-bordered table-striped1' border="1" align="center">
+  <tr><th style="width:750px;border:0px;padding-top:3px;padding-bottom:2px;">Enrollment Information</th>
+      <th style="width:750px;border:0px;padding-top:3px;padding-bottom:2px;">Additional Information</th></tr>
+      <tr>
+        <td valign="TOP">
+        <table style="margin-left:10px">
+
+        <table style="margin-left:10px"><tr> <td style="border:0px;padding-top:3px;" > Academic Year </td><td style="width:0px"> : </td> <td style="border:0px;" >{{ student.academic_year }} </td> </tr>
+
+            <tr> <td style="border:0px;padding-top:3px;" > Group Code </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.group_code.group_name %} {{ student.group_code.group_name }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
+            <tr> <td style="border:0px;padding-top:3px;" > Medium of Education </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.education_medium %} {{ student.education_medium }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
+            <tr> <td style="border:0px;padding-top:3px;" > Attendance Status </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.attendance_status %} {{ student.attendance_status }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
+            <tr> <td style="border:0px;padding-top:3px;" > Sports Player </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.sports_player %} {{ student.sports_player }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
+            {% if student.sports_player == 'Yes'%}
+            <tr> <td style="border:0px;padding-top:3px;" > Sports Participation </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.sport_participation %} {{ student.sport_participation }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
+            <tr> <td style="border:0px;padding-top:3px;" > Sports Name </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.sports_name %} {{ student.sports_name }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
+            {% endif %}
+            <tr> <td style="border:0px;padding-top:3px;" > Govt Schemes </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.govt_schemes_status %} {{ student.govt_schemes_status }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
+            
+            <tr> <td style="border:0px;padding-top:3px;" > Schemes </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >
+            {% if schemes %}{{schemes}} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
+          
+            <tr> <td style="border:0px;padding-top:3px;" > Transfer Date </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.transfer_date %} {{ student.transfer_date }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr></table></td>
+
+        <td valign="TOP">
+        <table style="margin-left:10px">
+            <tr> <td style="border:0px;padding-top:3px;" > Nutritious Meal Programme </td><td style="border:0px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.nutritious_meal_programme %} {{ nutritious_meal_programme }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}   </td> </tr>
+            {% if student.bank %}
+            <tr> <td style="border:0px;" > Bank </td><td style="border:0px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.bank %} {{ student.bank }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}   </td> </tr>
+            <tr> <td style="border:0px;padding-top:3px;" > Bank Account No </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.bank_account_no %} {{ student.bank_account_no }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}   </td> </tr>
+            <tr> <td style="border:0px;padding-top:3px;" > Bank IFSC Code </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.bank_ifsc_code %} {{ student.bank_ifsc_code }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}   </td> </tr>
+            {% endif %}
+
+            <tr> <td style="border:0px;padding-top:3px;" > Laptop Issued </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.laptop_issued %} {{ student.laptop_issued }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}   </td> </tr>
+            {% if student.laptop_issued == 'Yes' %} 
+            <tr> <td style="border:0px;padding-top:3px;" > Laptop Sl.No. </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.laptop_slno %} {{ student.laptop_slno }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}   </td> </tr>{% endif %}
+            {% if student.aadhaar_uid_number %}
+            <tr> <td style="border:0px;padding-top:3px;" > Aadhaar Uid Number </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" > {% if student.aadhaar_uid_number %} {{ student.aadhaar_uid_number }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}    </td> </tr>{% endif %}
+        
+            <tr> <td style="border:0px;padding-top:3px;" > Bus Pass </td><td style="border:0px;padding-top:3px;" > : </td>  <td style="border:0px;padding-top:3px;" > {% if student.bus_pass %} {{ student.bus_pass }} {% else %} &nbsp;&nbsp;&nbsp; - {% endif %}</td> </tr>
+            {% if student.bus_pass == 'Yes' %}
+            <tr> <td style="border:0px;padding-top:3px;" > Bus Pass From </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.bus_from_route %} {{ student.bus_from_route}} {% else %} &nbsp;&nbsp;&nbsp; - {% endif %}</td> </tr>
+            <tr> <td style="border:0px;padding-top:3px;" > Bus Pass To </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.bus_to_route %} {{ student.bus_to_route }} {% else %} &nbsp;&nbsp;&nbsp; - {% endif %}</td> </tr>
+            <tr> <td style="border:0px;padding-top:3px;" > Bus Route No </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.bus_route_no %} {{ student.bus_route_no }} {% else %} &nbsp;&nbsp;&nbsp; - {% endif %}</td> </tr>
+            {% endif %}</table></tr></table></br>
+
+
+        <div id="footerContent">
+            {%block page_foot%}
+                Page <pdf:pagenumber>
+            {%endblock%}
+        </div>
+
+</body>
+</html>
