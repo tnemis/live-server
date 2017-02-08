@@ -379,6 +379,16 @@ class Group_code(models.Model):
     def __unicode__(self):
         return u'%s %s %s' % (self.group_code, self.group_name, self.group_description)
 
+
+class Group_code_cbse(models.Model):
+    group_code = models.PositiveIntegerField()
+    group_name = models.CharField(max_length=100)
+    
+
+    def __unicode__(self):
+        return u'%s %s' % (self.group_code, self.group_name)
+
+
 """
 Model for Education Medium
 """
