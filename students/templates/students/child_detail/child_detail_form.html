@@ -1482,7 +1482,7 @@ function no_future(dob_id){
             <i class="fa fa-calendar"></i>
         </div>
         
-        <input class="form-control mandatory" name="dob" id="dob" type="text" data-mask="" data-inputmask="'alias': 'dd/mm/yyyy'" value="{{form.dob.value|date:"d/m/Y"  }}" onblur="getAge(new Date(this.value));no_future('dob');" >
+        <input class="form-control mandatory" name="dob" id="dob" type="text" data-mask="" data-inputmask="'alias': 'dd/mm/yyyy'" value="{{form.dob.value|date:"d/m/Y"  }}" onblur="getAge(new Date(this.value));no_future('dob');" onfocus="fmg_validate()" >
       </div></div><span class="error_message">{{form.dob.errors}}</span>
       <!-- onfocus="fmg_validate()" -->
 
@@ -1773,7 +1773,15 @@ function no_future(dob_id){
 
      <div class="form-group"  id='group_code1' >  <strong style="color:red;">*</strong> <strong> {% trans "Group Code" %} </strong></br></br>
 
-     <select id='group_code' name="group_code" class="form-control" >
+
+
+     <select id='group_code' name="group_code" class="mandatory form-control "   >
+
+
+
+
+
+     
      {% if grp %}
         <option value="{{ grp.id }}" selected >{{ grp.group_code}}- {{ grp.group_name }}</option>
     {% endif %}
@@ -1789,13 +1797,13 @@ function no_future(dob_id){
         
         <tbody>
         <tr>
-          <td><div class="form-group">{{ form.grpcode_language1|add_class:'form-control' }}</div>
+          <td><div class="form-group">{{ form.grpcode_language1|add_class:'mandatory form-control' }}</div>
           <span class="error_message">{{form.grpcode_language1.errors}}</span></td>
-          <td><div class="form-group">{{ form.grpcode_language2|add_class:'form-control' }}</div>
+          <td><div class="form-group">{{ form.grpcode_language2|add_class:'mandatory form-control' }}</div>
           <span class="error_message">{{form.grpcode_language2.errors}}</span></td>
-          <td><div class="form-group">{{ form.grpcode_language3|add_class:'form-control' }}</div>
+          <td><div class="form-group">{{ form.grpcode_language3|add_class:'mandatory form-control' }}</div>
           <span class="error_message">{{form.grpcode_language3.errors}}</span></td>
-          <td><div class="form-group">{{ form.grpcode_language4|add_class:'form-control' }}</div>
+          <td><div class="form-group">{{ form.grpcode_language4|add_class:'mandatory form-control' }}</div>
           <span class="error_message">{{form.grpcode_language4.errors}}</span></td>
         </tr>
         
