@@ -145,8 +145,17 @@
             },
             onFinishing: function (event, currentIndex)
             {   
-                $("#form-3").validate().settings.ignore = ":disabled,:hidden";
-                return $("#form-3").valid();
+                // Restricting saving details with Invalid Aadhaar Number
+                if ($("#aadhaar_check").val() == "no")
+                    {    
+                        
+                        alert("Cant save Invalid Aadhaar Number !!!");
+                        return false;
+                    }
+                    else{
+                        $("#form-3").validate().settings.ignore = ":disabled,:hidden";
+                        return $("#form-3").valid();
+                    }
             },
             onFinished: function (event, currentIndex)
             {
@@ -923,6 +932,7 @@ function aadhaar(flag)
         
     } else {
         document.getElementById('aadhaar_no').style.display = "none";
+        document.getElementById('aadhaar_check').value = "";
     }
 }
 
@@ -950,10 +960,12 @@ function validate_aadhaar(aadhaar)
     if ((strVal.length == 12) && (strVal.verhoeffCheck() == true))
     {
         obj.innerHTML = "Aadhaar number is valid.";
+        document.getElementById('aadhaar_check').value = 'ok';
 
     }
     else if ((strVal.length < 12) || (strVal.verhoeffCheck() == false) || strVal == '999999999999' || strVal == '000000000000'){
         obj.innerHTML = "Aadhaar number is not valid.";
+        document.getElementById('aadhaar_check').value = 'no';
         obj.value = '';
         obj.focus();
 
@@ -961,6 +973,7 @@ function validate_aadhaar(aadhaar)
     else
     {
         obj.innerHTML = "Aadhaar number is not valid.";
+        document.getElementById('aadhaar_check').value = 'no';
         obj.value = '';
         obj.focus();
     }
@@ -2419,6 +2432,9 @@ function no_future(dob_id){
       <span  style="color:red;" id="aadhaar_status"></span><br> <b>{% trans "Aadhaar Uid Number" %}</b><input type="text" value="{{form.aadhaar_uid_number.value|default:'' }}" name="aadhaar_uid_number" class="form-control mandatory" onkeyup="validate_aadhaar(this.value)" onblur="validate_aadhaar(this.value)" maxlength="12" onfocus="validate_aadhaar(this.value)" onkeypress="return isNumber(event)" /></div><span class="error_message">{{form.aadhaar_uid_number.errors}}</span>
 
 {% endif %}
+<div class="form-group"><b>{% trans "Aadhaar Check" %}</b>
+    <input type="text" id="aadhaar_check" class="form-control" />
+</div>
 
 
 
