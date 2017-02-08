@@ -97,6 +97,18 @@
                     return true;
                 }
                 // Forbid next action on BANK step if the class in 10,11,12
+
+            // parent/guardian name mandatory
+            if(newIndex === 1 ){
+                if ($("#mother_name").val() === '' && $("#father_name").val() === '' && $("#guardian_name").val() === '')
+                {    
+                    
+                    alert("please fill up any of the Parents/Guardian Name!!!");
+                    return false;
+                }
+                
+            } 
+
                 
             if(newIndex === 3 && $("#class_studying").val() == 12 && xarr.indexOf(check) >= 0 ){
                 if ($("#id_banknew").val() === '' || $("#id_branchnew").val() === '' || $("#bank_account_no").val() === '' )
@@ -1788,13 +1800,9 @@ function no_future(dob_id){
 
 
 
-     <select id='group_code' name="group_code" class="mandatory form-control "   >
+     <select id='group_code' name="group_code" class="mandatory form-control"   >
 
 
-
-
-
-     
      {% if grp %}
         <option value="{{ grp.id }}" selected >{{ grp.group_code}}- {{ grp.group_name }}</option>
     {% endif %}
@@ -2432,7 +2440,9 @@ function no_future(dob_id){
       <span  style="color:red;" id="aadhaar_status"></span><br> <b>{% trans "Aadhaar Uid Number" %}</b><input type="text" value="{{form.aadhaar_uid_number.value|default:'' }}" name="aadhaar_uid_number" class="form-control mandatory" onkeyup="validate_aadhaar(this.value)" onblur="validate_aadhaar(this.value)" maxlength="12" onfocus="validate_aadhaar(this.value)" onkeypress="return isNumber(event)" /></div><span class="error_message">{{form.aadhaar_uid_number.errors}}</span>
 
 {% endif %}
-<div class="form-group"><b>{% trans "Aadhaar Check" %}</b>
+
+
+<div class="form-group" hidden><b>{% trans "Aadhaar Check" %}</b>
     <input type="text" id="aadhaar_check" class="form-control" />
 </div>
 
