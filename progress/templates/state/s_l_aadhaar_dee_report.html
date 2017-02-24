@@ -1,0 +1,21 @@
+{% extends 'block/base.html' %}
+{% load i18n %}
+{% block content %}
+
+
+<h2><center><font color="red">AADHAAR ENTRY - STATE LEVEL REPORT</font></center></h2>
+
+<h2><center><font color="green">Directorate  of Elementary Education</font></center></h2>
+<table border="1" cellpadding="10">
+	<tr><th>Management Name</th><th>Students Enrolled</th>
+		<th>Aadhaar Entered</th><th>Aadhaar Not Entered</th><tr>
+		<tr><td><a href="dee_govt_view">Government</a></td><td>{{dee_emis}}</td><td>{{dee_aadhaar}}</td><td>{{dee_not_aadhaar}}</td></tr>		
+		<tr><td><a href="dee_pvt_aid_view">Pvt Aided </a></td><td>{{dee_p_a_emis}}</td><td>{{dee_p_a_aadhaar}}</td><td>{{dee_p_a_not_aadhaar}}</td></tr>
+		<tr><td><a href="dee_pvt_unaid_view">Pvt Unaided </a></td><td>{{dee_n_emis}}</td><td>{{dee_n_aadhaar}}</td><td>{{dee_n_not_aadhaar}}</td></tr>		
+		
+</table>
+
+
+
+{% endblock %}
+

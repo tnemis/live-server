@@ -1,0 +1,16 @@
+{% extends 'block/base.html' %}
+{% load i18n %}
+{% block content %}
+
+<h2><center>DSE-Government -- Aadhaar Block Report</center></h2>
+<table border="1" cellpadding="10">
+<tr><th>S.No.</th><th>District</th><th>Students Enrolled</th>
+<th>Aadhaar Entered</th><th>Aadhaar Not Entered</th><tr>
+{% for a,b,c,d,e in a_list %}
+<tr><td>{{forloop.counter}}</td><td><a href="/progress/b_l_dse_g_aadhar/{{ a }}">{{ b }}</a></td><td>{{c}}</td><td>{{d}}</td><td>{{e}}</td></tr>
+{% endfor %}   
+ </table>
+
+ 
+
+{% endblock %}

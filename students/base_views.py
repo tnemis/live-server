@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from braces.views import GroupRequiredMixin,SuperuserRequiredMixin,LoginRequiredMixin
 from django.views.generic import TemplateView
-from barcode import generate
+# from barcode import generate
 from students.models import Child_detail
 # import xhtml2pdf.pisa as pisa
 # import cStringIO as StringIO
