@@ -317,7 +317,15 @@ class Child_detailDetailView(View):
             nutritious_meal_programme = "Yes"
         else:
             nutritious_meal_programme = "No"
-        return render(request,'students/child_detail/object_table_detail.html',{'transfer_enable_classes':transfer_enable_classes,'fmdetail':fmdetail,'object':childdetail,'schemes':scheme_lst1,'differently_abled_list':differently_abled_list1,'disadvantaged_group_list':disadvantaged_group_list1,'nutritious_meal_programme':nutritious_meal_programme})
+        usr = str(request.user.account.user)
+        ch = str(childdetail.school.school_code)
+        if usr == ch :
+            print 'equal'
+            return render(request,'students/child_detail/object_table_detail.html',{'transfer_enable_classes':transfer_enable_classes,'fmdetail':fmdetail,'object':childdetail,'schemes':scheme_lst1,'differently_abled_list':differently_abled_list1,'disadvantaged_group_list':disadvantaged_group_list1,'nutritious_meal_programme':nutritious_meal_programme})
+        else:
+            msg = "The requested Student does not belong to this school"
+            return render(request,'students/child_detail/object_table_detail.html',locals())
+   
    # def get (self,request,**kwargs):
    #     pk=self.kwargs.get('pk')
    #     childdetail = Child_detail.objects.get(id=pk)
@@ -1700,4 +1708,27 @@ class classwise_pdfview(View):
         response.write(pdf)
         return response
         
+class stud_appln_form(View):
+    #@never_cache
+    def get(self,request,**kwargs):   
+        if request.user.is_authenticated():
+            a=1
+            response = HttpResponse(content_type='application/pdf')
+            filename = str(a)
+            photo=settings.MEDIA_URL
+            root=settings.MEDIA_ROOT
+            
+            response['Content-Disposition'] = 'attachement; filename={0}.pdf'.format(filename)
+            pdf=render_to_pdf(
+                    'emis/site_media/static/img/Student_application_form.pdf',
+                    {
+                        'pagesize':'A4',
+                        'MEDIA_URL':root,
+                                                
+                    }
+                )
+            response.write(pdf)
+            return response
+        else:
+            return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
         

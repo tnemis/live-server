@@ -144,6 +144,12 @@ urlpatterns = patterns('',
         name='classwise_pdfview'
     ),
     
+    
+    url(  
+        regex=r'^stud_appln_form/$',
+        view=login_required(stud_appln_form.as_view()),
+        name='stud_appln_form'
+    ),
 )
 
 

@@ -1462,12 +1462,14 @@ function no_future(dob_id){
             
         }
 }    
-
-    
-    
+   
 }
 
 </script>
+
+
+
+
 <div class="row">
   <div  >
   <div class="content">
@@ -1589,7 +1591,7 @@ function no_future(dob_id){
       {% endfor %}
      </select></div><span class="error_message">{{form.mothertounge.errors}}</span>
 
-     <div class="form-group"> <b><strong style="color:red;">*</strong> {% trans "School Admission No" %}</b><input type="text" class="form-control mandatory" value="{{form.school_admission_no.value|default_if_none:""}}" id="school_admission_no" name="school_admission_no" maxlength="15" onmouseover="fmg_validate()" /></div><span class="error_message">{{form.school_admission_no.errors}}</span>
+     <div class="form-group"> <b><strong style="color:red;">*</strong> {% trans "School Admission No" %}</b><input type="text" class="form-control mandatory" value="{{form.school_admission_no.value|default_if_none:""}}" id="school_admission_no" name="school_admission_no" maxlength="15"  onmouseover="fmg_validate()" /></div><span class="error_message">{{form.school_admission_no.errors}}</span>
      </fieldset>
      <h3>Second Step</h3>
     
