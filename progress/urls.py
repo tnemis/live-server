@@ -63,10 +63,11 @@ urlpatterns = patterns('',
     url(regex=r'^dee_govt_block_aadhaar_report/(?P<pk>\d+?)/$',
         view=login_required(dee_govt_block_aadhaar_report.as_view()),
         name='dee_govt_block_aadhaar_report'),
-# DEE Pvt Aided
+
     url(regex=r'^dee_govt_school_aadhaar_report/(?P<pk>\d+?)/$',
         view=login_required(dee_govt_school_aadhaar_report.as_view()),
         name='dee_govt_school_aadhaar_report'),
+  # DEE Pvt Aided
     url(regex=r'^state_level_aadhaar_report/dee_pvt_aid_view/$',
         view=login_required(dee_pvt_aid_view.as_view()),
         name='dee_pvt_aid_view'),
@@ -150,7 +151,7 @@ urlpatterns = patterns('',
         view=login_required(b_l_cbse.as_view()),
         name='b_l_cbse'),
 
-# dse schoolwise
+# dse schoolwise 
 
     url(regex=r'^s_l_dse_govt_aadhaar/(?P<pk>\d+?)/$',
         view=login_required(s_l_dse_govt_aadhaar.as_view()),

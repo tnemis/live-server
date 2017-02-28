@@ -1708,27 +1708,3 @@ class classwise_pdfview(View):
         response.write(pdf)
         return response
         
-class stud_appln_form(View):
-    #@never_cache
-    def get(self,request,**kwargs):   
-        if request.user.is_authenticated():
-            a=1
-            response = HttpResponse(content_type='application/pdf')
-            filename = str(a)
-            photo=settings.MEDIA_URL
-            root=settings.MEDIA_ROOT
-            
-            response['Content-Disposition'] = 'attachement; filename={0}.pdf'.format(filename)
-            pdf=render_to_pdf(
-                    'emis/site_media/static/img/Student_application_form.pdf',
-                    {
-                        'pagesize':'A4',
-                        'MEDIA_URL':root,
-                                                
-                    }
-                )
-            response.write(pdf)
-            return response
-        else:
-            return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
-        

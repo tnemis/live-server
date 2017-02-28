@@ -450,6 +450,30 @@
         <li><a href="/progress/block_level_progress_report/{{ user.account.get_user_info.id }} "><i class="fa fa-angle-double-right"></i>Get Report</a></li>
     </ul>
     </li>
+    
+    <li class="treeview">
+   <a href="/">
+
+       <i class="fa fa-bar-chart-o"></i>
+       <span>Aadhaar Report</span><img src="{{STATIC_URL}}img/new.gif"/>
+       <i class="fa fa-angle-left pull-right"></i>
+   </a>
+  <ul class="treeview-menu">
+       
+       <li>DSE report<ul><a href="/progress/b_l_dse_g_aadhar/{{ user.account.get_user_info.id }} "><i class="fa fa-angle-double-right"></i>1.DSE - Government</a></ul>
+       <ul><a href="/progress/b_l_dse_a_aadhaar/{{ user.account.get_user_info.id }} "><i class="fa fa-angle-double-right"></i>2.DSE - Pvt Aided</a></ul>
+
+       <ul><a href="/progress/b_l_dse_ua_aadhaar/{{ user.account.get_user_info.id }} "><i class="fa fa-angle-double-right"></i>3.DSE - Pvt UnAided</a></ul>
+       </li>
+
+       <li>DEE report<ul><a href="/progress/dee_govt_block_aadhaar_report/{{ user.account.get_user_info.id }} "><i class="fa fa-angle-double-right"></i>1.DEE - Government</a></ul>
+       <ul><a href="/progress/dee_pvt_aided_block_aadhaar_report/{{ user.account.get_user_info.id }} "><i class="fa fa-angle-double-right"></i>2.DEE - Pvt Aided</a></ul>
+       <ul><a href="/progress/dee_pvt_unaided_block_aadhaar_report/{{ user.account.get_user_info.id }} "><i class="fa fa-angle-double-right"></i>3.DEE - Nursery Primary </a></ul>
+       </li>
+
+       <li><a href="/progress/block_level_matric_aadhaar_report/{{ user.account.get_user_info.id }} "><i class="fa fa-angle-double-right"></i>Matric Schools report</a></li>
+   </ul>
+   </li>
 
     <li class="treeview">
     <a href="/">

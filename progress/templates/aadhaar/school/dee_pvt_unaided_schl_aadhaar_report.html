@@ -1,0 +1,65 @@
+{% extends 'block/base.html' %}
+{% load i18n %}
+{% block content %}
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
+<div align="right">
+<button class="btn btn-small btn-success" onclick="goBack()">Go Back</button>
+</div>
+<h2 ><font color="red"><center>DEE -- Private Unaided -- School Aadhaar Report</font></center></h2>
+
+<h3><center><font color='blue'>{{aadhaar.school.school_name}}</font></center>
+<br>
+<table border="1" cellpadding="10">
+<tr>
+	<th></th>
+	<th>I</th>
+	<th>II</th>
+	<th>III</th>
+	<th>IV</th>
+	<th>V</th>
+	<th>VI</th>
+	<th>VII</th>
+	<th>VIII</th>
+	<th>IX</th>
+	<th>X</th>
+	<th>XI</th>
+	<th>XII</th>
+	<th>Total</th></tr>
+
+<tr>
+<td>Emis- Enrolled</td>
+	<td>{{aadhaar.c1}}</td>
+	<td>{{aadhaar.c2}}</td>
+	<td>{{aadhaar.c3}}</td>
+	<td>{{aadhaar.c4}}</td>
+	<td>{{aadhaar.c5}}</td>
+	<td>{{aadhaar.c6}}</td>
+	<td>{{aadhaar.c7}}</td>
+	<td>{{aadhaar.c8}}</td>
+	<td>{{aadhaar.c9}}</td>
+	<td>{{aadhaar.c10}}</td>
+	<td>{{aadhaar.c11}}</td>
+	<td>{{aadhaar.c12}}</td>
+	<td>{{aadhaar.school_total}}</td></tr>
+<tr>
+<td>Aadhaar- Enrolled</td>
+	<td>{{aadhaar.a_c1}}</td>
+	<td>{{aadhaar.a_c2}}</td>
+	<td>{{aadhaar.a_c3}}</td>
+	<td>{{aadhaar.a_c4}}</td>
+	<td>{{aadhaar.a_c5}}</td>
+	<td>{{aadhaar.a_c6}}</td>
+	<td>{{aadhaar.a_c7}}</td>
+	<td>{{aadhaar.a_c8}}</td>
+	<td>{{aadhaar.a_c9}}</td>
+	<td>{{aadhaar.a_c10}}</td>
+	<td>{{aadhaar.a_c11}}</td>
+	<td>{{aadhaar.a_c12}}</td>
+	<td>{{aadhaar.a_school_total}}</td></tr>
+</table>
+{% endblock %}
