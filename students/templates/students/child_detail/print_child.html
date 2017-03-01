@@ -123,7 +123,14 @@
 
         <table style="margin-left:10px"><tr> <td style="border:0px;padding-top:3px;" > Academic Year </td><td style="width:0px"> : </td> <td style="border:0px;" >{{ student.academic_year }} </td> </tr>
 
+           
+           {% if student.school.management_id == 10  or  student.school.management_id == 13 %}
+
+            <tr> <td style="border:0px;padding-top:10px;" > Group Code </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if student.cbse_subject1 %} {{ student.cbse_subject1}}, {{ student.cbse_subject2}}, {{ student.cbse_subject3}}, {{ student.cbse_subject4}}, {{ student.cbse_opt_subject}} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
+            {% else %}
             <tr> <td style="border:0px;padding-top:3px;" > Group Code </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.group_code.group_name %} {{ student.group_code.group_name }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
+            {% endif %}
+
             <tr> <td style="border:0px;padding-top:3px;" > Medium of Education </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.education_medium %} {{ student.education_medium }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
             <tr> <td style="border:0px;padding-top:3px;" > Attendance Status </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.attendance_status %} {{ student.attendance_status }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
             <tr> <td style="border:0px;padding-top:3px;" > Sports Player </td><td style="border:0px;padding-top:3px;" > : </td> <td style="border:0px;padding-top:3px;" >{% if student.sports_player %} {{ student.sports_player }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>

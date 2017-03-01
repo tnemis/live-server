@@ -12,13 +12,13 @@
                     </a>
                   </li>
                  
-                 {% if user.account.get_user_info.category_id == 2 or user.account.get_user_info.category_id == 3 or user.account.get_user_info.category_id == 4 or user.account.get_user_info.category_id == 5 or user.account.get_user_info.category_id == 6 or user.account.get_user_info.category_id == 7 or user.account.get_user_info.category_id == 8 or user.account.get_user_info.category_id == 9 or user.account.get_user_info.category_id == 10 or user.account.get_user_info.category_id == 12 or user.account.get_user_info.category_id == 13 or user.account.get_user_info.category_id == 14 %}  
+
                   <li>
                     <a href='{% url "students_child_detail_create" %}'>
                       {% trans "Create Child Detail" %}
                     </a>
                   </li>
-                 {% endif %}
+
                   <li>
                     <a href='{% url "students_child_detail_pool_detail" %}'>
                       {% trans "Student Pool" %}
@@ -37,6 +37,7 @@
                         {% trans "Update Child Detail" %}
                       </a>
                     </li>
+                    
                    <!--  <li >
                       <a  href='{% url "students_child_detail_delete" pk=object.pk %}'>
                         {% trans "Delete" %}
@@ -44,7 +45,9 @@
                     </li> -->
                   {% endif %}
                   {% endif %}
-                  
+                  <li><img src="{{STATIC_URL}}img/new.gif"/></li>
+                  <li>
+                    <a href="{{STATIC_URL}}img/Student_application_form.pdf" download > Download Student Application Form </a></li>
                 </ul>
         </a>
       {% endif %}

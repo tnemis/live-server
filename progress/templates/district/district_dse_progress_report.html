@@ -44,10 +44,16 @@ document.getElementById("demo").innerHTML = Date();
 
 <table style="width:100%;" class='table table-bordered table-striped2' border="2">
   <tr>
-    <th colspan="18"><center> Distric Dse Progress Report-{{district_name}} </center>  
+  {% if check == 1 %}
+    <th colspan="18"><center> Distric DSE Progress Report-{{district_name}} </center>  
     {% if selected_dept %} {% for d in selected_dept %} {{ d }}{% endfor %}  {% endif %}
     {% if selected_man %} {% for m in selected_man %} {{ m }} {% endfor %}  {% endif %}
     {% if selected_cat %} {% for c in selected_cat %} {{ c }} {% endfor %}  {% endif %}</th>
+{% else %}
+    <th colspan="18"><center> Distric DEE Progress Report-{{district_name}} </center></th>
+
+{% endif %}
+
   </tr>
     <tr>
     <th>S.no</th>
@@ -63,11 +69,14 @@ document.getElementById("demo").innerHTML = Date();
       <th>VI</th>
       <th>VII</th>
       <th>VIII</th>
+      {% if check == 1 %}
       <th>IX</th>
       <th>X</th>
       <th>XI</th>
       <th>XII</th>
+      {% endif %}
       <th>TOTAL</th>
+      
     </tr>
 
 
@@ -86,10 +95,12 @@ document.getElementById("demo").innerHTML = Date();
           <td>{{i.six}}</td>
           <td>{{i.seven}}</td>
           <td>{{i.eight}}</td>
+          {% if check == 1 %}
           <td>{{i.nine}}</td>
           <td>{{i.ten}}</td>
           <td>{{i.eleven}}</td>
           <td>{{i.twelve}}</td>
+          {% endif %}
           <td>{{i.total_count}}</td>
       </tr>
 
@@ -104,10 +115,12 @@ document.getElementById("demo").innerHTML = Date();
   <th>{{dist_dse_total_emis_six}}</th>
   <th>{{dist_dse_total_emis_seven}}</th>
   <th>{{dist_dse_total_emis_eight}}</th>
+  {% if check == 1 %}
   <th>{{dist_dse_total_emis_nine}}</th>
   <th>{{dist_dse_total_emis_ten}}</th>
   <th>{{dist_dse_total_emis_eleven}}</th>
   <th>{{dist_dse_total_emis_twelve}}</th>
+  {% endif %}
   <th>{{dist_dse_total_emis_total_count}}</th>
 </tr>
 </table>

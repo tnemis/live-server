@@ -77,7 +77,7 @@ class District_level_progress_report(View):
         user_access_level=[4,3]
         user=self.kwargs['pk']
         district=District.objects.get(id=user)
-        blocks=Block.objects.filter(district_id=user)
+        blocks=Block.objects.filter(district_id=user) 
         block_ids=[]
         block_names=[]
         block_emis_one=[]
@@ -786,12 +786,17 @@ class State_level_progress_report_man_dee1(View):
 
 
 
-
 class District_dse_progress_report(View):
     def get(self,request,**kwargs):
         district=self.kwargs['pk']
+        dee_dse=self.kwargs['pk1']
         district_name=District.objects.get(id=district)
-        school_list=School.objects.filter(district_id=district,category_id__in=[3,5,6,7,8,9,10],management_id__in=[1,2,3,4,5,6,8]).order_by('management_id')
+        if dee_dse=='1' :
+            school_list=School.objects.filter(district_id=district,category_id__in=[3,5,6,7,8,9,10],management_id__in=[1,2,3,4,5,6,8]).order_by('management_id')
+            check=1
+        else :
+            school_list=School.objects.filter(district_id=district,category_id__in=[1,2,4,11,15],management_id__in=[2,3,5,6,7]).order_by('management_id')
+            check=2      
         emis_count=School_child_count.objects.filter(school_id__in=school_list)
         dist_dse_total_emis_one=emis_count.aggregate(Sum('one')).values()[0]
         dist_dse_total_emis_two=emis_count.aggregate(Sum('two')).values()[0]
