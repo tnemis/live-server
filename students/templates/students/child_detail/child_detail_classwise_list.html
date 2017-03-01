@@ -1,4 +1,4 @@
-{% extends 'students/child_detail/base.html' %}
+f{% extends 'students/child_detail/base.html' %}
 
 {% load i18n %}
 {% load url from future %}
@@ -38,19 +38,14 @@
       <th style="text-align:center;font-size: 15px;">DOB</th>
       <th style="text-align:center;font-size: 15px;">Aadhaar No.</th>
       <th style="text-align:center;font-size: 15px;">Photo</th>
-      {% if class_id == '11' %}
-       <th style="text-align:center;font-size: 15px;">Group</th>
-      {% endif %}
-       {% if class_id == '12' %}
-       <th style="text-align:center;font-size: 15px;">Group</th>
-      {% endif %}
+      
     </tr>
   </thead>
   <tbody>
     {% for detail in page_objs %}
       <tr>
         <td>{{forloop.counter0|add:page_objs.start_index}}</td>
-         <td><a href='{% url "students_child_detail_detail" pk=detail.id %}'>{{ detail.name |upper }}</a></td>
+         <td><a href='{% url "Child_detailDetailView" pk=detail.id %}'>{{ detail.name |upper }}</a></td>
           <td>{{ detail.unique_id_no }}</td>
           <td>{{ detail.class_studying |upper }}</td>
           <td>{{ detail.father_name |upper}}</td>
@@ -64,10 +59,7 @@
                 {%else%}
                 <img src="{{STATIC_URL}}img/student.png" width="40" height="50"/>
                 {%endif%}</div></td>
-            {% if class_id == '11' %}
-           <td>{{ detail.group_code }}</td>{% endif %}
-           {% if class_id == '12' %}
-           <td>{{ detail.group_code }}</td>{% endif %}
+            
       </tr>
 
     {% endfor %}

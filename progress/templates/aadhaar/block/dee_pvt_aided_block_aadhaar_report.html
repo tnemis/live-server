@@ -1,0 +1,33 @@
+{% extends 'block/base.html' %}
+{% load i18n %}
+{% block content %}
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
+<div align="right">
+<button class="btn btn-small btn-success" onclick="goBack()">Go Back</button>
+</div>
+<h2 ><font color="red"><center>DEE -- Private Aided (Block Level)  -- Aadhaar School Wise Report</font></center></h2>
+<h3><font color="blue"><center>{{block_name}}</center></font></h3>
+
+<table border="1" cellpadding="10">
+<tr><th>S.No.</th><th><center>School Name</cemter></th><th>Students Enrolled</th>
+<th>Aadhaar Entered</th><tr>
+{% for i in a_dee_pvt_aid_blk_schl %}
+<tr><td width="5%">{{forloop.counter}}</td>
+<td><a href="/progress/dee_pvt_aided_school_aadhaar_report/{{i.id}}">{{ i.school.school_code }}</a>----{{ i.school.school_name}}</td>
+<td width="5%" ><center>{{i.school_total}}</center></td>
+<td width="5%"><center>{{i.a_school_total}}</center></td>
+</tr>
+{% endfor %}   
+ </table>
+
+ 
+
+{% endblock %}
+
+

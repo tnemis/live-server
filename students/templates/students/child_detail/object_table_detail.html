@@ -143,8 +143,13 @@
           <th>Additional Information</th></tr><tr>
         <td valign="TOP">
         <table style="margin-left:10px"><tr> <td style="border:0px;" > Academic Year </td><td style="border:0px;" > : </td> <td style="border:0px;" >{{ object.academic_year }} </td> </tr>
+           {% if user.account.get_user_info.management_id == 10  or  user.account.get_user_info.management_id == 13 %}
 
-            <tr> <td style="border:0px;padding-top:10px;" > Group Code </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.group_code.group_name %} {{ object.group_code.group_name }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
+            <tr> <td style="border:0px;padding-top:10px;" > Group Code </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.cbse_subject1 %} {{ object.cbse_subject1}}, {{ object.cbse_subject2}}, {{ object.cbse_subject3}}, {{ object.cbse_subject4}}, {{ object.cbse_opt_subject}} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
+            {% else %}
+             <tr> <td style="border:0px;padding-top:10px;" > Group Code </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.group_code.group_name %} {{ object.group_code.group_name }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
+            {% endif %}
+
             <tr> <td style="border:0px;padding-top:10px;" > Medium of Education </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.education_medium %} {{ object.education_medium }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
             <tr> <td style="border:0px;padding-top:10px;" > Attendance Status </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.attendance_status %} {{ object.attendance_status }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
             <tr> <td style="border:0px;padding-top:10px;" > Sports Player </td><td style="border:0px;padding-top:10px;" > : </td> <td style="border:0px;padding-top:10px;" >{% if object.sports_player %} {{ object.sports_player }} {% else %} &nbsp;&nbsp;&nbsp;- {% endif %}  </td> </tr>
