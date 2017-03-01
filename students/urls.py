@@ -61,7 +61,7 @@ urlpatterns = patterns('',
     url(
         regex=r'^child_detail/(?P<pk>\d+?)/$',
         view=login_required(Child_detailDetailView.as_view()),
-        name='students_child_detail_detail'
+        name='Child_detailDetailView'
     ),
     url(
         regex=r'^child_detail_classwise/(?P<cl_id>\d+?)/$',
@@ -69,11 +69,11 @@ urlpatterns = patterns('',
         name='students_child_classwise_detail'
     ),
 
-    url(
-        regex=r'^child_detail_classwiselist/(?P<cl_id>\d+?)/(?P<school_code>\d+?)/$',
-        view=login_required(Child_detailClasswiseListView.as_view()),
-        name='students_child_classwiselist_detail'
-    ),
+    # url(
+    #     regex=r'^child_detail_classwiselist/(?P<cl_id>\d+?)/(?P<school_code>\d+?)/$',
+    #     view=login_required(Child_detailClasswiseListView.as_view()),
+    #     name='students_child_classwiselist_detail'
+    # ),
     url(
         regex=r'^child_detail/$',
         view=login_required(Child_detailListView.as_view()),

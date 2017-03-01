@@ -1,0 +1,27 @@
+{% extends 'block/base.html' %}
+{% load i18n %}
+{% block content %}
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
+<div align="right">
+<button class="btn btn-small btn-success" onclick="goBack()">Go Back</button>
+</div>
+<h2><center><font color="red">DEE -- Private Unaided -- Aadhaar Block Report</font></center></h2>
+<h3><font color="blue"><center>{{district}}</center></font></h3>
+<table border="1" cellpadding="10">
+<tr><th>S.No.</th><th>Block</th><th>Students Enrolled</th>
+<th>Aadhaar Entered</th><tr>
+{% for a,b,c,d in a_list %}
+<tr><td>{{forloop.counter}}</td><td><a href="/progress/dee_pvt_unaided_block_aadhaar_report/{{ a }}">{{ b }}</a></td>
+<td>{{c}}</td><td>{{d}}</td>
+
+</tr>
+{% endfor %}   
+</table>
+
+ 
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'block/base.html' %}
+{% load i18n %}
+{% block content %}
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
+<div align="right">
+<button class="btn btn-small btn-success" onclick="goBack()">Go Back</button>
+</div>
+
+<h2><center><font color="red">AADHAAR ENTRY - STATE LEVEL REPORT</font></center></h2>
+<h2><center>Directorate  of Matriculation</center></h2>
+<table border="1" cellpadding="10">
+	<tr><th>Management Name</th><th>Students Enrolled</th>
+		<th>Aadhaar Entered</th><th>Aadhaar Not Entered</th><tr>
+<tr><td>Matriculation </td><td>{{matric_emis}}</td><td>{{matric_aadhaar}}</td><td>{{matric_not_aadhaar}}</td></tr>
+	
+
+
+</table>
+<br><br><br>
+<h2><center>Matriculation  -- District Report</center></h2>
+<table border="1" cellpadding="10">
+<tr><th>S.No.</th><th>District</th><th>Students Enrolled</th>
+<th>Aadhaar Entered</th><tr>
+{% for a,b,c,d in a_list %}
+<tr><td>{{forloop.counter}}</td><td><a href="/progress/district_level_matric_aadhaar_report/{{ a }}">{{ b }}</a></td><td>{{c}}</td><td>{{d}}</td>
+</tr>
+{% endfor %}   
+ </table>
+
+ 
+
+{% endblock %}
