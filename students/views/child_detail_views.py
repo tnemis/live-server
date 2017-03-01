@@ -73,7 +73,9 @@ class Child_detailCreateView(View):
         religion_list = Religion.objects.all().exclude(religion_name='Undefined').order_by('id')
         community_list = Community.objects.all().exclude(community_name='undefined').order_by('id')
         schemes = Schemes.objects.all().order_by('scheme_name')
+
         class_studying_list = Class_Studying.objects.all()[0:12]
+
         nationality_list = Nationality.objects.all().exclude(nationality='Undefined').order_by('id')
         group_code_list = Group_code.objects.all()
         group_code_cbse=Group_code_cbse.objects.all()
@@ -325,7 +327,7 @@ class Child_detailDetailView(View):
         else:
             msg = "The requested Student does not belong to this school"
             return render(request,'students/child_detail/object_table_detail.html',locals())
-   
+
    # def get (self,request,**kwargs):
    #     pk=self.kwargs.get('pk')
    #     childdetail = Child_detail.objects.get(id=pk)
@@ -566,7 +568,9 @@ class Child_detailUpdateView(View):
         nationality_list = Nationality.objects.all().exclude(nationality='Undefined').order_by('id')
         schemes = Schemes.objects.all()
         mthr_name = instance.mother_name
+
         class_studying_list = Class_Studying.objects.all()[0:12]
+
         first_language_value = instance.first_language
         optional_language_value = instance.optional_language
 
@@ -1628,6 +1632,7 @@ class child_pdfview(View):
     def get(self,request,**kwargs):   
         if request.user.is_authenticated():
             pk=self.kwargs.get('pk')
+
             student = Child_detail.objects.get(id=pk)
             response = HttpResponse(content_type='application/pdf')
             a=student.unique_id_no
@@ -1666,6 +1671,7 @@ class classwise_pdfview(View):
     #@never_cache
     def get(self,request,**kwargs):
         class_id = self.kwargs.get('pk')
+
         school_code = self.kwargs.get('school_code')
         school_id = request.user.account.associated_with
         
@@ -1708,3 +1714,4 @@ class classwise_pdfview(View):
         response.write(pdf)
         return response
         
+
