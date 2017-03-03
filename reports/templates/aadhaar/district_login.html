@@ -1,0 +1,42 @@
+{% extends "baseapp/master_base.html"|pjax:request %}
+{% block content %}
+
+<style type="text/css">
+
+.navigation-div a:visited
+ {
+    color:blue;}
+
+a:link {color:#ff0000;}
+a:visited {color:#0000ff;}
+a:hover {font-size:150%;}
+</style>
+<h2><center><font color="red">AADHAAR ENTRY - DISTRICT LEVEL REPORT</font></center></h2>
+
+
+<h2><font color="green">Directorate  of School Education</font></h2>
+
+<div class="navigation-div">
+ <ul><a href="/reports/d_l_dse_g_aadhaar/{{ user.account.get_user_info.id }} ">1. Government Schools</a></ul>
+<ul> <a href="/reports/d_l_dse_a_addhaar/{{ user.account.get_user_info.id }} ">2. Private Aided Schools</a></ul>
+<ul><a href="/reports/d_l_dse_ua_addhaar/{{ user.account.get_user_info.id }} "></i>3. Private UnAided Schools</a></ul>
+  </div>
+
+<h2><font color="green">Directorate  of Elementary Education</font></h2>
+<div class="navigation-div">
+ <ul><a href="/reports/dee_govt_Dist_aadhaar_report/{{ user.account.get_user_info.id }} ">1. Government Schools</a></ul>
+<ul> <a href="/reports/dee_pvt_aided_Dist_aadhaar_report/{{ user.account.get_user_info.id }} ">2. Private Aided Schools</a></ul>
+<ul><a href="/reports/dee_pvt_unaided_Dist_aadhaar_report/{{ user.account.get_user_info.id }} "></i>3. Private UnAided Schools</a></ul>
+  </div>
+
+
+<h2><font color="green">Directorate  of Matriculation</font></h2>
+<div class="navigation-div">
+ <ul><a href="/reports/district_level_matric_aadhaar_report/{{ user.account.get_user_info.id }} ">Matriculation Schools</a></ul></div>
+
+
+<h2><font color="green">CBSE & ICSE </font></h2>
+<div class="navigation-div">
+ <ul><a href="/reports/d_l_cbse_aadhaar/{{ user.account.get_user_info.id }} ">CBSE & ICSE Schools</a></ul></div>
+
+{% endblock %}

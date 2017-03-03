@@ -161,17 +161,15 @@
             {   
 
                 // Restricting saving details with Invalid Aadhaar Number
-                if ($("#aadhaar_check").val() == "no")
-                    {    
-                        
+                 if ($("#aadhaar_check").val() == "no")
+                    {  
                         alert("Cant save Invalid Aadhaar Number !!!");
-                        return false;
-                    }
-                    else{
-                        $("#form-3").validate().settings.ignore = ":disabled,:hidden";
-                        return $("#form-3").valid();
-                    }
-
+                         return false;
+                     }
+                     else{
+                         $("#form-3").validate().settings.ignore = ":disabled,:hidden";
+                         return $("#form-3").valid();
+                     }
             },
             onFinished: function (event, currentIndex)
             {
@@ -972,12 +970,11 @@ function aadhaar(flag)
     if ((flag == "Yes" ))
     {
         document.getElementById('aadhaar_no').style.display = "block";
-        
+
     } else {
         document.getElementById('aadhaar_no').style.display = "none";
-
+  
       document.getElementById('aadhaar_check').value = "";
-
     }
 }
 
@@ -1470,14 +1467,12 @@ function no_future(dob_id){
             
         }
 }    
-   
+
+    
+    
 }
 
 </script>
-
-
-
-
 <div class="row">
   <div  >
   <div class="content">
@@ -1599,9 +1594,7 @@ function no_future(dob_id){
       {% endfor %}
      </select></div><span class="error_message">{{form.mothertounge.errors}}</span>
 
-
-     <div class="form-group"> <b><strong style="color:red;">*</strong> {% trans "School Admission No" %}</b><input type="text" class="form-control mandatory" value="{{form.school_admission_no.value|default_if_none:""}}" id="school_admission_no" name="school_admission_no" maxlength="15"   /></div><span class="error_message">{{form.school_admission_no.errors}}</span>
-
+     <div class="form-group"> <b><strong style="color:red;">*</strong> {% trans "School Admission No" %}</b><input type="text" class="form-control mandatory" value="{{form.school_admission_no.value|default_if_none:""}}" id="school_admission_no" name="school_admission_no" maxlength="15"/></div><span class="error_message">{{form.school_admission_no.errors}}</span>
      </fieldset>
      <h3>Second Step</h3>
     
@@ -1669,7 +1662,7 @@ function no_future(dob_id){
 <!-- CBSE GROUP CODE --> 
 {% if user.account.get_user_info.management_id == 10 or user.account.get_user_info.management_id == 13 %}
 
-  <div  id="stu_hist1" class="form-group"><strong style="color:red;">*</strong>
+  <div  id="stu_hist1" class="form-group">
      <div class="form-group"  id="tbl1"> <b>{% trans "Enter the subjects for each group:" %}</b>
      <table class="table">
         
@@ -1764,100 +1757,7 @@ function no_future(dob_id){
 <!-- CBSE GROUP CODE --> 
 {% else %}
 <!-- Child history of 10,11 --> 
-{% if user.account.get_user_info.management_id == 10 or user.account.get_user_info.management_id == 13 %}
-
-  <div  id="stu_hist" class="form-group"><strong style="color:red;">*</strong>
-     <div class="form-group"  id="tbl"> <b>{% trans "Enter the subjects for each group displayed above:" %}</b>
-     <table class="table">
-        
-        <tbody>
-        <tr>
-          <td><div class="form-group"  id='group_code1' >  <strong style="color:red;">*</strong> <strong> {% trans "Compulsory Subject 1" %} </strong></br></br>
-
-            <select id='cbse_subject1' name="cbse_subject1" class="form-control" >
-            {% if cbse_subject1 %}
-            <option value="{{ cbse_subject1.id }}" selected >{{ cbse_subject1.group_code}}- {{ cbse_subject1.group_name }}</option>
-            {% endif %}
-            <option value="" >---------</option>
-            {% for gpcd in group_code_cbse %}
-
-            <option value="{{gpcd.id}}" >{{gpcd.group_code}}-{{gpcd.group_name}}</option>
-            {% endfor %}
-            </select></div><span class="error_message">{{form.group_code.errors}}</span></td>
-
-          <td><div class="form-group"  id='group_code1' >  <strong style="color:red;">*</strong> <strong> {% trans "Compulsory Subject 2" %} </strong></br></br>
-
-            <select id='cbse_subject2' name="cbse_subject2" class="form-control" >
-            {% if cbse_subject2 %}
-            <option value="{{ cbse_subject2.id }}" selected >{{ cbse_subject2.group_code}}- {{ cbse_subject2.group_name }}</option>
-            {% endif %}
-            <option value="" >---------</option>
-            {% for gpcd in group_code_cbse %}
-
-            <option value="{{gpcd.id}}" >{{gpcd.group_code}}-{{gpcd.group_name}}</option>
-            {% endfor %}
-            </select></div></td>
-            <td><div class="form-group"  id='group_code1' >  <strong style="color:red;">*</strong> <strong> {% trans "Compulsory Subject 3" %} </strong></br></br>
-
-            <select id='cbse_subject3' name="cbse_subject3" class="form-control" >
-            {% if cbse_subject3 %}
-            <option value="{{ cbse_subject3.id }}" selected >{{ cbse_subject3.group_code}}- {{ cbse_subject3.group_name }}</option>
-            {% endif %}
-            <option value="" >---------</option>
-            {% for gpcd in group_code_cbse %}
-
-            <option value="{{gpcd.id}}" >{{gpcd.group_code}}-{{gpcd.group_name}}</option>
-            {% endfor %}
-            </select></div><span class="error_message">{{form.group_code.errors}}</span></td>
-
-            <td><div class="form-group"  id='group_code1' >  <strong style="color:red;">*</strong> <strong> {% trans "Compulsory Subject 4" %} </strong></br></br>
-
-            <select id='cbse_subject4' name="cbse_subject4" class="form-control" >
-            {% if cbse_subject4 %}
-            <option value="{{ gpcd.id }}" selected >{{ cbse_subject4.group_code}}- {{ cbse_subject4.group_name }}</option>
-            {% endif %}
-            <option value="" >---------</option>
-            {% for gpcd in group_code_cbse %}
-
-            <option value="{{gpcd.id}}" >{{gpcd.group_code}}-{{gpcd.group_name}}</option>
-            {% endfor %}
-            </select></div></td>
-            <td><div class="form-group"  id='group_code1' >  <strong style="color:red;">*</strong> <strong> {% trans "Optional Subject" %} </strong></br></br>
-
-            <select id='cbse_opt_subject' name="cbse_opt_subject" class="form-control" >
-            {% if cbse_opt_subject %}
-            <option value="{{ cbse_opt_subject.id }}" selected >{{ cbse_opt_subject.group_code}}- {{ cbse_opt_subject.group_name }}</option>
-            {% endif %}
-            <option value="" >---------</option>
-            {% for gpcd in group_code_cbse %}
-
-            <option value="{{gpcd.id}}" >{{gpcd.group_code}}-{{gpcd.group_name}}</option>
-            {% endfor %}
-            </select></div><span class="error_message">{{form.group_code.errors}}</span></td>
-
-          
-          
-        </tr>
-        
-        </tbody>
-    </table>
-    </div></div>
-
-    <script type="text/javascript">
-    $(document).ready(function(){
-    $('#class_studying').on('change', function() {
-      if ( this.value == '12' || this.value == '11')
-      {
-        $("#stu_hist").show();
-      }
-      else
-      {
-        $("#stu_hist").hide();
-      }
-    });
-});
-</script>
-{% else %}
+{% if form.class_studying.value == 12 %}
 <div  id="stu_hist" class="form-group"><strong style="color:red;">*</strong><b>{% trans "Category of School in which student studied in 10th and 11th std:" %}</b>   
             
 
@@ -1914,9 +1814,67 @@ function no_future(dob_id){
 });
 </script>
 
+{% else %}
+<div style='display:none;' id="stu_hist" class="form-group"><strong style="color:red;">*</strong><b>{% trans "Category of School in which student studied in 10th and 11th std:" %}</b>   
+            
+
+                <table  class="table table-bordered table-striped2" border="2" align="center">
+                    <tr>
+                        <th style="width:10px;" >Sl. No</th>
+                        <th>Class</th>
+                        <th>Category of section</th>              
+                    </tr>
+
+                    <tr>
+                        <td>(1)</td>
+                        <td>10th Standard was studied in</td>
+                        <td>
+                        <select class="mandatory" name="schl_cat_10" id="schl_cat_10" class="form-control" >
+                            <option value= >---------</option>
+                            <option {% if schl_cat_10 == 1  %} selected {% endif %} value=1 >Goverment</option>
+                            <option {% if schl_cat_10 == 2 %} selected {% endif %} value=2 >Aided section in Aided school</option>
+                            <option {% if schl_cat_10 == 3  %} selected {% endif %} value=3 >Unaided section in Aided school</option>
+                            <option {% if schl_cat_10 == 4  %} selected {% endif %} value=4 >Unaided School</option>
+                            </select>
+                        </td>                             
+                    </tr>
+
+                    <tr>
+                        <td>(2)</td>
+                        <td>11th Standard was studied in</td>
+                        <td>
+                            <select class="mandatory" name="schl_cat_12" id="schl_cat_12" class="form-control" >
+                            <option value= >---------</option>
+                            <option {% if schl_cat_12 == 1  %} selected {% endif %} value=1 >Goverment</option>
+                            <option {% if schl_cat_12 == 2 %} selected {% endif %} value=2 >Aided section in Aided school</option>
+                            <option {% if schl_cat_12 == 3  %} selected {% endif %} value=3 >Unaided section in Aided school</option>
+                            <option {% if schl_cat_12 == 4  %} selected {% endif %} value=4 >Unaided School</option>
+                            </select>
+                        </td>                             
+                    </tr>
+                </table>                
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+    $('#class_studying').on('change', function() {
+      if ( this.value == '12' || this.value == '11')
+      {
+        $("#stu_hist").show();
+      }
+      else
+      {
+        $("#stu_hist").hide();
+      }
+    });
+});
+</script>
 
 {% endif %}
 <!-- Child history of 10,11 -->
+
+
     <div class="form-group"> <b><strong style="color:red;">*</strong> {% trans "Medium Of Instruction" %}</b>
     <select id='education_medium' name="education_medium" class="mandatory" onclick = "check()">
     {% if edu_medium %}
@@ -1931,13 +1889,7 @@ function no_future(dob_id){
 
      <div class="form-group"  id='group_code1' >  <strong style="color:red;">*</strong> <strong> {% trans "Group Code" %} </strong></br></br>
 
-
-
-
-     <select id='group_code' name="group_code" class="mandatory form-control"   >
-
-
-
+     <select id='group_code' name="group_code" class="mandatory form-control"  >
      {% if grp %}
         <option value="{{ grp.id }}" selected >{{ grp.group_code}}- {{ grp.group_name }}</option>
     {% endif %}
@@ -2243,11 +2195,9 @@ function no_future(dob_id){
     <input type="text" class="form-control" value="{{form.da_id_no.value|default:""}}" id="da_id_no" name="da_id_no"  />
    </div><span class="error_message">{{form.da_id_no.errors}}</span>
 
-
     <!-- exemptions list -->
 
      {% if user.account.get_user_info.management_id == 10 or  user.account.get_user_info.management_id == 13 %}
-
 
      {% else %}
 <div class="form-group" id="sp" > <b> {% trans "Whether exemption required for science practical" %}</b>
@@ -2289,9 +2239,7 @@ function no_future(dob_id){
     <input type="text" class="form-control" value="{{form.da_id_no.value}}" id="da_id_no" name="da_id_no"  />
    </div><span class="error_message">{{form.da_id_no.errors}}</span>
 
-
 {% if user.account.get_user_info.management_id == 10  or  user.account.get_user_info.management_id == 13 %}     
-
 <!-- exemptions list -->
     {% else %}
 <div class="form-group" id="sp" style="display:none;"> <b> {% trans "Whether exemption required for science practical" %}</b>
@@ -2580,7 +2528,8 @@ function no_future(dob_id){
 
 {% endif %}
 
-<div class="form-group" hidden><b>{% trans "Aadhaar Check" %}</b>
+
+ <div class="form-group" hidden><b>{% trans "Aadhaar Check" %}</b>
     <input type="text" id="aadhaar_check" class="form-control" />
 </div>
 
@@ -2588,11 +2537,7 @@ function no_future(dob_id){
 <div class="form-group" hidden><b>{% trans "Aadhaar Check" %}</b>
     <input type="text" id="aadhaar_check" class="form-control" />
 </div>
-
-
-
-          <br>
-
+           <br>
 
      <div id="familydetails" class="form-group">
     <label for="fmdetailTable"><strong></span> Siblings Details: <br /></strong></label>
