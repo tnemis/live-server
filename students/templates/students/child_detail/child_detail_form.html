@@ -99,6 +99,13 @@
                 // Forbid next action on BANK step if the class in 10,11,12
 
                 // parent/guardian name mandatory
+             if (newIndex === 1){
+                    if( ($("#name").val() != "{{form.name.value}}") && ($("#photograph").val() != "{{photo}}")  && ($("#dob").val() != "{{form.dob.value}}") && ($("#father_name").val() != "{{form.father_name.value}}")){
+                    alert("You cannot change Name, Photograph, Father's Name and Date of Birth at the same time.");
+                    location.reload();
+                }
+                    
+                }
 
             if(newIndex === 1 ){
                 if ($("#mother_name").val() === '' && $("#father_name").val() === '' && $("#guardian_name").val() === '')
